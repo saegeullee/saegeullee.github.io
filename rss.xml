@@ -1,4 +1,106 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 15 Nov 2019 05:38:42 GMT</lastBuildDate><item><title><![CDATA[What is express?]]></title><description><![CDATA[nodejs express에 대한 정리]]></description><link>https://saegeullee.github.io/nodejs/what-is-express</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/what-is-express</guid><pubDate>Mon, 11 Nov 2019 00:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 15 Nov 2019 10:42:02 GMT</lastBuildDate><item><title><![CDATA[Middleware and the request response cycle]]></title><description><![CDATA[nodejs에 대한 정리]]></description><link>https://saegeullee.github.io/nodejs/middleware-and-the-request-response-cycle</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/middleware-and-the-request-response-cycle</guid><pubDate>Fri, 15 Nov 2019 17:30:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;middleware-and-the-request-response-cycle&quot;&gt;&lt;a href=&quot;#middleware-and-the-request-response-cycle&quot; aria-label=&quot;middleware and the request response cycle permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Middleware and the request response cycle&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/239736774c4ff41929087ba1842b1544/5b520/request-response-cycle.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.88235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABtUlEQVQoz21Sy27UQBD0p/FZXLhw5SM4IiEOIO4cEUigCKSQINbrx8ZeP8bz9IwfibZS4yRIiSK5NK3umpruaidKdMjSPfZphnSXIs8KZPsMZVEijAFTmDFN9wgTRjvCGbfBO9Z9QN/U2P1LoQaFxGqNtm3RtR36rmexQ1c3EDx9vKQtfC/hhSYGyIbcut04VmoKTpDDgIZ5ayySOSzACpyWE9Z5wWo9VuOxmBGTdpiiWF7BlzVjteUfMEdwgtNyA/BbGCfOOby7fI+f9RmC9uy2Q1XVEP1ACMZHCKkwEFV95BQCQsiNE7vyyuJrcYE33z9BGoNEmAEvv73Cx91n2N4i+32O4vwCNS8UeYGcflaHCmVebt5WVzUOf3fY/zhD/ucSuhnw9tcXvPjwGoeh48h+hjACsdN1WhEsDWcH0ZtouBPqLuaCLPNxUfOWZ8wF3SzXsG7EUQpErSQSlrAiehlIHK2lyZIG0z/vGSs+5uHHcctrZcjzMNrAUTDwsejjdWyGWpugjyRuM3AJT+GHuF21IUjyjHueF2sPgoHGhij6/7wHHxmvGoxFdQf+Lo859vFdat0Ci5GmnUM93rEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/239736774c4ff41929087ba1842b1544/01472/request-response-cycle.webp 240w,
+/static/239736774c4ff41929087ba1842b1544/222bd/request-response-cycle.webp 480w,
+/static/239736774c4ff41929087ba1842b1544/620b9/request-response-cycle.webp 960w,
+/static/239736774c4ff41929087ba1842b1544/b8778/request-response-cycle.webp 1190w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/239736774c4ff41929087ba1842b1544/0783d/request-response-cycle.png 240w,
+/static/239736774c4ff41929087ba1842b1544/782f4/request-response-cycle.png 480w,
+/static/239736774c4ff41929087ba1842b1544/f570d/request-response-cycle.png 960w,
+/static/239736774c4ff41929087ba1842b1544/5b520/request-response-cycle.png 1190w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/239736774c4ff41929087ba1842b1544/f570d/request-response-cycle.png&quot;
+          alt=&quot;nodejs&quot;
+          title=&quot;nodejs&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;express app 이 클라이언트로부터 http request를 받으면 express app은 request와 response 객체를 만든다. 미들웨어는 주로 클라이언트에게 요청에 대한 유의미한 응답을 보내주기 위해 사용된다. 아래와같이 request object의 request body에 접근하기 위해서도 미들웨어를 사용한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; app &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;express&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;//MIDDLEWARE body-parser&lt;/span&gt;
+app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;express&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;앱에서 사용하는 모든 미들웨어를 합해 미들웨어 스택이라고 부른다. 미들웨어 스택에서 사용되는 미들웨어의 순서는 실제 코드에서 미들웨어가 정의된 순서대로 진행된다. 따라서 Express에서 코드의 순서는 매우 중요하다.&lt;/p&gt;
+&lt;p&gt;최초에 생성된 request와 response 객체는 각 미들웨어를 통과하면서 필요한 코드들이 실행된다. 그리고 각 미들웨어의 끝 부분에서 &lt;code class=&quot;language-text&quot;&gt;next()&lt;/code&gt; 함수가 되면 미들웨어 스택의 다음 미들웨어가 실행된다. 이를 통해 request와 response 객체는 미들웨어 스택의 모든 미들웨어를 순서대로 거쳐간다.&lt;/p&gt;
+&lt;p&gt;마지막 미들웨어는 주로 라우트 핸들러가 되는데 여기서는 &lt;code class=&quot;language-text&quot;&gt;next()&lt;/code&gt;함수를 호출하지 않고 reponse 객체를 클라이언트에게 보내준다. 그러면 request response cycle이 종료된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How nodejs works]]></title><description><![CDATA[nodejs에 대한 정리]]></description><link>https://saegeullee.github.io/nodejs/how-nodejs-works</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/how-nodejs-works</guid><pubDate>Fri, 15 Nov 2019 13:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;nodejs-architecture&quot;&gt;&lt;a href=&quot;#nodejs-architecture&quot; aria-label=&quot;nodejs architecture permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nodejs architecture&lt;/h1&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b471a6dc43ff29a6b094b0f41a0856c7/1afc1/nodejs-architecture.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.5589519650655%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACWElEQVQoz2WRWU8TYRiF+wO9IxE1grShgJCCwSKIveDKRAgBSRUSjWyytAURDCqKXei0TJdhURYLLdMWlHZqgADd9OJxOkSj4eLkPd93kifvm6PLnedQ0gqpVOqS0ikFRdXh4SGZTIaMkkFRFE5+HLGe2KVHesv34zTOuIv3sUWs0jt056fnRLYjRLeixLZixLajmo9/lRGWXIzZRhDdIiuiRMgXIiSEWBdXmV9coGNmEOfmEre9JkxeM9dm76PLneVY3/6MXZrCvjKFLTiNPTyNTZrmwcdRxoU5ptRsPDDJuDjJpGTnZcDG3fnnbEV2kZUYrcsW2kQL3Svd6IpnBYQNH7dcRvRePWW2dspft3DTXUnZq3sMLTuoFKqpdlRgfHGV8rFKrn+o4orjDlJkk1+FIspJhvSJwtHpMbqCCvRt+KlxN2D01GN0m1RvwuCuoV1oZ271jXpSI81LLdR9aqDJY8a83EaHrwM5vkcxV6SQLVDMXsxLwBpVtZ4G9O5aWgULM6uz1HubsAQ7MHjqGFh7hnfXR5fYw468owGz51lK5ZakAUsn69WNSqpyG7VZ4TJgFto0oMFTS6PQzA1nFb2SlcWIk4fLnSpwl58q8A8sn81flLK2tcZweJSh8AiTK3YmJBuD4WGtJP8Xv+ZLKmVj0oTmbWEHiXiCQq7wPzB/liewEaQvaKU32Ke27WAwOESn2MXTQD8Lqwv0Bvp4rGa2sJ1+cYBHamb1P0GW5cvA0oYHB9+IJWOa5P24Kpmo6veSeyT3k3+zuJqV/rR3Yo9MOqNB/gX+BgXziXw3VVZ5AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/b471a6dc43ff29a6b094b0f41a0856c7/01472/nodejs-architecture.webp 240w,
+/static/b471a6dc43ff29a6b094b0f41a0856c7/222bd/nodejs-architecture.webp 480w,
+/static/b471a6dc43ff29a6b094b0f41a0856c7/620b9/nodejs-architecture.webp 960w,
+/static/b471a6dc43ff29a6b094b0f41a0856c7/3c729/nodejs-architecture.webp 1145w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/b471a6dc43ff29a6b094b0f41a0856c7/0783d/nodejs-architecture.png 240w,
+/static/b471a6dc43ff29a6b094b0f41a0856c7/782f4/nodejs-architecture.png 480w,
+/static/b471a6dc43ff29a6b094b0f41a0856c7/f570d/nodejs-architecture.png 960w,
+/static/b471a6dc43ff29a6b094b0f41a0856c7/1afc1/nodejs-architecture.png 1145w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/b471a6dc43ff29a6b094b0f41a0856c7/f570d/nodejs-architecture.png&quot;
+          alt=&quot;nodejs&quot;
+          title=&quot;nodejs&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;nodejs runtime 은 몇 가지 &lt;code class=&quot;language-text&quot;&gt;dependency&lt;/code&gt; 가 있는데 그 중 가장 중요한 것이 &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;이다. &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;이 없다면 nodejs는 javascript를 이해할 수 없다. &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;이 javascript 코드를 컴퓨터가 이해할 수 있는 머신 코드로 변환해주기 때문이다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;는 비동기 IO를 집중적으로 개발하는 오픈소스 라이브러리이다. &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;를 통해 노드는 파일시스템과 네트워킹 등의 컴퓨터 운영체제의 기능들에 접근할 수 있다. 또한 &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;에는 nodejs에서 굉장히 중요한 기능인 &lt;code class=&quot;language-text&quot;&gt;event loop&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;thread pool&lt;/code&gt;이 구현되어 있다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;event loop&lt;/code&gt;는 콜백 실행, network IO와 같은 가벼운 일을 처리해주고 &lt;code class=&quot;language-text&quot;&gt;thread pool&lt;/code&gt;은 파일에 접근하거나 파일을 압축하는 등의 무거운 일을 처리한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;는 C++로 만들어졌고 &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;은 javascript 와 c++로 만들어졌다. nodejs의 역할은 순수 자바스크립트 코드를 통해 이 모든 기능들을 실행시킬 수 있도록 해주는 것이다.&lt;/p&gt;
+&lt;p&gt;nodejs는 v8 engine과 libuv 뿐만 아니라 &lt;code class=&quot;language-text&quot;&gt;http-parser&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;c-ares&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;OpenSSL&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;zlib&lt;/code&gt; 등의 라이브러리에도 의존성이 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[What is express?]]></title><description><![CDATA[nodejs express에 대한 정리]]></description><link>https://saegeullee.github.io/nodejs/what-is-express</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/what-is-express</guid><pubDate>Mon, 11 Nov 2019 00:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;express&quot;&gt;&lt;a href=&quot;#express&quot; aria-label=&quot;express permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Express&lt;/h1&gt;
