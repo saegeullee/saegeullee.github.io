@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2019 08:23:03 GMT</lastBuildDate><item><title><![CDATA[error handling middleware]]></title><description><![CDATA[nodejs error handling에 대한 정리]]></description><link>https://saegeullee.github.io/nodejs/error-handling-middleware</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/error-handling-middleware</guid><pubDate>Sat, 16 Nov 2019 12:00:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 24 Nov 2019 14:55:24 GMT</lastBuildDate><item><title><![CDATA[2nd group project review]]></title><description><![CDATA[위코드 2차 그룹 프로젝트 후기]]></description><link>https://saegeullee.github.io/category/project/2nd-group-project-review</link><guid isPermaLink="false">https://saegeullee.github.io/category/project/2nd-group-project-review</guid><pubDate>Sun, 24 Nov 2019 21:16:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://wecode.co.kr/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;위코드&lt;/a&gt;&lt;/strong&gt; 에서 진행한 2차 그룹프로젝트 후기입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;프로젝트-구성&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%84%B1&quot; aria-label=&quot;프로젝트 구성 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 구성&lt;/h2&gt;
+&lt;p&gt;2019년 11월 11일 ~ 2019년 11월 22일, 총 12일 동안 위코드에서 2차 그룹 프로젝트를 진행하였다. 우리팀은 프론트엔드 4명(리액트네이티브 앱 2명, 리액트 웹 2명), 백엔드 2명 총 6명으로 구성되었고 온라인 클래스 플랫폼 클래스 101을 클론하였다. 나는 백엔드를 맡았고 nodejs를 사용하여 restful api를 구현하였다. 우리 팀은 프론트엔드가 웹, 앱 2팀이 있었기 때문에 프론트엔드에서 클론 할 파트를 나누었다. 앱에서는 일반 사용자의 관점에서 개설된 클래스 목록을 보고 클래스 상세 페이지 보는 부분을 맡았고 웹에서는 크리에이터의 관점에서 클래스를 개설하는 부분을 맡았다. 나는 후자의 엔드포인트 구현을 맡았다.&lt;/p&gt;
+&lt;h2 id=&quot;내가-한것&quot;&gt;&lt;a href=&quot;#%EB%82%B4%EA%B0%80-%ED%95%9C%EA%B2%83&quot; aria-label=&quot;내가 한것 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;내가 한것&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;모델 설계&lt;/li&gt;
+&lt;li&gt;클래스 Create, Update, Read, Delete&lt;/li&gt;
+&lt;li&gt;개설완료 또는 개설중인 클래스 목록보기&lt;/li&gt;
+&lt;li&gt;크리에이터 프로필 Create, Read, Update&lt;/li&gt;
+&lt;li&gt;일반 사용자 로그인, 회원가입&lt;/li&gt;
+&lt;li&gt;사용자 인증, 인가&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3bc30c85f9cd3f80b2041f04726604f9/ea568/class101_models.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.31330472103005%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABIUlEQVQoz22TVw7DMAxDff+LJj/Ze9nNU0FDCRKAtTxEUaPhuq4kxBizve97Wtc1HceRtm0z+zxPw7Isdu99hfAmABDjNAyDkWF3XWfkoK7rNM+zkX8S8uEIwTiOWZlI2E/TZIGk+EudERIFRxywcSiKIjVNYwFQ3vd96m+bj7O2bR/lUSlAgEDK9EipsKIGUoH33LHqngAE5cxS5hCVOEw3cVmWOW1W7gBBFWC4CchEe1ZTyA/pEkHd848gpQEixJY6ZUJmfI8u+3RFpgCcxSvmd5Soqqoc2CZi/Nc7+JpxoWao+++6steIqYmo1ogF3ylW1QsHjdBbvSl2XcbWPrz/KeomZNU9wNRXXcQmAxR5wsccavoFX2yBUqhBfny+8AMIHKyEE7+zbgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/3bc30c85f9cd3f80b2041f04726604f9/01472/class101_models.webp 240w,
+/static/3bc30c85f9cd3f80b2041f04726604f9/222bd/class101_models.webp 480w,
+/static/3bc30c85f9cd3f80b2041f04726604f9/620b9/class101_models.webp 960w,
+/static/3bc30c85f9cd3f80b2041f04726604f9/68378/class101_models.webp 1165w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/3bc30c85f9cd3f80b2041f04726604f9/0783d/class101_models.png 240w,
+/static/3bc30c85f9cd3f80b2041f04726604f9/782f4/class101_models.png 480w,
+/static/3bc30c85f9cd3f80b2041f04726604f9/f570d/class101_models.png 960w,
+/static/3bc30c85f9cd3f80b2041f04726604f9/ea568/class101_models.png 1165w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/3bc30c85f9cd3f80b2041f04726604f9/f570d/class101_models.png&quot;
+          alt=&quot;class101 models&quot;
+          title=&quot;class101 models&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+클래스101 모델 설계도&lt;/p&gt;
+&lt;p&gt;클래스 101 모델 설계를 하는데 3일정도 걸렸다. 나는 1차 프로젝트에서 백엔드 프레임워크 Django와 데이터베이스는 RDBMS인 Mysql을 사용하였다. 그동안 관계형 데이터베이스만 하다가 이번에 처음으로 Nosql인 MongoDB를 써봐서 개념이 굉장히 헷갈렸고 원리를 이해하는데 시간이 걸렸다.&lt;/p&gt;
+&lt;p&gt;이번에 공부한 RDBMS와 NOSQL의 차이점중 하나는 NOSQL에서는 &lt;code class=&quot;language-text&quot;&gt;One to Many&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;One to Few&lt;/code&gt;를 구분한다는 것이다. RDBMS에서는 이를 구분하지 않고 모두 &lt;code class=&quot;language-text&quot;&gt;One to Many&lt;/code&gt;인 Foreignkey를 사용하여 관계를 표현한다. 하지만 NOSQL에서는 모델(컬렉션) 설계를 할 때 이를 염두에 둬야한다. &lt;code class=&quot;language-text&quot;&gt;One to Few&lt;/code&gt;같은 경우는 &lt;code class=&quot;language-text&quot;&gt;One to Few&lt;/code&gt;의 &lt;code class=&quot;language-text&quot;&gt;One&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;Few&lt;/code&gt;를 Embed 시키면 되기 때문이다. 예를 들어 위의 클래스101 모델 설계도에서 Product(Product이 클래스이다) 컬렉션에는 Qna, Skill, Interview가 모두 Embed 되어 있다. 하나의 Product에는 각각 몇개의 Qna, Skill, Interview만 존재하기 때문에 Embed 시키더라도 Product Collection 하나의 Document가 비대해질 가능성이 없다.&lt;/p&gt;
+&lt;h2 id=&quot;프로젝트-총평&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%B4%9D%ED%8F%89&quot; aria-label=&quot;프로젝트 총평 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 총평&lt;/h2&gt;
+&lt;p&gt;이번 프로젝트는 시원하게 실패했다고 말할 수 있다. 프로젝트 마지막날인 금요일날 시연에 별 볼게 없었기 때문이다. 프론트엔드에서 준비가 덜 되었고 백엔드에서도 제대로 데이터를 넘겨주지 못했다. 프로젝트가 실패한 이유는 백엔드에서 다음 4가지의 어려움이 있었기 때문이다.&lt;/p&gt;
+&lt;p&gt;1: 깃 리베이스 2: 몽고디비 모델 3:사진 데이터 하나 못넘겨준것 4. 사진 여러개&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;깃 리베이스 실패&lt;br&gt;
+깃 리베이스에 실패하여 내가 푸쉬한 &lt;code class=&quot;language-text&quot;&gt;feature/login_required&lt;/code&gt; 브랜치의 코드 일부분이 날라갔다. 이 브랜치에서는 사용자 인가를 위해 사용자의 토큰의 유효성을 검사하는 &lt;code class=&quot;language-text&quot;&gt;loginRequired&lt;/code&gt; 핸들러를 구현했다. 리베이스 당시에는 성공을 한 줄 알았는데 나중에 알고 보니 코드의 핵심 부분인 service 코드가 날라갔다.. 물론 코드양이 별로 안되어 다행이었다.&lt;/li&gt;
+&lt;li&gt;몽고디비&lt;br&gt;
+몽고디비와 관련하여 이상한 경험을 했고 아직도 미해결이다. 우리 프로젝트의 User 스키마에는 nickname이라는 필드가 있고 unique속성을 true로 줬다.&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[error handling middleware]]></title><description><![CDATA[nodejs error handling에 대한 정리]]></description><link>https://saegeullee.github.io/nodejs/error-handling-middleware</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/error-handling-middleware</guid><pubDate>Sat, 16 Nov 2019 12:00:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;error-handling-middleware&quot;&gt;&lt;a href=&quot;#error-handling-middleware&quot; aria-label=&quot;error handling middleware permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;error handling middleware&lt;/h1&gt;
