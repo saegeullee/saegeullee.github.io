@@ -1,11 +1,42 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 01 Dec 2019 16:54:40 GMT</lastBuildDate><item><title><![CDATA[Git Rebase & Squash]]></title><description><![CDATA[리베이스란 베이스를 다시 잡는 다는 말이다. 깃 feature 브랜치가 마스터 브랜치에서 갈라져 나온 시점의 마스터의 커밋이 있을텐데 그 마스터의 커밋이 기존의 베이스이다. 해당 feature 브랜치의 베이스가 되는 마스터의 커밋이기 때문이다. 깃 리베이스는 해당 feature 브랜치의 베이스를 마스터의 최신 커밋인 HEAD로 베이스를 다시 잡는다는 말이다...]]></description><link>https://saegeullee.github.io/category/git/git-rebase-and-squash</link><guid isPermaLink="false">https://saegeullee.github.io/category/git/git-rebase-and-squash</guid><pubDate>Sun, 01 Dec 2019 18:46:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;깃-리베이스&quot;&gt;&lt;a href=&quot;#%EA%B9%83-%EB%A6%AC%EB%B2%A0%EC%9D%B4%EC%8A%A4&quot; aria-label=&quot;깃 리베이스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;깃 리베이스&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 04 Dec 2019 05:43:25 GMT</lastBuildDate><item><title><![CDATA[Binary Search]]></title><description><![CDATA[Write a function that takes in a sorted array of integers as well as a target integer. The function should use the Binary Search algorithm to find if the target number is contained in the array and should return its index if it is, otherwise -1...]]></description><link>https://saegeullee.github.io/category/algorithm/binary-search</link><guid isPermaLink="false">https://saegeullee.github.io/category/algorithm/binary-search</guid><pubDate>Mon, 02 Dec 2019 18:46:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.algoexpert.io&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;문제출처 : algoexpert&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Write a function that takes in a sorted array of integers as well as a target integer. The function should use the Binary Search algorithm to find if the target number is contained in the array and should return its index if it is, otherwise -1.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Sample input: [0, 1, 21, 33, 45, 45, 61, 71, 72, 73], 33
+Sample output: 3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;solution&quot;&gt;&lt;a href=&quot;#solution&quot; aria-label=&quot;solution permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;solution&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// O(log(n)) time | O(1) space&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;binarySearch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;array&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Write your code here.&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;left &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; right&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; medium &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;left &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; right&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;medium&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; target&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; medium &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;medium&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; target&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; medium &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; medium&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Do not edit the line below.&lt;/span&gt;
+exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;binarySearch &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; binarySearch&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;피드백&quot;&gt;&lt;a href=&quot;#%ED%94%BC%EB%93%9C%EB%B0%B1&quot; aria-label=&quot;피드백 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;피드백&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Math.floor&lt;/code&gt;없이 &lt;code class=&quot;language-text&quot;&gt;(left+right)/2&lt;/code&gt;만 적었다.. 왜그랬는지는 모르겠지만 &lt;code class=&quot;language-text&quot;&gt;Math.floor&lt;/code&gt;없이 당연히 상수가 될거라고 생각했다. 그리고 while 문 안의 각 조건문 안에서도 &lt;code class=&quot;language-text&quot;&gt;right = medium&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;left = medium&lt;/code&gt; 까지만 적었다. 어차피 medium 이 target이 아니기 때문에 각각 &lt;code class=&quot;language-text&quot;&gt;right = medium - 1&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;left = medium + 1&lt;/code&gt; 조건으로 줘야 한다. 알고리즘 문제 많이 풀어봐야겠다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Git Rebase & Squash]]></title><description><![CDATA[리베이스란 베이스를 다시 잡는 다는 말이다. 깃 feature 브랜치가 마스터 브랜치에서 갈라져 나온 시점의 마스터의 커밋이 있을텐데 그 마스터의 커밋이 기존의 베이스이다. 해당 feature 브랜치의 베이스가 되는 마스터의 커밋이기 때문이다. 깃 리베이스는 해당 feature 브랜치의 베이스를 마스터의 최신 커밋인 HEAD로 베이스를 다시 잡는다는 말이다...]]></description><link>https://saegeullee.github.io/category/git/git-rebase-and-squash</link><guid isPermaLink="false">https://saegeullee.github.io/category/git/git-rebase-and-squash</guid><pubDate>Sun, 01 Dec 2019 18:46:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;깃-리베이스&quot;&gt;&lt;a href=&quot;#%EA%B9%83-%EB%A6%AC%EB%B2%A0%EC%9D%B4%EC%8A%A4&quot; aria-label=&quot;깃 리베이스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;깃 리베이스&lt;/h2&gt;
 &lt;p&gt;리베이스란 베이스를 다시 잡는 다는 말이다. 깃 feature 브랜치가 마스터 브랜치에서 갈라져 나온 시점의 마스터의 커밋이 있을텐데 그 마스터의 커밋이 기존의 베이스이다. 해당 feature 브랜치의 베이스가 되는 마스터의 커밋이기 때문이다. 깃 리베이스는 해당 feature 브랜치의 베이스를 마스터의 최신 커밋인 HEAD로 베이스를 다시 잡는다는 말이다.&lt;/p&gt;
 &lt;h2 id=&quot;왜-리베이스를-해야할까&quot;&gt;&lt;a href=&quot;#%EC%99%9C-%EB%A6%AC%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%A5%BC-%ED%95%B4%EC%95%BC%ED%95%A0%EA%B9%8C&quot; aria-label=&quot;왜 리베이스를 해야할까 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;왜 리베이스를 해야할까?&lt;/h2&gt;
 &lt;p&gt;리베이스를 하지 않으면 보통 마스터의 브랜치에 feature 브랜치를 머지하는 방법이 있다. feature 브랜치의 베이스를 그대로 두고 마스터의 브랜치로 feature 브랜치의 작업내역들(커밋들)이 합쳐진다. 이 feature 브랜치의 커밋들은 커밋 시점을 기준으로 마스터의 브랜치와 병합이 되기 때문에 만약 다른 사람들과 협업을 하고 있었다면 다른 사람들의 커밋들과 나의 커밋들이 뒤섞일 가능성이 있다. 그렇다면 커밋 히스토리가 깔끔하지 않고 관리하기 어렵게 될 것이다. 반면에 리베이스를 하게 되면 feature 브랜치의 커밋들이 마스터의 최신 HEAD로 다시 베이스를 잡기 때문에 다른 사람들의 커밋들과 섞일 가능성이 없다. 즉 나의 feature 브랜치 작업내역을 마스터 브랜치의 최신 작업물이 되게끔 병합하는 것이다.&lt;/p&gt;
 &lt;h2 id=&quot;깃-스쿼시&quot;&gt;&lt;a href=&quot;#%EA%B9%83-%EC%8A%A4%EC%BF%BC%EC%8B%9C&quot; aria-label=&quot;깃 스쿼시 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;깃 스쿼시&lt;/h2&gt;
-&lt;p&gt;깃 스쿼시를 통해 나의 feature 브랜치의 커밋들을 하나의 커밋으로 바꿀 수 있다. feature 브랜치에서 작업을 하다 보면 커밋을 여러번에 걸쳐서 할 수 있게 된다. 예를 들어 그날 하루의 작업이 끝났지만 아직 브랜치 전체의 작업이 끝나지 않았다면 집에 가기 전에 커밋메시지를 &lt;code class=&quot;language-text&quot;&gt;wip(working in progress)&lt;/code&gt;와 같이 나의 편의대로 남겨둘 수 있다. 또는 해당 feature 브랜치의 일부분의 작업이 끝났을때도 커밋 메시지를 따로 남겨둘 수 있다. feature 브랜치의 모든 작업이 끝났을때는 이렇게 작업중에 나의 편의대로 나만 알아볼 수 있는 메시지를 남겨뒀을 가능성이 있다. 이 상태로 만약 마스터로 병합 또는 리베이스를 하게 되면 커밋 메시지가 매우 지저분해진다. 깃 스쿼시는 feature 브랜치에서 그동안 내가 남긴 커밋 히스토리를 마스터에 병합 또는 리베이스 전에 하나의 최종 커밋으로 변경하고 싶을때 사용할 수 있다. 아래의 예시는 내가 이틀동안 하나의 feature 브랜치에서 작업하면서 남긴 7개의 커밋 히스토리이다. 만약 이대로 마스터의 브랜치에 병합하면 어떤 재앙이 발생할까..? (&lt;del&gt;취업이 안될거라는 것은 확실하다&lt;/del&gt;)&lt;br&gt;
-&lt;br&gt;
-&lt;span
+&lt;p&gt;깃 스쿼시를 통해 나의 feature 브랜치의 커밋들을 하나의 커밋으로 바꿀 수 있다. feature 브랜치에서 작업을 하다 보면 커밋을 여러번에 걸쳐서 할 수 있게 된다. 예를 들어 그날 하루의 작업이 끝났지만 아직 브랜치 전체의 작업이 끝나지 않았다면 집에 가기 전에 커밋메시지를 &lt;code class=&quot;language-text&quot;&gt;wip(working in progress)&lt;/code&gt;와 같이 나의 편의대로 남겨둘 수 있다. 또는 해당 feature 브랜치의 일부분의 작업이 끝났을때도 커밋 메시지를 따로 남겨둘 수 있다. feature 브랜치의 모든 작업이 끝났을때는 이렇게 작업중에 나의 편의대로 나만 알아볼 수 있는 메시지를 남겨뒀을 가능성이 있다. 이 상태로 만약 마스터로 병합 또는 리베이스를 하게 되면 커밋 메시지가 매우 지저분해진다. 깃 스쿼시는 feature 브랜치에서 그동안 내가 남긴 커밋 히스토리를 마스터에 병합 또는 리베이스 전에 하나의 최종 커밋으로 변경하고 싶을때 사용할 수 있다. 아래의 예시는 내가 이틀동안 하나의 feature 브랜치에서 작업하면서 남긴 7개의 커밋 히스토리이다. &lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt;를 통해 확인할 수 있다. 만약 이대로 마스터의 브랜치에 병합하면 커밋 메시지가 굉장히 지저분해 질 것이고 이후에 내가 어떤 작업을 했었는지 알기 어려울 것이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 659px;&quot;
     &gt;
@@ -94,8 +125,17 @@ git pull origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-&lt;br&gt;
-&lt;span
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;위의 7개의 커밋중에 합칠 때 기준이 되는 커밋을 pick으로 남기고 기준이 되는 커밋에 합칠 커밋들에 s(squash)를 아래와 같이 남기면 된다. 이미지 캡처를 깜빡하여 코드로 보면 다음과 같다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;pick 9c86e01 group meals wip
+s ded5743 wip
+s c9fa287 wip
+s 52c4d93 wip
+s 4d5a2ad wip
+s fa112d5 wip
+s a79ca93 wip&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 코드와 같이 변경하고 에디터를 나가면 다음과 같이 커밋 메시지를 수정할 수 있는 화면이 나타난다.&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 578px;&quot;
     &gt;
@@ -136,7 +176,8 @@ git pull origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &lt;/a&gt;
     &lt;/span&gt;
 &lt;br&gt;
-&lt;span
+나는 위 7개의 커밋을 하나의 커밋으로 합치고 싶기 때문에 위의 커밋 메시지들을 삭제하고 아래와 같이 이 브랜치에서 작업한 내역을 설명하는 하나의 커밋 메시지로 정리하였다.&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 721px;&quot;
     &gt;
@@ -175,50 +216,9 @@ git pull origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         /&gt;
       &lt;/picture&gt;
   &lt;/a&gt;
-    &lt;/span&gt;
-&lt;br&gt;
-&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 722px;&quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d81a2d388cd98168b21943d8805eea1a/fef0a/gitsquash5.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 41.96675900277008%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABUElEQVQoz2WRa5KDIBCEcw4FgspLUBGTzeb+F+tt0Eqlan98NTMUts30zbkJIRhYOzS8Hznb1q9bxLJ43Ic71DASDTVe1F7zXEpIpaCUJAq3UiyOY8Lr5fB8GlaL31+P99vi8ZiwrR1C9lApEwdVZqj9RIfxv+CyrHDOY9sy5jkipQXrmrEuG+eEvpcQvSAd6VuvhGxCjSZ2IjnfahNC4MdzqzGedSa1eu/4Q8fqEXinViFE+1hUd180h1Kq5i7nnXtzMMYSd2ExTYZMMJa9MY1hHKGHASMZLj4OtZYUjHzmzGd61kDx2Nj32OYUA8q6IkeGRJe1LykhZa4lRQS6/giWw6KUET8/hmE4BjEw2Y5CHfbMunWYrUC5axxMNjLZojVedCUXC2V126289njb96OF8Hy+KPygq0LHO8/OUOpKGrws1Jlopa87E1/BXHv8A9+U5P8Z9etXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;picture&gt;
-        &lt;source
-          srcset=&quot;/static/d81a2d388cd98168b21943d8805eea1a/01472/gitsquash5.webp 240w,
-/static/d81a2d388cd98168b21943d8805eea1a/222bd/gitsquash5.webp 480w,
-/static/d81a2d388cd98168b21943d8805eea1a/8f6d2/gitsquash5.webp 722w&quot;
-          sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
-          type=&quot;image/webp&quot;
-        /&gt;
-        &lt;source
-          srcset=&quot;/static/d81a2d388cd98168b21943d8805eea1a/0783d/gitsquash5.png 240w,
-/static/d81a2d388cd98168b21943d8805eea1a/782f4/gitsquash5.png 480w,
-/static/d81a2d388cd98168b21943d8805eea1a/fef0a/gitsquash5.png 722w&quot;
-          sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
-          type=&quot;image/png&quot;
-        /&gt;
-        &lt;img
-          class=&quot;gatsby-resp-image-image&quot;
-          src=&quot;/static/d81a2d388cd98168b21943d8805eea1a/fef0a/gitsquash5.png&quot;
-          alt=&quot;git squash5&quot;
-          title=&quot;git squash5&quot;
-          loading=&quot;lazy&quot;
-        /&gt;
-      &lt;/picture&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-&lt;br&gt;
-&lt;span
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;그리고 에디터를 저장후 나가면 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;successfully rebased and updated~&lt;/code&gt; 라는 메시지가 뜨면 깃 스쿼시 및 리베이스 성공이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 819px;&quot;
     &gt;
@@ -257,7 +257,51 @@ git pull origin master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
         /&gt;
       &lt;/picture&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MongoDB 데이터 모델링]]></title><description><![CDATA[mongodb 데이터 모델링 정리 : mongodb에서 모델링을 할 때 referencing 과 embedding 의 차이는 무엇일까? 그리고 언제 이를 사용해야 할까? 모델링을 하는 방법에 대해 알아보자]]></description><link>https://saegeullee.github.io/nodejs/mongodb-data-modeling</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/mongodb-data-modeling</guid><pubDate>Mon, 25 Nov 2019 13:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt;를 찍어 확인해보면 아까 있었던 7개의 커밋메시지가 1개의 커밋 메시지로 바뀌었다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 722px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d81a2d388cd98168b21943d8805eea1a/fef0a/gitsquash5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.96675900277008%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABUElEQVQoz2WRa5KDIBCEcw4FgspLUBGTzeb+F+tt0Eqlan98NTMUts30zbkJIRhYOzS8Hznb1q9bxLJ43Ic71DASDTVe1F7zXEpIpaCUJAq3UiyOY8Lr5fB8GlaL31+P99vi8ZiwrR1C9lApEwdVZqj9RIfxv+CyrHDOY9sy5jkipQXrmrEuG+eEvpcQvSAd6VuvhGxCjSZ2IjnfahNC4MdzqzGedSa1eu/4Q8fqEXinViFE+1hUd180h1Kq5i7nnXtzMMYSd2ExTYZMMJa9MY1hHKGHASMZLj4OtZYUjHzmzGd61kDx2Nj32OYUA8q6IkeGRJe1LykhZa4lRQS6/giWw6KUET8/hmE4BjEw2Y5CHfbMunWYrUC5axxMNjLZojVedCUXC2V126289njb96OF8Hy+KPygq0LHO8/OUOpKGrws1Jlopa87E1/BXHv8A9+U5P8Z9etXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/d81a2d388cd98168b21943d8805eea1a/01472/gitsquash5.webp 240w,
+/static/d81a2d388cd98168b21943d8805eea1a/222bd/gitsquash5.webp 480w,
+/static/d81a2d388cd98168b21943d8805eea1a/8f6d2/gitsquash5.webp 722w&quot;
+          sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/d81a2d388cd98168b21943d8805eea1a/0783d/gitsquash5.png 240w,
+/static/d81a2d388cd98168b21943d8805eea1a/782f4/gitsquash5.png 480w,
+/static/d81a2d388cd98168b21943d8805eea1a/fef0a/gitsquash5.png 722w&quot;
+          sizes=&quot;(max-width: 722px) 100vw, 722px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/d81a2d388cd98168b21943d8805eea1a/fef0a/gitsquash5.png&quot;
+          alt=&quot;git squash5&quot;
+          title=&quot;git squash5&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이제 깃헙의 리모트 오리진으로 이 브랜치를 푸쉬하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git push -u origin feature/jumsul_logic3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 이후의 과정은 깃헙에서 방금 푸쉬한 내역을 pr을 보내고 마스터에 머지를 하면 된다. 리모트 마스터에 머지가 되면 방금 푸쉬한 나의 작업 브랜치의 커밋이 마스터의 HEAD가 되어있는 것을 확인 할 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[MongoDB 데이터 모델링]]></title><description><![CDATA[mongodb 데이터 모델링 정리 : mongodb에서 모델링을 할 때 referencing 과 embedding 의 차이는 무엇일까? 그리고 언제 이를 사용해야 할까? 모델링을 하는 방법에 대해 알아보자]]></description><link>https://saegeullee.github.io/nodejs/mongodb-data-modeling</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/mongodb-data-modeling</guid><pubDate>Mon, 25 Nov 2019 13:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;referencing-vs-embedding&quot;&gt;&lt;a href=&quot;#referencing-vs-embedding&quot; aria-label=&quot;referencing vs embedding permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Referencing vs Embedding&lt;/h1&gt;
@@ -879,7 +923,6 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h2 id=&quot;프로젝트-진행-방법&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%A7%84%ED%96%89-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;프로젝트 진행 방법 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로젝트 진행 방법&lt;/h2&gt;
 &lt;p&gt;우리팀은 프로젝트 첫날 스크럼 회의를 통해 1주차 스프린트에서 구현해야할 내용들을 정리했고 매일 스크럼 회의에서 어제 한 일, 오늘 할 일, 어려웠던 점(blocker) 등을 공유했다. 아래의 이미지 처럼 trello 라는 툴을 활용하여 프로젝트 진행사항을 한 눈에 보기 쉽게 구성하였고 매일 개발해야 할 것들을 개발했다.&lt;br&gt;&lt;br&gt;
 git과 github을 활용하여 협업을 하였고 백엔드와 프론트엔드 각각 프로젝트 셋팅을 담당한 팀원이 &lt;code class=&quot;language-text&quot;&gt;django-admin startproject&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;CRA&lt;/code&gt;를 통해 프로젝트를 생성 및 셋팅 후 우리 팀 github repo 마스터 브랜치에 푸쉬했다. 이후 해당 프로젝트를 clone 하여 로컬에서 받아온 후 각각의 기능별로 브랜치를 따서 개발 완료 후 git push 및 git pull request를 보냈다. 마스터 브랜치에 머지 권한을 가지고 있는 위코드의 멘토님들이 각 브랜치를 검토후 이상이 없다면 마스터 브랜치에 병합을 해주셨고 수정 사항이 필요하다면 리뷰를 남겨주셨다. 피드백에 따라 해당 기능을 수정후 다시 푸쉬하였고 병합이 될때까지 이를 반복하였다.&lt;/p&gt;
-&lt;p&gt;모델 설계, 멘토님들에게 피드백 받고, 프로젝트 진행하는데 있어서 필요한 개념들을 숙지할 세션을 듣고&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
