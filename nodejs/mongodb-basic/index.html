@@ -66,7 +66,7 @@
 
         gtag('config', 'UA-73379983-2', {"send_page_view":false});
       }
-      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><title data-react-helmet="true">MongoDB 기본 - Blog by saegeullee</title><meta data-react-helmet="true" name="description" content="몽고DB의 기본에 대해 알아본다. 데이터베이스 목록보기, 생성 및 삭제하기, 그 후 데이터베이스에 컬렉션 추가 및 도큐먼트 쿼리, 입력, 업데이트, 여러개의 도큐먼트 한번에 입력, 업데이트 삭제하는 방법 등등에 대해 알아본다."/><meta data-react-helmet="true" property="og:site_name" content="MongoDB 기본 - Blog by saegeullee"/><meta data-react-helmet="true" property="og:image" content="https://saegeullee.github.io/media/image-2.jpg"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="MongoDB 기본 - Blog by saegeullee"/><meta data-react-helmet="true" name="twitter:description" content="몽고DB의 기본에 대해 알아본다. 데이터베이스 목록보기, 생성 및 삭제하기, 그 후 데이터베이스에 컬렉션 추가 및 도큐먼트 쿼리, 입력, 업데이트, 여러개의 도큐먼트 한번에 입력, 업데이트 삭제하는 방법 등등에 대해 알아본다."/><meta data-react-helmet="true" name="twitter:image" content="https://saegeullee.github.io/media/image-2.jpg"/><link as="script" rel="preload" href="/app-bb6794cb52d39d8851fb.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-104b229c622ecdc32018.js"/><link as="script" rel="preload" href="/styles-749ad6dedaa2348e91e0.js"/><link as="script" rel="preload" href="/commons-7aaa41bf67b390edf9d2.js"/><link as="script" rel="preload" href="/webpack-runtime-bb1ae267421f3abdd7ae.js"/><link as="fetch" rel="preload" href="/page-data/nodejs/mongodb-basic/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">MongoDB 기본</h1><div class="Content-module--content__body--2TrQ-"><blockquote>
+      </script><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#F7A046"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=b122a9508eac2fcbe7e615c8fe8ec7af"/><title data-react-helmet="true">MongoDB 기본 - Blog by saegeullee</title><meta data-react-helmet="true" name="description" content="몽고DB의 기본에 대해 알아본다. 데이터베이스 목록보기, 생성 및 삭제하기, 그 후 데이터베이스에 컬렉션 추가 및 도큐먼트 쿼리, 입력, 업데이트, 여러개의 도큐먼트 한번에 입력, 업데이트 삭제하는 방법 등등에 대해 알아본다."/><meta data-react-helmet="true" property="og:site_name" content="MongoDB 기본 - Blog by saegeullee"/><meta data-react-helmet="true" property="og:image" content="https://saegeullee.github.io/media/image-2.jpg"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:title" content="MongoDB 기본 - Blog by saegeullee"/><meta data-react-helmet="true" name="twitter:description" content="몽고DB의 기본에 대해 알아본다. 데이터베이스 목록보기, 생성 및 삭제하기, 그 후 데이터베이스에 컬렉션 추가 및 도큐먼트 쿼리, 입력, 업데이트, 여러개의 도큐먼트 한번에 입력, 업데이트 삭제하는 방법 등등에 대해 알아본다."/><meta data-react-helmet="true" name="twitter:image" content="https://saegeullee.github.io/media/image-2.jpg"/><link as="script" rel="preload" href="/app-bb6794cb52d39d8851fb.js"/><link as="script" rel="preload" href="/component---src-templates-post-template-js-104b229c622ecdc32018.js"/><link as="script" rel="preload" href="/styles-69a7f741b4d1e0e25ec2.js"/><link as="script" rel="preload" href="/commons-6ecc39bc7f3183989523.js"/><link as="script" rel="preload" href="/webpack-runtime-bb1ae267421f3abdd7ae.js"/><link as="fetch" rel="preload" href="/page-data/nodejs/mongodb-basic/page-data.json" crossorigin="anonymous"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="Layout-module--layout--3Pyz6"><div><a class="Post-module--post__home-button--16Kl0" href="/">All Articles</a><div><div class="Content-module--content--3p512"><h1 class="Content-module--content__title--2BDW9">MongoDB 기본</h1><div class="Content-module--content__body--2TrQ-"><blockquote>
 <p><strong><a href="https://www.udemy.com/course/mongodb-the-complete-developers-guide/" target="_blank" rel="nofollow noopener noreferrer">유데미 몽고DB</a></strong> 수업을 듣고 정리한 내용입니다.</p>
 </blockquote>
 <h1 id="이글의-목차"><a href="#%EC%9D%B4%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8" aria-label="이글의 목차 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>이글의 목차</h1>
@@ -79,11 +79,12 @@
 <li><a href="#%EC%97%AC%EB%9F%AC-%EA%B0%9C%EC%9D%98-%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%ED%95%9C%EB%B2%88%EC%97%90-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8%ED%95%98%EA%B8%B0">여러 개의 도큐먼트 한번에 업데이트하기</a></li>
 <li><a href="#%EC%97%AC%EB%9F%AC-%EA%B0%9C%EC%9D%98-%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%ED%95%9C%EB%B2%88%EC%97%90-%EC%82%AD%EC%A0%9C%ED%95%98%EA%B8%B0">여러 개의 도큐먼트 한번에 삭제하기</a></li>
 <li><a href="#%EC%97%AC%EB%9F%AC-%EA%B0%9C%EC%9D%98-%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%ED%95%9C%EB%B2%88%EC%97%90-%EC%9E%85%EB%A0%A5%ED%95%98%EA%B8%B0">여러 개의 도큐먼트 한번에 입력하기</a></li>
-<li><a href="#%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EC%B0%BE%EA%B8%B0">도큐먼트 찾기</a></li>
+<li><a href="#%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EC%BF%BC%EB%A6%AC%ED%95%98%EA%B8%B0">도큐먼트 쿼리하기</a></li>
 <li><a href="#update-vs-updatemany">update vs updateMany</a></li>
 <li><a href="#replaceone">replaceOne</a></li>
 <li><a href="#find-%ED%95%A8%EC%88%98-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0">find 함수 이해하기</a></li>
 <li><a href="#%EB%AA%BD%EA%B3%A0db-%ED%94%84%EB%A1%9C%EC%A0%9D%EC%85%98">몽고db 프로젝션</a></li>
+<li><a href="#%EB%B3%B5%EC%9E%A1%ED%95%9C-%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0">복잡한 도큐먼트 접근하기</a></li>
 </ul>
 <h2 id="데이터베이스-목록-보기"><a href="#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EB%AA%A9%EB%A1%9D-%EB%B3%B4%EA%B8%B0" aria-label="데이터베이스 목록 보기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>데이터베이스 목록 보기</h2>
 <p>몽고DB 쉘 실행 후 아래의 명령어를 통해 데이터베이스 목록을 확인할 수 있다.</p>
@@ -219,8 +220,8 @@ flightData</code></pre></div>
 	&quot;distance&quot; : 950,
 	&quot;intercontinental&quot; : false
 }</code></pre></div>
-<h2 id="도큐먼트-찾기"><a href="#%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EC%B0%BE%EA%B8%B0" aria-label="도큐먼트 찾기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>도큐먼트 찾기</h2>
-<p>다음 명령어를 통해 컬렉션에서 distance 프로퍼티가 900 이상인 도큐먼트만을 찾을 수 있다. <code class="language-text">$gt</code>의 gt는 greater than의 이니셜이다.</p>
+<h2 id="도큐먼트-쿼리하기"><a href="#%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EC%BF%BC%EB%A6%AC%ED%95%98%EA%B8%B0" aria-label="도큐먼트 쿼리하기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>도큐먼트 쿼리하기</h2>
+<p>다음 명령어를 통해 컬렉션에서 distance 프로퍼티가 900 이상인 도큐먼트만을 쿼리할 수 있다. <code class="language-text">$gt</code>의 gt는 greater than의 이니셜이다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.flightData.find({distance: {$gt : 900}}).pretty()
 {
 	&quot;_id&quot; : ObjectId(&quot;5defbde2a71650b736445834&quot;),
@@ -248,7 +249,7 @@ flightData</code></pre></div>
 	&quot;distance&quot; : 12000,
 	&quot;intercontinental&quot; : true
 }</code></pre></div>
-<p>다음 명령어 <code class="language-text">findOne</code>은 특정 기준을 만족하는 단 하나의 도큐먼트만을 찾는다.</p>
+<p>다음 명령어 <code class="language-text">findOne</code>은 특정 기준을 만족하는 단 하나의 도큐먼트만을 쿼리한다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.flightData.findOne({distance: {$gt : 900}})
 {
 	&quot;_id&quot; : ObjectId(&quot;5defbde2a71650b736445834&quot;),
@@ -325,7 +326,7 @@ WriteResult({ &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModifi
 	&quot;intercontinental&quot; : false
 }</code></pre></div>
 <h2 id="find-함수-이해하기"><a href="#find-%ED%95%A8%EC%88%98-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0" aria-label="find 함수 이해하기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>find 함수 이해하기</h2>
-<p>몽고DB에서 컬렉션의 도큐먼트를 찾을때는 find 함수를 사용한다. find 함수는 도큐먼트를 곧바로 리턴하지 않고 <code class="language-text">커서(Cursor) 객체</code>를 리턴한다. 만약 컬렉션에 20개 이상의 도큐먼트가 있을때 find 함수로 모든 도큐먼트를 찾으면 20개의 도큐먼트가 나오고 맨 아래에 다음과 같이 나타난다.</p>
+<p>몽고DB에서 컬렉션의 도큐먼트를 쿼리 할 때는 find 함수를 사용한다. find 함수는 도큐먼트를 곧바로 리턴하지 않고 <code class="language-text">커서(Cursor) 객체</code>를 리턴한다. 만약 컬렉션에 20개 이상의 도큐먼트가 있을때 find 함수로 모든 도큐먼트를 찾으면 20개의 도큐먼트가 나오고 맨 아래에 다음과 같이 나타난다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">...
 { &quot;_id&quot; : ObjectId(&quot;5defd370c79996355df1cbad&quot;), &quot;name&quot; : &quot;Klaus Arber&quot;, &quot;age&quot; : 53 }
 { &quot;_id&quot; : ObjectId(&quot;5defd370c79996355df1cbae&quot;), &quot;name&quot; : &quot;Albert Twostone&quot;, &quot;age&quot; : 68 }
@@ -390,4 +391,102 @@ Type &quot;it&quot; for more</code></pre></div>
 <p>만약 <code class="language-text">_id</code>도 빼고 name 프로퍼티만 보고 싶다면 다음과 같이 쿼리하면된다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.passengers.find({}, {name: 1, _id:0}).pretty()
 { &quot;name&quot; : &quot;Max Schwarzmueller&quot; }
-{ &quot;name&quot; : &quot;Manu Lorenz&quot; }</code></pre></div></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->10 Dec 2019</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/mongodb/">mongodb</a></li></ul></div><div class="Author-module--author--2Yefr"><p><a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/#" rel="noopener noreferrer" target="_blank"><strong>saegeullee</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/nodejs/mongodb-basic";window.webpackCompilationHash="cce298fde38942da6e9d";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-bb6794cb52d39d8851fb.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-8517ad21f1e9bd071cdc.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-ab944fd5b75c139ff798.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-21f4a4e4a3f1b7f34691.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-79b7ff751d4bc9971174.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-a70383fc02515cd04e85.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-104b229c622ecdc32018.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-e3422e0305ace708b59d.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-4bb556518c6017654434.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-d3090a508b14cf649583.js"]};/*]]>*/</script><script src="/webpack-runtime-bb1ae267421f3abdd7ae.js" async=""></script><script src="/commons-7aaa41bf67b390edf9d2.js" async=""></script><script src="/styles-749ad6dedaa2348e91e0.js" async=""></script><script src="/component---src-templates-post-template-js-104b229c622ecdc32018.js" async=""></script><script src="/app-bb6794cb52d39d8851fb.js" async=""></script></body></html>
+{ &quot;name&quot; : &quot;Manu Lorenz&quot; }</code></pre></div>
+<h2 id="복잡한-도큐먼트-접근하기"><a href="#%EB%B3%B5%EC%9E%A1%ED%95%9C-%EB%8F%84%ED%81%90%EB%A8%BC%ED%8A%B8-%EC%A0%91%EA%B7%BC%ED%95%98%EA%B8%B0" aria-label="복잡한 도큐먼트 접근하기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>복잡한 도큐먼트 접근하기</h2>
+<h3 id="배열-접근"><a href="#%EB%B0%B0%EC%97%B4-%EC%A0%91%EA%B7%BC" aria-label="배열 접근 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>배열 접근</h3>
+<p>다음과 같이 passengers 컬렉션의 도큐먼트 하나에 hobbies 프로퍼티를 추가하여 string 배열을 준다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.passengers.updateOne({name: &quot;Albert Twostone&quot;},
+{$set : {hobbies: [&quot;sports&quot;, &quot;cooking&quot;] }})
+{ &quot;acknowledged&quot; : true, &quot;matchedCount&quot; : 1, &quot;modifiedCount&quot; : 1 }
+&gt; db.passengers.find({name: &quot;Albert Twostone&quot;}).pretty()
+{
+	&quot;_id&quot; : ObjectId(&quot;5defd370c79996355df1cbae&quot;),
+	&quot;name&quot; : &quot;Albert Twostone&quot;,
+	&quot;age&quot; : 68,
+	&quot;hobbies&quot; : [
+		&quot;sports&quot;,
+		&quot;cooking&quot;
+	]
+}```</code></pre></div>
+<p>방금 추가한 hobbies 프로퍼티에 다음과 같이 접근할 수 있다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.passengers.findOne({name: &quot;Albert Twostone&quot;}).hobbies
+[ &quot;sports&quot;, &quot;cooking&quot; ]</code></pre></div>
+<p>다음의 쿼리는 좀 신기한데.. hobbies 프로퍼티의 값은 배열이다. 하지만 아래와 같이 쿼리해도 몽고DB는 hobbies 프로퍼티의 값이 배열임을 알고 배열을 순회하여 sports를 찾는다. 해당 값이 배열 안에 있다면 그 도큐먼트를 리턴한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.passengers.find({hobbies: &quot;sports&quot;}).pretty()
+{
+	&quot;_id&quot; : ObjectId(&quot;5defd370c79996355df1cbae&quot;),
+	&quot;name&quot; : &quot;Albert Twostone&quot;,
+	&quot;age&quot; : 68,
+	&quot;hobbies&quot; : [
+		&quot;sports&quot;,
+		&quot;cooking&quot;
+	]
+}</code></pre></div>
+<h3 id="객체접근"><a href="#%EA%B0%9D%EC%B2%B4%EC%A0%91%EA%B7%BC" aria-label="객체접근 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>객체접근</h3>
+<p>위 예시의 flightData 컬렉션에 다음과 같이 프로퍼티를 추가하였다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.flightData.updateMany({}, {$set : {status:
+{description: &quot;on-time&quot;, lastUpdated: &quot;1 hour ago&quot;, details: {responsible: &quot;louieslee&quot;}}}})
+{ &quot;acknowledged&quot; : true, &quot;matchedCount&quot; : 2, &quot;modifiedCount&quot; : 2 }
+&gt; db.flightData.find().pretty()
+{
+	&quot;_id&quot; : ObjectId(&quot;5defbde2a71650b736445834&quot;),
+	&quot;departureAirport&quot; : &quot;MUC&quot;,
+	&quot;arrivalAirport&quot; : &quot;SFO&quot;,
+	&quot;aircraft&quot; : &quot;Airbus A380&quot;,
+	&quot;distance&quot; : 12000,
+	&quot;intercontinental&quot; : true,
+	&quot;status&quot; : {
+		&quot;description&quot; : &quot;on-time&quot;,
+		&quot;lastUpdated&quot; : &quot;1 hour ago&quot;,
+		&quot;details&quot; : {
+			&quot;responsible&quot; : &quot;louieslee&quot;
+		}
+	}
+}
+{
+	&quot;_id&quot; : ObjectId(&quot;5defbde2a71650b736445835&quot;),
+	&quot;departureAirport&quot; : &quot;LHR&quot;,
+	&quot;arrivalAirport&quot; : &quot;TXL&quot;,
+	&quot;aircraft&quot; : &quot;Airbus A320&quot;,
+	&quot;distance&quot; : 950,
+	&quot;intercontinental&quot; : false,
+	&quot;status&quot; : {
+		&quot;description&quot; : &quot;on-time&quot;,
+		&quot;lastUpdated&quot; : &quot;1 hour ago&quot;,
+		&quot;details&quot; : {
+			&quot;responsible&quot; : &quot;louieslee&quot;
+		}
+	}
+}</code></pre></div>
+<p>이 때 쿼리를 다음과 같이 할 수 있다. 쿼리할 때 <code class="language-text">&quot;status.details.responsible&quot;</code> 에는 반드시 쌍따옴표를 붙여야 한다.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&gt; db.flightData.find({&quot;status.details.responsible&quot; : &quot;louieslee&quot;}).pretty()
+{
+	&quot;_id&quot; : ObjectId(&quot;5defbde2a71650b736445834&quot;),
+	&quot;departureAirport&quot; : &quot;MUC&quot;,
+	&quot;arrivalAirport&quot; : &quot;SFO&quot;,
+	&quot;aircraft&quot; : &quot;Airbus A380&quot;,
+	&quot;distance&quot; : 12000,
+	&quot;intercontinental&quot; : true,
+	&quot;status&quot; : {
+		&quot;description&quot; : &quot;on-time&quot;,
+		&quot;lastUpdated&quot; : &quot;1 hour ago&quot;,
+		&quot;details&quot; : {
+			&quot;responsible&quot; : &quot;louieslee&quot;
+		}
+	}
+}
+{
+	&quot;_id&quot; : ObjectId(&quot;5defbde2a71650b736445835&quot;),
+	&quot;departureAirport&quot; : &quot;LHR&quot;,
+	&quot;arrivalAirport&quot; : &quot;TXL&quot;,
+	&quot;aircraft&quot; : &quot;Airbus A320&quot;,
+	&quot;distance&quot; : 950,
+	&quot;intercontinental&quot; : false,
+	&quot;status&quot; : {
+		&quot;description&quot; : &quot;on-time&quot;,
+		&quot;lastUpdated&quot; : &quot;1 hour ago&quot;,
+		&quot;details&quot; : {
+			&quot;responsible&quot; : &quot;louieslee&quot;
+		}
+	}
+}</code></pre></div></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->10 Dec 2019</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/mongodb/">mongodb</a></li></ul></div><div class="Author-module--author--2Yefr"><p><a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/#" rel="noopener noreferrer" target="_blank"><strong>saegeullee</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/nodejs/mongodb-basic";window.webpackCompilationHash="4befe4aec8a257750b94";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-bb6794cb52d39d8851fb.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-8517ad21f1e9bd071cdc.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-ab944fd5b75c139ff798.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-21f4a4e4a3f1b7f34691.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-79b7ff751d4bc9971174.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-a70383fc02515cd04e85.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-104b229c622ecdc32018.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-e3422e0305ace708b59d.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-4bb556518c6017654434.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-d3090a508b14cf649583.js"]};/*]]>*/</script><script src="/webpack-runtime-bb1ae267421f3abdd7ae.js" async=""></script><script src="/commons-6ecc39bc7f3183989523.js" async=""></script><script src="/styles-69a7f741b4d1e0e25ec2.js" async=""></script><script src="/component---src-templates-post-template-js-104b229c622ecdc32018.js" async=""></script><script src="/app-bb6794cb52d39d8851fb.js" async=""></script></body></html>
