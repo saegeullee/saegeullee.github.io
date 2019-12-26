@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 21 Dec 2019 11:23:10 GMT</lastBuildDate><item><title><![CDATA[Mongoose 에러 Schema hasn't been registered]]></title><description><![CDATA[이 포스팅에서는 nodejs & mongoose 어플리케이션을 개발하다 발생한 Schema hasn't been registered for model 에러 원인과 해결방법에 대해 정리해본다.]]></description><link>https://saegeullee.github.io/nodejs/mongoose-error-schema-hasnt-been-registered</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/mongoose-error-schema-hasnt-been-registered</guid><pubDate>Wed, 18 Dec 2019 12:10:37 GMT</pubDate><content:encoded>&lt;p&gt;이 포스팅에서는 nodejs &amp;#x26; mongoose 어플리케이션을 개발하다 발생한 아래의 에러 원인과 해결방법에 대해 정리해본다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 26 Dec 2019 01:34:33 GMT</lastBuildDate><item><title><![CDATA[Mongoose 에러 Schema hasn't been registered]]></title><description><![CDATA[이 포스팅에서는 nodejs & mongoose 어플리케이션을 개발하다 발생한 Schema hasn't been registered for model 에러 원인과 해결방법에 대해 정리해본다.]]></description><link>https://saegeullee.github.io/nodejs/mongoose-error-schema-hasnt-been-registered</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/mongoose-error-schema-hasnt-been-registered</guid><pubDate>Wed, 18 Dec 2019 12:10:37 GMT</pubDate><content:encoded>&lt;p&gt;이 포스팅에서는 nodejs &amp;#x26; mongoose 어플리케이션을 개발하다 발생한 아래의 에러 원인과 해결방법에 대해 정리해본다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Schema hasn&amp;#39;t been registered for model \&amp;quot;Provision\&amp;quot;.
 \nUse mongoose.model(name, schema)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;프로젝트를 진행하며 위의 에러때문에 시간을 꽤 잡아먹었다. 결론적으로 이 에러가 발생한 이유는 &lt;code class=&quot;language-text&quot;&gt;Provision&lt;/code&gt; 모델을 어플리케이션의 어디에서도 &lt;code class=&quot;language-text&quot;&gt;require&lt;/code&gt;하지 않았기 때문이다… &lt;code class=&quot;language-text&quot;&gt;Provision&lt;/code&gt; 모델은 이 프로젝트에서 직접적으로 쿼리하지 않고 &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; 모델을 통해 간접적으로 쿼리된다. &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; 모델의 필드에 &lt;code class=&quot;language-text&quot;&gt;Provision&lt;/code&gt; 의 reference가 있다. 따라서 아래와 같이 &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;모델에서 &lt;code class=&quot;language-text&quot;&gt;Provision&lt;/code&gt;을 populate 하는 과정에서 위의 에러가 발생한 것이다.&lt;/p&gt;
@@ -3198,7 +3198,7 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;p&gt;마지막 미들웨어는 주로 라우트 핸들러가 되는데 여기서는 &lt;code class=&quot;language-text&quot;&gt;next()&lt;/code&gt;함수를 호출하지 않고 reponse 객체를 클라이언트에게 보내준다. 그러면 request response cycle이 종료된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Nodejs가 작동하는 방법]]></title><description><![CDATA[nodejs runtime 은 몇 가지 dependency 가 있는데 그 중 가장 중요한 것이 v8 engine과 libuv이다. v8 engine이 없다면 nodejs는 javascript를 이해할 수 없다. v8 engine이 javascript 코드를 컴퓨터가 이해할 수 있는 머신 코드로 변환해주기 때문이다...]]></description><link>https://saegeullee.github.io/nodejs/how-nodejs-works</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/how-nodejs-works</guid><pubDate>Fri, 15 Nov 2019 13:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;nodejs-architecture&quot;&gt;&lt;a href=&quot;#nodejs-architecture&quot; aria-label=&quot;nodejs architecture permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nodejs architecture&lt;/h1&gt;
+&lt;h2 id=&quot;nodejs-아키텍처&quot;&gt;&lt;a href=&quot;#nodejs-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98&quot; aria-label=&quot;nodejs 아키텍처 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;nodejs 아키텍처&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
@@ -3243,10 +3243,100 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;nodejs runtime 은 몇 가지 &lt;code class=&quot;language-text&quot;&gt;dependency&lt;/code&gt; 가 있는데 그 중 가장 중요한 것이 &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;과 &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;이다. &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;이 없다면 nodejs는 javascript를 이해할 수 없다. &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;이 javascript 코드를 컴퓨터가 이해할 수 있는 머신 코드로 변환해주기 때문이다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;는 비동기 IO를 집중적으로 개발하는 오픈소스 라이브러리이다. &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;를 통해 노드는 파일시스템과 네트워킹 등의 컴퓨터 운영체제의 기능들에 접근할 수 있다. 또한 &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;에는 nodejs에서 굉장히 중요한 기능인 &lt;code class=&quot;language-text&quot;&gt;event loop&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;thread pool&lt;/code&gt;이 구현되어 있다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;event loop&lt;/code&gt;는 콜백 실행, network IO와 같은 가벼운 일을 처리해주고 &lt;code class=&quot;language-text&quot;&gt;thread pool&lt;/code&gt;은 파일에 접근하거나 파일을 압축하는 등의 무거운 일을 처리한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;는 비동기 IO를 집중적으로 개발하는 오픈소스 라이브러리이다. &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;를 통해 노드는 파일시스템과 네트워킹 등의 컴퓨터 운영체제의 기능들에 접근할 수 있다. 또한 &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;에는 nodejs에서 굉장히 중요한 기능인 &lt;code class=&quot;language-text&quot;&gt;이벤트루프&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;쓰레드풀&lt;/code&gt;이 구현되어 있다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;이벤트루프&lt;/code&gt;는 콜백 실행, network IO와 같은 가벼운 일을 처리해주고 &lt;code class=&quot;language-text&quot;&gt;쓰레드풀&lt;/code&gt;은 파일에 접근하거나 파일을 압축하는 등의 무거운 일을 처리한다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt;는 C++로 만들어졌고 &lt;code class=&quot;language-text&quot;&gt;v8 engine&lt;/code&gt;은 javascript 와 c++로 만들어졌다. nodejs의 역할은 순수 자바스크립트 코드를 통해 이 모든 기능들을 실행시킬 수 있도록 해주는 것이다.&lt;/p&gt;
-&lt;p&gt;nodejs는 v8 engine과 libuv 뿐만 아니라 &lt;code class=&quot;language-text&quot;&gt;http-parser&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;c-ares&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;OpenSSL&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;zlib&lt;/code&gt; 등의 라이브러리에도 의존성이 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Express 프레임워크]]></title><description><![CDATA[ Express is a minimal node.js framework, a higher level of abstraction. Express contains a very robust set of features: complex routing, easier handling of requests and responses, middleware, server-side rendering etc...]]></description><link>https://saegeullee.github.io/nodejs/what-is-express</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/what-is-express</guid><pubDate>Mon, 11 Nov 2019 00:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;nodejs는 v8 engine과 libuv 뿐만 아니라 &lt;code class=&quot;language-text&quot;&gt;http-parser&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;c-ares&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;OpenSSL&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;zlib&lt;/code&gt; 등의 라이브러리에도 의존성이 있다.&lt;/p&gt;
+&lt;h2 id=&quot;쓰레드와-쓰레드-풀&quot;&gt;&lt;a href=&quot;#%EC%93%B0%EB%A0%88%EB%93%9C%EC%99%80-%EC%93%B0%EB%A0%88%EB%93%9C-%ED%92%80&quot; aria-label=&quot;쓰레드와 쓰레드 풀 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쓰레드와 쓰레드 풀&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 547px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e0a726b636103ebbf0d08a855f40597d/70025/nodejs_threads.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.45886654478977%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACtUlEQVQ4y2WT2U8TURjF+UtJXGPUFx9MXFAQQgFZAqFWWVpFEQRNVMCkhNLZ505nhrYz0xZpWUqnrVQQ2kLL43HuRWIaHk6+3DuZ3z3f1lav1XFYOcTR7yMcHx2jXCpjb3cP+/l9bOe22blcLrNYKpaYim4RbsFFpViB42YwIr5EZ7gTE3YIbdWTKrZ+biHlpGBbNjY0E5qowVANpqSRhG169+YG4htxWEmLPZTL5eDuuuDTIq5Fb6JT6caMNYu2erXOQEQlEHkRC6uL+LA6i0+RBXyVvmGR++zpCziRR4zEYBomCvsFuK6Lg+IBjIyJHq4PIXUGUYdDW61ag2M7IIQgYSQwpvrRoXahjwyiW/Khh/jwTH4BLsbD0AwGpOWgKVPl9/LIprPIpDI4OKj8B2rESzNmYFaZw5QaxLQcwoQwhRCZwZQShKCJ0DW9BcicUrDnltb5vHHe6tCMmQgq7zCqjmNM9mOEH8M4CWBM8YPXhCsOaXOoKJjGxmmjFbjhAV/Lk+iV+zEsj2JAGMKgMoI+r4u81poyhexs7zDlvakolX6hUT286vC9MouAOsHSDAhe1EIIyBMXKRMdhm4wWC6buyiTbiIRT6BYLKNR+3MV+Ep5g34yhAF5CD7P2TAZhU/2HOoCEmaCjQ6dRTpGPMezc2Qtgny+gGb95CrwozKPSXUak+I0/OsBBMlbTJEQwtEwVpZWsLy8gmQiic3MJovpVJpBqevm6VkrMK7H8VTsxA3pDp7oz9EV78V97gHav1/H3NI8wj/CkCSJbRKFcFGO1ZQ6pHVtnv3rsmVZUBQFprclXUIP2r3Jfyg/xiO1A7fW7+L22j1EtAh7kAJoh7NbWbZdbMvsFLtrnjUvgPQjdZl20lBtAt4WINoSJE+CLUJ0JFiOxX6kKdL0Lvf6UnTX6dj8BTvDZeHHO05DAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/e0a726b636103ebbf0d08a855f40597d/8ac56/nodejs_threads.webp 240w,
+/static/e0a726b636103ebbf0d08a855f40597d/d3be9/nodejs_threads.webp 480w,
+/static/e0a726b636103ebbf0d08a855f40597d/61e23/nodejs_threads.webp 547w&quot;
+          sizes=&quot;(max-width: 547px) 100vw, 547px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/e0a726b636103ebbf0d08a855f40597d/e4891/nodejs_threads.png 240w,
+/static/e0a726b636103ebbf0d08a855f40597d/0ce91/nodejs_threads.png 480w,
+/static/e0a726b636103ebbf0d08a855f40597d/70025/nodejs_threads.png 547w&quot;
+          sizes=&quot;(max-width: 547px) 100vw, 547px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/e0a726b636103ebbf0d08a855f40597d/70025/nodejs_threads.png&quot;
+          alt=&quot;nodejs&quot;
+          title=&quot;nodejs&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;nodejs 서버를 실행시키면 nodejs 프로세스가 실행된다. 그리고 nodejs 서버는 프로세스 안에 있는 하나의 단일 쓰레드에서 실행된다. nodejs 서버를 10명의 사용자가 사용하든 100만명의 사용자가 동시에 사용하든 nodejs 서버는 하나의 단일 쓰레드에서 실행된다. 따라서 개발자는 이 단일 쓰레드를 blocking 하지 않도록 유의해서 nodejs 서버를 만들어야 한다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;nodejs 서버를 실행시키면 먼저 &lt;code class=&quot;language-text&quot;&gt;top-level&lt;/code&gt; 코드들이 실행된다. &lt;code class=&quot;language-text&quot;&gt;top-level&lt;/code&gt; 코드란 콜백 함수 안에 있지 않은 모든 코드를 의미한다.
+그 다음 서버 어플리케이션이 필요로 하는 모든 모듈들이 &lt;code class=&quot;language-text&quot;&gt;require&lt;/code&gt;되고 모든 콜백 이벤트가 등록된다. 마지막으로 &lt;code class=&quot;language-text&quot;&gt;이벤트루프&lt;/code&gt;가 실행된다. nodejs 어플리케이션의 대부분의 일이 이벤트루프에서 처리된다. 하지만 어떤 작업들은 이벤트루프가 처리하기에는 매우 무겁다. 만약 이러한 무거운 작업들이 이벤트루프에서 처리되면 nodejs가 실행되는 단일 쓰레드는 block 될 수 있다. 이렇게 이벤트루프가 block 되는 것을 방지하기 위해 nodejs의 프로세스에는 &lt;code class=&quot;language-text&quot;&gt;쓰레드풀&lt;/code&gt;이 있다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;쓰레드풀&lt;/code&gt;은 &lt;code class=&quot;language-text&quot;&gt;libuv&lt;/code&gt; 라이브러리가 nodejs에 제공하는 기능이다. 쓰레드풀은 nodejs가 동작하는 단일 쓰레드와는 다른 네가지 쓰레드를 추가적으로 제공한다. 개발자는 이 추가적인 쓰레드를 최대 128개까지 설정할 수 있지만 보통은 네 개의 쓰레드로 충분하다. &lt;code class=&quot;language-text&quot;&gt;이벤트루프&lt;/code&gt;는 무거운 작업들을 &lt;code class=&quot;language-text&quot;&gt;쓰레드풀&lt;/code&gt;이 처리하게끔 하여 일을 분담한다. 이벤트루프가 쓰레드풀에게 작업물을 할당하는 것은 자동으로 처리되기 때문에 개발자가 신경쓰지 않아도 된다.&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;쓰레드풀에게 할당되는 무거운 작업물은 예를들어 &lt;code class=&quot;language-text&quot;&gt;파일 처리&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;파일 압축&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;비밀번호 해싱&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;DNS 룩업&lt;/code&gt; 등이 있다. 이러한 작업들은 nodejs의 메인 단일 쓰레드를 손쉽게 block한다. 따라서 nodejs는 단일 쓰레드가 block되지 않도록 무거운 작업물들을 자동으로 쓰레드풀에게 넘긴다.&lt;/p&gt;
+&lt;h2 id=&quot;이벤트루프&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84&quot; aria-label=&quot;이벤트루프 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이벤트루프&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 693px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/f71e8/nodejs_eventloop.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.34487734487733%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+0lEQVQ4y3WTe1MbVRiH8zWd0d4gEEgVnVYdHKetl1oZL506+gHUtrTYihRHCzRtlk2yubFLyiaEJGw2u5uQDoFWmwv04uPZQxNrxT9+++7snvPM770Fep0evrrtLnvdPVrbLWp2DcdxsCyLbDZLLpfDMAyymSzFYlH+c2oO9qbNmfjHjNwJ8Wnic6bNGQKvAndaO1QqFfQVnZyeIxlPoqkaydhBNLIGelanuF6kZtX4RL1AWHmbmdxNfi8sEPBB7XaH9uOOBEtgqUJcixPRIswtzXHz9s/MLv4i42J8CSWhUDALwqVLOpsmkUqQy+ewHZvAk+4+7P8l9az3hG2Rsl22uaXNcyIaYlyd4N3kJKe095mIn+aYEuQb9TvK+TKu6+LYDs1Gk17bz7JHoL6zzdW8yo+mQrXV5I/dR1TLVeYStxhWRhhTxzmdmOSD1FnCyxO8ER3ikvotZbOE67mylluNrYOydboE1us2Z+9eYXLpByL301gi3ZXUCt/PXyZ0+zhvxYK8p30ogGc4qb7DkT5QOKzValiblgR2X/QhUGl6fLb8E+eVGVatEnXHw1w1uXZnhuFIkLHlEG/GTsl0g9FxjkaHBw51XUdLaNhVWzZUAksNhynlhtRKuYArarJmrHF14Tqji77DUY7fCzEk6jmihAfAjbUNCUxqKelyAFxv1PhIucY5oczmOk2vQeF+geuRGwTvBgnHxhgWzoLK+L+AJeHQNE0M3ZBz+4/DusNFdZaLy7Oki2tUK5actcu/TRNaGGIiFhLAsISNKic5Fh0ZdNnzPFzHpbnV5GCeBXBfvDx7vMfTP3s833vKw4ePcC2X+fSvvK6c4Mi9oHTly4e9Fj3K1+qlwdj47gZd9h36D7/dHSH/o796VsliIbHIBfULpmJfvqSvOB+b4kpsmg1zA8/1/gf4Qv3VK5fKZFIZjJTxH60KZZIZ8mb+cOCru7zb2pV18Q/atn24xJj4Z+peXUIfNB8cDuzHjtjrl50fpo7Yf/9cX/27fwNcsfc3C9n/dQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/8ac56/nodejs_eventloop.webp 240w,
+/static/cd177acb31cdbeb7a3c599172eaa8b44/d3be9/nodejs_eventloop.webp 480w,
+/static/cd177acb31cdbeb7a3c599172eaa8b44/1fd2f/nodejs_eventloop.webp 693w&quot;
+          sizes=&quot;(max-width: 693px) 100vw, 693px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/e4891/nodejs_eventloop.png 240w,
+/static/cd177acb31cdbeb7a3c599172eaa8b44/0ce91/nodejs_eventloop.png 480w,
+/static/cd177acb31cdbeb7a3c599172eaa8b44/f71e8/nodejs_eventloop.png 693w&quot;
+          sizes=&quot;(max-width: 693px) 100vw, 693px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/f71e8/nodejs_eventloop.png&quot;
+          alt=&quot;nodejs&quot;
+          title=&quot;nodejs&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어플리케이션 코드 중 콜백 함수 내부의 모든 코드가 실행되는 곳이 이벤트루프이다. 즉 &lt;code class=&quot;language-text&quot;&gt;top-level&lt;/code&gt;코드를 제외한 모든 코드가 이벤트루프에서 실행된다. 이 중 어떤 코드(무거운 작업)는 이벤트루프가 쓰레드풀에서 처리하도록 할 수 있다. nodejs는 &lt;code class=&quot;language-text&quot;&gt;event-driven 아키텍처&lt;/code&gt;를 사용한다. 예를들어 새로운 http 요청을 받거나, 타이머 만료, 파일 read가 완료되면 이벤트가 발생하고(emit) 이벤트루프는 이를 전달받아 각 이벤트의 콜백함수를 호출한다. 즉 이벤트루프는 nodejs 어플리케이션이 잘 동작하도록 총괄 지휘(orchestration)한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Express 프레임워크]]></title><description><![CDATA[ Express is a minimal node.js framework, a higher level of abstraction. Express contains a very robust set of features: complex routing, easier handling of requests and responses, middleware, server-side rendering etc...]]></description><link>https://saegeullee.github.io/nodejs/what-is-express</link><guid isPermaLink="false">https://saegeullee.github.io/nodejs/what-is-express</guid><pubDate>Mon, 11 Nov 2019 00:10:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 NODE.JS&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;express&quot;&gt;&lt;a href=&quot;#express&quot; aria-label=&quot;express permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Express&lt;/h1&gt;
