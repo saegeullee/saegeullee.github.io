@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 07 Jan 2020 12:10:03 GMT</lastBuildDate><item><title><![CDATA[MongoDB 인덱싱]]></title><description><![CDATA[mongoDB explain 메서드 : 몽고쉘에서 다음 명령을 통해 몽고DB가 특정 쿼리를 어떻게 수행할 것인지에 대한 계획을 살펴볼 수 있다...]]></description><link>https://saegeullee.github.io/mongodb/mongodb-indexes</link><guid isPermaLink="false">https://saegeullee.github.io/mongodb/mongodb-indexes</guid><pubDate>Sun, 05 Jan 2020 22:50:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 11 Jan 2020 06:14:50 GMT</lastBuildDate><item><title><![CDATA[MongoDB 인덱싱]]></title><description><![CDATA[mongoDB explain 메서드 : 몽고쉘에서 다음 명령을 통해 몽고DB가 특정 쿼리를 어떻게 수행할 것인지에 대한 계획을 살펴볼 수 있다...]]></description><link>https://saegeullee.github.io/mongodb/mongodb-indexes</link><guid isPermaLink="false">https://saegeullee.github.io/mongodb/mongodb-indexes</guid><pubDate>Sun, 05 Jan 2020 22:50:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/mongodb-the-complete-developers-guide/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유데미 몽고DB&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;이-글의-목차&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot; aria-label=&quot;이 글의 목차 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 글의 목차&lt;/h1&gt;
@@ -2953,6 +2953,7 @@ cells.metadata.json   histories.metadata.json&lt;/code&gt;&lt;/pre&gt;&lt;/div&g
 &lt;li&gt;ec2에서 &lt;code class=&quot;language-text&quot;&gt;mongorestore&lt;/code&gt;을 통해 아마존 documentDB에 카피한 데이터를 넣는다.&lt;/li&gt;
 &lt;li&gt;ec2에서 아마존 documentDB 접속하여 디비 확인.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;위 과정을 보면 먼저 로컬에서 아마존 ec2 서버로 카피한 데이터를 옮기고 이 데이터를 다시 documentDB로 옮긴다. 데이터를 두 번의 과정에 걸쳐서 옮기고 있다. 그 이유는 aws documentDB에 접속하기 위해서는 보안키인 pem 키가 필요한데 보안상 이 보안키를 내 로컬에 둘 수는 없었고 ec2 서버에 있었기 때문에 어쩔수 없이 디비 데이터를 두 번 옮긴 것이다.&lt;/p&gt;
 &lt;p&gt;1번은 &lt;strong&gt;&lt;a href=&quot;https://saegeullee.github.io//nodejs/deploy-nodejs-server-to-aws-ec2&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Nodejs 서버 아마존 ec2에 배포하기&lt;/a&gt;&lt;/strong&gt; 참고&lt;/p&gt;
 &lt;p&gt;2번은 다음의 명령어를 통해 로컬의 dump/database_name 디렉토리의 모든 파일을 aws ec2서버로 옮겼다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;scp -i folders/aws/saegeullee-key.pem -r dump/database_name ubuntu@ec2-54-180-92-87.ap-northeast-2.compute.amazonaws.com:~/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -2981,6 +2982,50 @@ show collections;
 &lt;p&gt;아래의 명령어를 통해 ec2에 접속한다. pem키가 현재 디렉토리에 있다면 아래의 명령어로 접속이 가능하고 특정 폴더안에 있다면 pem키 앞에 디렉토리 경로까지 넣어줘야 한다. @ 뒷 부분은 ec2 인스턴스에 할당받은 IPv4 퍼블릭 IP이다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ssh -i your_pem_key.pem ubuntu@13.180.55.29&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;아마존-ec2-보안그룹-설정&quot;&gt;&lt;a href=&quot;#%EC%95%84%EB%A7%88%EC%A1%B4-ec2-%EB%B3%B4%EC%95%88%EA%B7%B8%EB%A3%B9-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;아마존 ec2 보안그룹 설정 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아마존 ec2 보안그룹 설정&lt;/h2&gt;
+&lt;p&gt;이 프로젝트를 배포한 아마존 ec2 인스턴스는 https 프로토콜을 사용하기 때문에 ec2 인스턴스의 보안그룹을 다음과 같이 구성한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e250ca496700c7cdba6e5911d89651e9/5aa1a/aws_security_group.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.875226039783%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAAAl0lEQVQY022QUQrEIAxEvf8l9ccVqlZsobZqnW0Cgut2YEh4asgotmCxBYdlWWCtRQgBtVbc943W2o+JvfF+RlWk83waoJTCg8hd86NRr5wGGvPhrdZ1ZVNvjIFSCs45Zt57rpRCSslJRk73tNZcxb7vvN11XeycM4iRqR/5cRyIMf7xlBIvcj5pxRixi9gckdT/cNYY/QtI8oYwxHQ0ugAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/e250ca496700c7cdba6e5911d89651e9/8ac56/aws_security_group.webp 240w,
+/static/e250ca496700c7cdba6e5911d89651e9/d3be9/aws_security_group.webp 480w,
+/static/e250ca496700c7cdba6e5911d89651e9/e46b2/aws_security_group.webp 960w,
+/static/e250ca496700c7cdba6e5911d89651e9/3fe5f/aws_security_group.webp 1106w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/e250ca496700c7cdba6e5911d89651e9/e4891/aws_security_group.png 240w,
+/static/e250ca496700c7cdba6e5911d89651e9/0ce91/aws_security_group.png 480w,
+/static/e250ca496700c7cdba6e5911d89651e9/b7c40/aws_security_group.png 960w,
+/static/e250ca496700c7cdba6e5911d89651e9/5aa1a/aws_security_group.png 1106w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/e250ca496700c7cdba6e5911d89651e9/b7c40/aws_security_group.png&quot;
+          alt=&quot;aws security group&quot;
+          title=&quot;aws security group&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&quot;node-설치&quot;&gt;&lt;a href=&quot;#node-%EC%84%A4%EC%B9%98&quot; aria-label=&quot;node 설치 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;node 설치&lt;/h2&gt;
 &lt;p&gt;ec2 서버에 접속이 되었다면 아래의 명령어를 통해 서버컴퓨터에 nodejs를 설치한다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
@@ -3076,7 +3121,9 @@ JWT_SECRET = &amp;quot;your_jwt_secret_key&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt
         /&gt;
       &lt;/picture&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Binary Search]]></title><description><![CDATA[Write a function that takes in a sorted array of integers as well as a target integer. The function should use the Binary Search algorithm to find if the target number is contained in the array and should return its index if it is, otherwise -1...]]></description><link>https://saegeullee.github.io/category/algorithm/binary-search</link><guid isPermaLink="false">https://saegeullee.github.io/category/algorithm/binary-search</guid><pubDate>Mon, 02 Dec 2019 18:46:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;reference&quot;&gt;&lt;a href=&quot;#reference&quot; aria-label=&quot;reference permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;reference&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://zamezzz.tistory.com/301&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;AWS EC2 보안그룹 설정&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Binary Search]]></title><description><![CDATA[Write a function that takes in a sorted array of integers as well as a target integer. The function should use the Binary Search algorithm to find if the target number is contained in the array and should return its index if it is, otherwise -1...]]></description><link>https://saegeullee.github.io/category/algorithm/binary-search</link><guid isPermaLink="false">https://saegeullee.github.io/category/algorithm/binary-search</guid><pubDate>Mon, 02 Dec 2019 18:46:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.algoexpert.io&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;문제출처 : algoexpert&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Write a function that takes in a sorted array of integers as well as a target integer. The function should use the Binary Search algorithm to find if the target number is contained in the array and should return its index if it is, otherwise -1.&lt;/p&gt;
@@ -3827,37 +3874,37 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;h2 id=&quot;쓰레드와-쓰레드-풀&quot;&gt;&lt;a href=&quot;#%EC%93%B0%EB%A0%88%EB%93%9C%EC%99%80-%EC%93%B0%EB%A0%88%EB%93%9C-%ED%92%80&quot; aria-label=&quot;쓰레드와 쓰레드 풀 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쓰레드와 쓰레드 풀&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 547px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 837px;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e0a726b636103ebbf0d08a855f40597d/70025/nodejs_threads.png&quot;
+    href=&quot;/static/e0dc665345f6f7c2030e9a6c12285704/cb62a/nodejs_threads.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 67.45886654478977%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACtUlEQVQ4y2WT2U8TURjF+UtJXGPUFx9MXFAQQgFZAqFWWVpFEQRNVMCkhNLZ505nhrYz0xZpWUqnrVQQ2kLL43HuRWIaHk6+3DuZ3z3f1lav1XFYOcTR7yMcHx2jXCpjb3cP+/l9bOe22blcLrNYKpaYim4RbsFFpViB42YwIr5EZ7gTE3YIbdWTKrZ+biHlpGBbNjY0E5qowVANpqSRhG169+YG4htxWEmLPZTL5eDuuuDTIq5Fb6JT6caMNYu2erXOQEQlEHkRC6uL+LA6i0+RBXyVvmGR++zpCziRR4zEYBomCvsFuK6Lg+IBjIyJHq4PIXUGUYdDW61ag2M7IIQgYSQwpvrRoXahjwyiW/Khh/jwTH4BLsbD0AwGpOWgKVPl9/LIprPIpDI4OKj8B2rESzNmYFaZw5QaxLQcwoQwhRCZwZQShKCJ0DW9BcicUrDnltb5vHHe6tCMmQgq7zCqjmNM9mOEH8M4CWBM8YPXhCsOaXOoKJjGxmmjFbjhAV/Lk+iV+zEsj2JAGMKgMoI+r4u81poyhexs7zDlvakolX6hUT286vC9MouAOsHSDAhe1EIIyBMXKRMdhm4wWC6buyiTbiIRT6BYLKNR+3MV+Ep5g34yhAF5CD7P2TAZhU/2HOoCEmaCjQ6dRTpGPMezc2Qtgny+gGb95CrwozKPSXUak+I0/OsBBMlbTJEQwtEwVpZWsLy8gmQiic3MJovpVJpBqevm6VkrMK7H8VTsxA3pDp7oz9EV78V97gHav1/H3NI8wj/CkCSJbRKFcFGO1ZQ6pHVtnv3rsmVZUBQFprclXUIP2r3Jfyg/xiO1A7fW7+L22j1EtAh7kAJoh7NbWbZdbMvsFLtrnjUvgPQjdZl20lBtAt4WINoSJE+CLUJ0JFiOxX6kKdL0Lvf6UnTX6dj8BTvDZeHHO05DAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.90561529271206%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACp0lEQVQ4y22TW08aURSF/Z99qbExTfrSpOklNppgpGIwKK3WqqClra1NtE1bagWEmQHmAnNhBkSQKnIdqRdERF9X5xxDE0IfVvbDyf6y9l77DLQv2zg9OcPZ6Tma500cm8col8qoVqooFoswTRON4wYaZoO+EZk1E/VaHSf1P8jXf2NOcMMenIAn48NAq9nCfn4f2d0sMukMFEmBFBUhC0kkLemKDkMxoMoqNFWDntJR2C+gUCigfFAGvydgKDKMZ7Hn8BkfMHB5cQlDNyCJEjiWw0ZgE+vBz9jY2cSPuB9fmK9UbJRDQkpATsqolCuoVqto1BpQcxrGmRd4IywjssveAtNGmgI1WcOs8Aojwhjs4hRscTtsgh0jsTFEEgx1T4DdlRCVjkrI7+aRTWfpenqAckLGGv8JXnEV3vgqljgv3orvsMyvgJOikCW5B0idErDl1qybuOnc9ANJs8tasivmxjQ3A7cwBxfvBiOxfcCuCLhWraHT7vQClYSCxfgyJuNOzMRewsm5KMwRc4L9D7B4WKQiY9et5Duts36HPv495oUFLMU9eM0tYkn0Yi6+YI3MISlZySeSFHh4cEhDUhUVKS1lOazjutXsd0iaHaITDsulPTqFaXEWEzEHmASLlJKip0P2RSoTYWgNBUM4KpZw077od/iRX4dHWLEC8WA+vIBVyUdDCrIhbP/cht/vp7eY28vRSu6XQInr66urXqCaVDEatWE49gCjSRvGtUk8ZB/j7vd7WPu2hq3vW2AZlo5LxiQOycjhnTDd47+UyWELvECXPsrZcCcyiEf8UzwRRjAUvo/BwDCCYggp605lWaaBkN9F+rpOy6WK5fD6FpjP5eljxsiA0Vn8SgUQ0neoAnoQASMEzdCQ1tP0e3bPhPznbiUiwL8fzmU8OPmqWQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
         &lt;source
-          srcset=&quot;/static/e0a726b636103ebbf0d08a855f40597d/8ac56/nodejs_threads.webp 240w,
-/static/e0a726b636103ebbf0d08a855f40597d/d3be9/nodejs_threads.webp 480w,
-/static/e0a726b636103ebbf0d08a855f40597d/61e23/nodejs_threads.webp 547w&quot;
-          sizes=&quot;(max-width: 547px) 100vw, 547px&quot;
+          srcset=&quot;/static/e0dc665345f6f7c2030e9a6c12285704/8ac56/nodejs_threads.webp 240w,
+/static/e0dc665345f6f7c2030e9a6c12285704/d3be9/nodejs_threads.webp 480w,
+/static/e0dc665345f6f7c2030e9a6c12285704/a6125/nodejs_threads.webp 837w&quot;
+          sizes=&quot;(max-width: 837px) 100vw, 837px&quot;
           type=&quot;image/webp&quot;
         /&gt;
         &lt;source
-          srcset=&quot;/static/e0a726b636103ebbf0d08a855f40597d/e4891/nodejs_threads.png 240w,
-/static/e0a726b636103ebbf0d08a855f40597d/0ce91/nodejs_threads.png 480w,
-/static/e0a726b636103ebbf0d08a855f40597d/70025/nodejs_threads.png 547w&quot;
-          sizes=&quot;(max-width: 547px) 100vw, 547px&quot;
+          srcset=&quot;/static/e0dc665345f6f7c2030e9a6c12285704/e4891/nodejs_threads.png 240w,
+/static/e0dc665345f6f7c2030e9a6c12285704/0ce91/nodejs_threads.png 480w,
+/static/e0dc665345f6f7c2030e9a6c12285704/cb62a/nodejs_threads.png 837w&quot;
+          sizes=&quot;(max-width: 837px) 100vw, 837px&quot;
           type=&quot;image/png&quot;
         /&gt;
         &lt;img
           class=&quot;gatsby-resp-image-image&quot;
-          src=&quot;/static/e0a726b636103ebbf0d08a855f40597d/70025/nodejs_threads.png&quot;
+          src=&quot;/static/e0dc665345f6f7c2030e9a6c12285704/cb62a/nodejs_threads.png&quot;
           alt=&quot;nodejs&quot;
           title=&quot;nodejs&quot;
           loading=&quot;lazy&quot;
@@ -3874,37 +3921,37 @@ app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=
 &lt;h2 id=&quot;이벤트루프&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%A4%ED%8A%B8%EB%A3%A8%ED%94%84&quot; aria-label=&quot;이벤트루프 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이벤트루프&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 693px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 744px;&quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/f71e8/nodejs_eventloop.png&quot;
+    href=&quot;/static/48de9ed75f4a9958de70fd381e2dc9f2/9c923/nodejs_eventloop.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77.34487734487733%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+0lEQVQ4y3WTe1MbVRiH8zWd0d4gEEgVnVYdHKetl1oZL506+gHUtrTYihRHCzRtlk2yubFLyiaEJGw2u5uQDoFWmwv04uPZQxNrxT9+++7snvPM770Fep0evrrtLnvdPVrbLWp2DcdxsCyLbDZLLpfDMAyymSzFYlH+c2oO9qbNmfjHjNwJ8Wnic6bNGQKvAndaO1QqFfQVnZyeIxlPoqkaydhBNLIGelanuF6kZtX4RL1AWHmbmdxNfi8sEPBB7XaH9uOOBEtgqUJcixPRIswtzXHz9s/MLv4i42J8CSWhUDALwqVLOpsmkUqQy+ewHZvAk+4+7P8l9az3hG2Rsl22uaXNcyIaYlyd4N3kJKe095mIn+aYEuQb9TvK+TKu6+LYDs1Gk17bz7JHoL6zzdW8yo+mQrXV5I/dR1TLVeYStxhWRhhTxzmdmOSD1FnCyxO8ER3ikvotZbOE67mylluNrYOydboE1us2Z+9eYXLpByL301gi3ZXUCt/PXyZ0+zhvxYK8p30ogGc4qb7DkT5QOKzValiblgR2X/QhUGl6fLb8E+eVGVatEnXHw1w1uXZnhuFIkLHlEG/GTsl0g9FxjkaHBw51XUdLaNhVWzZUAksNhynlhtRKuYArarJmrHF14Tqji77DUY7fCzEk6jmihAfAjbUNCUxqKelyAFxv1PhIucY5oczmOk2vQeF+geuRGwTvBgnHxhgWzoLK+L+AJeHQNE0M3ZBz+4/DusNFdZaLy7Oki2tUK5actcu/TRNaGGIiFhLAsISNKic5Fh0ZdNnzPFzHpbnV5GCeBXBfvDx7vMfTP3s833vKw4ePcC2X+fSvvK6c4Mi9oHTly4e9Fj3K1+qlwdj47gZd9h36D7/dHSH/o796VsliIbHIBfULpmJfvqSvOB+b4kpsmg1zA8/1/gf4Qv3VK5fKZFIZjJTxH60KZZIZ8mb+cOCru7zb2pV18Q/atn24xJj4Z+peXUIfNB8cDuzHjtjrl50fpo7Yf/9cX/27fwNcsfc3C9n/dQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 73.9247311827957%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAAC7klEQVQ4y3VUW08TQRjt39QHLJRyKWq0LYUqRhJ9MZr44JNRw00oF4OagBII7W7vbba7vQC2pemVtiBtUbstF8XjfIMUqPHh7Oz3zeTMme87M5rDxiEITbXJx0a9gVqlhlq1hoPqAfbKeyiXytgt76JULGFvd4/nq5Uq1God0xtz6F/UQbvYhYf+x9C0E9a/15HL5pBJZ5DJZKAoCiRJgizLCASCPKZ8Op1GMVvEG2kcerEPz4LPMRdbOCMkshbhDxX5XB6KrEAJypC8ElzrLvhEH5zrTh7LLE/zpXwJs8F5mO1WjAUnsBJbhYaIVLWBel1Fg/2TQiIMhUL44PkIm3MW42uTmLK/xQQbZ1hMeTkko5AvIL4VhxJSkEgmkCvkzhTi+DdwAo4GIy8WiggpIZidVnQIepj9VgwyGH1D6BC7MShaeQmIkEDrm/UmjppHZwrHow6MehdgizlR2d1H4ksCLrcL5lULDG49Bpx3YPU/wG23CVq2wZB4/wohQWWlInEaYp6W7Hi0bsO8JKCY20EsGoNdcMC4ZIJB1MLkHcZIYBR3PRZ0OLo5IdUwm8kimUjyJrYIVWaTF4El9K28xExYwLf9GraT2/D4vDCvkUIdesWbXF2POMAU9sAi3kNYCfONfV4fNjc2W03VkO/eKU48cczjc9SPcqHEFwiiAOMnE/pFHfSCATqhj9nDgM5LhJFwhBNGI9ELQrLJU+97GFZf4bW0itrXCj+G2+thNRzELY+OExF6LhHSkVPJFLY2t5DaTvEL0VLojkewHPHBF48in83zHdcddhiXzUxhNz8qgY7eJfZiWBzhttkp7LRw0RT2+dU8wWnjGKdHP0FxaacEOSzD6LLgmtDJO3tD6ObjdUELo2g563KuwD17pcuH6iE3NKHZ+GtsppKum83NTO2ZxIRnqoUxFtvccy1j5/NthOfXrv0uU8EjUgSxUOwfUJ7mSR2tpfFCYdvjQBP0shDK5fJ/cb6GQC/QeVP+ACCA9N1Sstz5AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
         &lt;source
-          srcset=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/8ac56/nodejs_eventloop.webp 240w,
-/static/cd177acb31cdbeb7a3c599172eaa8b44/d3be9/nodejs_eventloop.webp 480w,
-/static/cd177acb31cdbeb7a3c599172eaa8b44/1fd2f/nodejs_eventloop.webp 693w&quot;
-          sizes=&quot;(max-width: 693px) 100vw, 693px&quot;
+          srcset=&quot;/static/48de9ed75f4a9958de70fd381e2dc9f2/8ac56/nodejs_eventloop.webp 240w,
+/static/48de9ed75f4a9958de70fd381e2dc9f2/d3be9/nodejs_eventloop.webp 480w,
+/static/48de9ed75f4a9958de70fd381e2dc9f2/43142/nodejs_eventloop.webp 744w&quot;
+          sizes=&quot;(max-width: 744px) 100vw, 744px&quot;
           type=&quot;image/webp&quot;
         /&gt;
         &lt;source
-          srcset=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/e4891/nodejs_eventloop.png 240w,
-/static/cd177acb31cdbeb7a3c599172eaa8b44/0ce91/nodejs_eventloop.png 480w,
-/static/cd177acb31cdbeb7a3c599172eaa8b44/f71e8/nodejs_eventloop.png 693w&quot;
-          sizes=&quot;(max-width: 693px) 100vw, 693px&quot;
+          srcset=&quot;/static/48de9ed75f4a9958de70fd381e2dc9f2/e4891/nodejs_eventloop.png 240w,
+/static/48de9ed75f4a9958de70fd381e2dc9f2/0ce91/nodejs_eventloop.png 480w,
+/static/48de9ed75f4a9958de70fd381e2dc9f2/9c923/nodejs_eventloop.png 744w&quot;
+          sizes=&quot;(max-width: 744px) 100vw, 744px&quot;
           type=&quot;image/png&quot;
         /&gt;
         &lt;img
           class=&quot;gatsby-resp-image-image&quot;
-          src=&quot;/static/cd177acb31cdbeb7a3c599172eaa8b44/f71e8/nodejs_eventloop.png&quot;
+          src=&quot;/static/48de9ed75f4a9958de70fd381e2dc9f2/9c923/nodejs_eventloop.png&quot;
           alt=&quot;nodejs&quot;
           title=&quot;nodejs&quot;
           loading=&quot;lazy&quot;
@@ -4152,7 +4199,64 @@ git과 github을 활용하여 협업을 하였고 백엔드와 프론트엔드 �
       &lt;/picture&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-진행과정 정리&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 완벽가이드 정리(Array)]]></title><description><![CDATA[자바스크립트 완벽가이드 책 정리]]></description><link>https://saegeullee.github.io/category/javascript/-javascript-the-definitive-guide/</link><guid isPermaLink="false">https://saegeullee.github.io/category/javascript/-javascript-the-definitive-guide/</guid><pubDate>Tue, 05 Nov 2019 11:16:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+진행과정 정리&lt;/p&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 완벽가이드 정리(String)]]></title><description><![CDATA[자바스크립트 완벽가이드 책 정리]]></description><link>https://saegeullee.github.io/javascript/javascript-the-definitive-guide-strings/</link><guid isPermaLink="false">https://saegeullee.github.io/javascript/javascript-the-definitive-guide-strings/</guid><pubDate>Thu, 07 Nov 2019 11:16:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.yes24.com/Product/Goods/24769929&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;자바스크립트 완벽가이드&lt;/a&gt;&lt;/strong&gt; 책의 내용을 정리했습니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;string&quot;&gt;&lt;a href=&quot;#string&quot; aria-label=&quot;string permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String&lt;/h1&gt;
+&lt;h2 id=&quot;stringcharat&quot;&gt;&lt;a href=&quot;#stringcharat&quot; aria-label=&quot;stringcharat permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.charAt()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열의 n번째 문자를 얻는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringindexof&quot;&gt;&lt;a href=&quot;#stringindexof&quot; aria-label=&quot;stringindexof permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.indexOf()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열을 검색한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;string.indexOf(substring)
+string.indexOf(substring, start)
+
+substring -&amp;gt; string 내에서 검색할 부분 문자열
+start -&amp;gt; 검색을 시작할 인덱스 값으로 생략 가능, 생략시 0이 사용됨&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;string 내의 start보다 위치상 뒤에 나타난 문자열 중 가장 처음 찾은 substring의 위치를 반환한다. string에서 부분 문자열을 찾지 못하면 -1을 반환한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringlastindexof&quot;&gt;&lt;a href=&quot;#stringlastindexof&quot; aria-label=&quot;stringlastindexof permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.lastIndexOf()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열을 역방향으로 검색한다.&lt;/li&gt;
+&lt;li&gt;substring을 찾기 위해 문자열의 끝에서부터 시작까지 검색을 수행한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringlength&quot;&gt;&lt;a href=&quot;#stringlength&quot; aria-label=&quot;stringlength permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.length&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열의 길이&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringslice&quot;&gt;&lt;a href=&quot;#stringslice&quot; aria-label=&quot;stringslice permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.slice()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;부분 문자열을 추출한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;string.slice(start, end)
+
+start -&amp;gt; 문자열 조각이 시작되는 위치를 가리키는 인덱스이다.
+이 값이 음수이면 문자열의 끝부터 앞쪽으로 번호를 매겼을 때의 위치를 가리킨다.
+-1 -&amp;gt; 문자열의 가장 마지막 문자를 가리킴
+-2 -&amp;gt; 문자열의 끝에서 두 번째 문자를 가리킴
+
+end -&amp;gt; 문자열 조각의 바로 다음 인덱스를 가리킨다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;slice()는 원본 string을 변경하지 않는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringsubstring&quot;&gt;&lt;a href=&quot;#stringsubstring&quot; aria-label=&quot;stringsubstring permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.substring()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열의 부분 문자열을 반환한다.&lt;/li&gt;
+&lt;li&gt;slice()와의 차이점은 이 메서드의 전달인자는 음수가 될 수 없다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringsubstr&quot;&gt;&lt;a href=&quot;#stringsubstr&quot; aria-label=&quot;stringsubstr permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.substr()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;부분 문자열을 추출&lt;/li&gt;
+&lt;li&gt;ECMAScript 표준에 채택되지 않았다. 사용 권장되지 않음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;stringsplit&quot;&gt;&lt;a href=&quot;#stringsplit&quot; aria-label=&quot;stringsplit permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;String.split()&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;문자열을 문자열 배열로 쪼갠다.&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[자바스크립트 완벽가이드 정리(Array)]]></title><description><![CDATA[자바스크립트 완벽가이드 책 정리]]></description><link>https://saegeullee.github.io/category/javascript/-javascript-the-definitive-guide/</link><guid isPermaLink="false">https://saegeullee.github.io/category/javascript/-javascript-the-definitive-guide/</guid><pubDate>Tue, 05 Nov 2019 11:16:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.yes24.com/Product/Goods/24769929&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;자바스크립트 완벽가이드&lt;/a&gt;&lt;/strong&gt; 책의 내용을 정리했습니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;array&quot;&gt;&lt;a href=&quot;#array&quot; aria-label=&quot;array permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Array&lt;/h1&gt;

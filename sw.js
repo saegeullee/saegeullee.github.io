@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "styles-8f10df4b1baa09fb1b32.js"
   },
   {
-    "url": "commons-9751fac41aceb026b3f7.js"
+    "url": "commons-795333e48bc41d709a72.js"
   },
   {
     "url": "netlify-identity-widget-e37a35e339457e643f79.js"
@@ -49,7 +49,7 @@ self.__precacheManifest = [
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "1673e6fd4edc5907d6fa54fa4aa0c0ce"
+    "revision": "ffe302b441bd8c51b96b0b1736e86d67"
   },
   {
     "url": "manifest.json",
