@@ -1,4 +1,524 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 30 Jan 2020 09:48:52 GMT</lastBuildDate><item><title><![CDATA[함수형 프로그래밍]]></title><description><![CDATA[함수형 프로그래밍은 성공적인 프로그래밍을 위해 부수 효과를 미워하고 조합성을 강조하는 프로그래밍 패러다임이다. 부수효과를 미워한다는 것은 순수함수를 만든다는 뜻인데 순수함수란 들어온 인자가 같으면 항상 같은 결과를 리턴하는 함수이다...]]></description><link>https://saegeullee.github.io/javascript/functional-programming</link><guid isPermaLink="false">https://saegeullee.github.io/javascript/functional-programming</guid><pubDate>Sun, 26 Jan 2020 21:12:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 12 Feb 2020 11:30:29 GMT</lastBuildDate><item><title><![CDATA[CentOS 서버에서 포트 열어주기]]></title><description><![CDATA[centOS 서버에 Nodejs 어플리케이션을 설치하고 이 서버에 외부에서 접근하려고 하였지만 계속 접근을 하지 못했다. 그 이유는 결론적으로 외부에서 접속할 수 있도록 포트를 열어주지 않았기 때문이다...]]></description><link>https://saegeullee.github.io/linux/centos</link><guid isPermaLink="false">https://saegeullee.github.io/linux/centos</guid><pubDate>Wed, 12 Feb 2020 18:12:37 GMT</pubDate><content:encoded>&lt;p&gt;centOS 서버에 Nodejs 어플리케이션을 설치하고 이 서버에 외부에서 접근하려고 하였지만 계속 접근을 하지 못했다. 그 이유는 결론적으로 외부에서 접속할 수 있도록 포트를 열어주지 않았기 때문이다. CentOS 서버는 처음 써보기도 하고.. 내가 아마존 ec2 인스턴스의 리눅스(우분투) 서버에 Nodejs 어플리케이션을 배포했을 때는 AWS 인스턴스 콘솔에서 보안그룹 설정을 통해 인바운드 트래픽을 어떻게 허용할지 정의한다. 이 프로젝트는 https 프로토콜을 사용하였기 때문에 포트를 443번만 열어줬다. 그리고 이 서버에서 실행한 nodejs 서버 어플리케이션은 아마 3030 또는 3000번 포트를 사용했다. 하지만 이 포트를 열어줄지 말지에 대한 설정을 따로 하지는 않았다. 따로 열어주지 않았음에도 제대로 동작한 이유를 정확히는 모르겠다..&lt;/p&gt;
+&lt;p&gt;하지만 이번에 진행한 centOS 서버에서는 아마존과 같은 인터페이스가 없었고 직접 서버 내부에서 &lt;code class=&quot;language-text&quot;&gt;firewalld&lt;/code&gt;라는 것을 사용하여 해당 포트를 열어줘야 했다. &lt;a href=&quot;https://www.tecmint.com/fix-firewall-cmd-command-not-found-error/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;이 아티클&lt;/a&gt;을 참고하였다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[리눅스 명령어 정리]]></title><description><![CDATA[그때그때 필요하여 찾아본 리눅스 명령어를 정리한다.]]></description><link>https://saegeullee.github.io/linux/command</link><guid isPermaLink="false">https://saegeullee.github.io/linux/command</guid><pubDate>Wed, 12 Feb 2020 11:12:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;cat을-통해-파일-내용-확인하기&quot;&gt;&lt;a href=&quot;#cat%EC%9D%84-%ED%86%B5%ED%95%B4-%ED%8C%8C%EC%9D%BC-%EB%82%B4%EC%9A%A9-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0&quot; aria-label=&quot;cat을 통해 파일 내용 확인하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;cat을 통해 파일 내용 확인하기&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cat /etc/nginx/mime.types
+
+types {
+    text/html                                        html htm shtml;
+    text/css                                         css;
+    text/xml                                         xml;
+    image/gif                                        gif;
+    image/jpeg                                       jpeg jpg;
+    application/javascript                           js;
+    application/atom+xml                             atom;
+    application/rss+xml                              rss;
+
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;시스템-내-파일찾기&quot;&gt;&lt;a href=&quot;#%EC%8B%9C%EC%8A%A4%ED%85%9C-%EB%82%B4-%ED%8C%8C%EC%9D%BC%EC%B0%BE%EA%B8%B0&quot; aria-label=&quot;시스템 내 파일찾기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;시스템 내 파일찾기&lt;/h2&gt;
+&lt;p&gt;시스템의 모든 디렉토리에서(/) 찾아라(find). 이름을 기준으로(-name). 그 기준 이름은 nginx이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;find / -name nginx
+/etc/default/nginx
+/etc/nginx
+/etc/logrotate.d/nginx
+/etc/ufw/applications.d/nginx
+/etc/init.d/nginx
+/var/log/nginx
+/var/lib/nginx
+/user/bin/nginx
+/home/ubuntu/nginx-1.17.8/objs/nginx
+/usr/local/nginx
+/usr/share/nginx
+/usr/share/doc/nginx
+/usr/sbin/nginx
+/usr/lib/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Vim 명령어 정리]]></title><description><![CDATA[그때그때 필요하여 찾아본 vim 명령어를 정리한다.]]></description><link>https://saegeullee.github.io/vim/command</link><guid isPermaLink="false">https://saegeullee.github.io/vim/command</guid><pubDate>Wed, 12 Feb 2020 10:12:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;한-줄-전체-삭제&quot;&gt;&lt;a href=&quot;#%ED%95%9C-%EC%A4%84-%EC%A0%84%EC%B2%B4-%EC%82%AD%EC%A0%9C&quot; aria-label=&quot;한 줄 전체 삭제 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;한 줄 전체 삭제&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;dd&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;파일-전체-삭제&quot;&gt;&lt;a href=&quot;#%ED%8C%8C%EC%9D%BC-%EC%A0%84%EC%B2%B4-%EC%82%AD%EC%A0%9C&quot; aria-label=&quot;파일 전체 삭제 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;파일 전체 삭제&lt;/h2&gt;
+&lt;p&gt;파일의 첫번째 줄(1)부터 파일의 끝까지($) 삭제(delete) 뜻이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;:1,$d&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Nginx 서버 설치와 환경 설정]]></title><description><![CDATA[nginx서버를 설치하는 방법은 먼저 리눅스 운영체제의 패키지 매니저를 사용하여 설치하는 방법이 있다. 이 방법은 쉽고 빠르게 설치가 가능하지만 설치 가능한 옵션이 제한되어 있고 추가적인 모듈에 대한 지원이 어렵다. 따라서 이 방법은 가장 기초적인 웹서버만을 필요로 할 때 사용할만한 방법이다...]]></description><link>https://saegeullee.github.io/server/nginx</link><guid isPermaLink="false">https://saegeullee.github.io/server/nginx</guid><pubDate>Sat, 08 Feb 2020 14:12:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udemy.com/course/nginx-fundamentals&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Nginx Fundamentals&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;이-글의-목차&quot;&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot; aria-label=&quot;이 글의 목차 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이 글의 목차&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-nginx-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot;&gt;패키지 매니저를 사용하여 Nginx 서버 설치하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#nginx-%EC%84%9C%EB%B2%84-%EC%86%8C%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0--%EB%AA%A8%EB%93%88-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot;&gt;Nginx 서버 소스 설치하기 &amp;#x26; 모듈 추가하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#nginx-service-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot;&gt;Nginx Service 추가하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#nginx-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95-%EC%9A%A9%EC%96%B4&quot;&gt;Nginx 환경설정 용어&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#%EA%B0%80%EC%83%81-%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot;&gt;가상 호스트(virtual host) 생성하기&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#location-blocks&quot;&gt;Location Blocks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;패키지-매니저를-사용하여-nginx-서버-설치하기&quot;&gt;&lt;a href=&quot;#%ED%8C%A8%ED%82%A4%EC%A7%80-%EB%A7%A4%EB%8B%88%EC%A0%80%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-nginx-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0&quot; aria-label=&quot;패키지 매니저를 사용하여 nginx 서버 설치하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;패키지 매니저를 사용하여 Nginx 서버 설치하기&lt;/h2&gt;
+&lt;p&gt;Nginx서버를 설치하는 방법은 먼저 리눅스 운영체제의 패키지 매니저를 사용하여 설치하는 방법이 있다. 이 방법은 쉽고 빠르게 설치가 가능하지만 설치 가능한 옵션이 제한되어 있고 추가적인 모듈에 대한 지원이 어렵다. 따라서 이 방법은 가장 기초적인 웹서버만을 필요로 할 때 사용할만한 방법이다. 우분투는 &lt;code class=&quot;language-text&quot;&gt;apt&lt;/code&gt;라는 패키지 매니저를 사용한다.&lt;/p&gt;
+&lt;p&gt;먼저 apt 패키지 매니저를 업데이트한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 nginx를 설치한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설치가 완료되면 설치만 완료된 것이 아니라 디폴트로 nginx 서버를 구동시켜준다. 이를 다음 명령어를 통해 확인해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ps aux | grep nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 명령을 치면 다음과 같이 현재 구동중인 nginx 서버 프로세스에 대한 정보가 나온다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;root     13915  0.0  0.1 141112  1548 ?        Ss   06:35   0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+www-data 13917  0.0  0.6 143788  6348 ?        S    06:35   0:00 nginx: worker process
+ubuntu   14015  0.0  0.0  14856  1004 pts/0    S+   06:37   0:00 grep --color=auto nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;nginx 서버 환경설정 파일들은 다음의 경로에서 확인해 볼 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ls -l /etc/nginx/
+total 64
+drwxr-xr-x 2 root root 4096 Jan 10 19:18 conf.d
+-rw-r--r-- 1 root root 1077 Apr  6  2018 fastcgi.conf
+-rw-r--r-- 1 root root 1007 Apr  6  2018 fastcgi_params
+-rw-r--r-- 1 root root 2837 Apr  6  2018 koi-utf
+-rw-r--r-- 1 root root 2223 Apr  6  2018 koi-win
+-rw-r--r-- 1 root root 3957 Apr  6  2018 mime.types
+drwxr-xr-x 2 root root 4096 Jan 10 19:18 modules-available
+drwxr-xr-x 2 root root 4096 Feb  8 06:35 modules-enabled
+-rw-r--r-- 1 root root 1482 Apr  6  2018 nginx.conf
+-rw-r--r-- 1 root root  180 Apr  6  2018 proxy_params
+-rw-r--r-- 1 root root  636 Apr  6  2018 scgi_params
+drwxr-xr-x 2 root root 4096 Feb  8 06:35 sites-available
+drwxr-xr-x 2 root root 4096 Feb  8 06:35 sites-enabled
+drwxr-xr-x 2 root root 4096 Feb  8 06:35 snippets
+-rw-r--r-- 1 root root  664 Apr  6  2018 uwsgi_params
+-rw-r--r-- 1 root root 3071 Apr  6  2018 win-utf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;nginx-서버-소스-설치하기--모듈-추가하기&quot;&gt;&lt;a href=&quot;#nginx-%EC%84%9C%EB%B2%84-%EC%86%8C%EC%8A%A4-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0--%EB%AA%A8%EB%93%88-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot; aria-label=&quot;nginx 서버 소스 설치하기  모듈 추가하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nginx 서버 소스 설치하기 &amp;#x26; 모듈 추가하기&lt;/h2&gt;
+&lt;p&gt;위에서 우분투 패키지 매니저를 사용하여 nginx 서버를 설치하는 방법을 알아보았다. 여기서는 nignx 서버를 소스 설치하는 방법을 알아본다. 먼저 기존에 패키지 매니저로 설치한 nginx 서버를 제거해야 한다. &lt;code class=&quot;language-text&quot;&gt;/etc/&lt;/code&gt; 폴더 디렉토리에서 다음 명령을 통해 nginx 서버가 설치된 폴더를 삭제하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo rm -rf nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음은 먼저 nginx 소스 코드를 다운받는다. &lt;a href=&quot;https://nginx.org/en/download.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;nginx.org&lt;/a&gt; 사이트에서 nginx 소스 코드를 다운 받을 수 있다. &lt;code class=&quot;language-text&quot;&gt;Mainline version&lt;/code&gt;의 nginx 소스코드를 다운받을 수 있는 경로를 복사하여 다음과 같은 명령어를 통해 다운받는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;wget https://nginx.org/download/nginx-1.17.8.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;압축 파일이 다운받아졌을 것이고 다음 명령을 통해 압축을 풀어준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;tar -zxvf nginx-1.17.8.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;압축이 풀리면 nginx 폴더가 생길 것이고 해당 폴더로 이동한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cd nginx-1.17.8/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;먼저 nginx 서버를 빌드하기 위해 소스코드 환경설정을 해야 한다. 이를 위해 소스코드 디렉토리에서 환경설정 스크립트를 실행해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;./configure&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 명령어를 치면 다음과 같이 &lt;code class=&quot;language-text&quot;&gt;C compiler&lt;/code&gt;가 없다고 에러 메시지가 나온다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;checking for OS
+ + Linux 4.15.0-1057-aws x86_64
+checking for C compiler ... not found
+
+./configure: error: C compiler cc is not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 C 컴파일러를 포함하여 nginx를 컴파일하는데 필요한 모든 도구를 다운받는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install build-essential&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 다시 환경설정 스크립트를 실행하면 이제 에러가 발생하지 않고 스크립트가 잘 실행된다. 스크립트 실행 마지막 부분에서 다음과 같은 에러가 발생하는데 &lt;code class=&quot;language-text&quot;&gt;HTTP rewrite&lt;/code&gt; 모듈은 &lt;code class=&quot;language-text&quot;&gt;PCRE 라이브러리&lt;/code&gt;를 필요로 하는데 해당 라이브러리가 컴퓨터에 설치가 되어있지 않기 때문에 발생하는 에러이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;./configure: error: the HTTP rewrite module requires the PCRE library.
+You can either disable the module by using --without-http_rewrite_module
+option, or install the PCRE library into the system, or build the PCRE library
+statically from the source with nginx by using --with-pcre=&amp;lt;path&amp;gt; option.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어를 통해 추가적으로 필요한 라이브러리를 설치한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo apt-get install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 다시 환경설정 스크립트를 실행하면 에러없이 실행이 잘된다. 이제 nginx 소스코드를 컴파일할 준비가 되었다. 그 전에 커스텀 환경설정 플래그를 추가해야 한다. 다음 명령어로 가능한 모든 환경설정 옵션을 확인할 수 있다. 하지만 여기에는 각 옵션에 대한 설명이 나와있지 않아 처음에는 이해하기 어렵다. &lt;a href=&quot;https://nginx.org/en/docs/configure.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;nginx 공식문서&lt;/a&gt;에 이에 대한 설명이 잘 나와있으니 참고해보면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;./configure --help&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령과 같이 환경설정을 다시 설정할 수 있다. 첫번째 옵션 &lt;code class=&quot;language-text&quot;&gt;-sbin-path=/user/bin/nginx&lt;/code&gt;를 통해 nginx 서버를 실행하고 멈출 수 있는 실행가능한 파일들(executables)이 &lt;code class=&quot;language-text&quot;&gt;/user/bin/nginx&lt;/code&gt;에 생성이 되도록 설정을 한다. &lt;code class=&quot;language-text&quot;&gt;--with-pcre&lt;/code&gt; 옵션은 Nginx 서버가 정규표현식을 사용할 때 시스템의 PCRE 라이브러리를 사용하도록 하는 옵션이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;./configure --sbin-path=/user/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nginx 서버를 소스코드 설치함으로서 얻을 수 있는 가장 중요한 이득은 커스텀 모듈을 추가할 수 있다는 점과 기존의 표준 Nginx 기능들을 확장할 수 있다는 점이다. 이는 그냥 패키지 매니저를 사용하여 Nginx 서버를 설치했을 때는 할 수 없는 일들이다.&lt;/p&gt;
+&lt;p&gt;Nginx 모듈에는 두 가지 형태가 있다. 하나는 번들 모듈(bundled modules)이고 다른 하나는 써드파티 모듈이다(third party module). 써드파티 모듈은 다른 개발자에 의해 만들어진 모듈이고 이를 사용하기 위해서는 다운로드를 받고 컴파일해야 한다. 반면, 번들 모듈은 Nginx에 포함된 모듈을 의미한다. 예를들어 &lt;code class=&quot;language-text&quot;&gt;--with-http__ssl_module&lt;/code&gt; 옵션을 주면 Nginx는 빌드를 할 때 이 모듈을 포함시킨다.&lt;/p&gt;
+&lt;p&gt;최종적으로 다음과 같이 환경설정을 하여 엔터를 치면 해당 설정대로 적용이 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;./configure --sbin-path=/user/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http__ssl_module&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설정 작업이 끝나면 다음과 같이 설정 내용에 대한 요약(Summary)을 정리해서 보여준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Configuration summary
+  + using system PCRE library
+  + using system OpenSSL library
+  + using system zlib library
+
+  nginx path prefix: &amp;quot;/usr/local/nginx&amp;quot;
+  nginx binary file: &amp;quot;/user/bin/nginx&amp;quot;
+  nginx modules path: &amp;quot;/usr/local/nginx/modules&amp;quot;
+  nginx configuration prefix: &amp;quot;/etc/nginx&amp;quot;
+  nginx configuration file: &amp;quot;/etc/nginx/nginx.conf&amp;quot;
+  nginx pid file: &amp;quot;/var/run/nginx.pid&amp;quot;
+  nginx error log file: &amp;quot;/var/log/nginx/error.log&amp;quot;
+  nginx http access log file: &amp;quot;/var/log/nginx/access.log&amp;quot;
+  nginx http client request body temporary files: &amp;quot;client_body_temp&amp;quot;
+  nginx http proxy temporary files: &amp;quot;proxy_temp&amp;quot;
+  nginx http fastcgi temporary files: &amp;quot;fastcgi_temp&amp;quot;
+  nginx http uwsgi temporary files: &amp;quot;uwsgi_temp&amp;quot;
+  nginx http scgi temporary files: &amp;quot;scgi_temp&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;아무런 이상이 없이 여기까지 완료되었으면 다음 명령어로 이 환경설정이 적용된 소스를 컴파일한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;make&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그다음 다음 명령어를 통해 컴파일 된 소스를 설치하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어를 통해 nginx가 설치된 디렉토리를 확인해보자&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ls -l /etc/nginx
+total 68
+-rw-r--r-- 1 root root 1077 Feb  8 11:12 fastcgi.conf
+-rw-r--r-- 1 root root 1077 Feb  8 11:12 fastcgi.conf.default
+-rw-r--r-- 1 root root 1007 Feb  8 11:12 fastcgi_params
+-rw-r--r-- 1 root root 1007 Feb  8 11:12 fastcgi_params.default
+-rw-r--r-- 1 root root 2837 Feb  8 11:12 koi-utf
+-rw-r--r-- 1 root root 2223 Feb  8 11:12 koi-win
+-rw-r--r-- 1 root root 5231 Feb  8 11:12 mime.types
+-rw-r--r-- 1 root root 5231 Feb  8 11:12 mime.types.default
+-rw-r--r-- 1 root root 2656 Feb  8 11:12 nginx.conf
+-rw-r--r-- 1 root root 2656 Feb  8 11:12 nginx.conf.default
+-rw-r--r-- 1 root root  636 Feb  8 11:12 scgi_params
+-rw-r--r-- 1 root root  636 Feb  8 11:12 scgi_params.default
+-rw-r--r-- 1 root root  664 Feb  8 11:12 uwsgi_params
+-rw-r--r-- 1 root root  664 Feb  8 11:12 uwsgi_params.default
+-rw-r--r-- 1 root root 3610 Feb  8 11:12 win-utf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그리고 다음 명령어로 Nginx 버전을 확인해보면 버전과 함께 환경 설정 옵션을 보여준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nginx -V
+nginx version: nginx/1.14.0 (Ubuntu)
+built with OpenSSL 1.1.1  11 Sep 2018
+TLS SNI support enabled
+configure arguments: --with-cc-opt=&amp;#39;-g -O2 -fdebug-prefix-map=/build/nginx-GkiujU/nginx-1.14.0=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wdate-time -D_FORTIFY_SOURCE=2&amp;#39; --with-ld-opt=&amp;#39;-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -fPIC&amp;#39; --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --modules-path=/usr/lib/nginx/modules --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_auth_request_module --with-http_v2_module --with-http_dav_module --with-http_slice_module --with-threads --with-http_addition_module --with-http_geoip_module=dynamic --with-http_gunzip_module --with-http_gzip_static_module --with-http_image_filter_module=dynamic --with-http_sub_module --with-http_xslt_module=dynamic --with-stream=dynamic --with-stream_ssl_module --with-mail=dynamic --with-mail_ssl_module&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어를 통해 Nginx 서버를 start 시킨다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어를 통해 실행중인 Nginx 서버 프로세스를 확인한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ps aux | grep nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어를 통해 Nginx 서버를 중단시킨다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;service nginx stop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;nginx-service-추가하기&quot;&gt;&lt;a href=&quot;#nginx-service-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0&quot; aria-label=&quot;nginx service 추가하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nginx Service 추가하기&lt;/h2&gt;
+&lt;p&gt;위의 과정을 통해 Nginx 소스 설치를 하였다. 이제는 Nginx 시스템 서비스를 추가하는 방법을 알아보자. 리눅스에는 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;라는 시스템 서비스가 있다. 이 &lt;a href=&quot;https://www.freedesktop.org/wiki/Software/systemd/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;링크&lt;/a&gt;에 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;가 무엇인지에 대한 설명이 다음과 같이 자세히 나와있는 것 같지만 정확히 이해하기 쉽지는 않은 것 같다. 여기서는 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;라는 시스템 서비스를 통해 Nginx 서버를 &lt;code class=&quot;language-text&quot;&gt;start&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;stop&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;restart&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;reload(configuration)&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;start on boot&lt;/code&gt; 시킬 수 있다는 것 정도 이해하면 될 것 같다. &lt;a href=&quot;https://en.wikipedia.org/wiki/Systemd&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;위키피디아 글&lt;/a&gt;을 읽어보니 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;의 목표는 리눅스 시스템 전반에서 서비스 환경설정과 행동을 제어하는 일련의 통일된 명령 집합을 제공한다고 한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;를 알아보기 전에 nginx 스탠다드 커맨드 툴을 사용하여 nginx를 제어할 수 있다. 다음 명령어를 통해 nginx 제어 옵션을 확인해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nginx -h
+nginx version: nginx/1.14.0 (Ubuntu)
+Usage: nginx [-?hvVtTq] [-s signal] [-c filename] [-p prefix] [-g directives]
+
+Options:
+  -?,-h         : this help
+  -v            : show version and exit
+  -V            : show version and configure options then exit
+  -t            : test configuration and exit
+  -T            : test configuration, dump it and exit
+  -q            : suppress non-error messages during configuration testing
+  -s signal     : send signal to a master process: stop, quit, reopen, reload
+  -p prefix     : set prefix path (default: /usr/share/nginx/)
+  -c filename   : set configuration file (default: /etc/nginx/nginx.conf)
+  -g directives : set global directives out of configuration file&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 중 &lt;code class=&quot;language-text&quot;&gt;-s&lt;/code&gt; 옵션으로 다음과 같이 nginx 서버를 멈출 수 있다. 하지만 스탠다드 커맨드 툴로는 할 수 있는게 제한적이기 때문에 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; 서비스를 추가한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nginx -s stop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; 서비스를 활성화하기 위해서는 작은 스크립트를 추가해야 한다. 이 스크립트는 &lt;a href=&quot;https://www.nginx.com/resources/wiki/start/topics/examples/systemd/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;nginx 공식 사이트&lt;/a&gt;에서 가져온다.&lt;/p&gt;
+&lt;p&gt;해당 스크립트를 이 사이트에서 지정해준 경로의 파일(&lt;code class=&quot;language-text&quot;&gt;/lib/systemd/system/nginx.service&lt;/code&gt;)에 저장해야 한다. 이를 위해 해당 경로에 파일을 만들고 &lt;code class=&quot;language-text&quot;&gt;nano&lt;/code&gt;를 사용하여 해당 파일에 스크립트를 추가할 수 있도록 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;touch /lib/systemd/system/nginx.service
+nano /lib/systemd/system/nginx.service&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;지금 내가 수정하는 시점에서는 해당 파일에 필요한 스크립트가 자동으로 추가되도록 변경이 된 것 같다. 해당 파일이 이미 디폴트로 생성되어 있었고 필요한 스크립트가 이미 있다. 하지만 환경설정을 할 때 옵션을 준대로 스크립트에 몇가지 파일 경로를 수정해야 한다. &lt;code class=&quot;language-text&quot;&gt;/sbin/&lt;/code&gt; 경로를 &lt;code class=&quot;language-text&quot;&gt;/bin/&lt;/code&gt;으로 변경하면 된다.&lt;/p&gt;
+&lt;p&gt;이제 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;를 사용하여 nginx 서버를 제어할 수 있다. 다음 명령어를 통해 nginx 서버를 구동시킨다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;systemctl start nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이전에 하던 것처럼 &lt;code class=&quot;language-text&quot;&gt;ps aux | grep nginx&lt;/code&gt; 말고 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt;를 사용하여 nginx 서버의 구동 상태를 확인할 수도 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;systemctl status nginx
+Warning: The unit file, source configuration file or drop-ins of nginx.service changed on disk. Run &amp;#39;systemctl daemon-reload&amp;#39; to reload uni
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: active (running) since Sun 2020-02-09 07:54:33 UTC; 5min ago
+     Docs: man:nginx(8)
+  Process: 13011 ExecStop=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid (code=exited, status=1/FAILURE)
+  Process: 13059 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+  Process: 13050 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+ Main PID: 13061 (nginx)
+    Tasks: 2 (limit: 1152)
+   CGroup: /system.slice/nginx.service
+           ├─13061 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;
+           └─13063 nginx: worker process
+
+Feb 09 07:54:33 ip-172-31-32-158 systemd[1]: Starting A high performance web server and a reverse proxy server...
+Feb 09 07:54:33 ip-172-31-32-158 systemd[1]: nginx.service: Failed to parse PID from file /run/nginx.pid: Invalid argument
+Feb 09 07:54:33 ip-172-31-32-158 systemd[1]: Started A high performance web server and a reverse proxy server.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;nginx 서버 stop 명령어이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo systemctl stop nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;서버 컴퓨터가 처음에 부팅이 될때 nginx 서버가 자동으로 구동이 되도록 하고 싶으면 다음과 같이 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;systemctl enable nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 서버 컴퓨터를 재부팅한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;reboot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;서버 컴퓨터가 재부팅되면 다시 서버로 ssh 접속을 하고 nginx의 상태를 확인해보면 자동으로 구동이 된 것을 확인해 볼 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;nginx-환경설정-용어&quot;&gt;&lt;a href=&quot;#nginx-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95-%EC%9A%A9%EC%96%B4&quot; aria-label=&quot;nginx 환경설정 용어 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nginx 환경설정 용어&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;directive&lt;/code&gt; - 환경설정 파일에서 셋팅된 환경설정 옵션을 지칭한다. ex) server_name mydomain.com&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;context&lt;/code&gt; - 환경설정 파일에서 하나의 섹션을 의미한다. 스코프와 같다. 스코프 처럼 컨텍스트는 부모 안에 중첩되어 있다. 아래의 예시에서 server 컨텐스트는 http 컨텍스트 내부에 중첩되어 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;worker_processes&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#error_log  logs/error.log;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#error_log  logs/error.log  notice;&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#error_log  logs/error.log  info;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;#pid        logs/nginx.pid;&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;events&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;worker_connections&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;       mime&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;default_type&lt;/span&gt;  application&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;octet&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;stream&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;#log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;#                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;#                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;#access_log  logs/access.log  main;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;sendfile&lt;/span&gt;        on&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;#tcp_nopush     on;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;#keepalive_timeout  0;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;keepalive_timeout&lt;/span&gt;  &lt;span class=&quot;token number&quot;&gt;65&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;#gzip  on;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt;       &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;server_name&lt;/span&gt;  localhost&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;#charset koi8-r;&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;#access_log  logs/host.access.log  main;&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;root&lt;/span&gt;   html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;  &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;htm&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;#error_page  404              /404.html;&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;# redirect server error pages to the static page /50x.html&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;#&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;error_page&lt;/span&gt;   &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;502&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;503&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;504&lt;/span&gt;  &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;50&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;50&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;root&lt;/span&gt;   html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;가상-호스트virtual-host-생성하기&quot;&gt;&lt;a href=&quot;#%EA%B0%80%EC%83%81-%ED%98%B8%EC%8A%A4%ED%8A%B8virtual-host-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0&quot; aria-label=&quot;가상 호스트virtual host 생성하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;가상 호스트(virtual host) 생성하기&lt;/h2&gt;
+&lt;p&gt;여기서 주로 설정할 메인 환경설정 파일은 다음 경로의 &lt;code class=&quot;language-text&quot;&gt;nginx.conf&lt;/code&gt; 파일이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ls -l /etc/nginx/
+total 68
+-rw-r--r-- 1 root root 1077 Feb  8 11:12 fastcgi.conf
+-rw-r--r-- 1 root root 1077 Feb  8 11:12 fastcgi.conf.default
+-rw-r--r-- 1 root root 1007 Feb  8 11:12 fastcgi_params
+-rw-r--r-- 1 root root 1007 Feb  8 11:12 fastcgi_params.default
+-rw-r--r-- 1 root root 2837 Feb  8 11:12 koi-utf
+-rw-r--r-- 1 root root 2223 Feb  8 11:12 koi-win
+-rw-r--r-- 1 root root 5231 Feb  8 11:12 mime.types
+-rw-r--r-- 1 root root 5231 Feb  8 11:12 mime.types.default
+-rw-r--r-- 1 root root 2656 Feb  8 11:12 nginx.conf
+-rw-r--r-- 1 root root 2656 Feb  8 11:12 nginx.conf.default
+-rw-r--r-- 1 root root  636 Feb  8 11:12 scgi_params
+-rw-r--r-- 1 root root  636 Feb  8 11:12 scgi_params.default
+-rw-r--r-- 1 root root  664 Feb  8 11:12 uwsgi_params
+-rw-r--r-- 1 root root  664 Feb  8 11:12 uwsgi_params.default
+-rw-r--r-- 1 root root 3610 Feb  8 11:12 win-utf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서는 &lt;code class=&quot;language-text&quot;&gt;nginx.conf&lt;/code&gt; 파일의 events 컨텍스트에는 아무것도 추가하지 않을 것이지만 환경 설정파일의 유효성을 위해 events 컨텍스트는 적어줘야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;etc&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;nginx&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;nginx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;conf
+
+&lt;span class=&quot;token keyword&quot;&gt;events&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기서 첫번째로 해줘야 할 것은 가상 호스트를 정의하는 것이다. 각 가상 호스트는 새로운 server 컨텍스트 또는 서버 블록이 된다. 이는 해당 포트를 &lt;code class=&quot;language-text&quot;&gt;listening&lt;/code&gt;하는 역할을 하게 된다. 일반적으로 http 요청은 80번 포트, https 요청은 443번 포트에서 listening을 하게 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그 다음으로는 &lt;code class=&quot;language-text&quot;&gt;server_name&lt;/code&gt;을 지정해준다. 도메인, 서브도메인 또는 ip 주소가 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;13.209&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;마지막으로는 root directive를 추가한다. 이 루트 path 에서 Nginx는 클라이언트의 정적파일에 대한 요청을 처리한다. 예를들어 만약 클라이언트에서 &lt;code class=&quot;language-text&quot;&gt;/images/cat.png&lt;/code&gt; 파일에 대한 요청이 들어오면 nginx는 디폴트로 &lt;code class=&quot;language-text&quot;&gt;/root/path/images/cat.png&lt;/code&gt;에서 해당 파일을 찾는다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;13.209&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;.7&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;sites&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;demo&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;여기까지 설정에 대한 내용이 적용이 되려면 &lt;code class=&quot;language-text&quot;&gt;systemd&lt;/code&gt; 서비스를 사용하여 nginx 환경설정을 reload 해야 한다. &lt;code class=&quot;language-text&quot;&gt;restart&lt;/code&gt; 보다는 &lt;code class=&quot;language-text&quot;&gt;reload&lt;/code&gt; 명령어를 사용하여 downtime(시간이 더 걸리는 것)을 방지할 수 있다. 만약 환경설정 파일에 에러가 있다면 reload는 실패하게 된다. 하지만 변경 전의 환경설정을 그대로 유지하며 nginx가 stop되지 않는다. 반면에 &lt;code class=&quot;language-text&quot;&gt;restart&lt;/code&gt;는 먼저 nginx 서버를 stop 시키고 만약 새로운 환경설정 파일에 에러가 있다면 nginx서버를 start 시키지 않는다.&lt;/p&gt;
+&lt;p&gt;만약 새로 적용한 환경설정 파일이 의도대로 reload 되지 않는다면 다음 명령을 사용하여 nginx를 test 해봐야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nginx -t&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 환결설정 파일에서 설정한 &lt;code class=&quot;language-text&quot;&gt;root /sites/demo&lt;/code&gt; 다이렉티브의 경로 &lt;code class=&quot;language-text&quot;&gt;/sites/demo&lt;/code&gt;는 서버 컴퓨터의 루트 경로에서의 &lt;code class=&quot;language-text&quot;&gt;/sites/demo&lt;/code&gt;를 의미한다. 이제 &lt;code class=&quot;language-text&quot;&gt;/sites/demo&lt;/code&gt; 경로에 간단한 커스텀 html과 css파일을 넣고 nginx를 reload하고 이 서버의 ip에 접속한 웹브라우저를 새로고침하면 방금 적용한 커스텀 html 파일이 뜨는 것을 확인해 볼 수 있다.&lt;/p&gt;
+&lt;p&gt;하지만 여기서 문제점은 화면에 css가 적용이 안되는 점이다. Nginx가 &lt;code class=&quot;language-text&quot;&gt;style sheet&lt;/code&gt;에 잘못된 &lt;code class=&quot;language-text&quot;&gt;MIME TYPE&lt;/code&gt;을 보내기 때문이다. 다음과 같이 &lt;code class=&quot;language-text&quot;&gt;curl&lt;/code&gt;를 사용하여 서버에 &lt;code class=&quot;language-text&quot;&gt;style.css&lt;/code&gt; 헤더를 요청하여 이를 확인해볼 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$curl -I http://13.209.4.7/style.css
+HTTP/1.1 200 OK
+Server: nginx/1.17.8
+Date: Wed, 12 Feb 2020 02:45:03 GMT
+Content-Type: text/plain
+Content-Length: 980
+Last-Modified: Wed, 12 Feb 2020 01:27:53 GMT
+Connection: keep-alive
+ETag: &amp;quot;5e435499-3d4&amp;quot;
+Accept-Ranges: bytes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Content-Type&lt;/code&gt;이 &lt;code class=&quot;language-text&quot;&gt;text/plain&lt;/code&gt;으로 잘못 설정되어 있기 때문이다. 이를 제대로 설정하기 위해서는 Nginx에 해당 파일 확장자에 대한 &lt;code class=&quot;language-text&quot;&gt;Content-Type&lt;/code&gt;을 지정해줘야 한다. 이는 Nginx 환경설정 파일에서 새로운 컨텍스트를 지정함으로써 설정을 할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;nginx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;conf
+
+&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    text&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;html html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    text&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;css css&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 더 쉬운 방법이 있다. nginx는 설정 파일의 일부분을 다른 파일로부터 가져와서 설정할 수 있도록 할 수 있다. 예를들어 이미 존재하는 설정가능한 다른 파일 중에 &lt;code class=&quot;language-text&quot;&gt;mime.types&lt;/code&gt; 파일이 다음의 디렉토리에 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ls -l /etc/nginx/
+total 68
+-rw-r--r-- 1 root root 1077 Feb  8 11:12 fastcgi.conf
+-rw-r--r-- 1 root root 1077 Feb  8 11:12 fastcgi.conf.default
+-rw-r--r-- 1 root root 1007 Feb  8 11:12 fastcgi_params
+-rw-r--r-- 1 root root 1007 Feb  8 11:12 fastcgi_params.default
+-rw-r--r-- 1 root root 2837 Feb  8 11:12 koi-utf
+-rw-r--r-- 1 root root 2223 Feb  8 11:12 koi-win
+-rw-r--r-- 1 root root 5231 Feb  8 11:12 mime.types
+-rw-r--r-- 1 root root 5231 Feb  8 11:12 mime.types.default
+-rw-r--r-- 1 root root   93 Feb 12 02:13 nginx.conf
+-rw-r--r-- 1 root root 2656 Feb  8 11:12 nginx.conf.default
+-rw-r--r-- 1 root root  636 Feb  8 11:12 scgi_params
+-rw-r--r-- 1 root root  636 Feb  8 11:12 scgi_params.default
+-rw-r--r-- 1 root root  664 Feb  8 11:12 uwsgi_params
+-rw-r--r-- 1 root root  664 Feb  8 11:12 uwsgi_params.default
+-rw-r--r-- 1 root root 3610 Feb  8 11:12 win-utf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;cat을 사용하여 해당 파일을 확인해보면 다음과 같은 내용들이 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cat /etc/nginx/mime.types
+
+types {
+    text/html                                        html htm shtml;
+    text/css                                         css;
+    text/xml                                         xml;
+    image/gif                                        gif;
+    image/jpeg                                       jpeg jpg;
+    application/javascript                           js;
+    application/atom+xml                             atom;
+    application/rss+xml                              rss;
+
+    text/mathml                                      mml;
+    text/plain                                       txt;
+    text/vnd.sun.j2me.app-descriptor                 jad;
+    text/vnd.wap.wml                                 wml;
+    text/x-component                                 htc;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;참고로 &lt;code class=&quot;language-text&quot;&gt;MIME type&lt;/code&gt;이란 데이터의 타입을 나타내는 라벨이다. 이를 지정함으로서 소프트웨어 어플리케이션이 데이터를 어떻게 처리해야 하는지를 알 수 있다.
+&lt;a href=&quot;https://stackoverflow.com/questions/3828352/what-is-a-mime-type/3828381#3828381&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;what is mime type&lt;/a&gt; 참고&lt;/p&gt;
+&lt;p&gt;다음과 같이 Nginx 설정파일에서 이미 정의된 MIME type 을 바라보게 하여 설정을 할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;nginx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;conf
+&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt; mime&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설정후 nginx를 reload하고 curl를 사용하여 다시 style.css 헤더를 확인해보면 다음과 같이 Content-Type 이 &lt;code class=&quot;language-text&quot;&gt;text/css&lt;/code&gt;로 올바르게 적용된 것을 확인해 볼 수 있다. 그리고 웹브라우저를 새로고침하면 css가 올바르게 적용된 화면을 볼 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -I http://13.209.4.7/style.css
+HTTP/1.1 200 OK
+Server: nginx/1.17.8
+Date: Wed, 12 Feb 2020 03:09:40 GMT
+Content-Type: text/css
+Content-Length: 980
+Last-Modified: Wed, 12 Feb 2020 01:27:53 GMT
+Connection: keep-alive
+ETag: &amp;quot;5e435499-3d4&amp;quot;
+Accept-Ranges: bytes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;location-blocks&quot;&gt;&lt;a href=&quot;#location-blocks&quot; aria-label=&quot;location blocks permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Location Blocks&lt;/h2&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;location block&lt;/code&gt;은 위에서 살펴본 대로 단순히 요청에 대한 정적파일을 서비스하는 것이 아니라 해당 요청을 가로채서(intercept) 다른 일을 처리 할 수 있도록 해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; uri &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;예를들어 현재는 서버에 &lt;code class=&quot;language-text&quot;&gt;/greet&lt;/code&gt;에 해당하는 리소스가 없기 때문에 해당 uri로 요청을 보내면 404 페이지가 뜬다. 여기서는 해당 요청이 들어왔을때 요청을 가로채서 다른 일을 처리하도록 정의해본다. 다음과 같이 location block을 정의해주고 Nginx를 reload를 하면 이제는 /greet로 요청을 보내면 아래에서 정의한 text가 return 되어 웹브라우저에 뜨는 것을 확인해 볼 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+ &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;greet &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello from nginx &quot;/greet&quot; location&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이렇게 정의한 location 블록은 &lt;code class=&quot;language-text&quot;&gt;prefix match&lt;/code&gt;라고 한다. 즉, &lt;code class=&quot;language-text&quot;&gt;/greeting&lt;/code&gt;도 매치가 되고 &lt;code class=&quot;language-text&quot;&gt;/greeting/more&lt;/code&gt;같은 요청도 매치가 된다. 다음과 같이 /greet 앞에 &lt;code class=&quot;language-text&quot;&gt;=&lt;/code&gt;을 붙여주면 &lt;code class=&quot;language-text&quot;&gt;exact match&lt;/code&gt;가 되어 반드시 해당 uri 와 일치하는 요청이 들어왔을 때만 이를 처리한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;greet &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello from nginx &quot;/greet&quot; location&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 정규표현식을 사용하여 매치가 되도록 정의할 수 있다. Nginx를 설치할 때 &lt;code class=&quot;language-text&quot;&gt;PCRE&lt;/code&gt; 라이브러리를 설치하였기 때문에 이를 사용한다. uri 앞에 &lt;code class=&quot;language-text&quot;&gt;~&lt;/code&gt;를 붙여줌으로써 uri를 정규표현식을 사용하여 매칭할 것임을 알려준다. 여기서 정규표현식을 사용하면 &lt;code class=&quot;language-text&quot;&gt;case sensitive&lt;/code&gt;하게 된다. 대소문자를 구분한다는 하기때문에 대문자 소문자까지 정확히 일치해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;greet&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello from nginx &quot;/greet&quot; location&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;대소문자를 구분하고 싶지 않다면 다음과 같이 정의하면 된다. ~ 뒤에 *를 붙여주면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;greet&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello from nginx &quot;/greet&quot; location&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이와 같은 매칭 방법에서는 정규표현식(REGEX)을 사용한 매치가 &lt;code class=&quot;language-text&quot;&gt;prefix match&lt;/code&gt;보다 우선 매칭된다. prefix match를 정의한 location 블록이 정규표현식 매치보다 위에 정의되어 있더라도 마찬가지이다.&lt;/p&gt;
+&lt;p&gt;마지막 매칭 방법에는 &lt;code class=&quot;language-text&quot;&gt;preferential prefix match&lt;/code&gt;가 있다. 이는 기본적으로 정규표현식 매치와 동일하게 동작하지만 일반 정규표현식보다 더 우선순위에 매치가 된다. ~ 앞에 ^를 붙여주면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Greet2 &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello from nginx &quot;/greet&quot; location&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;greet&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello from nginx &quot;/greet&quot; location -REGEX MATCH INSENSITIVE&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에서 살펴본 4가지 매칭 방법에 대한 우선순위는 Exact match &gt; preferential prefix match &gt; REGEX match &gt; prefix match 가 된다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;variables&quot;&gt;&lt;a href=&quot;#variables&quot; aria-label=&quot;variables permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Variables&lt;/h2&gt;
+&lt;p&gt;미리정의된 Nginx 모듈 변수는 &lt;a href=&quot;http://nginx.org/en/docs/varindex.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;nginx 공식사이트&lt;/a&gt;에서 확인해 볼수 있다. 다음과 같이 사용할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;inspect &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;$host\n$uri\n$args&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 설정 후 nginx reload 후 서버에 요청을 보내면 다음과 같이 응답한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//요청
+http://13.209.4.7/inspect?asfd=hi
+
+//응답
+13.209.4.7
+/inspect
+asfd=hi
+
+``&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음과 같이 구성 후의 응답에 대한 요청은 다음과 같다. name 파라미터의 값을 가져올 수 있는 것이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;inspect &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;$arg_name&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//요청
+http://13.209.4.7/inspect?name=john
+
+//응답
+john&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;location&lt;/code&gt; 컨텍스트에서 if문은 사용되지 않기를 권장된다. Nginx 공식 사이트에 &lt;a href=&quot;https://www.nginx.com/resources/wiki/start/topics/depth/ifisevil/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;if is Evil&lt;/a&gt; 이라는 포스팅까지 있으니..&lt;/p&gt;
+&lt;p&gt;내가 사용할 커스텀 변수도 정의할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$weekend&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;No&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$date_local&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Saturday|Sunday&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$weekend&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Yes&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;is_weekend &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$weekend&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;#%EC%9D%B4-%EA%B8%80%EC%9D%98-%EB%AA%A9%EC%B0%A8&quot;&gt;맨 위로 가기&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;rewrites--redirects&quot;&gt;&lt;a href=&quot;#rewrites--redirects&quot; aria-label=&quot;rewrites  redirects permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Rewrites &amp;#x26; Redirects&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[함수형 프로그래밍]]></title><description><![CDATA[함수형 프로그래밍은 성공적인 프로그래밍을 위해 부수 효과를 미워하고 조합성을 강조하는 프로그래밍 패러다임이다. 부수효과를 미워한다는 것은 순수함수를 만든다는 뜻인데 순수함수란 들어온 인자가 같으면 항상 같은 결과를 리턴하는 함수이다...]]></description><link>https://saegeullee.github.io/javascript/functional-programming</link><guid isPermaLink="false">https://saegeullee.github.io/javascript/functional-programming</guid><pubDate>Sun, 26 Jan 2020 21:12:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.inflearn.com/course/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;함수형 프로그래밍&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&quot;함수형-프로그래밍-개요&quot;&gt;&lt;a href=&quot;#%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B0%9C%EC%9A%94&quot; aria-label=&quot;함수형 프로그래밍 개요 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;함수형 프로그래밍 개요&lt;/h1&gt;
