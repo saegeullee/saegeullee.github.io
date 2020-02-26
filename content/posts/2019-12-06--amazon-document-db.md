@@ -1,15 +1,15 @@
 ---
 title: 아마존 documentDB에 DB 구축하기
-date: "2019-12-06T20:50:37.121Z"
-template: "post"
+date: '2019-12-06T20:50:37.121Z'
+template: 'post'
 draft: false
-slug: "/nodejs/amazon-documentdb"
-category: "nodejs"
+slug: '/nodejs/amazon-documentdb'
+category: 'nodejs'
 tags:
-  - "nodejs"
-  - "aws"
-description: "이번에 클래스101과 협업을 하면서 첫번째 프로젝트로 내부 인사팀 툴을 개발하였다. 배포환경을 서버는 아마존 ec2, 디비는 아마존 documentDB를 사용했다. 아마존 documentDB가 우리가 사용한 mongoDB와 호환이 되기 때문이다. 이때 아마존 documentDB를 구축한 과정을 정리해본다..."
-socialImage: "/media/image-2.jpg"
+  - 'nodejs'
+  - 'aws'
+description: '이번에 클래스101과 협업을 하면서 첫번째 프로젝트로 내부 인사팀 툴을 개발하였다. 배포환경을 서버는 아마존 ec2, 디비는 아마존 documentDB를 사용했다. 아마존 documentDB가 우리가 사용한 mongoDB와 호환이 되기 때문이다. 이때 아마존 documentDB를 구축한 과정을 정리해본다...'
+socialImage: '/media/image-2.jpg'
 ---
 
 이번에 클래스101과 협업을 하면서 첫번째 프로젝트로 내부 인사팀 툴을 개발하였다. 배포환경을 서버는 아마존 ec2, 디비는 아마존 documentDB를 사용했다. 아마존 documentDB가 우리가 사용한 mongoDB와 호환이 되기 때문이다. 이때 아마존 documentDB를 구축한 과정을 정리해본다.
@@ -49,6 +49,8 @@ cells.metadata.json   histories.metadata.json
 2. 카피한 로컬의 db 데이터를 아마존 ec2에 옮긴다.
 3. ec2에서 `mongorestore`을 통해 아마존 documentDB에 카피한 데이터를 넣는다.
 4. ec2에서 아마존 documentDB 접속하여 디비 확인.
+
+위 과정을 보면 먼저 로컬에서 아마존 ec2 서버로 카피한 데이터를 옮기고 이 데이터를 다시 documentDB로 옮긴다. 데이터를 두 번의 과정에 걸쳐서 옮기고 있다. 그 이유는 aws documentDB에 접속하기 위해서는 보안키인 pem 키가 필요한데 보안상 이 보안키를 내 로컬에 둘 수는 없었고 ec2 서버에 있었기 때문에 어쩔수 없이 디비 데이터를 두 번 옮긴 것이다.
 
 1번은 **[Nodejs 서버 아마존 ec2에 배포하기](https://saegeullee.github.io//nodejs/deploy-nodejs-server-to-aws-ec2)** 참고
 

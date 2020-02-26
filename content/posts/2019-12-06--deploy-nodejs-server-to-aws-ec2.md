@@ -1,15 +1,15 @@
 ---
 title: Nodejs 서버 아마존 ec2에 배포하기
-date: "2019-12-06T11:50:37.121Z"
-template: "post"
+date: '2019-12-06T11:50:37.121Z'
+template: 'post'
 draft: false
-slug: "/nodejs/deploy-nodejs-server-to-aws-ec2"
-category: "nodejs"
+slug: '/nodejs/deploy-nodejs-server-to-aws-ec2'
+category: 'nodejs'
 tags:
-  - "nodejs"
-  - "aws"
-description: "이번에 클래스101과 협업을 하면서 내부 인사팀 툴을 개발 후 서버 배포까지 했다. 원래는 클래스101 개발자의 가이드를 받아 아마존 람다에 배포를 하려 했지만.. 처음해보는 것이라 배포 진행이 잘 안되었고 일정상 시간을 더이상 지체하면 안되기 때문에 아마존 ec2에 배포하는 것으로 선회했다. 데이터베이스는 아마존의 documentDB를 사용했다. 배포 과정을 정리해보겠다. 아마존 ec2는 이미 설치가 되어있다고 가정한다...."
-socialImage: "/media/image-2.jpg"
+  - 'nodejs'
+  - 'aws'
+description: '이번에 클래스101과 협업을 하면서 내부 인사팀 툴을 개발 후 서버 배포까지 했다. 원래는 클래스101 개발자의 가이드를 받아 아마존 람다에 배포를 하려 했지만.. 처음해보는 것이라 배포 진행이 잘 안되었고 일정상 시간을 더이상 지체하면 안되기 때문에 아마존 ec2에 배포하는 것으로 선회했다. 데이터베이스는 아마존의 documentDB를 사용했다. 배포 과정을 정리해보겠다. 아마존 ec2는 이미 설치가 되어있다고 가정한다....'
+socialImage: '/media/image-2.jpg'
 ---
 
 이번에 클래스101과 협업을 하면서 내부 인사팀 툴을 개발 후 서버 배포까지 했다. 원래는 클래스101 개발자의 가이드를 받아 아마존 람다에 배포를 하려 했지만.. 처음해보는 것이라 배포 진행이 잘 안되었고 일정상 시간을 더이상 지체하면 안되기 때문에 아마존 ec2에 배포하는 것으로 선회했다. 데이터베이스는 아마존의 documentDB를 사용했다. 아마존 ec2는 이미 설치가 되어있다고 가정하고 그 이후의 배포 과정을 정리해보겠다.
@@ -23,6 +23,10 @@ ssh -i your_pem_key.pem ubuntu@13.180.55.29
 ```
 
 ## 아마존 ec2 보안그룹 설정
+
+이 프로젝트를 배포한 아마존 ec2 인스턴스는 https 프로토콜을 사용하기 때문에 ec2 인스턴스의 보안그룹을 다음과 같이 구성한다.
+
+![aws security group](/media/aws_security_group.png)
 
 ## node 설치
 
@@ -135,3 +139,7 @@ sudo pm2 list
 ```
 
 ![aws deploy](/media/aws-deploy.png)
+
+## reference
+
+**[AWS EC2 보안그룹 설정](https://zamezzz.tistory.com/301)**

@@ -1,17 +1,25 @@
 ---
 title: 타입스크립트 인터페이스
-date: "2019-12-07T21:46:37.121Z"
-template: "post"
+date: '2019-12-07T21:46:37.121Z'
+template: 'post'
 draft: false
-slug: "/category/typescript/typescript-interfaces"
-category: "typescript"
+slug: '/category/typescript/typescript-interfaces'
+category: 'typescript'
 tags:
-  - "typescript"
-description: "인터페이스를 사용하여 커스텀 타입의 객체를 만들 수 있다. 아래의 예시에서 Person 인터페이스는 특정 객체가 반드시 name, age 프로퍼티를 갖고 greet 메서드를 갖는 객체로 구현되어야 함을 나타낸다..."
-socialImage: "/media/image-2.jpg"
+  - 'typescript'
+description: '인터페이스를 사용하여 커스텀 타입의 객체를 만들 수 있다. 아래의 예시에서 Person 인터페이스는 특정 객체가 반드시 name, age 프로퍼티를 갖고 greet 메서드를 갖는 객체로 구현되어야 함을 나타낸다...'
+socialImage: '/media/image-2.jpg'
 ---
 
 > **[유데미 TYPESCRIPT](https://www.udemy.com/course/understanding-typescript/learn/lecture/)** 수업을 듣고 정리한 내용입니다.
+
+# 목차
+
+- [인터페이스](#인터페이스)
+- [클래스에 인터페이스 사용하기](#클래스에-인터페이스-사용하기)
+- [인터페이스와 상속](#인터페이스와-상속)
+- [인터페이스로 함수 타입 지정하기](#인터페이스로-함수-타입-지정하기)
+- [파라미터와 프로퍼티 옵션주기](#파라미터와-프로퍼티-옵션주기)
 
 ## 인터페이스
 
@@ -28,14 +36,14 @@ interface Person {
 let user1: Person;
 
 user1 = {
-  name: "louies",
+  name: 'louies',
   age: 29,
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    console.log(phrase + ' ' + this.name);
   }
 };
 
-user1.greet("hi there I am");
+user1.greet('hi there I am');
 ```
 
 ## 클래스에 인터페이스 사용하기
@@ -58,14 +66,14 @@ class Person implements Greetable {
   }
 
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    console.log(phrase + ' ' + this.name);
   }
 }
 
 let user1: Greetable;
 
-user1 = new Person("Louies");
-user1.greet("hi there I am");
+user1 = new Person('Louies');
+user1.greet('hi there I am');
 ```
 
 인터페이스에도 프로퍼티에 `readonly` 를 붙일 수 있다. 인터페이스를 구현한 클래스에서 최초에 프로퍼티에 초기화 할 때만 write를 할 수 있다.
@@ -100,7 +108,7 @@ class Person implements Greetable, Named {
   }
 
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    console.log(phrase + ' ' + this.name);
   }
 }
 ```
@@ -127,7 +135,7 @@ class Person implements Greetable {
   }
 
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    console.log(phrase + ' ' + this.name);
   }
 }
 ```
@@ -177,7 +185,7 @@ class Person implements Greetable {
   }
 
   greet(phrase: string) {
-    console.log(phrase + " " + this.name);
+    console.log(phrase + ' ' + this.name);
   }
 }
 ```
@@ -206,9 +214,9 @@ class Person implements Greetable {
 
   greet(phrase: string) {
     if (this.name) {
-      console.log(phrase + " " + this.name);
+      console.log(phrase + ' ' + this.name);
     } else {
-      console.log("Hi");
+      console.log('Hi');
     }
   }
 }
@@ -216,7 +224,7 @@ class Person implements Greetable {
 let user1: Greetable;
 
 user1 = new Person();
-user1.greet("hi there I am");
+user1.greet('hi there I am');
 ```
 
 다음과 같이 Person 클래스의 constructor의 매개변수에 ? 대신 디폴트 값을 지정해줄 수도 있다.

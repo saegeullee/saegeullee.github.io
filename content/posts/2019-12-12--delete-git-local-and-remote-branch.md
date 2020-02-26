@@ -1,0 +1,28 @@
+---
+title: Git 로컬, 리모트 브랜치 삭제하기
+date: '2019-12-12T16:00:37.121Z'
+template: 'post'
+draft: false
+slug: '/category/git/delete-git-local-and-remote-branch'
+category: 'git'
+tags:
+  - 'git'
+description: '깃 로컬, 리모트에서 브랜치를 삭제하는 방법을 알아보자'
+socialImage: '/media/image-2.jpg'
+---
+
+## 로컬 브랜치 삭제
+
+로컬 깃 브랜치에서 작업을 하다 해당 브랜치에서의 작업이 필요없어지면 다음 명령으로 로컬 브랜치를 삭제할 수 있다.
+
+```
+git branch -D branch_name
+```
+
+## 깃헙 리모트 브랜치 삭제
+
+이미 리모트로 푸쉬한 브랜치를 삭제하고 싶다면 다음 명령으로 삭제하면 된다.
+
+```
+git push origin --delete branch_name
+```

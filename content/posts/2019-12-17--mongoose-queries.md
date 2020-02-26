@@ -15,7 +15,7 @@ socialImage: '/media/image-2.jpg'
 
 이 포스팅에서는 nodejs 어플리케이션을 개발하면서 새로 배웠거나 중요한 몽구스 쿼리에 대해 정리한다.
 
-# 이 글의 목차
+# 목차
 
 - [populate한 도큐먼트의 특정필드를 다시 populate하기](#populate한-도큐먼트의-특정필드를-다시-populate하기)
 

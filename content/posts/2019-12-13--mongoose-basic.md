@@ -1,5 +1,5 @@
 ---
-title: Mongoose 기본
+title: Mongoose 스키마 & 쿼리 기본
 date: '2019-12-13T16:00:37.121Z'
 template: 'post'
 draft: false
@@ -8,11 +8,21 @@ category: 'nodejs'
 tags:
   - 'nodejs'
   - 'mongoose'
+
 description: '몽구스는 MongoDB를 Nodejs에서 사용하기 쉽게 추상화해놓은 ODM(Object Data Modeling) 라이브러리이다. 몽구스를 통해 MongoDB와 상호작용하는 어플리케이션을 쉽고 빠르게 개발할 수 있다...'
 socialImage: '/media/image-2.jpg'
 ---
 
 > **[유데미 NODE.JS](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/)** 수업을 듣고 정리한 내용입니다.
+
+# 목차
+
+- [몽구스란](#몽구스란)
+- [모델 스키마 정의하기](#모델-스키마-정의하기)
+- [도큐먼트 생성하기](#도큐먼트-생성하기)
+- [도큐먼트 읽기](#도큐먼트-읽기)
+- [도큐먼트 업데이트하기](#도큐먼트-업데이트하기)
+- [도큐먼트 삭제하기](#도큐먼트-삭제하기)
 
 ## 몽구스란
 
@@ -24,7 +34,7 @@ socialImage: '/media/image-2.jpg'
 
 * 몽구스 모델은 몽구스 스키마를 감싸는 Wrapper 로써 MongoDB의 CRUD 를 위한 인터페이스를 제공한다.
 
-**[몽고DB 기본 참고](https://saegeullee.github.io/nodejs/mongodb-basic)**
+**[몽고DB 쿼리 기본 참고](https://saegeullee.github.io/nodejs/mongodb-basic)**
 
 ## 모델 스키마 정의하기
 
