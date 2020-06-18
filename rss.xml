@@ -1,4 +1,211 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 16 Jun 2020 07:48:33 GMT</lastBuildDate><item><title><![CDATA[그래프 탐색 알고리즘 BFS, DFS 정리]]></title><description><![CDATA[그래프 탐색 알고리즘인 BFS와 DFS에 대해 정리한다.]]></description><link>https://saegeullee.github.io/algorithm/bfs-dfs</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/bfs-dfs</guid><pubDate>Thu, 11 Jun 2020 12:50:37 GMT</pubDate><content:encoded>&lt;h1 id=&quot;bfs와-dfs란&quot;&gt;&lt;a href=&quot;#bfs%EC%99%80-dfs%EB%9E%80&quot; aria-label=&quot;bfs와 dfs란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;BFS와 DFS란?&lt;/h1&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 18 Jun 2020 11:19:48 GMT</lastBuildDate><item><title><![CDATA[serverless]]></title><description><![CDATA[serverless]]></description><link>https://saegeullee.github.io/serverless/serverless</link><guid isPermaLink="false">https://saegeullee.github.io/serverless/serverless</guid><pubDate>Tue, 16 Jun 2020 11:50:37 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.udacity.com/course/cloud-developer-nanodegree--nd9990&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;유다시티 Cloud developer 과정&lt;/a&gt;&lt;/strong&gt; 수업을 듣고 정리한 내용입니다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;serverless란&quot;&gt;&lt;a href=&quot;#serverless%EB%9E%80&quot; aria-label=&quot;serverless란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Serverless란&lt;/h1&gt;
+&lt;p&gt;서비리스라는 용어는 유행어일 뿐이다. 어떤 아키텍처 패턴이나 기술을 의미하는 용어가 아니다. 서버리스는 어떤 솔루션을 의미한다. 서버리스라는 키워드를 가지고 있는 대부분의 솔루션들은 다음의 특징들을 가지고 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;서버는 더 이상의 고려할 부분이 아님(다른 사람에 의해 관리됨)&lt;/li&gt;
+&lt;li&gt;스케일업, 스케일다운이 쉬움&lt;/li&gt;
+&lt;li&gt;사용한 만큼 비용 지불(요청이 없을 때는 비용을 지불하지 않음)&lt;/li&gt;
+&lt;li&gt;데이터 저장소는 예외(요청이 없더라도 데이터 저장하는 만큼 비용을 지불해야함)&lt;/li&gt;
+&lt;li&gt;서버 관리자가 필요없음(서비스 운영에 신경쓰지 않아도됨. 어플리케이션의 비즈니스 로직에만 집중할 수 있음)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;서버리스의-장점&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4%EC%9D%98-%EC%9E%A5%EC%A0%90&quot; aria-label=&quot;서버리스의 장점 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서버리스의 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;낮은 진입 장벽&lt;/li&gt;
+&lt;li&gt;비용이 저렴함&lt;/li&gt;
+&lt;li&gt;높은 가용성과 확장성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;앞으로-수업에서-배울-것들&quot;&gt;&lt;a href=&quot;#%EC%95%9E%EC%9C%BC%EB%A1%9C-%EC%88%98%EC%97%85%EC%97%90%EC%84%9C-%EB%B0%B0%EC%9A%B8-%EA%B2%83%EB%93%A4&quot; aria-label=&quot;앞으로 수업에서 배울 것들 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;앞으로 수업에서 배울 것들&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;서버리스란 무엇인가?&lt;/li&gt;
+&lt;li&gt;Function as a Service(FaaS)&lt;/li&gt;
+&lt;li&gt;간단한 함수와 이를 이벤트에 연결하는 방법&lt;/li&gt;
+&lt;li&gt;함수가 실행되는 방법&lt;/li&gt;
+&lt;li&gt;FaaS의 장점과 단점&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;서버리스-컴포넌트&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8&quot; aria-label=&quot;서버리스 컴포넌트 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서버리스 컴포넌트&lt;/h2&gt;
+&lt;p&gt;서버리스는 하나의 기술 또는 서비스를 의미하는 것이 아니라 여러개의 컴포넌트를 통합하여 지칭하는 용어이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Faas : 개별 함수에 코드를 작성하고 플랫폼에 배포하여 실행시키는 서비스이다. (AWS Lambda, Google Cloud Functions, Azure Functions)&lt;/li&gt;
+&lt;li&gt;Datastores: 데이터 스토리지(Amazon S3, Amazon DynamoDB, Firebase etc)&lt;/li&gt;
+&lt;li&gt;Messaging: 하나의 어플리케이션에서 다른 어플리케이션으로 메시지를 보내주는 서비스(Amazon Simple Queue Service(SQS), Amazon Kinesis, Google Pub/Sub)&lt;/li&gt;
+&lt;li&gt;Services: 우리가 서버를 관리하지 않아도 되는 기능들을 제공하는 모든 서비스들(인증, 머신러닝, 비디오 프로세싱, 빅데이터, 오케스트레이션 등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;fuction-as-a-servicefaas&quot;&gt;&lt;a href=&quot;#fuction-as-a-servicefaas&quot; aria-label=&quot;fuction as a servicefaas permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Fuction as a Service(FaaS)&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;어플리케이션을 여러 개의 작은 함수로 쪼개는 것&lt;/li&gt;
+&lt;li&gt;이벤트 드리븐(함수들이 외부의 이벤트 발생으로 인해 실행이 됨)&lt;/li&gt;
+&lt;li&gt;함수 실행당 비용 지불&lt;/li&gt;
+&lt;li&gt;나머지 모든 것들이 클라우드 프로바이더에 의해 핸들링 됨(서버 제공, 스케일업, 스케일다운, 설치와 업데이트, 서버 관리 등)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;람다-함수-vs-aws-람다&quot;&gt;&lt;a href=&quot;#%EB%9E%8C%EB%8B%A4-%ED%95%A8%EC%88%98-vs-aws-%EB%9E%8C%EB%8B%A4&quot; aria-label=&quot;람다 함수 vs aws 람다 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;람다 함수 VS AWS 람다&lt;/h3&gt;
+&lt;p&gt;AWS 람다는 AWS에서 발생하는 이벤트에 대한 응답을 코드로 실행하는 컴퓨팅 서비스를 의미하고 람다 함수는 AWS 람다에서 실행되고 이벤트 소스에 연결된 단일 함수를 의미한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//함수 예시(AWS Lambda)&lt;/span&gt;
+exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;number&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; updateNum &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; number&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    result&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; updateNum
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;AWS 람다에 함수를 배포할 때 두가지 파라미터에 대해 생각해야 한다. 첫번째는 memory이다. 함수가 실행되며 사용할 수 있는 최대 램 용량을 의미한다. 더 많은 메모리를 지정하면 더 빠른 CPU를 사용할 수 있고 이에 따라 더 많은 비용을 지불해야 한다. 두번째는 timeout이다. 함수가 실행되는데 필요한 최대 시간을 의미한다. 파라미터로 제공한 시간이 지나면 함수는 자동 종료된다.&lt;/p&gt;
+&lt;h3 id=&quot;aws-람다의-제한사항&quot;&gt;&lt;a href=&quot;#aws-%EB%9E%8C%EB%8B%A4%EC%9D%98-%EC%A0%9C%ED%95%9C%EC%82%AC%ED%95%AD&quot; aria-label=&quot;aws 람다의 제한사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 람다의 제한사항&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;함수 실행당 최대 3GB의 메모리 사용가능&lt;/li&gt;
+&lt;li&gt;함수는 15분 이상 실행될 수 없음&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;/tmp&lt;/code&gt; 폴더에만 파일을 쓸 수 있음(512MB 이내)&lt;/li&gt;
+&lt;li&gt;동시에 실행될 수 있는 함수의 개수 제한 (디폴트로 함수의 인스턴스 1000개까지 병렬적으로 실행 가능)&lt;/li&gt;
+&lt;li&gt;이벤트 사이즈는 6MB까지 가능(람다 함수를 동기(syncronously)로 호출할 경우 256KB까지 가능)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;AWS 람다 제한사항 최신 버전은 &lt;a href=&quot;https://docs.aws.amazon.com/lambda/latest/dg/limits.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;여기서&lt;/a&gt; 확인 가능&lt;/p&gt;
+&lt;h2 id=&quot;aws-람다-이벤트&quot;&gt;&lt;a href=&quot;#aws-%EB%9E%8C%EB%8B%A4-%EC%9D%B4%EB%B2%A4%ED%8A%B8&quot; aria-label=&quot;aws 람다 이벤트 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 람다 이벤트&lt;/h2&gt;
+&lt;p&gt;람다 함수와 테스트 event 객체를 다음과 같이 구성해볼 수 있다. 테스트 event 객체는 AWS 콘솔에서 생성된 람다 함수 대시보드 안에서 Test 버튼 왼쪽의 드롭다운 메뉴에서 Configure test events를 클릭하여 테스트 이벤트 객체를 구성할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;//람다 함수&lt;/span&gt;
+exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Event: &apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        result&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;Hello &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;//테스트 이벤트&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Serverless&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;함수가-실행되는-방법&quot;&gt;&lt;a href=&quot;#%ED%95%A8%EC%88%98%EA%B0%80-%EC%8B%A4%ED%96%89%EB%90%98%EB%8A%94-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;함수가 실행되는 방법 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;함수가 실행되는 방법&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 825px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e3772c18b67227a1a4848e138be325e5/b66d4/aws_lambda_functions.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.18181818181818%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAB70lEQVQoz12Sy08TURTG5/9xo/4FbqqyceHKtXHjOxqDcYGa+EIJlqTRRCK21thu1BhiaKkSkCgKPmqDglBoLdD3Q0s7TKedOz+vtw8qd/LlTr6Tc873nXM1dpx8qczk3HemJGbCPzHMuuJLZo1QPsN0ZoNQIUu6WgUhsGXMtm35KxC2QKvX6+RyeUzTVImB6S8cvfyAkzfcHL/2kGgipfgPqTX2hrwcfO5iV9BLKDwBegWxQ5BmGAbFYolGo6GI1zMRTt/ycNHp5/wdL/H1tOL1xDesYQerrh6izgOIkR70dJSGlNhomCz+irCejaO1KwvbVvfEx3lOXH/EhcGnnO33kEjlFG9sVUknl8hIpFLLVDIrWKahYlk5iiN9+xj096FZlkW5vCm7WCr4Rirsdfq4cv8Zl4b8rKw1Fc4Wcuyee8uhyZfs+TTFeCwquxiYMs+s1wi+HyWy9BlN17dIJlOdGY6/CyvLvXd9nJOWVxNJxWdiX5m95+DFgAPf7f0UPYepZWPYLYd61UTIqW1bFtuWT910dwq2LVuVAiyMIRaD2AsBxI9X1PU/KvZvy+qTt9YmLNHcV1AqPHZ1mDP9j+WWR4hvZJsNW7C70M7tFG0X7FY4v5xgwD3K0JMxXL4Ahd+brbh8c8L6H13F2h3+AqEwgHqcgMjDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/e3772c18b67227a1a4848e138be325e5/8ac56/aws_lambda_functions.webp 240w,
+/static/e3772c18b67227a1a4848e138be325e5/d3be9/aws_lambda_functions.webp 480w,
+/static/e3772c18b67227a1a4848e138be325e5/0244e/aws_lambda_functions.webp 825w&quot;
+          sizes=&quot;(max-width: 825px) 100vw, 825px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/e3772c18b67227a1a4848e138be325e5/e4891/aws_lambda_functions.png 240w,
+/static/e3772c18b67227a1a4848e138be325e5/0ce91/aws_lambda_functions.png 480w,
+/static/e3772c18b67227a1a4848e138be325e5/b66d4/aws_lambda_functions.png 825w&quot;
+          sizes=&quot;(max-width: 825px) 100vw, 825px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/e3772c18b67227a1a4848e138be325e5/b66d4/aws_lambda_functions.png&quot;
+          alt=&quot;AWS Lambda Functions&quot;
+          title=&quot;AWS Lambda Functions&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;람다 함수를 실행시키기 위해 요청을 보내면, AWS 람다는 해당 함수를 실행시키기 위한 환경을 만든다. 특정 환경을 위한 컨테이너를 만들고 해당 함수 코드를 로드한다. 그리고 이 함수에 이벤트를 보낸다. 이와 같은 과정이 모든 요청에 대해 동일하게 반복된다.&lt;/p&gt;
+&lt;p&gt;해당 요청에 대해 함수가 실행되어 응답을 보내주고 나면 이를 위해 만들어진 환경이 곧바로 제거되는 것은 아니다. 곧 이 함수에 대해 다른 요청이 들어올 수도 있기 때문이다. 그래서 만약 이 함수에 새로운 요청을 보내면 AWS 람다는 현재 존재하는 환경을 사용할 것이다.&lt;/p&gt;
+&lt;p&gt;그리고 만약 오랜 시간동안 새로운 요청이 오지 않는다면, AWS 람다는 해당 환경들을 하나씩 제거하기 시작한다. 긴 시간동안 요청이 없었다면 함수를 곧바로 실행할 수 있는 환경이 없을 것이다. 따라서 새로운 요청에 응답하기 위한 새로운 환경이 만들어져야 한다.&lt;/p&gt;
+&lt;p&gt;위와 같이 함수는 휘발성이다. 요청에 응답하기 위해 만들어진 환경은 10분~15분 정도 유지되고 더 이상 사용되지 않으면 이는 곧 제거된다. 만약 해당 환경이 4시간정도 계속해서 사용되더라도 해당 환경을 구성하는 컨테이너는 제거되고 함수를 실행하기 위한 다른 컨테이너가 만들어진다. 이렇게 동작하는 이유는 이렇게 함으로서 함수가 항상 최신의 OS 버전과 최신 업데이트가 적용된 환경에서 서비스를 할 수 있기 때문이다.&lt;/p&gt;
+&lt;h2 id=&quot;invocation-types구동-타입&quot;&gt;&lt;a href=&quot;#invocation-types%EA%B5%AC%EB%8F%99-%ED%83%80%EC%9E%85&quot; aria-label=&quot;invocation types구동 타입 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Invocation types(구동 타입)&lt;/h2&gt;
+&lt;p&gt;AWS 람다 함수를 구동(실행)시킬 때, 어떤 구동 타입으로 함수를 실행시킬지 결정할 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Request/Response (Syncronous call)&lt;/li&gt;
+&lt;li&gt;Asyncronous invocation (Asyncronous call)&lt;/li&gt;
+&lt;li&gt;Using AWS CLI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;다음과 같이 AWS CLI를 사용하여 함수를 구동시킬 수 있다. 하지만 어떤 이유에서인지 나의 환경에서는 &lt;code class=&quot;language-text&quot;&gt;aws: error: the following arguments are required: outfile&lt;/code&gt; 에러 메시지가 발생한다..&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;aws lambda invoke --function-name helloworld \
+--invocation-type RequestResponse \
+--log-type Tail --payload `{&amp;quot;name&amp;quot; : &amp;quot;AWS Lambda&amp;quot;}` \
+result.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;invocation-type&lt;/code&gt;을 Event로 줘서 비동기로 실행할 수도 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;aws lambda invoke --function-name helloworld \
+--invocation-type Event \
+--log-type Tail --payload `{&amp;quot;name&amp;quot; : &amp;quot;AWS Lambda&amp;quot;}` \
+result.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;에러-핸들링&quot;&gt;&lt;a href=&quot;#%EC%97%90%EB%9F%AC-%ED%95%B8%EB%93%A4%EB%A7%81&quot; aria-label=&quot;에러 핸들링 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;에러 핸들링&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/media/AWS_Lambda_Error_Handling.png&quot; alt=&quot;AWS_Lambda_Error_Handling&quot;&gt;&lt;/p&gt;
+&lt;p&gt;AWS 람다에서 에러가 발생하면 어떻게 함수를 실행시켰는지에 따라 에러가 핸들링 되는 방법이 다르다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Request/Response(동기) 방법을 사용하여 함수를 실행시켰을 때 에러가 발생하면 함수를 호출한 클라이언트에게 즉시 에러를 반환한다.&lt;/li&gt;
+&lt;li&gt;Aync(비동기) 방법을 사용하여 함수를 실행시켰을 때 에러가 발생하면 AWS 람다는 HTTP 202(accepted) 응답을 클라이언트에게 보내주고 이 요청을 내부적으로 Queue에 저장해놓는다. 추가적으로 람다 함수를 3번 호출하고 만약 이 모든 호출에 대해 전부 에러가 발생하면 이 이벤트(요청)를 &lt;code class=&quot;language-text&quot;&gt;dead-letter-queue&lt;/code&gt;에 저장해놓는다.
+이 큐에는 람다 함수가 응답에 대해 처리를 못하고 실패한 모든 이벤트를 저장해놓는 공간이다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;플랫폼-이벤트&quot;&gt;&lt;a href=&quot;#%ED%94%8C%EB%9E%AB%ED%8F%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8&quot; aria-label=&quot;플랫폼 이벤트 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;플랫폼 이벤트&lt;/h2&gt;
+&lt;p&gt;이제 조금 복잡한 AWS 람다 함수를 만들어본다. 이 함수를 실행시키기 위해 &lt;code class=&quot;language-text&quot;&gt;CloudWatch&lt;/code&gt;라는 서비스를 이용한다. 아래의 그림과 같이 클라우드워치 서비스를 통해 AWS 람다 함수를 주기적으로 호출하는 이벤트를 발생시킬 수 있다. 이 이벤트가 발생하면 람다 함수는 현재 실행되고있는 EC2 인스턴스의 목록을 얻고 이중 하나를 랜덤하게 종료시킨다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/media/AWS_Lambda_complex_function.png&quot; alt=&quot;AWS_Lambda_complex_function&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이 프로젝트는 이 &lt;a href=&quot;https://github.com/udacity/cloud-developer/tree/master/course-04/exercises/c4-demos-master/04-chaos-monkey&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;레포지토리&lt;/a&gt;에 저장되어 있다. 이 프로젝트로 AWS 람다 함수를 만들기 위해 먼저 프로젝트 루트 디렉토리에서 &lt;code class=&quot;language-text&quot;&gt;npm i&lt;/code&gt;를 하여 디펜던시를 설치하고 zip으로 압축해야 한다. 여기서 제한사항은 압축된 zip 파일은 50MB를 넘으면 안되고 압축을 푼 폴더(AWS가 압축된 폴더를 unzipp 한다)는 250MB를 넘으면 안된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;zip -r chaos-monkey.zip .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;추가-파라미터&quot;&gt;&lt;a href=&quot;#%EC%B6%94%EA%B0%80-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0&quot; aria-label=&quot;추가 파라미터 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;추가 파라미터&lt;/h2&gt;
+&lt;p&gt;AWS 람다 함수는 event 외에 다른 파라미터를 받을 수 있다. 이 중에 2번째 파라미터는 아래의 예시와 같이 context이다. context는 람다 함수가 실행되고 있는 환경에 대한 정보를 제공한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; context&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; number &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;number&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/media/AWS_Lambda_Context.png&quot; alt=&quot;AWS_Lambda_Context&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;rest-api&quot;&gt;&lt;a href=&quot;#rest-api&quot; aria-label=&quot;rest api permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;REST API&lt;/h1&gt;
+&lt;h2 id=&quot;api-게이트웨이&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4&quot; aria-label=&quot;api 게이트웨이 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;API 사용자에게 진입점&lt;/li&gt;
+&lt;li&gt;다른 서비스에게 요청을 전달&lt;/li&gt;
+&lt;li&gt;요청을 처리&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Api 게이트웨이는 사용자가 보낸 HTTP 요청을 받아 이벤트로 변환하여 람다 함수를 호출하는 역할을 한다. 그리고 호출된 람다 함수가 비즈니스 로직을 수행한다. 뿐만 아니라 중간에서 인증, 보안, 로깅 캐싱 등의 역할을 수행 할 수도 있다.&lt;br&gt;
+&lt;img src=&quot;/media/AWS_API_GATEWAY.png&quot; alt=&quot;AWS_API_GATEWAY&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;api-게이트웨이-타입&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4-%ED%83%80%EC%9E%85&quot; aria-label=&quot;api 게이트웨이 타입 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이 타입&lt;/h3&gt;
+&lt;p&gt;아마존 API 게이트웨이에는 두가지 종류가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;li&gt;WebSocket API&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;api-게이트웨이의-기능들&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4%EC%9D%98-%EA%B8%B0%EB%8A%A5%EB%93%A4&quot; aria-label=&quot;api 게이트웨이의 기능들 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이의 기능들&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Serverless&lt;/li&gt;
+&lt;li&gt;모니터링 기능을 제공&lt;/li&gt;
+&lt;li&gt;인증&lt;/li&gt;
+&lt;li&gt;쓰로틀링(throttling)&lt;/li&gt;
+&lt;li&gt;Web Application Firewall(WAF)와 통합&lt;/li&gt;
+&lt;li&gt;커스텀 도메인 네임 사용 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;api-게이트웨이-환경설정&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95&quot; aria-label=&quot;api 게이트웨이 환경설정 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이 환경설정&lt;/h2&gt;
+&lt;h3 id=&quot;엔드포인트-타입&quot;&gt;&lt;a href=&quot;#%EC%97%94%EB%93%9C%ED%8F%AC%EC%9D%B8%ED%8A%B8-%ED%83%80%EC%9E%85&quot; aria-label=&quot;엔드포인트 타입 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;엔드포인트 타입&lt;/h3&gt;
+&lt;p&gt;API 게이트웨이를 사용하여 REST API를 만들 때 각 리소스가 어떤 람다 함수를 호출해야 하는지에 대한 정의뿐만 아니라 엔드포인트 타입도 같이 정의해야 한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;엔드포인트 타입은 API 당 설정을 해야 한다. (리소스나 메서드 당 설정 X)&lt;/li&gt;
+&lt;li&gt;API 게이트웨이에는 3가지 엔드포인트 타입이 있다.&lt;/li&gt;
+&lt;li&gt;이 중 2가지가 public 인데 &lt;code class=&quot;language-text&quot;&gt;Edge optimized&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Regional&lt;/code&gt;이 있다.&lt;/li&gt;
+&lt;li&gt;이 중 다른 한가지는 private VPC인데 외부에서 접근이 불가능한 타입이다.&lt;/li&gt;
+&lt;li&gt;만약 &lt;code class=&quot;language-text&quot;&gt;Edge optimized&lt;/code&gt; 엔드포인트 타입을 선택하고 API를 특정 지역(region)에 배포하면, AWS는 자동으로 CloudFront를 생성해준다. 그럼 모든 요청은 먼저 이 CloudFront를 거쳤다가 API 게이트웨이로 간다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Regional&lt;/code&gt; 엔드포인트 타입은 사용자의 요청이 CloudFront를 거치지 않고 곧바로 API 게이트웨이로 간다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;lambda-integration-modes람다-통합-모드&quot;&gt;&lt;a href=&quot;#lambda-integration-modes%EB%9E%8C%EB%8B%A4-%ED%86%B5%ED%95%A9-%EB%AA%A8%EB%93%9C&quot; aria-label=&quot;lambda integration modes람다 통합 모드 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Lambda Integration Modes(람다 통합 모드)&lt;/h3&gt;
+&lt;p&gt;람다 함수를 배포하기 전에 고려해야 할 사항은 어떤 데이터 포맷이 API 게이트로부터 람다 함수에 전달되는지에 대한 것이다. 이 데이터 포맷은 어떤 통합 모드를 선택하는지에 따라 달렸다.
+&lt;img src=&quot;/media/Lambda_Integration_Modes.png&quot; alt=&quot;Lambda_Integration_Modes&quot;&gt;
+두가지 통합 모드가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Proxy: 모든 요청 정보를 람다 함수로 전달한다. 사용하기 쉬움&lt;/li&gt;
+&lt;li&gt;Non-proxy: 사용자로부터 들어오는 요청을 &lt;code class=&quot;language-text&quot;&gt;Velocity Template Language&lt;/code&gt;를 사용하여 변환하여 전달한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;api-게이트웨이-스테이지&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4-%EC%8A%A4%ED%85%8C%EC%9D%B4%EC%A7%80&quot; aria-label=&quot;api 게이트웨이 스테이지 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이 스테이지&lt;/h2&gt;
+&lt;p&gt;API 게이트웨이 스테이지는 구현된 REST API의 라이프사이클 상태에 대한 논리적 참조이다.
+(API Gateway Stage is a logical reference to a lifecycle state of the REST API implementation.)&lt;/p&gt;
+&lt;p&gt;예를들어, REST API에는 여러가지 스테이지가 있을 수 있는데 개발자들이 사용하는 dev 스테이지가 있을 수 있고, 배포 전에 테스트를 위한 staging 스테이지가 있을 수 있고, 실제 사용자들이 사용하는 prod 스테이지가 있을 수 있다.&lt;/p&gt;
+&lt;p&gt;각 스테이지들은 아래의 그림처럼 서로 다른 URL을 가진다. 중요한 점은 각 스테이지들은 서로 다른 람다 함수 버전을 사용한다는 것이다.
+&lt;img src=&quot;/media/API_GATEWAY_STAGES.png&quot; alt=&quot;API_GATEWAY_STAGES&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[그래프 탐색 알고리즘 BFS, DFS 정리]]></title><description><![CDATA[그래프 탐색 알고리즘인 BFS와 DFS에 대해 정리한다.]]></description><link>https://saegeullee.github.io/algorithm/bfs-dfs</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/bfs-dfs</guid><pubDate>Thu, 11 Jun 2020 12:50:37 GMT</pubDate><content:encoded>&lt;h1 id=&quot;bfs와-dfs란&quot;&gt;&lt;a href=&quot;#bfs%EC%99%80-dfs%EB%9E%80&quot; aria-label=&quot;bfs와 dfs란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;BFS와 DFS란?&lt;/h1&gt;
 &lt;p&gt;대표적인 그래프 탐색 알고리즘&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;너비 우선 탐색(Breadth First Search) : 정점과 같은 레벨에 있는 노드들(형제 노드들)을 먼저 탐색하는 방식&lt;/li&gt;
