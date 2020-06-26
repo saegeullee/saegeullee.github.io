@@ -206,7 +206,47 @@ result.txt</code></pre></div>
 --log-type Tail --payload `{&quot;name&quot; : &quot;AWS Lambda&quot;}` \
 result.txt</code></pre></div>
 <h3 id="에러-핸들링"><a href="#%EC%97%90%EB%9F%AC-%ED%95%B8%EB%93%A4%EB%A7%81" aria-label="에러 핸들링 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>에러 핸들링</h3>
-<p><img src="/media/AWS_Lambda_Error_Handling.png" alt="AWS_Lambda_Error_Handling"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 742px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b97b3acca9041babbfee481da9fbffe0/65b75/AWS_Lambda_Error_Handling.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50.40431266846361%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACKElEQVQoz22R2U8TYRTF+zfqoy/wQCIYdxN5QHjBYFSUREl5KipuEQ0JtiyFLsOilaULSkushbaJBil2pp0uM9OZ/vzm00ZIvMnJ/e4395w5Z8bD33Ich6OjEs1Gg3JFZ+lDiuXYDsH1JIfHqtxpt9sStth12sjuzp1nbnls20ZTNUzTJJv9hl6tEPqYovvWBBdu++ga8OKPbsply7IwTAtT16gWv0oTLv+UYEM4KuSLNOoNNE3Dtkwinz5z6c5T+sdecXHkCe8jGzh2SyawWjaGWuJXZgu71ZIuTwl2IrsXpni7W8pWmj7h7sboC3qHfcwp2/LeMEzp0hZ5XXpLCJ6M7MLj2lZFZNd6qXSM07IIi2937d4UA4/ecPXuMwLKliQ1m00aTQOjWkbLZyTHtp3Tgp3I9XqdalUX0SyiG1+4fv85g+PTsgei/wSbwqWhlThOb/4/cq1Wk2Ku8P7+ARW1zNJ6nJ5BL5dHfPQMeXk7v0Jdr1JWVfEDVbGjoes1AZ2TfPfsKRaLdFAQOPp5yLQ/RHf/A/qGHtN1c5Spd/Mc/vhO7uCA7G6GneVV2fOFAvl8nlwuRzKZpCBmTyqVooNEIsleehffyxnO9g5x7sowZ84PMj75mr1MmoQgxVbXiEzPEltZYzseF5wEsViMUChMXMyeSCRCB+FwGCUaZdY/x5h3krGJSR56fczM+llRFILBIH5/gPmFBQKBAIuLi0TFvstVlD/9NxRKwbzDQt7dAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/b97b3acca9041babbfee481da9fbffe0/8ac56/AWS_Lambda_Error_Handling.webp 240w,
+/static/b97b3acca9041babbfee481da9fbffe0/d3be9/AWS_Lambda_Error_Handling.webp 480w,
+/static/b97b3acca9041babbfee481da9fbffe0/28367/AWS_Lambda_Error_Handling.webp 742w"
+          sizes="(max-width: 742px) 100vw, 742px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/b97b3acca9041babbfee481da9fbffe0/e4891/AWS_Lambda_Error_Handling.png 240w,
+/static/b97b3acca9041babbfee481da9fbffe0/0ce91/AWS_Lambda_Error_Handling.png 480w,
+/static/b97b3acca9041babbfee481da9fbffe0/65b75/AWS_Lambda_Error_Handling.png 742w"
+          sizes="(max-width: 742px) 100vw, 742px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/b97b3acca9041babbfee481da9fbffe0/65b75/AWS_Lambda_Error_Handling.png"
+          alt="AWS_Lambda_Error_Handling"
+          title="AWS_Lambda_Error_Handling"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
 <p>AWS 람다에서 에러가 발생하면 어떻게 함수를 실행시켰는지에 따라 에러가 핸들링 되는 방법이 다르다.</p>
 <ol>
 <li>Request/Response(동기) 방법을 사용하여 함수를 실행시켰을 때 에러가 발생하면 함수를 호출한 클라이언트에게 즉시 에러를 반환한다.</li>
@@ -215,7 +255,49 @@ result.txt</code></pre></div>
 </ol>
 <h2 id="플랫폼-이벤트"><a href="#%ED%94%8C%EB%9E%AB%ED%8F%BC-%EC%9D%B4%EB%B2%A4%ED%8A%B8" aria-label="플랫폼 이벤트 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>플랫폼 이벤트</h2>
 <p>이제 조금 복잡한 AWS 람다 함수를 만들어본다. 이 함수를 실행시키기 위해 <code class="language-text">CloudWatch</code>라는 서비스를 이용한다. 아래의 그림과 같이 클라우드워치 서비스를 통해 AWS 람다 함수를 주기적으로 호출하는 이벤트를 발생시킬 수 있다. 이 이벤트가 발생하면 람다 함수는 현재 실행되고있는 EC2 인스턴스의 목록을 얻고 이중 하나를 랜덤하게 종료시킨다.</p>
-<p><img src="/media/AWS_Lambda_complex_function.png" alt="AWS_Lambda_complex_function"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/45c9399b70c1d70e35e95099f1750ed7/1bcd6/AWS_Lambda_complex_function.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 33.80035026269702%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABDUlEQVQoz4VR2U3DQBDdRuiCQigAiUb4owYaoAZECcAfiI8IFHAi4U2ErRBkr73ey4+ZsSKWEImRnnbnfHOocRyRg2X37ktuTykhhoDgHQK9MUbxqz9JFMjCAZGTGPTnJK1XqOsa3nvRc0kpil3dnlzg6/ldjM1iDVPW4JLBBzRlAVNpJGIe7IC+t4QenekkZqhKzC/PsX26k3xnLdTN0Rk2j2+wY8ByXmBVajRNIx1sXh7wWcyoIETnMXks75wUMIsZ7k+Poa+vRB9sD1W+LmFaM3XYtui67mfkDJbYNZExjDFio+rYVh8Ibpg6JCJFqxTmX3vEYeEEBne5I/KRdzwdiOuo/IL/Yf/ih/zfxigeGiudBdMAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/45c9399b70c1d70e35e95099f1750ed7/8ac56/AWS_Lambda_complex_function.webp 240w,
+/static/45c9399b70c1d70e35e95099f1750ed7/d3be9/AWS_Lambda_complex_function.webp 480w,
+/static/45c9399b70c1d70e35e95099f1750ed7/e46b2/AWS_Lambda_complex_function.webp 960w,
+/static/45c9399b70c1d70e35e95099f1750ed7/83a31/AWS_Lambda_complex_function.webp 1142w"
+          sizes="(max-width: 960px) 100vw, 960px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/45c9399b70c1d70e35e95099f1750ed7/e4891/AWS_Lambda_complex_function.png 240w,
+/static/45c9399b70c1d70e35e95099f1750ed7/0ce91/AWS_Lambda_complex_function.png 480w,
+/static/45c9399b70c1d70e35e95099f1750ed7/b7c40/AWS_Lambda_complex_function.png 960w,
+/static/45c9399b70c1d70e35e95099f1750ed7/1bcd6/AWS_Lambda_complex_function.png 1142w"
+          sizes="(max-width: 960px) 100vw, 960px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/45c9399b70c1d70e35e95099f1750ed7/b7c40/AWS_Lambda_complex_function.png"
+          alt="AWS_Lambda_complex_function"
+          title="AWS_Lambda_complex_function"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
 <p>이 프로젝트는 이 <a href="https://github.com/udacity/cloud-developer/tree/master/course-04/exercises/c4-demos-master/04-chaos-monkey" target="_blank" rel="nofollow noopener noreferrer">레포지토리</a>에 저장되어 있다. 이 프로젝트로 AWS 람다 함수를 만들기 위해 먼저 프로젝트 루트 디렉토리에서 <code class="language-text">npm i</code>를 하여 디펜던시를 설치하고 zip으로 압축해야 한다. 여기서 제한사항은 압축된 zip 파일은 50MB를 넘으면 안되고 압축을 푼 폴더(AWS가 압축된 폴더를 unzipp 한다)는 250MB를 넘으면 안된다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">zip -r chaos-monkey.zip .</code></pre></div>
 <h2 id="추가-파라미터"><a href="#%EC%B6%94%EA%B0%80-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0" aria-label="추가 파라미터 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>추가 파라미터</h2>
@@ -224,7 +306,49 @@ result.txt</code></pre></div>
   <span class="token keyword">const</span> number <span class="token operator">=</span> event<span class="token punctuation">.</span>number<span class="token punctuation">;</span>
   <span class="token operator">...</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p><img src="/media/AWS_Lambda_Context.png" alt="AWS_Lambda_Context"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cbe7832e697bc6e0b4e3bf64248e8832/9926b/AWS_Lambda_Context.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.76543209876544%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJUlEQVQoz42S626DMAxGef/Hm6atqrapWy/c4UcJAQLxOObSVm2lRvoUMPbJZ5xgs/2S75+dvL1/6I4+N1upayss7728usgNuq4TY2o5V5VY2yioqowMw3CT+IpYweF4krZt9QXIBPISx4nsfvfytz+I65z0fS/OuTv17hJXIIUoy/IR3GkhStNMwjBSFUWhMe+HG/CSyzOdKhBQFMUSjrLWqkOSiCfJdBDwsix1N8bwD9a89YBudkiSuhyLcYPLAYfzQQCXDtiTJF310CFF6nCEnc/VmkCbxChMV2gmTdPoP0cPgbRK8mksZrrLcGhxAWb51DZ5AP1Vu3ctH8cp4xDgAqY4zwuNR/PQiOlw3AxyT4DcO4bBXazri4ghvl+/4/CZaPsfa6oE9mkTnqkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/cbe7832e697bc6e0b4e3bf64248e8832/8ac56/AWS_Lambda_Context.webp 240w,
+/static/cbe7832e697bc6e0b4e3bf64248e8832/d3be9/AWS_Lambda_Context.webp 480w,
+/static/cbe7832e697bc6e0b4e3bf64248e8832/e46b2/AWS_Lambda_Context.webp 960w,
+/static/cbe7832e697bc6e0b4e3bf64248e8832/0b716/AWS_Lambda_Context.webp 1296w"
+          sizes="(max-width: 960px) 100vw, 960px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/cbe7832e697bc6e0b4e3bf64248e8832/e4891/AWS_Lambda_Context.png 240w,
+/static/cbe7832e697bc6e0b4e3bf64248e8832/0ce91/AWS_Lambda_Context.png 480w,
+/static/cbe7832e697bc6e0b4e3bf64248e8832/b7c40/AWS_Lambda_Context.png 960w,
+/static/cbe7832e697bc6e0b4e3bf64248e8832/9926b/AWS_Lambda_Context.png 1296w"
+          sizes="(max-width: 960px) 100vw, 960px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/cbe7832e697bc6e0b4e3bf64248e8832/b7c40/AWS_Lambda_Context.png"
+          alt="AWS_Lambda_Context"
+          title="AWS_Lambda_Context"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
 <h1 id="rest-api"><a href="#rest-api" aria-label="rest api permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>REST API</h1>
 <h2 id="api-게이트웨이"><a href="#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4" aria-label="api 게이트웨이 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 게이트웨이</h2>
 <ul>
@@ -233,7 +357,47 @@ result.txt</code></pre></div>
 <li>요청을 처리</li>
 </ul>
 <p>Api 게이트웨이는 사용자가 보낸 HTTP 요청을 받아 이벤트로 변환하여 람다 함수를 호출하는 역할을 한다. 그리고 호출된 람다 함수가 비즈니스 로직을 수행한다. 뿐만 아니라 중간에서 인증, 보안, 로깅 캐싱 등의 역할을 수행 할 수도 있다.<br>
-<img src="/media/AWS_API_GATEWAY.png" alt="AWS_API_GATEWAY"></p>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 844px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/32000ef09b80ea613a8ba2ecd863e11d/e9777/AWS_API_GATEWAY.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.89099526066351%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABsElEQVQoz42Qy27TQBiF/UYseQPEkg1CYokAiQVskVgieALEK4BQEWwpUECBxEmbUrfEsZ0gxb0kju3cHDuJb/HH2A1R0w0c6Wj+/8x/OTMSK2RZtj4vMl0xxzKJ13V/kaQZnh8TzJMily4PWC9gE9HMZ6DKzPpmUZckaaFvl3rcePCdh09/shS6xGUsl2SzOVkUFembzpgX+pBkZGMrJcbtw2JYGMbF2ncfTK7f+cq9J7ukwq20WCzwPA+r22Us4vHnL3Ru3iZ99pxXhsO1HZOP3em5S39CGs43vsgdhZTqAxRtUiyQHHdAJNwE3pR8Z/f1FvUrV/Hu3ufl4RmPD/p5N/8LKY5jYTUtmLcF5jG9rfcEP8q0RgG3vnV4JJ+QBR52c5dp/5RI9OQmEtEz6dlYjTaDzpnIE+HQcchp57Rt8YQRw3CB4/v4Q5ep62BaNseGivrpLS15B8uy6IkvskT9b6WBVqrR3lNwXBdJ13UuUtM0NFVFbzZp5rGm0zYMdBH/qldpKPsYRquoNVoGqnLEQbnK0d5+oUmVSoV/sbw65WoNWa5u3ssyck3o1XP9D9COkgp0NLsaAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/32000ef09b80ea613a8ba2ecd863e11d/8ac56/AWS_API_GATEWAY.webp 240w,
+/static/32000ef09b80ea613a8ba2ecd863e11d/d3be9/AWS_API_GATEWAY.webp 480w,
+/static/32000ef09b80ea613a8ba2ecd863e11d/20d15/AWS_API_GATEWAY.webp 844w"
+          sizes="(max-width: 844px) 100vw, 844px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/32000ef09b80ea613a8ba2ecd863e11d/e4891/AWS_API_GATEWAY.png 240w,
+/static/32000ef09b80ea613a8ba2ecd863e11d/0ce91/AWS_API_GATEWAY.png 480w,
+/static/32000ef09b80ea613a8ba2ecd863e11d/e9777/AWS_API_GATEWAY.png 844w"
+          sizes="(max-width: 844px) 100vw, 844px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/32000ef09b80ea613a8ba2ecd863e11d/e9777/AWS_API_GATEWAY.png"
+          alt="AWS_API_GATEWAY"
+          title="AWS_API_GATEWAY"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
 <h3 id="api-게이트웨이-타입"><a href="#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4-%ED%83%80%EC%9E%85" aria-label="api 게이트웨이 타입 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API 게이트웨이 타입</h3>
 <p>아마존 API 게이트웨이에는 두가지 종류가 있다.</p>
 <ul>
@@ -262,7 +426,47 @@ result.txt</code></pre></div>
 </ul>
 <h3 id="lambda-integration-modes람다-통합-모드"><a href="#lambda-integration-modes%EB%9E%8C%EB%8B%A4-%ED%86%B5%ED%95%A9-%EB%AA%A8%EB%93%9C" aria-label="lambda integration modes람다 통합 모드 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Lambda Integration Modes(람다 통합 모드)</h3>
 <p>람다 함수를 배포하기 전에 고려해야 할 사항은 어떤 데이터 포맷이 API 게이트로부터 람다 함수에 전달되는지에 대한 것이다. 이 데이터 포맷은 어떤 통합 모드를 선택하는지에 따라 달렸다.
-<img src="/media/Lambda_Integration_Modes.png" alt="Lambda_Integration_Modes">
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 847px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/71b1df992fcdbdfaad3b4ec1230fa4ff/22cd6/Lambda_Integration_Modes.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.45454545454545%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAB4ElEQVQoz22Sy08TURSH+0+6NxIx4CNqTHRjXPjAmLhxY0NQCEajiZGNcSFFUQlqYICAQsGiFS0zHTrvd6e3n/dOsWrj3dzJ75z7O+d8Z0rdbpfBs9+0WNr6xkq1jh9EfT3LMnzfx7Is0jTtifJ9W3SphQnKqfQ7Oc/zwyTB+MxrHh0Z4s7wJSrru/24bdvo+zqGbqDrOnEco1zCKGS1vosQgpISdb2J4zhFkuvYlJ9WuHv8ImPnrjOrVQtDVSxJEsymWZiqfKXlsjv76ybOyhypY1JK0wzP8/l78PvP5jhx+zHDN6d583Gjb9jpdIiSFC8IieU71XU7l1rLwP6yRhY4f0Y+xNEznHnFmRuTjF6dYGG12o/HkeQZBfIjRAQuQhYYPH1DVb0tKyook9Lw9NgUo9fu8U7bopNnWK0WLbmgqW2ThztNHuyYWH4oEcnR44i2b6MWLBkm6EZTBtyCjSvBT0iGZ29Nc0p2Ob/0SXYWYJkmP2yfkQ8NLmgNzmsGDdsj8APM2meM5Qqpe6AYSiaeV2xIiN7M5ScvGboyztHLZWYX1xB5G0928tMJOLbwnZPv64ws7hWGURjhmw3sbY3MswYZ9gw3a3s8n1/mxVsN48D5Jx7LJSS5KO7//cO/AE5ClSOBLt1nAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/71b1df992fcdbdfaad3b4ec1230fa4ff/8ac56/Lambda_Integration_Modes.webp 240w,
+/static/71b1df992fcdbdfaad3b4ec1230fa4ff/d3be9/Lambda_Integration_Modes.webp 480w,
+/static/71b1df992fcdbdfaad3b4ec1230fa4ff/8a8c4/Lambda_Integration_Modes.webp 847w"
+          sizes="(max-width: 847px) 100vw, 847px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/71b1df992fcdbdfaad3b4ec1230fa4ff/e4891/Lambda_Integration_Modes.png 240w,
+/static/71b1df992fcdbdfaad3b4ec1230fa4ff/0ce91/Lambda_Integration_Modes.png 480w,
+/static/71b1df992fcdbdfaad3b4ec1230fa4ff/22cd6/Lambda_Integration_Modes.png 847w"
+          sizes="(max-width: 847px) 100vw, 847px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/71b1df992fcdbdfaad3b4ec1230fa4ff/22cd6/Lambda_Integration_Modes.png"
+          alt="Lambda_Integration_Modes"
+          title="Lambda_Integration_Modes"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span>
 두가지 통합 모드가 있다.</p>
 <ul>
 <li>Proxy: 모든 요청 정보를 람다 함수로 전달한다. 사용하기 쉬움</li>
@@ -273,4 +477,604 @@ result.txt</code></pre></div>
 (API Gateway Stage is a logical reference to a lifecycle state of the REST API implementation.)</p>
 <p>예를들어, REST API에는 여러가지 스테이지가 있을 수 있는데 개발자들이 사용하는 dev 스테이지가 있을 수 있고, 배포 전에 테스트를 위한 staging 스테이지가 있을 수 있고, 실제 사용자들이 사용하는 prod 스테이지가 있을 수 있다.</p>
 <p>각 스테이지들은 아래의 그림처럼 서로 다른 URL을 가진다. 중요한 점은 각 스테이지들은 서로 다른 람다 함수 버전을 사용한다는 것이다.
-<img src="/media/API_GATEWAY_STAGES.png" alt="API_GATEWAY_STAGES"></p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->16 Jun 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/serverless/">serverless</a></li></ul></div><div class="Author-module--author--2Yefr"><p><a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/undefined" rel="noopener noreferrer" target="_blank"><strong>saegeullee</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"><div><div id="disqus_thread"></div></div></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/serverless/serverless";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e9f2271e56397154169d.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-87ef582ba388a83f73c0.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-8bf6e18fcbffbee6eab5.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-a8a30d5821197c180923.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-324659d88459e32c19db.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-7561b72f3997c21f4dc5.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-40abd2ffdee3c9623eba.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-438077e52668404488ab.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-4a41e786118ee2b99a61.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-06c543fd0fd21a7ba643.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-js-40abd2ffdee3c9623eba.js" async=""></script><script src="/commons-b7b399247a58d766adbf.js" async=""></script><script src="/styles-8f10df4b1baa09fb1b32.js" async=""></script><script src="/app-e9f2271e56397154169d.js" async=""></script><script src="/netlify-identity-widget-e37a35e339457e643f79.js" async=""></script><script src="/webpack-runtime-e876f3fb06ce083dc5b9.js" async=""></script></body></html>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 808px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c6eaadbafaddd5c5fcd58b7228f5065f/38b39/API_GATEWAY_STAGES.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 46.90594059405941%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABgElEQVQoz3VSPUvDUBQNuAtOzk5uDv4SF0dnQVwER0dFFLq5dBCcFBxUFGdHESoKNba0WO1H2lhjk+arL8lLjve92jYpeuHkXm4u557DfUqSJBAhskAcx0j3NMPER7eHOqHvekjHaC5dK7L4xYRoONS0PMydqZg9L0M5ecHOo0bdCIwnsLttmLUiGAsIbEyqyIIQpzZzUsnDEDYLka9aOCIclnp4MAZymscJQuaDWQY45xIZQlfX4WqabEZRhJDIJLGoHRvMdcA9Z5h5jL9iYpnU1NY30VhZhWuaCIhMEsYcjZ6NxcsSFq4qmDl9xd4TLU1CBCPL7yrNTwRIheLTyh9DO8ghGAwQkqqRBSeIsK8a2FW/sf38hTvdG1omMaHvwjc6UrE4ZMZyOsRPsTESpAkNu30EtkXZBvc9/BeZK0tkngskWct0sHxTwdLtG+YvqsgVdeqLK8dwSJ1VL9PyacupN4ipus8ibBU62CjoWLtv47ppjy0Hng33s0lHzF75B1REqiGZkUH/AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/c6eaadbafaddd5c5fcd58b7228f5065f/8ac56/API_GATEWAY_STAGES.webp 240w,
+/static/c6eaadbafaddd5c5fcd58b7228f5065f/d3be9/API_GATEWAY_STAGES.webp 480w,
+/static/c6eaadbafaddd5c5fcd58b7228f5065f/2b269/API_GATEWAY_STAGES.webp 808w"
+          sizes="(max-width: 808px) 100vw, 808px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/c6eaadbafaddd5c5fcd58b7228f5065f/e4891/API_GATEWAY_STAGES.png 240w,
+/static/c6eaadbafaddd5c5fcd58b7228f5065f/0ce91/API_GATEWAY_STAGES.png 480w,
+/static/c6eaadbafaddd5c5fcd58b7228f5065f/38b39/API_GATEWAY_STAGES.png 808w"
+          sizes="(max-width: 808px) 100vw, 808px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/c6eaadbafaddd5c5fcd58b7228f5065f/38b39/API_GATEWAY_STAGES.png"
+          alt="API_GATEWAY_STAGES"
+          title="API_GATEWAY_STAGES"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
+<h2 id="dynamodb-with-nodejs"><a href="#dynamodb-with-nodejs" aria-label="dynamodb with nodejs permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DynamoDB with Node.js</h2>
+<ul>
+<li>AWS는 두 개의 DynamoDB 클라이언트를 제공한다.</li>
+<li>AWS.DynamoDB는 로우레벨 클라이언트이다.</li>
+<li>AWS.DynamoDB.DocumentClient는 하이레벨 클라이언트이다.</li>
+</ul>
+<p>Nodejs에서 DynamoDB를 사용하기 위해서는 먼저 DynamoDB 인스턴스를 만들어야한다.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> docClient <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AWS<span class="token punctuation">.</span>DynamoDB<span class="token punctuation">.</span>DocumentClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+<span class="token comment">// 콜백 패턴</span>
+docClient<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  TableName<span class="token punctuation">:</span> <span class="token string">"Users"</span><span class="token punctuation">,</span>
+  Limit<span class="token punctuation">:</span> <span class="token number">20</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">//Process data or error</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 프로미스 패턴</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> docClient<span class="token punctuation">.</span><span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  TableName<span class="token punctuation">:</span> <span class="token string">"Users"</span><span class="token punctuation">,</span>
+  Limit<span class="token punctuation">:</span> <span class="token number">20</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h1 id="serverless-프레임워크"><a href="#serverless-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC" aria-label="serverless 프레임워크 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless 프레임워크</h1>
+<p>서버리스 어플리케이션을 배포하기 위해 필요한 것들은 다음과 같다. <code class="language-text">AWS Console</code>을 사용하여 모든것을 하나씩 일일이 하는 것은 큰 소요가 든다. 서버리스 프레임워크를 사용하면 이 모든것을 간단히 해결할 수 있다.</p>
+<ul>
+<li>람다 함수</li>
+<li>API 게이트웨이 설정</li>
+<li>여러가지 다른 자원들 준비(DB, S3 버켓, IAM 정책 등)</li>
+<li>위의 모든 것들 연결</li>
+<li>코드 패키징</li>
+<li>배포</li>
+</ul>
+<h2 id="서버리스-프레임워크-소개"><a href="#%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%86%8C%EA%B0%9C" aria-label="서버리스 프레임워크 소개 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서버리스 프레임워크 소개</h2>
+<ul>
+<li>어플리케이션을 배포하는 표준화된 방법</li>
+<li>필요한 자원들을 생성해줌</li>
+<li>
+<p>어플리케이션을 관리해줌</p>
+<ul>
+<li>어플리케이션 제거, 함수 호출, 어플리케이션 로컬에서 실행 등</li>
+</ul>
+</li>
+</ul>
+<p>서버리스 프레임워크 종류는 여러가지가 있다.</p>
+<ul>
+<li>서버리스 프레임워크</li>
+<li>Zappa (python only)</li>
+<li>Serverless Application Model(SAM)</li>
+</ul>
+<p>이 중 이 수업에서는 첫번째인 서버리스 프레임워크를 사용한다. 서버리스 프레임워크는 이중 가장 유명하고 여러개의 플러그인을 사용할 수 있고 큰 커뮤니티가 있다.</p>
+<p>서버리스 프레임워크는 다음의 클라우드 프로바이더들과 함께 사용할 수 있다.</p>
+<ul>
+<li>AWS</li>
+<li>Microsoft Azure</li>
+<li>Google Cloud Platform</li>
+<li>Kubeless</li>
+<li>IBM OpenWhisk</li>
+<li>ETC</li>
+</ul>
+<h2 id="yaml"><a href="#yaml" aria-label="yaml permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>YAML</h2>
+<ul>
+<li>서버리스 프레임워크의 환경설정은 YAML 포맷으로 구성된다.</li>
+<li>YAML 포맷은 흔한 환경설정 파일 포맷이다.</li>
+<li>
+<p>JSON의 수퍼셋이다.</p>
+<ul>
+<li>유효한 JSON 파일은 유효한 YAML 파일이다.</li>
+<li>YAML은 추가적인 기능을 제공한다.</li>
+<li>YAML은 JSON보다 더 간결한 포맷이다.</li>
+</ul>
+</li>
+<li>스페이스로 인덴테이션을 구분한다. (JSON에서는 컬리 브라켓으로 구분)</li>
+</ul>
+<h3 id="yaml-format-vs-json-format"><a href="#yaml-format-vs-json-format" aria-label="yaml format vs json format permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>YAML Format vs JSON Format</h3>
+<p>다음에서 YAML 포맷과 JSON 포맷의 비교한 것을 확인해볼 수 있다. 두 파일은 동일한 의미를 나타낸다.</p>
+<p>YAML Format</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token comment"># YAML 파일에서는 주석을 달 수 있다.</span>
+
+<span class="token comment"># 키와 값에 string quotation 을 달지 않아도 된다.</span>
+<span class="token key atrule">key</span><span class="token punctuation">:</span> value
+
+<span class="token comment"># Yaml 에서는 배열을 다음과 같이도 표현할 수 있다.</span>
+<span class="token key atrule">array</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token number">1</span>
+  <span class="token punctuation">-</span> <span class="token number">2</span>
+
+<span class="token key atrule">objects</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Jack
+    <span class="token key atrule">suname</span><span class="token punctuation">:</span> Brown
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Joe</code></pre></div>
+<p>JSON Format</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"key"</span><span class="token operator">:</span><span class="token string">"value"</span><span class="token punctuation">,</span>
+
+  <span class="token property">"array"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+
+  <span class="token property">"objects"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Jack"</span><span class="token punctuation">,</span>
+      <span class="token property">"surname"</span><span class="token operator">:</span> <span class="token string">"Brown"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"Joe"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>YAML Format</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">complex</span><span class="token punctuation">:</span>
+  <span class="token key atrule">nested</span><span class="token punctuation">:</span>
+    <span class="token key atrule">key1</span><span class="token punctuation">:</span> value1
+    <span class="token key atrule">key2</span><span class="token punctuation">:</span> value2
+  <span class="token key atrule">anotherNested</span><span class="token punctuation">:</span>
+    <span class="token key atrule">key</span><span class="token punctuation">:</span> value</code></pre></div>
+<p>JSON Format</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"complex"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"nested"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"key1"</span><span class="token operator">:</span> <span class="token string">"value1"</span><span class="token punctuation">,</span>
+      <span class="token property">"key2"</span><span class="token operator">:</span> <span class="token string">"value2"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"anotherNested"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"key"</span><span class="token operator">:</span> <span class="token string">"value"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3 id="serverless-프레임워크-컨셉"><a href="#serverless-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%BB%A8%EC%85%89" aria-label="serverless 프레임워크 컨셉 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless 프레임워크 컨셉</h3>
+<p>서버리스 프레임워크를 사용하여 어플리케이션을 만들려면 다음의 컴포넌트들을 사용해야 한다. 이 모든 것들을 조합하여 하나의 서비리스 어플리케이션을 만들 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 853px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/05da8311cd88edb31db1cdb4550e1e46/3eaa1/serverless_framework_concept.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.72098475967175%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABrElEQVQoz21STW/TQBD1Ge6o0D8AvwWOqXruL+n/qMSVAxygSEGcKqRUQoBUcUFIDYpR46ydOLHjXdu73g8/ZjdxSwUrPXv3zZs341lHoKXbGoLFcNYgrL6HcT1Etka35TvOOWhtkG8adJ3X9YEWRmH87QvmcxbOkX/YpkL58ytgNPaOlGTByxpaDRyIc/j+Y4lGDoUppTc4ffUeF1fXO0MpJTabDfI8D29rbQiUZYk0W4ILsTfrwBhDmuZYLldQSgWebyvcJClWRRkqRG3bBiFjKbIsuzX05oskQVVV4ewN5jdz0qRIiPeN+FVQ4Xg2w5oa6mlUkTEGDZlKqcKMdskdOOfotB5GGvYVcb7joTtNuVXFIUSNdl8gwn+WIyHfbml+6i/SQTZNiN1xFm1NBaihgY8sCVvqbIA0FkJ2KLjAmm64oRuttQ1Q1oX4Tucg6EtK0UDRH9ES772il9MCD15PcXge4+DtDAfvPGI8Pvf4Hc7PxjGeEh75+K3mTveE9g/f/MLZdYHo44Lj+acEx5cMR5cLHE3uY0Q4+cwCRpN/4x7HlPeCPD4kHH8AOhKRYxx1wnQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/05da8311cd88edb31db1cdb4550e1e46/8ac56/serverless_framework_concept.webp 240w,
+/static/05da8311cd88edb31db1cdb4550e1e46/d3be9/serverless_framework_concept.webp 480w,
+/static/05da8311cd88edb31db1cdb4550e1e46/d8b1f/serverless_framework_concept.webp 853w"
+          sizes="(max-width: 853px) 100vw, 853px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/05da8311cd88edb31db1cdb4550e1e46/e4891/serverless_framework_concept.png 240w,
+/static/05da8311cd88edb31db1cdb4550e1e46/0ce91/serverless_framework_concept.png 480w,
+/static/05da8311cd88edb31db1cdb4550e1e46/3eaa1/serverless_framework_concept.png 853w"
+          sizes="(max-width: 853px) 100vw, 853px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/05da8311cd88edb31db1cdb4550e1e46/3eaa1/serverless_framework_concept.png"
+          alt="serverless_framework_concept"
+          title="serverless_framework_concept"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
+<h3 id="serverless-프로젝트-구조"><a href="#serverless-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EA%B5%AC%EC%A1%B0" aria-label="serverless 프로젝트 구조 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless 프로젝트 구조</h3>
+<p>/node_modules</p>
+<ul>
+<li>plugins, prod. and dev. dependencies
+/src</li>
+<li>function.js
+serverless.yml</li>
+</ul>
+<p>package.json</p>
+<p>package-lock.json</p>
+<h2 id="serverless-프레임워크-어플리케이션"><a href="#serverless-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98" aria-label="serverless 프레임워크 어플리케이션 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless 프레임워크 어플리케이션</h2>
+<h3 id="serverlessyml-파일-구조"><a href="#serverlessyml-%ED%8C%8C%EC%9D%BC-%EA%B5%AC%EC%A1%B0" aria-label="serverlessyml 파일 구조 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless.yml 파일 구조</h3>
+<ul>
+<li>Provider - 프로파이더 특정 설정</li>
+<li>Functions - 서비스에서 사용할 함수</li>
+<li>Plugins - 서버리스 프레임워크를 확장할 플러그인</li>
+<li>Resources - 추가적인 클라우드 리소스</li>
+</ul>
+<h3 id="serverlessyml---provider-환경설정"><a href="#serverlessyml---provider-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95" aria-label="serverlessyml   provider 환경설정 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless.yml - Provider 환경설정</h3>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">service</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> serverless<span class="token punctuation">-</span>app
+
+<span class="token key atrule">provider</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> aws
+  <span class="token key atrule">runtime</span><span class="token punctuation">:</span> nodejs8.10
+  <span class="token key atrule">region</span><span class="token punctuation">:</span> <span class="token string">'us-east-1'</span>
+  <span class="token comment"># 환경변수 적용, 모든 함수에서 여기에 정의하는 환경변수를 사용할 수 있음</span>
+  <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+    <span class="token key atrule">GROUPS_TABLE</span><span class="token punctuation">:</span> Groups</code></pre></div>
+<h3 id="serverlessyml---리소스와-플러그인"><a href="#serverlessyml---%EB%A6%AC%EC%86%8C%EC%8A%A4%EC%99%80-%ED%94%8C%EB%9F%AC%EA%B7%B8%EC%9D%B8" aria-label="serverlessyml   리소스와 플러그인 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless.yml - 리소스와 플러그인</h3>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">plugins</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> serverless<span class="token punctuation">-</span>webpack
+
+<span class="token key atrule">resources</span><span class="token punctuation">:</span>
+  <span class="token key atrule">Resources</span><span class="token punctuation">:</span>
+    <span class="token comment"># CloudFormation 정의 YAML 파일</span></code></pre></div>
+<p>서버리스 프레임워크는 여러개의 플러그인을 사용하여 기능을 확장할 수 있다. 이 수업에서는 몇가지 유명한 플러그인을 사용할 예정이다.</p>
+<ul>
+<li>프로젝트를 위해 사용할 플러그인들은 <a href="https://www.serverless.com/plugins/" target="_blank" rel="nofollow noopener noreferrer">플러그인 카탈로그</a> 에서 확인해볼 수 있다.</li>
+<li>만약 필요한 플러그인을 찾지 못했다면, 나만의 플러그인을 직접 만들 수도 있다.</li>
+</ul>
+<h3 id="serverlessyml---함수-환경설정"><a href="#serverlessyml---%ED%95%A8%EC%88%98-%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95" aria-label="serverlessyml   함수 환경설정 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless.yml - 함수 환경설정</h3>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">functions</span><span class="token punctuation">:</span>
+  <span class="token comment"># 람다 함수 이름</span>
+  <span class="token key atrule">GetOrders</span><span class="token punctuation">:</span>
+    <span class="token comment"># src/orders까지는 파일 경로이다. handler는 자바스크립트 함수 이름이다.</span>
+    <span class="token key atrule">handler</span><span class="token punctuation">:</span> src/orders.handler
+    <span class="token comment"># 위의 함수를 실행시키는 이벤트를 정의한다.</span>
+    <span class="token key atrule">events</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">http</span><span class="token punctuation">:</span>
+        <span class="token key atrule">method</span><span class="token punctuation">:</span> get
+        <span class="token key atrule">path</span><span class="token punctuation">:</span> /shop/orders</code></pre></div>
+<h3 id="지원되는-이벤트"><a href="#%EC%A7%80%EC%9B%90%EB%90%98%EB%8A%94-%EC%9D%B4%EB%B2%A4%ED%8A%B8" aria-label="지원되는 이벤트 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>지원되는 이벤트</h3>
+<p>서버리스 프레임워크에는 여러가지 이벤트가 지원된다.</p>
+<ul>
+<li>API 게이트웨이 - REST/WebSocket API</li>
+<li>SQS - Simple Queue Service</li>
+<li>Alexa</li>
+<li>CloudWatch Events - 스케줄링 이벤트</li>
+<li>CloudWatch Logs - 프로세스 로그 이벤트</li>
+<li>SNS - Simple Notification Service</li>
+<li>ETC</li>
+</ul>
+<p>더 많은 이벤트들에 대해 알고 싶다면 <a href="https://www.serverless.com/framework/docs/providers/aws/events/apigateway/" target="_blank" rel="nofollow noopener noreferrer">여기서</a> 서버리스 프레임워크가 지원하는 모든 이벤트의 목록을 확인해볼 수 있다.</p>
+<h3 id="서버리스-프레임워크가-하는-일"><a href="#%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EA%B0%80-%ED%95%98%EB%8A%94-%EC%9D%BC" aria-label="서버리스 프레임워크가 하는 일 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서버리스 프레임워크가 하는 일</h3>
+<p>서버리스 프레임워크는 개발자가 정의한 <code class="language-text">Serverless.yml</code> 파일을 사용하여 <code class="language-text">CloudFormation 템플릿</code>을 만든다. 이 템플릿은 AWS에서 CloudFormation 서비스를 사용하기 위한 템플릿이다. 이를 사용하여 CloudFormation 서비스에 배포하면 AWS ClodFormation 은 이 어플리케이션과 어플리케이션이 구동하기 위한 인프라스트럭쳐를 만들고 업데이트 한다. 따라서 서버리스 프레임워크를 사용하는 방법을 이해하기 위해서는 먼저 CloudFormation 을 사용하는 방법과 CloudFormation 템플릿을 작성하는 방법을 알아야 한다.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 926px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d4308a5b473d54410b73fd4f2abfa820/8923f/Serverless_Framwork_nutshell.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.6695464362851%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABZ0lEQVQY012PuUoDURSGry8g6OtYWImljTaC+ghioYWpLKzcEFzAKLhEEQWt3RKDKO4WbklciCaZZCRoZiazMSafd+KCeuDjP5zzn3PuFZrrkShY3Bds4m8WqunyHaVSmULW4TUjSTsUci5lWfuO91cNL6XipV8qWrJsRM+5igglqF1/RCzfU7f5hGXaFB2D5KVGsCXDXEeW2XaFmVaFdNxAs3R0zcDsHMVpCmC39eM2dmOHNhDzD2/Ub6do3svQEEkTuFD9t/n3cRSXSF+eg6E8+4N5ov15vBf/B560SCbXIDAFA0vQPU45fIZIFV22Mzq7WaNCNGcQyRV/2MrqbMn+psTPw7K2mzMrvbBqsiNnIorOhmLwbHmIrsMUIniFWLhBzP1i9pqqxVtqVmJUS2pWY9RKFaHP3h/vwi1i+oreY7krHEsyfBhn/DjB2D8mT+4Int4x9aU+EzL/4ztKVGZH5I5oPMkHbaCLlAKMhicAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/d4308a5b473d54410b73fd4f2abfa820/8ac56/Serverless_Framwork_nutshell.webp 240w,
+/static/d4308a5b473d54410b73fd4f2abfa820/d3be9/Serverless_Framwork_nutshell.webp 480w,
+/static/d4308a5b473d54410b73fd4f2abfa820/dafe9/Serverless_Framwork_nutshell.webp 926w"
+          sizes="(max-width: 926px) 100vw, 926px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/d4308a5b473d54410b73fd4f2abfa820/e4891/Serverless_Framwork_nutshell.png 240w,
+/static/d4308a5b473d54410b73fd4f2abfa820/0ce91/Serverless_Framwork_nutshell.png 480w,
+/static/d4308a5b473d54410b73fd4f2abfa820/8923f/Serverless_Framwork_nutshell.png 926w"
+          sizes="(max-width: 926px) 100vw, 926px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/d4308a5b473d54410b73fd4f2abfa820/8923f/Serverless_Framwork_nutshell.png"
+          alt="Serverless_Framwork_nutshell"
+          title="Serverless_Framwork_nutshell"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
+<h2 id="cloudformation"><a href="#cloudformation" aria-label="cloudformation permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CloudFormation</h2>
+<ul>
+<li>AWS 리소스들을 만들고 관리할 수 있는 서비스이다.</li>
+<li>
+<p>선언적이다.(Declarative) (인프라스트럭쳐를 어떻게 업데이트하고 싶은지에 대한 정의를 할 필요가 없다. 만들고 싶은 최종 상태(end state)만 정의해주면 된다. ??)</p>
+<ul>
+<li>YAML/JSON 설정 파일을 작성한다.</li>
+<li>CloudFormation 이 이 파일을 읽고 AWS 리소스들의 상태를 업데이트한다.</li>
+<li>인프라스트럭쳐를 Version Control 할 수 있다.</li>
+</ul>
+</li>
+<li>
+<p>무료 서비스이다.</p>
+<ul>
+<li>CloudFormation을 통해 생성되는 리소스들에 대한 비용만 지불하면 된다.</li>
+</ul>
+</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 843px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/00603e174152ffd605bd4b7508f0312e/d619d/CloudFormation_process.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.90747330960854%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABh0lEQVQoz51Qy07CUBDt77hz5S/4B65c+AV8iGvjyp1xpws3JG6AICTSkjZBoaUQHi1iaeVNS9/HuaWBijtvcjKvc2bmDhfHMaIU7LE4QepHQUgIEEcRjt+em9Fyx4RD8EePKAwR0ICQ7C9uok0bhlGM7sKGttokhYDIruuC7eOOLWh3z+jfPsJWNTiBB7nZgmVZCXe79bFebRFFmQ0dmnjT6OFBGSKmZovFEtpgiLXnwigIKJ9doXhyAe0+j2XgoqOoMAwD9saB3P6C9DGiAavdD+gsnEGFXJHHtdCERw2TSem9ZnwTb+c5vJ5eYvxU2InYTanOtukPviG967Bt77DhxnFQajTBt7vwfJ9uFMAnG5LI0seQX8po5Uv4VHsIScBqfsqbz+cY6SN4rrfPc+weU3OSgPmmacIka5GdMMymmMynMFiewDjsy3JLRqVSQbVShSRK0HU9qXGqqkLtdHZgfgYdhnaKTF5RFLSooSiKEAQBsiwnYDWO53n8F6xZvV7fx7VaDT9wZ5jnYHs1nwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/00603e174152ffd605bd4b7508f0312e/8ac56/CloudFormation_process.webp 240w,
+/static/00603e174152ffd605bd4b7508f0312e/d3be9/CloudFormation_process.webp 480w,
+/static/00603e174152ffd605bd4b7508f0312e/e3019/CloudFormation_process.webp 843w"
+          sizes="(max-width: 843px) 100vw, 843px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/00603e174152ffd605bd4b7508f0312e/e4891/CloudFormation_process.png 240w,
+/static/00603e174152ffd605bd4b7508f0312e/0ce91/CloudFormation_process.png 480w,
+/static/00603e174152ffd605bd4b7508f0312e/d619d/CloudFormation_process.png 843w"
+          sizes="(max-width: 843px) 100vw, 843px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/00603e174152ffd605bd4b7508f0312e/d619d/CloudFormation_process.png"
+          alt="CloudFormation_process"
+          title="CloudFormation_process"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span></p>
+<h3 id="cloudformation-템플릿을-사용하여-정의"><a href="#cloudformation-%ED%85%9C%ED%94%8C%EB%A6%BF%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC-%EC%A0%95%EC%9D%98" aria-label="cloudformation 템플릿을 사용하여 정의 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CloudFormation 템플릿을 사용하여 정의</h3>
+<p>CloudFormation 템플릿을 사용하여 다음이 것들을 정의할 수 있다. 이 수업에서는 이 중 <code class="language-text">Resources</code>만 사용한다.</p>
+<ul>
+<li>Parameters - 어플리케이션의 실행에 대한 환경설정</li>
+<li>Resources - 만들고 싶은 리소스들의 목록</li>
+<li>Conditions - 특정 리소스를 언제 생성할지에 대한 정의</li>
+<li>Output - CloudFormation 템플릿 실행후 어떤 값들이 응답으로 반환되어야 하는지에 대한 정의</li>
+</ul>
+<h3 id="cloudformation-리소스-정의"><a href="#cloudformation-%EB%A6%AC%EC%86%8C%EC%8A%A4-%EC%A0%95%EC%9D%98" aria-label="cloudformation 리소스 정의 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CloudFormation 리소스 정의</h3>
+<p>다음은 CloudFormation을 활용하여 AWS DynamoDB 리소스를 정의하는 예시이다. 다음 그림처럼 AWS DynamoDB의 GUI를 활용하여 테이블을 정의할 수 있지만 CloudFormation 을 활용하면 다음의 Yaml 파일에서도 정의할 수 있다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 846px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/db5e324e783586096f431e332694df55/7a2f6/CloudFormation_resources.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 46.21749408983451%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABbklEQVQoz11Si1LDMAzb/38jx4BudE3TpI+kbfoSUmA9wHc+9+HIkpzLuq7Ytg3HceB36P2ZihgjvPNwjcMwDFiWBSmlnMIIQ8jfL33XsdEhhph/6qDq/+j7HtfrFUVxQ21q2LpB0zTo2i6nzs/zjIuaO4Lamk1sdNaiYUZOCyFgmqaTZZoT+q7P9diP/G/f9z+DM2AYJ7yXFW5VDR9HuDAipCVLUSpa33KozdI0aBzHzEqp54kY6s2A47qhoITrZ4W3UmnwoF+RoM8QkCTqsADl++k12e7bntlmwIUPami9z5LrqsJAG8I0Y/9ZzHMJnkxrY2GtssnVGJOHnJITwTp6I++GfsBMoHVdMC/r6ZGkaWBFn4NkcnmqA5lrYSOtOhkm0o0EKSuDmlNVWw4IiVfqZyH6/vL6jo/ijuL+wJ3WGPZpSfJXi5XKbw/JpGp73Di9oJyHa1Fah7LxMLx3YqrmxDrTV+e7zOzp4+/4AmUMuEh+DlviAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+        <source
+          srcset="/static/db5e324e783586096f431e332694df55/8ac56/CloudFormation_resources.webp 240w,
+/static/db5e324e783586096f431e332694df55/d3be9/CloudFormation_resources.webp 480w,
+/static/db5e324e783586096f431e332694df55/47c32/CloudFormation_resources.webp 846w"
+          sizes="(max-width: 846px) 100vw, 846px"
+          type="image/webp"
+        />
+        <source
+          srcset="/static/db5e324e783586096f431e332694df55/e4891/CloudFormation_resources.png 240w,
+/static/db5e324e783586096f431e332694df55/0ce91/CloudFormation_resources.png 480w,
+/static/db5e324e783586096f431e332694df55/7a2f6/CloudFormation_resources.png 846w"
+          sizes="(max-width: 846px) 100vw, 846px"
+          type="image/png"
+        />
+        <img
+          class="gatsby-resp-image-image"
+          src="/static/db5e324e783586096f431e332694df55/7a2f6/CloudFormation_resources.png"
+          alt="CloudFormation_resources"
+          title="CloudFormation_resources"
+          loading="lazy"
+          style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        />
+      </picture>
+  </a>
+    </span>
+CloudFormation Template</p>
+<div class="gatsby-highlight" data-language="yaml"><pre class="language-yaml"><code class="language-yaml"><span class="token key atrule">Resources</span><span class="token punctuation">:</span>
+  <span class="token key atrule">GroupsDynamoDBTable</span><span class="token punctuation">:</span>
+    <span class="token key atrule">Type</span><span class="token punctuation">:</span> <span class="token string">'AWS::DynamoDB::Table'</span>
+    <span class="token key atrule">Properties</span><span class="token punctuation">:</span>
+      <span class="token key atrule">TableName</span><span class="token punctuation">:</span> Group
+      <span class="token key atrule">AttributeDefinitions</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">AttributeName</span><span class="token punctuation">:</span> id
+          <span class="token key atrule">AttributeType</span><span class="token punctuation">:</span> S
+      <span class="token key atrule">KeySchema</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">AttributeName</span><span class="token punctuation">:</span> id
+          <span class="token key atrule">KeyType</span><span class="token punctuation">:</span> HASH
+      <span class="token key atrule">BillingMode</span><span class="token punctuation">:</span> PAY_PER_REQUEST</code></pre></div>
+<p>DynamoDB 용어</p>
+<ul>
+<li>Partition key - 과거에는 이름이 Hash Key 였음</li>
+<li>Sort key - 과거에는 이름이 Range Key 였음</li>
+<li>옛날 용어들이 아직 라이브러리와 CloudFormation에서 사용되고 있음</li>
+</ul>
+<p>대부분은 AWS 리소스는 CloudFormation을 활용하여 생성될 수 있지만 가끔 흔하지는 않은 경우이지만 CloudFormation이 지원하지 않는 AWS 리소스가 있을 수 있다. 이때는 AWS API, AWS CLI, AWS 대시보드 등을 통해 생성해야 한다.</p>
+<p><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html" target="_blank" rel="nofollow noopener noreferrer">CloudFormation 리소스 레퍼런스</a> 참고</p>
+<h2 id="serverless-프레임워크-사용하기"><a href="#serverless-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0" aria-label="serverless 프레임워크 사용하기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless 프레임워크 사용하기</h2>
+<p>설치</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install -g serverless</code></pre></div>
+<p>프로젝트 만들기</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">serverless create --template aws-nodejs-typescript --path folder-name</code></pre></div>
+<p>플러그인 설치</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install plugin-name --save-dev</code></pre></div>
+<p>프로젝트 배포</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sls deploy -v</code></pre></div>
+<h2 id="serverless-프로젝트-만들기-데모"><a href="#serverless-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EB%8D%B0%EB%AA%A8" aria-label="serverless 프로젝트 만들기 데모 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Serverless 프로젝트 만들기 데모</h2>
+<ol>
+<li>Serverless 설치</li>
+</ol>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install -g serverless</code></pre></div>
+<ol start="2">
+<li>IAM에 새로운 사용자 이름을 <code class="language-text">serverless</code>로 셋업 후 엑세스키와 시크릿키 저장</li>
+<li>Serverless에서 2번에서 설정한 AWS 사용자를 사용할 수 있도록 환경설정하기</li>
+</ol>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sls config credentials --provider aws --key YOUR_ACCESS_KEY --secret YOUR_SECRET_KEY --profile serverless</code></pre></div>
+<p>사용 가능한 serverless 템플릿 목록 확인</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sls create --template</code></pre></div>
+<p>serverless 보일러플레이트 프로젝트 만들기</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sls create --template aws-nodejs-typescript --path project-name</code></pre></div>
+<p>어플리케이션 배포하기</p>
+<ol>
+<li>디펜던시 설치</li>
+</ol>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">npm install</code></pre></div>
+<ol start="2">
+<li>배포하기</li>
+</ol>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">sls deploy -v</code></pre></div>
+<p>위의 배포하기 명령어를 실행시 나오는 로그는 다음과 같다. 로그를 읽어보면 먼저 zip 파일로 프로젝트를 패키징하고 CloudFormation을 통해 <code class="language-text">serverless.yml</code> 파일에 정의한대로 AWS 리소스를 생성하는 과정들을 확인해볼 수 있다.</p>
+<div class="gatsby-highlight" data-language="cli"><pre class="language-cli"><code class="language-cli">Serverless: Using configuration:
+{
+  &quot;webpackConfig&quot;: &quot;./webpack.config.js&quot;,
+  &quot;includeModules&quot;: true,
+  &quot;packager&quot;: &quot;npm&quot;,
+  &quot;packagerOptions&quot;: {},
+  &quot;keepOutputDirectory&quot;: false
+}
+Serverless: Removing /home/saegeullee/folders/udacity/serverless/10-udagram-app/.webpack
+Serverless: Bundling with Webpack...
+Time: 460ms
+Built at: 2020-06-26 20:57:44
+         Asset      Size  Chunks                   Chunk Names
+    handler.js  1.28 KiB       0  [emitted]        handler
+handler.js.map  5.27 KiB       0  [emitted] [dev]  handler
+Entrypoint handler = handler.js handler.js.map
+[0] ./handler.ts 316 bytes {0} [built]
+[1] external &quot;source-map-support/register&quot; 42 bytes {0} [built]
+Serverless: Fetch dependency graph from /home/saegeullee/folders/udacity/serverless/10-udagram-app/package.json
+Serverless: Package lock found - Using locked versions
+Serverless: Packing external modules: source-map-support@^0.5.10
+Serverless: Package took [2301 ms]
+Serverless: Copy modules: /home/saegeullee/folders/udacity/serverless/10-udagram-app/.webpack/service [55 ms]
+Serverless: Prune: /home/saegeullee/folders/udacity/serverless/10-udagram-app/.webpack/service [645 ms]
+Serverless: Run scripts: /home/saegeullee/folders/udacity/serverless/10-udagram-app/.webpack/service [0 ms]
+Serverless: Zip service: /home/saegeullee/folders/udacity/serverless/10-udagram-app/.webpack/service [114 ms]
+Serverless: Packaging service...
+Serverless: Remove /home/saegeullee/folders/udacity/serverless/10-udagram-app/.webpack
+Serverless: Creating Stack...
+Serverless: Checking Stack create progress...
+CloudFormation - CREATE_IN_PROGRESS - AWS::CloudFormation::Stack - serverless-udagram-app-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_COMPLETE - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::BucketPolicy - ServerlessDeploymentBucketPolicy
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::BucketPolicy - ServerlessDeploymentBucketPolicy
+CloudFormation - CREATE_COMPLETE - AWS::S3::BucketPolicy - ServerlessDeploymentBucketPolicy
+CloudFormation - CREATE_COMPLETE - AWS::CloudFormation::Stack - serverless-udagram-app-dev
+Serverless: Stack create finished...
+Serverless: Uploading CloudFormation file to S3...
+Serverless: Uploading artifacts...
+Serverless: Uploading service serverless-udagram-app.zip file to S3 (289.49 KB)...
+Serverless: Validating template...
+Serverless: Updating Stack...
+Serverless: Checking Stack update progress...
+CloudFormation - UPDATE_IN_PROGRESS - AWS::CloudFormation::Stack - serverless-udagram-app-dev
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::RestApi - ApiGatewayRestApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::RestApi - ApiGatewayRestApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - HelloLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::RestApi - ApiGatewayRestApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceHello
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceHello
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Resource - ApiGatewayResourceHello
+CloudFormation - CREATE_COMPLETE - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - HelloLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - HelloLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodHelloGet
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionM6DbLxpdiG16YDJDg2ZSMu4TSoZ5fRB1obTCtaxOz4
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - HelloLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodHelloGet
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodHelloGet
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - HelloLambdaVersionM6DbLxpdiG16YDJDg2ZSMu4TSoZ5fRB1obTCtaxOz4
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - HelloLambdaVersionM6DbLxpdiG16YDJDg2ZSMu4TSoZ5fRB1obTCtaxOz4
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Deployment - ApiGatewayDeployment1593172663349
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Deployment - ApiGatewayDeployment1593172663349
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Deployment - ApiGatewayDeployment1593172663349
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - HelloLambdaPermissionApiGateway
+CloudFormation - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS - AWS::CloudFormation::Stack - serverless-udagram-app-dev
+CloudFormation - UPDATE_COMPLETE - AWS::CloudFormation::Stack - serverless-udagram-app-dev
+Serverless: Stack update finished...
+Service Information
+service: serverless-udagram-app
+stage: dev
+region: us-east-1
+stack: serverless-udagram-app-dev
+resources: 11
+api keys:
+  None
+endpoints:
+  GET - https://flynaqxkge.execute-api.us-east-1.amazonaws.com/dev/hello
+functions:
+  hello: serverless-udagram-app-dev-hello
+layers:
+  None
+
+Stack Outputs
+HelloLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:685808903701:function:serverless-udagram-app-dev-hello:1
+ServiceEndpoint: https://flynaqxkge.execute-api.us-east-1.amazonaws.com/dev
+ServerlessDeploymentBucketName: serverless-udagram-app-d-serverlessdeploymentbuck-tdi6ddkua4zw
+
+Serverless: Run the &quot;serverless&quot; command to setup monitoring, troubleshooting and testing.</code></pre></div>
+<p>위 로그의 끝 부분에서 생성된 엔드포인트 주소로 포스트맨을 활용하여 요청을 보내보면 다음과 같이 응답이 성공적으로 오는 것을 알 수 있다.</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"message"</span><span class="token operator">:</span> <span class="token string">"Go Serverless Webpack (Typescript) v1.0! Your function executed successfully!"</span><span class="token punctuation">,</span>
+    <span class="token property">"input"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"resource"</span><span class="token operator">:</span> <span class="token string">"/hello"</span><span class="token punctuation">,</span>
+        <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"/hello"</span><span class="token punctuation">,</span>
+        <span class="token property">"httpMethod"</span><span class="token operator">:</span> <span class="token string">"GET"</span><span class="token punctuation">,</span>
+        <span class="token property">"headers"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          ...</code></pre></div>
+<p>AWS CloudFormation 대시보드에서 위의 명령어로 생성된 Stack을 확인해 볼 수 있고 CloudFormation이 이 Stack에 생성한 각 리소스를 API 게이트웨이, AWS 람다 함수 등의 대시보드에서 확인해볼 수 있다.</p>
+<h2 id="get-all-groups-api-추가하기"><a href="#get-all-groups-api-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0" aria-label="get all groups api 추가하기 permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get All Groups API 추가하기</h2>
+<p>여기서 진행할 내용은 다음과 같다.</p>
+<ul>
+<li>GET /groups 엔드포인트에 요청을 보내기 위한 함수 추가</li>
+<li>
+<p>환경설정</p>
+<ul>
+<li>Event Handler 생성</li>
+<li>IAM permission 설정</li>
+<li>DynamoDB table 생성</li>
+</ul>
+</li>
+</ul>
+<p>위의 진행 내용은 <a href="https://github.com/saegeullee/Serverless_Framework_App" target="_blank" rel="nofollow noopener noreferrer">깃헙 레포지토리</a>에서 확인이 가능하다.</p></div></div></div><div class="Post-module--post__footer--3WzWU"><div><p class="Meta-module--meta__date--29eD7">Published <!-- -->16 Jun 2020</p></div><div class="Tags-module--tags--1L_ct"><ul class="Tags-module--tags__list--91FqN"><li class="Tags-module--tags__list-item--1M30P"><a class="Tags-module--tags__list-item-link--3SL_8" href="/tag/serverless/">serverless</a></li></ul></div><div class="Author-module--author--2Yefr"><p><a class="Author-module--author__bio-twitter--n-O9n" href="https://www.twitter.com/undefined" rel="noopener noreferrer" target="_blank"><strong>saegeullee</strong> on Twitter</a></p></div></div><div class="Post-module--post__comments--25y6I"><div><div id="disqus_thread"></div></div></div></div></div></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/serverless/serverless";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e9f2271e56397154169d.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-87ef582ba388a83f73c0.js"],"component---src-templates-not-found-template-js":["/component---src-templates-not-found-template-js-8bf6e18fcbffbee6eab5.js"],"component---src-templates-tags-list-template-js":["/component---src-templates-tags-list-template-js-a8a30d5821197c180923.js"],"component---src-templates-categories-list-template-js":["/component---src-templates-categories-list-template-js-324659d88459e32c19db.js"],"component---src-templates-page-template-js":["/component---src-templates-page-template-js-7561b72f3997c21f4dc5.js"],"component---src-templates-post-template-js":["/component---src-templates-post-template-js-40abd2ffdee3c9623eba.js"],"component---src-templates-tag-template-js":["/component---src-templates-tag-template-js-438077e52668404488ab.js"],"component---src-templates-category-template-js":["/component---src-templates-category-template-js-4a41e786118ee2b99a61.js"],"component---src-templates-index-template-js":["/component---src-templates-index-template-js-06c543fd0fd21a7ba643.js"]};/*]]>*/</script><script src="/component---src-templates-post-template-js-40abd2ffdee3c9623eba.js" async=""></script><script src="/commons-b7b399247a58d766adbf.js" async=""></script><script src="/styles-8f10df4b1baa09fb1b32.js" async=""></script><script src="/app-e9f2271e56397154169d.js" async=""></script><script src="/netlify-identity-widget-e37a35e339457e643f79.js" async=""></script><script src="/webpack-runtime-e876f3fb06ce083dc5b9.js" async=""></script></body></html>
