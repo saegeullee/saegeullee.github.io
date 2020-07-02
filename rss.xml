@@ -1,4 +1,142 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 29 Jun 2020 14:34:51 GMT</lastBuildDate><item><title><![CDATA[(알고리즘 - Algoexpert) Validate Subsequence]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</guid><pubDate>Mon, 29 Jun 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 02 Jul 2020 16:25:48 GMT</lastBuildDate><item><title><![CDATA[(알고리즘 - Algoexpert) Group Anagrams]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-group-anagrams</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-group-anagrams</guid><pubDate>Thu, 02 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 702px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/89f4382e2b8a6d5793d29f62d54fbfcd/96c05/algoexpert_group_anagrams.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.034188034188034%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABVElEQVQoz41Ry1LCUAytggsUKBQKlGJFQdpbClJsgSIPOzrgjONC//9fjklaWbFwkTm5eZwk52qDxQHd6Q796A2j5APOPMVwfoSxC2EcPOi2D810/2/WZAu2hruCE6ZC3lYblN0ZSq7CdW+My44vdtFWJxRf3irPK2gtD9pNP0TJmaHy8CxYvp9DYrfk30UUjyRnjJbQhxHqjwvUhjFqhIa7lJyp1oJCyA/eTopHC2ls+etTA+cY6xQ3yG96CdXGaKokq6F4w1uhOogywt4slQQX2E97mP4GdnSEu/tGe5rKoB69vf0PrPBdNuSBnWBDfbEgkwoZWz/5Qt1do0pTneUnzMmrNHWCLTW+oNgNpJB10loqE15OO/MhHOcpeq5Jpk0sWCEtOc7GJ+t0Euf4NNaZ5ZE+rmX9/ggL1hhnjTYqWL74V3aAYo5ZzJfNi3mtbJ8T/gIDDdv0njoNtwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/89f4382e2b8a6d5793d29f62d54fbfcd/8ac56/algoexpert_group_anagrams.webp 240w,
+/static/89f4382e2b8a6d5793d29f62d54fbfcd/d3be9/algoexpert_group_anagrams.webp 480w,
+/static/89f4382e2b8a6d5793d29f62d54fbfcd/de2ca/algoexpert_group_anagrams.webp 702w&quot;
+          sizes=&quot;(max-width: 702px) 100vw, 702px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/89f4382e2b8a6d5793d29f62d54fbfcd/e4891/algoexpert_group_anagrams.png 240w,
+/static/89f4382e2b8a6d5793d29f62d54fbfcd/0ce91/algoexpert_group_anagrams.png 480w,
+/static/89f4382e2b8a6d5793d29f62d54fbfcd/96c05/algoexpert_group_anagrams.png 702w&quot;
+          sizes=&quot;(max-width: 702px) 100vw, 702px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/89f4382e2b8a6d5793d29f62d54fbfcd/96c05/algoexpert_group_anagrams.png&quot;
+          alt=&quot;algoexpert_group_anagrams&quot;
+          title=&quot;algoexpert_group_anagrams&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;인풋으로 주어지는 words 리스트에서 같은 문자들로 이루어진 문자열들을 하나의 리스트에 묶어서 반환하는 문제이다.&lt;/p&gt;
+&lt;h3 id=&quot;sample-input&quot;&gt;&lt;a href=&quot;#sample-input&quot; aria-label=&quot;sample input permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample input&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;words = [&amp;quot;yo&amp;quot;, &amp;quot;act&amp;quot;, &amp;quot;flop&amp;quot;, &amp;quot;tac&amp;quot;, &amp;quot;cat&amp;quot;, &amp;quot;oy&amp;quot;, &amp;quot;olfp&amp;quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;sample-output&quot;&gt;&lt;a href=&quot;#sample-output&quot; aria-label=&quot;sample output permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample output&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[[&amp;quot;yo&amp;quot;, &amp;quot;oy&amp;quot;], [&amp;quot;flop&amp;quot;, &amp;quot;olfp&amp;quot;], [&amp;quot;act&amp;quot;, &amp;quot;tac&amp;quot;, &amp;quot;cat&amp;quot;]]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;제출-답변&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%EC%B6%9C-%EB%8B%B5%EB%B3%80&quot; aria-label=&quot;제출 답변 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제출 답변&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;groupAnagrams&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;words&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+	dictionary &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; word &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; words&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		current &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; transform&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;not&lt;/span&gt; dictionary&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+			dictionary&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dictionary&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+	answer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; key &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; dictionary&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		cur_arr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; word &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; words&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+			&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; transform&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; key&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+				cur_arr&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		answer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;cur_arr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; answer
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;join&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위에 첫번째로 제출한 답변은 로직이 비효율적이다. 먼저 for문을 돌면서 딕셔너리에 정렬된 문자열을 키로하여 값으로 해당 정렬된 문자열의 개수를 센 후에 그 다음 for문에서 정렬된 문자열이 딕셔너리의 키 값과 동일한 문자열을 배열에 넣고 있다. 하지만 아래와 같이 이러한 로직을 한번의 for문에서 처리할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;groupAnagrams&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;words&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+	dictionary &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; word &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; words&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;join&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;sorted&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; result &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; dictionary&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      		dictionary&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+			dictionary&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;dictionary&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;values&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h3&gt;
+&lt;p&gt;시간 복잡도 : &lt;code class=&quot;language-text&quot;&gt;O(w * n * log(n))&lt;/code&gt;, w: words 의 갯수, n: 제일 긴 문자열의 길이. &lt;code class=&quot;language-text&quot;&gt;n*log(n)&lt;/code&gt;은 정렬 알고리즘의 시간 복잡도&lt;/p&gt;
+&lt;p&gt;공간 복잡도 : &lt;code class=&quot;language-text&quot;&gt;O(wn)&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Caesar cipher encriptor]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-caesar-cipher-encriptor</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-caesar-cipher-encriptor</guid><pubDate>Wed, 01 Jul 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 602px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/65b2cb30c847c3e6111f4016de31790a/f247b/algoexpert_caesar_cipher_encriptor.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.013289036544855%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABi0lEQVQoz11SaVfCQAxEfSqHlqvcYEGgFCktlFNQQMTn8f//z5jJgk/9MC/ZTZrMTDeWcxdwoj0qw2cUH9aat6YHFPqPaM/f5G4FZ7KHE7wivRzB+vCQd3yclT3Eiv9Q6CGW7c7hrT5xP3uTISsd2F2+I+8tcRe9oDRYw1t/oTk+IOUPkZi5sOp9+dhFzBbkuwanofFGiKQzxlVtiGRzjJtWBN6lmpHmt/cTycfSM0K2vcBNYwqrM9N7qz2F7T0i11sYdoQlhfpop4Wy/6TSq8FG2ZYGTygKQ8ouHaMtVrDGPCPqaBNrWXduGHJTLdyiIA30jQM4mE16lnv6fBpIsN8WS5hXfON9ujM1DCmLTMjqN4Ncb6mNXHBRGeCs1Md5+QHnEv+cFeKpfZQcvwvVCyItSB19PEXiuh4gIX3xRqA5a+Ycas4Z9FglZ8RgsqN35WCnsRZsjWRhfJLPnupwo3Ir4U4HESRC27hYB15WffMXubU50WgYjHRrgiCbIwvW405knsrPs3ENRPI3sAb7oF1fPN4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/65b2cb30c847c3e6111f4016de31790a/8ac56/algoexpert_caesar_cipher_encriptor.webp 240w,
+/static/65b2cb30c847c3e6111f4016de31790a/d3be9/algoexpert_caesar_cipher_encriptor.webp 480w,
+/static/65b2cb30c847c3e6111f4016de31790a/ff4b8/algoexpert_caesar_cipher_encriptor.webp 602w&quot;
+          sizes=&quot;(max-width: 602px) 100vw, 602px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/65b2cb30c847c3e6111f4016de31790a/e4891/algoexpert_caesar_cipher_encriptor.png 240w,
+/static/65b2cb30c847c3e6111f4016de31790a/0ce91/algoexpert_caesar_cipher_encriptor.png 480w,
+/static/65b2cb30c847c3e6111f4016de31790a/f247b/algoexpert_caesar_cipher_encriptor.png 602w&quot;
+          sizes=&quot;(max-width: 602px) 100vw, 602px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/65b2cb30c847c3e6111f4016de31790a/f247b/algoexpert_caesar_cipher_encriptor.png&quot;
+          alt=&quot;algoexpert_caesar_cipher_encriptor&quot;
+          title=&quot;algoexpert_caesar_cipher_encriptor&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;어떤 문자열과 숫자 key 값이 주어지면 해당 key 값만큼 알파벳 상에서 이동한 문자열을 리턴하는 문제이다.&lt;/p&gt;
+&lt;h3 id=&quot;sample-input&quot;&gt;&lt;a href=&quot;#sample-input&quot; aria-label=&quot;sample input permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample input&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;string=&amp;quot;xyz&amp;quot;
+key = 2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;sample-output&quot;&gt;&lt;a href=&quot;#sample-output&quot; aria-label=&quot;sample output permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample output&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;quot;zab&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;제출답변&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%EC%B6%9C%EB%8B%B5%EB%B3%80&quot; aria-label=&quot;제출답변 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제출답변&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;caesarCipherEncryptor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;join&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; transform&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;letter&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; letter &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;letter&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; key&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+	total &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;z&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+	key &lt;span class=&quot;token operator&quot;&gt;%=&lt;/span&gt; total
+	res &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;letter&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; key
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; res &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;z&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		res &lt;span class=&quot;token operator&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;z&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+		res &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;알파벳은 a부터 z까지 총 26개이다. key 값이 26을 초과한다면 key 값을 26으로 나눈 나머지를 다시 key에 할당한다. 만약 문자열 ‘z’에 transform을 적용하여 key값만큼 이동시키면, key값이 1 이상이라면 ‘z’의 유니코드 값에 key 값을 더한 결과는 다시 ‘a’의 유니코드 값부터 key만큼 이동한 결과의 유니코드 값을 가지고 있는 알파벳이 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Validate Subsequence]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</guid><pubDate>Mon, 29 Jun 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 632px;&quot;
     &gt;
@@ -1322,7 +1460,632 @@ Serverless: Run the &amp;quot;serverless&amp;quot; command to setup monitoring, 
         &lt;span class=&quot;token key atrule&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; s3&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ObjectCreated&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;*
         &lt;span class=&quot;token key atrule&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
           &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; images/
-          &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;suffix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; .png&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[그래프 탐색 알고리즘 BFS, DFS 정리]]></title><description><![CDATA[그래프 탐색 알고리즘인 BFS와 DFS에 대해 정리한다.]]></description><link>https://saegeullee.github.io/algorithm/bfs-dfs</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/bfs-dfs</guid><pubDate>Thu, 11 Jun 2020 12:50:37 GMT</pubDate><content:encoded>&lt;h1 id=&quot;bfs와-dfs란&quot;&gt;&lt;a href=&quot;#bfs%EC%99%80-dfs%EB%9E%80&quot; aria-label=&quot;bfs와 dfs란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;BFS와 DFS란?&lt;/h1&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;suffix&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; .png&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;api-게이트웨이--웹소켓&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4--%EC%9B%B9%EC%86%8C%EC%BC%93&quot; aria-label=&quot;api 게이트웨이  웹소켓 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이 : 웹소켓&lt;/h2&gt;
+&lt;p&gt;람다 함수는 특성상 휘발성이며 일정 시간 요청이 없다면 언제든지 제거될 수 있다. 그렇다면 어떻게 지속적인 연결을 유지할 수 있을까? 클라이언트는 &lt;code class=&quot;language-text&quot;&gt;API 게이트웨이&lt;/code&gt;와 연결되고 &lt;code class=&quot;language-text&quot;&gt;API 게이트웨이&lt;/code&gt;가 지속적인 연결을 유지한다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;API 게이트웨이&lt;/code&gt;는 사용자가 웹소켓을 통해 보낸 메시지를 전달받고 이 메시지를 여러개의 람다 함수에게 이를 전달할 수도 있다. 사용자가 요청 body에 보내는 특정키에 대한 값이 &lt;code class=&quot;language-text&quot;&gt;라우팅키&lt;/code&gt;가 되어 어떤 람다 함수를 호출할지 결정한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 909px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5efa743e400ddf2d4f0a978345ad14b/043fa/Api_gateway_websocket_api.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 49.06490649064906%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABoklEQVQoz31Q207bQBD1Z/HWr+GBD+pDf6HiCyCqlDZKGkEeKKkdkgqIE1s48Xrt9X19OZ1xcAQo7UhHuztz5syZNUDRti3684hDAs3rvWE0Dd7yT4XxVuRj1CTg2RtsP3+B9/USQobvhvMARqVLpPsNmrqC0TdzoSgKFHmBPM+hyxKacu7DCr/OPmF9fgERKdR1fRhW1R2/blqkKoR3/wM6VTB0VXUFjpJEGCzKDRXVPMfF9tsQL9MbCBEcHbIw87TWXa7KYrRkwNhsXaz+PKIsSsRxjDRJkSQJ8ixHrBQ8bweZZhAqhr/bI6M719mE7/sEASUFvLvhwaEMI/hCdhOjKIKUEgE5YXF2u3vZQZAQiwlq5u8IqYc36NdvG3Ib7tFUmlbmvyLbTOxXLl9zihzaaxsure1snQ5ZlkFTI7uUQQBFgwN/D3f+E0kkYbgukR0HfPbo37ZtY34/h2VaME0T5m/zHffIe37C8vY7Ns+PMDriP2BZFqbTKQaDAa6vrjGbzbBYLE7yrIclTDqNyWSC/2E8HmM0GnXg+0ke5bsa4S9fZepaYcx8eQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/a5efa743e400ddf2d4f0a978345ad14b/8ac56/Api_gateway_websocket_api.webp 240w,
+/static/a5efa743e400ddf2d4f0a978345ad14b/d3be9/Api_gateway_websocket_api.webp 480w,
+/static/a5efa743e400ddf2d4f0a978345ad14b/ed09a/Api_gateway_websocket_api.webp 909w&quot;
+          sizes=&quot;(max-width: 909px) 100vw, 909px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/a5efa743e400ddf2d4f0a978345ad14b/e4891/Api_gateway_websocket_api.png 240w,
+/static/a5efa743e400ddf2d4f0a978345ad14b/0ce91/Api_gateway_websocket_api.png 480w,
+/static/a5efa743e400ddf2d4f0a978345ad14b/043fa/Api_gateway_websocket_api.png 909w&quot;
+          sizes=&quot;(max-width: 909px) 100vw, 909px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/a5efa743e400ddf2d4f0a978345ad14b/043fa/Api_gateway_websocket_api.png&quot;
+          alt=&quot;Api_gateway_websocket_api&quot;
+          title=&quot;Api_gateway_websocket_api&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;특별한-라우팅&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EB%B3%84%ED%95%9C-%EB%9D%BC%EC%9A%B0%ED%8C%85&quot; aria-label=&quot;특별한 라우팅 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;특별한 라우팅&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;API 게이트웨이&lt;/code&gt;에는 몇가지 특별한 라우팅이 있어 웹소켓 이벤트를 라우팅 할 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 940px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3af77d894400abfd04a7c7a6a6a3d608/4362d/Api_gateway_special_routes.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.425531914893625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABaElEQVQoz4VQ2UrDUBDNZ/rkoy/+i+CT4L/0sWraVBAr2Ky4NE1ykzRt9vU4d0LBFpcLhxkmM2eJMgwDDpDvtK+qClVRoCS0bYv/nvKd8JS8pboxTNgXl/BubhFnOYauQ5EXCMMQBYn0tLp3beT++0j4l1pLy+7KwMvZOT6urpmwaxp2Wtc117brkYk1CvE5EnZ9D3fjoSPlnnoGLXHcskLgB4hECOELxFHMR+k+RRzHyLMMMksRe6gSMRLu6eMruUiSHZOxKkEK5HnOhPI4JNIoilisqRs0zYiOMu/WFtK1ORIejo8c9qNDGcsj9yIQ8D0fQgjeK8sSyTahBCVHLnYRqnRL/3OAItWl8ink3Pd96Csdju3AMi2YpokgCOC6LhzH4RqQc/vpAW/PKmISUeTSj7DGulg84v7unrFcLmHbNizLYkLuCaahw9BXPFfm8zl+g6ZpmE6nmEwmDFVVeT6bzRjH+xrXL+4uovIVpO4KAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/3af77d894400abfd04a7c7a6a6a3d608/8ac56/Api_gateway_special_routes.webp 240w,
+/static/3af77d894400abfd04a7c7a6a6a3d608/d3be9/Api_gateway_special_routes.webp 480w,
+/static/3af77d894400abfd04a7c7a6a6a3d608/e8e7c/Api_gateway_special_routes.webp 940w&quot;
+          sizes=&quot;(max-width: 940px) 100vw, 940px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/3af77d894400abfd04a7c7a6a6a3d608/e4891/Api_gateway_special_routes.png 240w,
+/static/3af77d894400abfd04a7c7a6a6a3d608/0ce91/Api_gateway_special_routes.png 480w,
+/static/3af77d894400abfd04a7c7a6a6a3d608/4362d/Api_gateway_special_routes.png 940w&quot;
+          sizes=&quot;(max-width: 940px) 100vw, 940px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/3af77d894400abfd04a7c7a6a6a3d608/4362d/Api_gateway_special_routes.png&quot;
+          alt=&quot;Api_gateway_special_routes&quot;
+          title=&quot;Api_gateway_special_routes&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$connect: 사용자가 웹소켓을 통해 연결되면 람다 함수에 전달되는 이벤트이다.&lt;/li&gt;
+&lt;li&gt;$disconnect: 사용자가 웹소켓 연결에서 끊어지면 람다 함수에 전달되는 이벤트이다.&lt;/li&gt;
+&lt;li&gt;$default: 클라이언트로부터 들어오는 메시지가 어떤 라우트 경로에도 매칭이 되지 않으면 보내지는 이벤트이다. 또는 사용자가 JSON이 아닌 데이터를 보내면 전달되는 이벤트이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;api-게이트웨이-웹소켓-url&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4-%EC%9B%B9%EC%86%8C%EC%BC%93-url&quot; aria-label=&quot;api 게이트웨이 웹소켓 url permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이 웹소켓 URL&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;REST API&lt;/code&gt;는 하나의 URL만 주어진다.&lt;/li&gt;
+&lt;li&gt;이와 달리 &lt;code class=&quot;language-text&quot;&gt;Websocket API&lt;/code&gt;는 배포되면 두개의 URL이 주어진다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Websocket URL&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;클라이언트가 API에 연결하기 위해 사용된다.&lt;/li&gt;
+&lt;li&gt;클라이언트가 메시지를 보내고 노티피케이션을 받을 수 있도록 해준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Connection URL&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;연결된 클라이언트에게 메시지를 다시 보낼 수 있도록 해준다.&lt;/li&gt;
+&lt;li&gt;람다 함수가 클라이언트에게 메시지를 보낼 때 사용된다.&lt;/li&gt;
+&lt;li&gt;특정 클라이언트에게 메시지를 보내는데 &lt;code class=&quot;language-text&quot;&gt;Connection id&lt;/code&gt;가 필요하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;api-게이트웨이-커넥션-id&quot;&gt;&lt;a href=&quot;#api-%EA%B2%8C%EC%9D%B4%ED%8A%B8%EC%9B%A8%EC%9D%B4-%EC%BB%A4%EB%84%A5%EC%85%98-id&quot; aria-label=&quot;api 게이트웨이 커넥션 id permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;API 게이트웨이 커넥션 ID&lt;/h3&gt;
+&lt;p&gt;사용자가 &lt;code class=&quot;language-text&quot;&gt;API 게이트웨이&lt;/code&gt;에 연결되거나 연결이 끊어지면 API 게이트웨이는 람다함수에게 &lt;code class=&quot;language-text&quot;&gt;커넥션 ID&lt;/code&gt;를 전달한다. 람다 함수는 전달받은 &lt;code class=&quot;language-text&quot;&gt;커넥션 ID&lt;/code&gt;를 데이터베이스에 저장하고 연결이 끊어지면 이를 제거한다.&lt;/p&gt;
+&lt;p&gt;그리고 데이터베이스에 저장된 &lt;code class=&quot;language-text&quot;&gt;커넥션 ID&lt;/code&gt;를 읽어와 특정 클라이언트에게 메시지를 보낼 수 있다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/be1542c96f5ea52e9fcfb869db52ad01/f24d1/Api_gateway_connection_id.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.34213098729228%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACGElEQVQoz4VRzW7TQBj0Y/BWCITEE/TCI/TAA8ABhJC4gBAHkDggkCKQ2sqqmtQJEJIoVdI6qZOm0Nj1/8a1vbY3zvB53UrlxCeN9m92dr5Z5WR6iokxw8nUwOzsHJbtQD+dYWrMYczP8PtiCZQlsF6jqs1mI1GVoD1eCImyrPeUPM/BswxxnCBJUhR0GCc0T1OknKOg84paXovdrpS4dpKBZTmEKKWogv9UQpfMxlfYb9+BeR7yogALQ0RXMbI4AvfMf/jKTRu+H1BXa3qllKOcCwFGAvr2Yxj3H8JfmsjyApzcc54jDhywxRh5xrGjBejraS3IqbX5fEGvXqGsxEgopxgEufODAPbiHDZlGvi+5K4Yq+PhCXhoUywcW9sDvPhg1oKVq9UqIoFC5pWKNYrrTwhDBofc+yyC65JgykkskU4TchjOj7Ch+yFLKfsCilgLKViQWOXMp2xGToAlqx8QPEVkW2DWEnm0ktwN6p+W8dBHyIhEQd0JKK7rooJlWXAcBx7NfQrfJTDfg2b8wUtthGf7fXwaGvLcNK2ab9uES3jEtaxL2LRW9ImOyWSC8XgsMRwO0e/3MRge4WKq48HHJpSnu1Ceq7jzSsXP3gC9bhe/aBz80NDd+4Lj8TFGoxF0XYfSbrdxG61WC6qq4qDZRO97B08+7+Hu6wbuvWng0ftvONQ0dDrE7XRw2DxAU92FRns39/8CXxvh4x7RjvIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/be1542c96f5ea52e9fcfb869db52ad01/8ac56/Api_gateway_connection_id.webp 240w,
+/static/be1542c96f5ea52e9fcfb869db52ad01/d3be9/Api_gateway_connection_id.webp 480w,
+/static/be1542c96f5ea52e9fcfb869db52ad01/e46b2/Api_gateway_connection_id.webp 960w,
+/static/be1542c96f5ea52e9fcfb869db52ad01/da35d/Api_gateway_connection_id.webp 1023w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/be1542c96f5ea52e9fcfb869db52ad01/e4891/Api_gateway_connection_id.png 240w,
+/static/be1542c96f5ea52e9fcfb869db52ad01/0ce91/Api_gateway_connection_id.png 480w,
+/static/be1542c96f5ea52e9fcfb869db52ad01/b7c40/Api_gateway_connection_id.png 960w,
+/static/be1542c96f5ea52e9fcfb869db52ad01/f24d1/Api_gateway_connection_id.png 1023w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/be1542c96f5ea52e9fcfb869db52ad01/b7c40/Api_gateway_connection_id.png&quot;
+          alt=&quot;Api_gateway_connection_id&quot;
+          title=&quot;Api_gateway_connection_id&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;커넥션-url&quot;&gt;&lt;a href=&quot;#%EC%BB%A4%EB%84%A5%EC%85%98-url&quot; aria-label=&quot;커넥션 url permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;커넥션 URL&lt;/h3&gt;
+&lt;p&gt;커넥션 URL은 다음의 HTTP 메서드를 제공한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;POST : 클라이언트에게 메시지를 보낸다.&lt;/li&gt;
+&lt;li&gt;GET : 최신의 연결 상태를 가져온다.&lt;/li&gt;
+&lt;li&gt;DELETE: API로부터 클라이언트 연결을 끊는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;serverless-프레임워크에서-웹소켓-사용하기&quot;&gt;&lt;a href=&quot;#serverless-%ED%94%84%EB%A0%88%EC%9E%84%EC%9B%8C%ED%81%AC%EC%97%90%EC%84%9C-%EC%9B%B9%EC%86%8C%EC%BC%93-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0&quot; aria-label=&quot;serverless 프레임워크에서 웹소켓 사용하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Serverless 프레임워크에서 웹소켓 사용하기&lt;/h2&gt;
+&lt;p&gt;다음은 웹소켓 이벤트를 사용하기 위한 설정이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt; &lt;span class=&quot;token key atrule&quot;&gt;ConnectHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; src/websocket/connect.handler
+    &lt;span class=&quot;token key atrule&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;websocket&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $connect
+
+  &lt;span class=&quot;token key atrule&quot;&gt;DisconnectHandler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; src/websocket/disconnect.handler
+    &lt;span class=&quot;token key atrule&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;websocket&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; $disconnect&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;포스트맨은 웹소켓 연결을 지원하지 않기 때문에 여기서는 &lt;code class=&quot;language-text&quot;&gt;wscat&lt;/code&gt;이라는 웹소켓 CLI 클라이언트를 사용한다.&lt;/p&gt;
+&lt;p&gt;설치&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install wscat -g&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;연결&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;wscat -c wss://&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;full-text-검색&quot;&gt;&lt;a href=&quot;#full-text-%EA%B2%80%EC%83%89&quot; aria-label=&quot;full text 검색 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Full-text 검색&lt;/h2&gt;
+&lt;p&gt;이 섹션에서 구현할 내용은 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이름으로 이미지 찾기&lt;/li&gt;
+&lt;li&gt;모든 필드로 검색 가능하도록 지원&lt;/li&gt;
+&lt;li&gt;타이핑을 잘못쳐도 검색이 가능하게 지원&lt;/li&gt;
+&lt;li&gt;하이라이트 지원(검색어와 일치하는 부분은 하이라이트 처리)&lt;/li&gt;
+&lt;li&gt;검색 결과에 랭킹 지원(더 일치하는 결과를 상위에 보여줌)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;위의 기능들을 DynamoDB는 지원하지 않기때문에 다른 데이터베이스를 사용해야 한다.&lt;/p&gt;
+&lt;h3 id=&quot;elasticsearch&quot;&gt;&lt;a href=&quot;#elasticsearch&quot; aria-label=&quot;elasticsearch permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;ElasticSearch&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;엘라스틱서치는 가장 유명한 full-text 검색 솔루션이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;오픈소스이며 &lt;code class=&quot;language-text&quot;&gt;Elastic&lt;/code&gt;에 의해 개발되었다.&lt;/li&gt;
+&lt;li&gt;AWS를 포함한 많은 클라우드 프로바이더들이 엘라스틱서치 클러스터를 지원한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;위에서 구현할 내용들을 모두 지원한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;두-개의-데이터베이스&quot;&gt;&lt;a href=&quot;#%EB%91%90-%EA%B0%9C%EC%9D%98-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4&quot; aria-label=&quot;두 개의 데이터베이스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;두 개의 데이터베이스&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;엘라스틱서치를 사용하면 두 개의 데이터베이스를 갖게 된다.&lt;/li&gt;
+&lt;li&gt;두 개의 데이터베이스가 싱크가 맞아야 한다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;이렇게 두 개의 데이터베이스를 사용하는 패턴을 &lt;code class=&quot;language-text&quot;&gt;CQRS(Command and Query Responsibility Segregation)&lt;/code&gt; 이라고 한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;이는 서로 다른 데이터베이스들로부터 데이터를 읽고 쓰는 것을 의미한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;DynamoDB에 존재하는 데이터를 엘라스틱서치 데이터베이스에 복사해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;dynamodb와-엘라스틱서치-싱크맞추기&quot;&gt;&lt;a href=&quot;#dynamodb%EC%99%80-%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%EC%8B%B1%ED%81%AC%EB%A7%9E%EC%B6%94%EA%B8%B0&quot; aria-label=&quot;dynamodb와 엘라스틱서치 싱크맞추기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DynamoDB와 엘라스틱서치 싱크맞추기&lt;/h3&gt;
+&lt;p&gt;사용자가 이미지를 업로드하면 해당 람다 함수에서 먼저 DynamoDB에 저장하고 그 다음 엘라스틱 서치에도 저장하는 방법이 있을 수 있다.
+하지만 이는 효율적인 방법이 아니다. 만약 둘 중에 하나의 데이터베이스가 고장난 상태라면 클라이언트는 계속 기다려야 할 수도 있고 두 개의 데이터베이스는 서로 다른 데이터를 갖게 될 것이다. 따라서 이와같은 방법이 아니라 더 좋은 방법이 필요하다.&lt;/p&gt;
+&lt;h2 id=&quot;dynamodb-스트림&quot;&gt;&lt;a href=&quot;#dynamodb-%EC%8A%A4%ED%8A%B8%EB%A6%BC&quot; aria-label=&quot;dynamodb 스트림 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DynamoDB 스트림&lt;/h2&gt;
+&lt;p&gt;각 데이터베이스 업데이트가 분리되는 것이 이상적이다. 사용자는 DB 업데이트로부터 분리되어 두 개의 데이터베이스가 모두 업데이트 될때까지 기다리거나 둘 중에 하나의 데이터베이스가 고장이 나더라도 사용자는 이에 영향을 받을 가능성이 적어진다. 엘라스틱서치 데이터베이스는 업데이트가 약간 늦어질 뿐이다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;데이터 스트리밍&lt;/code&gt; 서비스를 이용하여 이를 구현할 수 있다. 다음의 세가지 &lt;code class=&quot;language-text&quot;&gt;데이터 스트리밍&lt;/code&gt;서비스가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;오픈소스인 &lt;code class=&quot;language-text&quot;&gt;Kafka&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;AWS의 &lt;code class=&quot;language-text&quot;&gt;Kinesis&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DynamoDB 업데이트 스트림&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;데이터-스트림&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8A%A4%ED%8A%B8%EB%A6%BC&quot; aria-label=&quot;데이터 스트림 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 스트림&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ce37c6e809a9f5bc04dea2e4ef4a3785/67fe1/Data_stream.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.99375650364204%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABVUlEQVQoz4WQaW+CQBCG+f//yKtJP1SlrUdJTQGr0ZpYTo1yCMvxdmZFRGPSTR7endk5UYqigDwlcLmXZVnz32nGMkpZlDA3M2y9zcMAhhs9gt/SJMX8e4nFcgUhBBWkIbTFG9bWdzVoedOdg/I8r+FCUvOzJlRwPNGgvo6krfDncrIskwlRFOFwOCAMQ/i+jziOERyD2h9HsdTT6XT9TVWjm4IiTZGmAkdK3u12CIIQnuddbVK2g+Bsc4Nmviwoshyhs0Fy3CNrrCShdbOKy+o8bZIkchv2pSJD5FuI9y4E+RTXdbFQu/iZvVN3X67I2I6D9a+N9dYiteDSZDyVQ37btiUOYdkOlqNnrKYvFOND0XUd2mSMT+0DhmliPp/DJDUMA186UalZvd1jGCa06YQYQ6dYpd/vo9Vqo9d7wnA4hKqqtd7D/ibsGwwGaLc76HS68v4Hk2emto/ftsIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/ce37c6e809a9f5bc04dea2e4ef4a3785/8ac56/Data_stream.webp 240w,
+/static/ce37c6e809a9f5bc04dea2e4ef4a3785/d3be9/Data_stream.webp 480w,
+/static/ce37c6e809a9f5bc04dea2e4ef4a3785/e46b2/Data_stream.webp 960w,
+/static/ce37c6e809a9f5bc04dea2e4ef4a3785/85db8/Data_stream.webp 961w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/ce37c6e809a9f5bc04dea2e4ef4a3785/e4891/Data_stream.png 240w,
+/static/ce37c6e809a9f5bc04dea2e4ef4a3785/0ce91/Data_stream.png 480w,
+/static/ce37c6e809a9f5bc04dea2e4ef4a3785/b7c40/Data_stream.png 960w,
+/static/ce37c6e809a9f5bc04dea2e4ef4a3785/67fe1/Data_stream.png 961w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/ce37c6e809a9f5bc04dea2e4ef4a3785/b7c40/Data_stream.png&quot;
+          alt=&quot;Data_stream&quot;
+          title=&quot;Data_stream&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;데이터 스트림이란 이진 데이터들의 스트림이다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Queue와 비슷하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Queue와 다른점은 각 레코드를 여러번 읽을 수 있다. (Queue는 한번 읽으면 Queue에서 제거됨)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;두 가지 종류의 사용자가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Consumer : 레코드를 읽음&lt;/li&gt;
+&lt;li&gt;Producers : 레코드를 추가함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;데이터 스트림은 레코드들의 배열에 불과하다. 각 레코드에는 배열의 인덱스와 같이 순서 번호가 있다. 그리고 각 레코드는 이진 데이터이다. 하지만 DynamoDB와 같이 어떤 서비스에서 제공하는 데이터 스트림이냐에 따라 특정 포맷을 가진다. 이러한 레코드들이 모여 하나의 스트림을 형성한다.&lt;/p&gt;
+&lt;p&gt;데이터 스트림은 마치 Queue와 비슷하지만 두 가지 중요한 차이점이 있다. 첫번째로 데이터 스트림의 레코드는 여러번 읽어질 수 있다. 특정 컨슈머가 데이터 스트림의 처음부터 끝가지 레코드들을 읽더라도 해당 레코드들은 데이터 스트림에서 제거되지 않는다. 따라서 또 다른 컨슈머도 해당 레코드들을 다시 데이터 스트림에서 읽어올 수 있다.&lt;/p&gt;
+&lt;p&gt;두번째는 데이터 스트림은 각 컨슈머들의 위치를 추적하지 않는다는 점이다.(The second difference is that a stream does not keep track of a position of each consumer.???)&lt;/p&gt;
+&lt;p&gt;데이터 스트림의 다른 사용자에는 프로듀서가 있다. 이들은 데이터 스트림에 레코드를 추가한다. 오직 데이터 스트림의 끝에만 레코드를 추가할 수 있다. 데이터 스트림의 중간이나 처음에 레코드를 추가할 수는 없다. 그리고 레코드들은 컨슈머 또는 프로듀서에 의해 제거될 수 없다. 각 레코드들은 만료 시간이 설정되어 있고 해당 만료 시간이 지나면 레코드는 데이터 스트림에서 자동으로 제거된다.&lt;/p&gt;
+&lt;h3 id=&quot;데이터-스트림-서비스&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;데이터 스트림 서비스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 스트림 서비스&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Kinesis (AWS 서비스)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;어떤 종류의 데이터도 write 할 수 있다.&lt;/li&gt;
+&lt;li&gt;아파치 Kafka와 비슷하다. 현재 AWS는 Kinesis, Kafka 둘다 서비스를 제공한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DynamoDB&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DynamoDB는 데이터베이스이다. 스트림 서비스가 아니다.&lt;/li&gt;
+&lt;li&gt;하지만 해당 DB 테이블의 데이터들로 데이터 스트림을 읽을 수 있도록 지원한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;kinesis로-full-text-검색-구현하기&quot;&gt;&lt;a href=&quot;#kinesis%EB%A1%9C-full-text-%EA%B2%80%EC%83%89-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;kinesis로 full text 검색 구현하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Kinesis로 full-text 검색 구현하기&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d098cd3016ab20368cf45fe9567766c2/b1718/Kinesis_data_stream.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.536863966770504%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABdElEQVQoz42QzUrDQBzEc/Gmb9gXEEG8+QCexKcQTyKC6MWKWPViWwRNY6FfNqbNNrWlH/lospttMv6TtQcriAvD/kiGYXa0NE2xOitO6F4SRkJgOpsjlgn+e7T1D3lo+h2QSKSLIMdhy4NjBhBxBM/14M5dRFGEJElgsxHYYAwppQpcOCb8fpOaZSFL1CcBLvsuiszDte3jbrLA4UUXj9XPzIBR8wVzu5vzdM6xc/CG3SMLXCQqcPJuYFQvI+SCPDG2n2xoxy1snXewSdo4bUM76+CkO6b2S4wbz3Cthmo+8lHYq6Kw36CJUmgJ1fI99QQRx7mpPQtRtF2UmIvb/gz3jo8bajwMhJplbabJlFNT9U/LdhA0fiZOHGa7CA5IMgjikDaMec5xFCIMI4zbOmbMRMR5vqMkr5SKNcYY1mWTejZDn/TR68G0rFwWcY9uo3SFRuUBA8dRflspY61Wq+EvGYbxQ/qrjvJTGdVKFbqu//J/AcCfT7GrKAX1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/d098cd3016ab20368cf45fe9567766c2/8ac56/Kinesis_data_stream.webp 240w,
+/static/d098cd3016ab20368cf45fe9567766c2/d3be9/Kinesis_data_stream.webp 480w,
+/static/d098cd3016ab20368cf45fe9567766c2/e46b2/Kinesis_data_stream.webp 960w,
+/static/d098cd3016ab20368cf45fe9567766c2/095e2/Kinesis_data_stream.webp 963w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/d098cd3016ab20368cf45fe9567766c2/e4891/Kinesis_data_stream.png 240w,
+/static/d098cd3016ab20368cf45fe9567766c2/0ce91/Kinesis_data_stream.png 480w,
+/static/d098cd3016ab20368cf45fe9567766c2/b7c40/Kinesis_data_stream.png 960w,
+/static/d098cd3016ab20368cf45fe9567766c2/b1718/Kinesis_data_stream.png 963w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/d098cd3016ab20368cf45fe9567766c2/b7c40/Kinesis_data_stream.png&quot;
+          alt=&quot;Kinesis_data_stream&quot;
+          title=&quot;Kinesis_data_stream&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;우리가 구현할 시스템의 중간에 &lt;code class=&quot;language-text&quot;&gt;Kinesis 데이터 스트림&lt;/code&gt;을 추가한다. 하나의 람다 함수는 이 데이터 스트림에 새로운 이미지를 추가한다. 그리고 다른 두개의 람다 함수를 추가한다. 이 중 하나는 이 데이터 스트림으로부터 데이터를 읽어와서 데이터 스트림에 추가된 각 아이템을 DynamoDB에 추가한다. 다른 람다 함수도 이 데이터 스트림에서 데이터를 읽어와서 &lt;code class=&quot;language-text&quot;&gt;엘라스틱서치&lt;/code&gt;에 데이터를 추가한다.&lt;/p&gt;
+&lt;h3 id=&quot;dynamodb로-full-text-검색-구현하기&quot;&gt;&lt;a href=&quot;#dynamodb%EB%A1%9C-full-text-%EA%B2%80%EC%83%89-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;dynamodb로 full text 검색 구현하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DynamoDB로 full-text 검색 구현하기&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 931px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/29067ddb007ff04aa0784c05366f35eb/be19a/Dynamodb_data_stream.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.18689581095596%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABmklEQVQoz42QX2vTYBTGA34IL/dx/AR+hYETERQG3gp6sevhnXijeCsDByu5WKXrlhhba9ay1riyWeefJVnWNG2S901+vmlpFqaILxwO53nO+5xzHi3Pc6pvWUspCcc+lxc/mc2ikrvef/1py0YxDcmzbA5mKgshsA596pbPxThRPbIU+5foXDCdBJx3donOR6QiI57NGIdT7j22ubU24JOTFGOQ2X8KxtEE1+kQut8p/giREseCzRdHrG/0Of4WzwWzLC/PrkaBL7mFYJIQhhMm0bT078pUWWJ/+v2XDYvGwrOraRlpmhIlKT/U2aMgJFDbFljBSbV9ovxeDCjsEfTaAcOjSF0m0TzPoxq/XA8ZuKzqPW48N7n50mLlVYvjk1Ncz+dr32ZQf8PZyZDg0sduD7l7u8aT+x84G7lojuNQjcFnh1NnwLN6i9WtAx5sGzzcNun2eor/gt2yMPUtup02QyVq7H9k/c5rnj56S/ewj2YYBtUwTZMDlTumQdcysN8v8pJr7O2xW39Hs7m/qBsNajs1dF1XWJPfg46awHQejC8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/29067ddb007ff04aa0784c05366f35eb/8ac56/Dynamodb_data_stream.webp 240w,
+/static/29067ddb007ff04aa0784c05366f35eb/d3be9/Dynamodb_data_stream.webp 480w,
+/static/29067ddb007ff04aa0784c05366f35eb/c4004/Dynamodb_data_stream.webp 931w&quot;
+          sizes=&quot;(max-width: 931px) 100vw, 931px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/29067ddb007ff04aa0784c05366f35eb/e4891/Dynamodb_data_stream.png 240w,
+/static/29067ddb007ff04aa0784c05366f35eb/0ce91/Dynamodb_data_stream.png 480w,
+/static/29067ddb007ff04aa0784c05366f35eb/be19a/Dynamodb_data_stream.png 931w&quot;
+          sizes=&quot;(max-width: 931px) 100vw, 931px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/29067ddb007ff04aa0784c05366f35eb/be19a/Dynamodb_data_stream.png&quot;
+          alt=&quot;Dynamodb_data_stream&quot;
+          title=&quot;Dynamodb_data_stream&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이 수업에서 구현할 내용은 이 방법이다. 먼저 DynamoDB 테이블에 데이터 스트림 기능을 사용할 수 있도록 한다. 현재 구현된대로 DynamoDB 테이블에 레코드들이 추가될 것이고 또다른 람다함수를 새로 구현하여 DynamoDB 테이블에 업데이트된 스트림을 읽어와서 엘라스틱서치에 복사한다.&lt;/p&gt;
+&lt;h2 id=&quot;데이터-스트림-스케일링&quot;&gt;&lt;a href=&quot;#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EC%8A%A4%EC%BC%80%EC%9D%BC%EB%A7%81&quot; aria-label=&quot;데이터 스트림 스케일링 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;데이터 스트림 스케일링&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;서비스가 확장됨에 따라 데이터 스트림도 확장해야 한다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;데이터 스트림 확장방법은 Nosql 데이터베이스를 스케일링 하는 방법과 비슷하다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;하나의 데이터 스트림이 여러개로 분할된다.&lt;/li&gt;
+&lt;li&gt;분할된 각 부분은 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;라고 부른다.&lt;/li&gt;
+&lt;li&gt;각 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;는 데이터 스트림에 쓰여진 레코드들의 일부를 가지고 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그렇다면 어떤 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;를 선택해야 할지 어떻게 알 수 있을까?
+DynamoDB의 각 레코드의 &lt;code class=&quot;language-text&quot;&gt;Key&lt;/code&gt;를 사용하여 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;를 선택한다. 새로운 데이터가 데이터 스트림에 쓰여지면 이는 어떤 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;에도 쓰여질 수 있지만 같인 &lt;code class=&quot;language-text&quot;&gt;Key&lt;/code&gt;를 가지고 있는 데이터는 항상 같은 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;에 쓰여진다.&lt;/p&gt;
+&lt;h3 id=&quot;dynamodb-데이터-스트림&quot;&gt;&lt;a href=&quot;#dynamodb-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8A%A4%ED%8A%B8%EB%A6%BC&quot; aria-label=&quot;dynamodb 데이터 스트림 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DynamoDB 데이터 스트림&lt;/h3&gt;
+&lt;p&gt;DynamoDB 테이블은 파티션으로 나뉘어져 있고 각 파티션은 각각 &lt;code class=&quot;language-text&quot;&gt;Shard&lt;/code&gt;를 가지고 있다. 따라서 우리는 각 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;의 모든 업데이트 사항을 엘라스틱서치에 복사해야 한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 767px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/25ecce5397a7afd865f11003a34333c0/fd398/dynamoDB_data_stream.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.285528031290745%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAB6ElEQVQoz1WSy27TUBCGvYMXgVcAiQ1igUCIJS/AmkdgV5VNd2xggVhQlKoSBVoJoQhFQIBFi0qaXiBp6IW22HHjJAbf7ePzMXYSlB5p5DOjmfH3zxmD8uRolTN0+pgnJpZlk2uJ5qDkosd25ohbxjRnzHj9vk91PS5zYgkEQUTqeWjfRwcBRBEqzcrkKIwwTRu72yMbx/T0D4uGC0++svywBq0tku0dSBLWu39ZaVu86dh8Ph6QJllZoLKcwe9DPOdU/CmyCbTkGPncLPrqZfxbN4ivX8NvbnDx7RHGfBuj0uH84i7HvSG5NA2FvLf9hWGnQSRKchmTyjSeq4iDMWHy/QdJrUZSr5N+qpO5Lu9Mn/k9l8q+y/LRH4IwJs+KYkXYMwmdrlArYVKsfrC4f7fB0uNuSW0oPyDrOSMbCInMZhhlmF5cWj9MyYSuoCkIUs9FxVFJVjT8WD3g3p0aT+d+So40jGZnSK9cIrx9k6SQvNnkQiH5WauUfG6xzYnjolNFJA9lb9bp7zZEYlQO8HDPorqywbfV/VKBEa+tkS5USJZekLx6SdYf8FykzjRtHmyd8qjl4EmxViPJnnWA3/0lNJNV0v/3qHwUeXzSaZMiGZCoES8bWbE2erIixXdqB4u5jZqPev8DUa6Ws9uo6mAAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/25ecce5397a7afd865f11003a34333c0/8ac56/dynamoDB_data_stream.webp 240w,
+/static/25ecce5397a7afd865f11003a34333c0/d3be9/dynamoDB_data_stream.webp 480w,
+/static/25ecce5397a7afd865f11003a34333c0/e0ad8/dynamoDB_data_stream.webp 767w&quot;
+          sizes=&quot;(max-width: 767px) 100vw, 767px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/25ecce5397a7afd865f11003a34333c0/e4891/dynamoDB_data_stream.png 240w,
+/static/25ecce5397a7afd865f11003a34333c0/0ce91/dynamoDB_data_stream.png 480w,
+/static/25ecce5397a7afd865f11003a34333c0/fd398/dynamoDB_data_stream.png 767w&quot;
+          sizes=&quot;(max-width: 767px) 100vw, 767px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/25ecce5397a7afd865f11003a34333c0/fd398/dynamoDB_data_stream.png&quot;
+          alt=&quot;dynamoDB_data_stream&quot;
+          title=&quot;dynamoDB_data_stream&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;dynamodb-테이블에-스트림-사용-설정&quot;&gt;&lt;a href=&quot;#dynamodb-%ED%85%8C%EC%9D%B4%EB%B8%94%EC%97%90-%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EC%82%AC%EC%9A%A9-%EC%84%A4%EC%A0%95&quot; aria-label=&quot;dynamodb 테이블에 스트림 사용 설정 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DynamoDB 테이블에 스트림 사용 설정&lt;/h3&gt;
+&lt;p&gt;DynamoDB 테이블에서 스트림을 사용하기 위해서는 &lt;code class=&quot;language-text&quot;&gt;serverless&lt;/code&gt; 파일 설정에서 다음 &lt;code class=&quot;language-text&quot;&gt;StreamSpecification&lt;/code&gt; 항목을 추가해야 한다.
+&lt;code class=&quot;language-text&quot;&gt;StreamViewType&lt;/code&gt;은 스트림의 레코드에 들어갈 타입을 지정한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;ImagesDynamoDBTable&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;AWS::DynamoDB::Table&quot;&lt;/span&gt;
+ &lt;span class=&quot;token key atrule&quot;&gt;Properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;
+   &lt;span class=&quot;token key atrule&quot;&gt;StreamSpecification&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;token key atrule&quot;&gt;StreamViewType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; NEW_AND_OLD_IMAGES&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;StreamViewType&lt;/code&gt; 에는 다음의 4가지 타입이 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NEW&lt;em&gt;AND&lt;/em&gt;IMAGES : 스트림이 업데이트되기 전과 이후의 2가지 버전이 있다.&lt;/li&gt;
+&lt;li&gt;NEW_IMAGE : 스트림이 업데이트된 이후의 새로운 버전만 있다.&lt;/li&gt;
+&lt;li&gt;OLD_IMAGE: 스트림이 업데이트되기 전의 버전만 있다.&lt;/li&gt;
+&lt;li&gt;KEYS_ONLY: 스트림에 업데이트된 아이템들의 Key 속성만 가지고 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;스트림-업데이트-샘플-코드&quot;&gt;&lt;a href=&quot;#%EC%8A%A4%ED%8A%B8%EB%A6%BC-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%83%98%ED%94%8C-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;스트림 업데이트 샘플 코드 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;스트림 업데이트 샘플 코드&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;handler&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Process a batch of records&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; record &lt;span class=&quot;token keyword&quot;&gt;of&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Records&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; newItem &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; record&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dynamodb&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;newImage&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//modified item&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; newItem&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;S&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// String attribute&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; count &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; newItem&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;count&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Number attribute&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Process a stream record&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위와 같이 DynamoDB의 아이템 속성을 접근하는 방법을 &lt;a href=&quot;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.LowLevelAPI.html#Programming.LowLevelAPI.ResponseFormat&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;DynamoDB JSON&lt;/a&gt;이라고 한다.&lt;/p&gt;
+&lt;h2 id=&quot;엘라스틱서치&quot;&gt;&lt;a href=&quot;#%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98&quot; aria-label=&quot;엘라스틱서치 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;엘라스틱서치&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;엘라스틱서치 데이터&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Indexes - RDBMS 데이터베이스의 테이블과 같은것&lt;/li&gt;
+&lt;li&gt;Types&lt;/li&gt;
+&lt;li&gt;하나의 Index에는 여러개의 타입을 포함할 수 있음&lt;/li&gt;
+&lt;li&gt;엘라스틱서치 7.0에서는 &lt;code class=&quot;language-text&quot;&gt;deprecated&lt;/code&gt;되었지만 이 수업에 사용하는 버전에는 사용할 수 있음&lt;/li&gt;
+&lt;li&gt;여러개의 &lt;code class=&quot;language-text&quot;&gt;shard&lt;/code&gt;에 분할될 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;아마존-엘라스틱서치&quot;&gt;&lt;a href=&quot;#%EC%95%84%EB%A7%88%EC%A1%B4-%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98&quot; aria-label=&quot;아마존 엘라스틱서치 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;아마존 엘라스틱서치&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;아마존이 관리해주는 엘라스틱서치 서비스임&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;AWS가 배포와 설정을 해준다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CloudFormation을 통해 생성가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;두가지 서비스가 생성&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;엘라스틱서치: 데이터 업로드와 쿼리&lt;/li&gt;
+&lt;li&gt;키바나 : 엘라스틱서치를 위한 UI 인터페이스&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;엘라스틱서치는 다른 Provider가 제공하는 것을 사용할 수도 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;엘라스틱-서치-연결&quot;&gt;&lt;a href=&quot;#%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1-%EC%84%9C%EC%B9%98-%EC%97%B0%EA%B2%B0&quot; aria-label=&quot;엘라스틱 서치 연결 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;엘라스틱 서치 연결&lt;/h3&gt;
+&lt;p&gt;다음은 Nodejs에서 엘라스틱서치 클라이언트를 생성하는 샘플코드이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; elasticsearch &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;elasticsearch&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; httpAwsEs &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http-aws-es&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; esHost &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; process&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;ES_ENDPOINT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; es &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;elasticsearch&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Client&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  hosts&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;esHost&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// 엘라스틱서치 클라이언트가 AWS가 제공하는 엘라스틱서치와 통신하는 방법을 설정한다.&lt;/span&gt;
+  connectionClass&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; httpAwsEs
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음은 엘라스틱서치에 도큐먼트를 저장하는 방법이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; es&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  index&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;images-index&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  type&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;images&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  id&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Document ID&lt;/span&gt;
+  body&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Document to store&lt;/span&gt;
+    title&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    imageUrl&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;https://example.com/image.png&apos;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;심플-노티피케이션-서비스sns&quot;&gt;&lt;a href=&quot;#%EC%8B%AC%ED%94%8C-%EB%85%B8%ED%8B%B0%ED%94%BC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%84%9C%EB%B9%84%EC%8A%A4sns&quot; aria-label=&quot;심플 노티피케이션 서비스sns permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;심플 노티피케이션 서비스(SNS)&lt;/h2&gt;
+&lt;h3 id=&quot;여러개의-s3-이벤트-핸들러-함수-구현하기&quot;&gt;&lt;a href=&quot;#%EC%97%AC%EB%9F%AC%EA%B0%9C%EC%9D%98-s3-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%ED%95%B8%EB%93%A4%EB%9F%AC-%ED%95%A8%EC%88%98-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0&quot; aria-label=&quot;여러개의 s3 이벤트 핸들러 함수 구현하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;여러개의 S3 이벤트 핸들러 함수 구현하기&lt;/h3&gt;
+&lt;p&gt;만약 하나의 S3 버켓에 대해 두개의 이벤트 핸들러 함수를 구현하려면 어떻게 해야 할까?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;웹소켓 노티피케이션 핸들러&lt;/li&gt;
+&lt;li&gt;이미지 리사이징 핸들러&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;즉, S3 버켓에 이미지가 업로드 되었을 때 위 2개 각각의 핸들러 함수가 작동해야 하는것이다. 하지만 S3는 오직 한개의 노티피케이션 타겟을 지원한다. 즉, S3 이벤트가 발생했을때 오직 한 개의 람다 함수만 호출할 수 있다.&lt;/p&gt;
+&lt;p&gt;심플 노티피케이션 서비스(SNS)라는 다른 서비스를 사용하여 이를 구현할 수 있다. S3 버켓에서 이벤트 발생시 SNS에게 이 이벤트를 보내고 SNS가 여러개의 다른 타겟 서비스에게 이벤트를 브로드 캐스팅하면 된다.&lt;/p&gt;
+&lt;h3 id=&quot;sns&quot;&gt;&lt;a href=&quot;#sns&quot; aria-label=&quot;sns permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SNS&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 792px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7f4aac35b25701ee88cb534a8fc83885/44fa7/Simple_notification_service.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.6969696969697%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABeUlEQVQoz3WSy0rDQBSG+x7iY4g+ghuXSh9AQVz6CD6EzyC4UYqLurALr1BcFVFoS28mTa9pkiaZSWbm98zEhrTiwMncv/zn/FNCoSmlTJgxhaRgnENIBbV2BvjvXim7rH4RWROSUEoaZDSf0gI3+1KqHCApopkDHrhr4NLIdXB6WcZD484s8jQhToon28NutYeDRwt7931UunOSGyNmHEmSIE0F3O4XwnEfqZDgnGcKrck3Di/2UXm9NgsxZ0DKUXc8HD3bOKsPUaa+ZnlAwmmfgxNUQ4JhB/HcMT+JwjADarK/8LEMwrx2+vvhxjh+s3H+7uCE+pdRYMqgszY1o1OLQZsUWuspbxZXqMyOmu1j66aFnWoH27dtXLUmJD9ExBilm5q0Z589LK0pQlLHYpYpXDlUdEpQOpCi4HVmUiqEAemQZFw0dsH90Bik53+AK5VFJ1ehCm9FX9ZQp9GE2xyYuut5/myKKRf7zaY2wPEiAPOWlJHIFf4AqJew5PLULYEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/7f4aac35b25701ee88cb534a8fc83885/8ac56/Simple_notification_service.webp 240w,
+/static/7f4aac35b25701ee88cb534a8fc83885/d3be9/Simple_notification_service.webp 480w,
+/static/7f4aac35b25701ee88cb534a8fc83885/22975/Simple_notification_service.webp 792w&quot;
+          sizes=&quot;(max-width: 792px) 100vw, 792px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/7f4aac35b25701ee88cb534a8fc83885/e4891/Simple_notification_service.png 240w,
+/static/7f4aac35b25701ee88cb534a8fc83885/0ce91/Simple_notification_service.png 480w,
+/static/7f4aac35b25701ee88cb534a8fc83885/44fa7/Simple_notification_service.png 792w&quot;
+          sizes=&quot;(max-width: 792px) 100vw, 792px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/7f4aac35b25701ee88cb534a8fc83885/44fa7/Simple_notification_service.png&quot;
+          alt=&quot;Simple_notification_service&quot;
+          title=&quot;Simple_notification_service&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;다른 서비스들에게 메시지를 보내주는 서비스이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;퍼블리셔: 메시지를 퍼블리싱&lt;/li&gt;
+&lt;li&gt;구독자: 들어오는 메시지를 소비&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;퍼블리셔와 구독자는 토픽으로 연결됨&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;하나의 토픽은 여러명의 구독자를 가질 수 있음&lt;/li&gt;
+&lt;li&gt;구독자는 여러가지의 프로토콜을 사용할 수 있음(Lambda, http, email, sms, etc..)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;토픽에 메시지가 보내지면 해당 토픽의 모든 구독자들에게 메시지가 전달됨&lt;/li&gt;
+&lt;li&gt;Retry 가 구현되어 있음(메시지 전달이 실패할 경우 구독자에게 메시지를 다시 보내는 것을 여러번 시도함)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;sns-이벤트-샘플-코드&quot;&gt;&lt;a href=&quot;#sns-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%83%98%ED%94%8C-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;sns 이벤트 샘플 코드 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SNS 이벤트 샘플 코드&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;hander&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Get S3 event passed through SNS&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; s3EventStr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Records&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Sns&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Message
+
+  &lt;span class=&quot;token comment&quot;&gt;// Parse JSON string into an object&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; s3Event &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;s3EventStr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;sns-토픽-생성&quot;&gt;&lt;a href=&quot;#sns-%ED%86%A0%ED%94%BD-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;sns 토픽 생성 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SNS 토픽 생성&lt;/h3&gt;
+&lt;p&gt;다음의 코드는 AWS &lt;code class=&quot;language-text&quot;&gt;CloudFormation&lt;/code&gt; 에서 제공하는 &lt;code class=&quot;language-text&quot;&gt;Join&lt;/code&gt; 함수를 사용하여 각 string 들을 붙여서 &lt;code class=&quot;language-text&quot;&gt;arn&lt;/code&gt;을 정의하고 있다. &lt;code class=&quot;language-text&quot;&gt;Fn::Join:&lt;/code&gt; 는 &lt;code class=&quot;language-text&quot;&gt;Join&lt;/code&gt;함수를 의미하고 첫번째 인자로 주어지는 &lt;code class=&quot;language-text&quot;&gt;:&lt;/code&gt;를 사용하여 그 다음의 모든 인자들을 붙여 하나의 string으로 만든다는 의미이다. 결과적으로 이 &lt;code class=&quot;language-text&quot;&gt;resizeImage&lt;/code&gt; 핸들러가 구독하는 SNS 토픽의 arn은 다음과 같이 정의된다. &lt;code class=&quot;language-text&quot;&gt;arn:aws:sns:us-east-1:143036976037:myTopic&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;ResizeImage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;handler&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; src/s3/resizeImage.hanlder
+  &lt;span class=&quot;token key atrule&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;arn&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;Fn::Join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;:&quot;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;arn:aws:sns&quot;&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;Ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;AWS::Region&quot;&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;Ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;AWS::AccountId&quot;&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; myTopic
+        &lt;span class=&quot;token key atrule&quot;&gt;topicName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; myTopic&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[그래프 탐색 알고리즘 BFS, DFS 정리]]></title><description><![CDATA[그래프 탐색 알고리즘인 BFS와 DFS에 대해 정리한다.]]></description><link>https://saegeullee.github.io/algorithm/bfs-dfs</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/bfs-dfs</guid><pubDate>Thu, 11 Jun 2020 12:50:37 GMT</pubDate><content:encoded>&lt;h1 id=&quot;bfs와-dfs란&quot;&gt;&lt;a href=&quot;#bfs%EC%99%80-dfs%EB%9E%80&quot; aria-label=&quot;bfs와 dfs란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;BFS와 DFS란?&lt;/h1&gt;
 &lt;p&gt;대표적인 그래프 탐색 알고리즘&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;너비 우선 탐색(Breadth First Search) : 정점과 같은 레벨에 있는 노드들(형제 노드들)을 먼저 탐색하는 방식&lt;/li&gt;
