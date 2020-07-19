@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 14 Jul 2020 02:41:16 GMT</lastBuildDate><item><title><![CDATA[(알고리즘 - Algoexpert) Spiral Traverse]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-spiral-traverse</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-spiral-traverse</guid><pubDate>Mon, 13 Jul 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 19 Jul 2020 09:04:16 GMT</lastBuildDate><item><title><![CDATA[도커 이미지 관리하기]]></title><link>https://saegeullee.github.io/docker/managing-docker-images</link><guid isPermaLink="false">https://saegeullee.github.io/docker/managing-docker-images</guid><pubDate>Fri, 17 Jul 2020 12:00:37 GMT</pubDate><content:encoded>&lt;p&gt;어느덧 나의 리눅스 디스크 용량이 거의 꽉 차고 있다.. 도커 이미지를 빌드하는데 아이오닉 프론트엔드 프로젝트가 디스크 용량이 꽉차서 빌드에 실패했다. 다음의 명령어로 나의 리눅스 시스템에 디스크 용량 정보를 확인해보니 Use 100%가 뜬다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;df&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;2년전에 처음에 하드 512G 그램을 사서 리눅스를 듀얼부팅으로 설치할때 200G 정도는 할당한것 같은데 정확히 기억이..&lt;/p&gt;
+&lt;p&gt;지금 확인해보니 총 100G 이상은 할당되어 보이는데 tmpfs라고 임시 파일 시스템을 리눅스가 5개나 할당해놓은 것 같은데 다 합하면 이것만 30G는 되는것 같다 흠..&lt;/p&gt;
+&lt;p&gt;암튼 이번에 아이오닉 프론트엔드 프로젝트를 도커 빌드하면서 아이오닉 프레임워크 자체 이미지도 같이 빌드가 되었는데 이것만 8G정도나 된다.&lt;/p&gt;
+&lt;p&gt;그래서 현재까지 안쓰는 도커 이미지들을 다 제거하고 디스크 용량을 13G 정도 겨우 확보했다..&lt;/p&gt;
+&lt;p&gt;도커 이미지를 삭제하고 디스크용량을 확보하는 과정을 정리해본다.&lt;/p&gt;
+&lt;h3 id=&quot;이미지-삭제&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AD%EC%A0%9C&quot; aria-label=&quot;이미지 삭제 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이미지 삭제&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$docker rmi [image id]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;컨테이너-삭제-전-이미지-삭제할-경우&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%82%AD%EC%A0%9C-%EC%A0%84-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%82%AD%EC%A0%9C%ED%95%A0-%EA%B2%BD%EC%9A%B0&quot; aria-label=&quot;컨테이너 삭제 전 이미지 삭제할 경우 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨테이너 삭제 전 이미지 삭제할 경우&lt;/h3&gt;
+&lt;p&gt;-f 옵션을 붙이면 컨테이너까지 강제 삭제된다고 한다&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$docker rmi -f [image id]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이미지 몇개를 삭제해서 대략 5G 정도 디스크용량 확보가 되었겠거니 싶어서 &lt;code class=&quot;language-text&quot;&gt;df&lt;/code&gt; 로 확인해보니 디스크용량은 그대로이다. 도커는 이미지를 삭제한다고 해당 이미지를 곧바로 디스크에서 제거하지는 않는 것 같다. 검색해보니 다음 명령어를 통해 도커 이미지, 컨테이너, 볼륨 등의 &lt;code class=&quot;language-text&quot;&gt;dangling&lt;/code&gt;상태의 리소스들을 제거해준다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker system prune&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;참고&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0&quot; aria-label=&quot;참고 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;참고자료 digital ocean blog&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[POSTGRESQL 서버 CLI로 접속하기]]></title><link>https://saegeullee.github.io/database/accessing-postgresql-server-from-cli</link><guid isPermaLink="false">https://saegeullee.github.io/database/accessing-postgresql-server-from-cli</guid><pubDate>Thu, 16 Jul 2020 19:00:37 GMT</pubDate><content:encoded>&lt;p&gt;다음 명령어를 통해 리모트 &lt;code class=&quot;language-text&quot;&gt;POSTGRESQL&lt;/code&gt; 서버에 접속할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;psql -h udagram-development.cj9k9scxnwx8.ap-northeast-2.rds.amazonaws.com -U saegeullee postgres&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;접속이 되었다면 다음 명령어로 데이터베이스 목록을 볼 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;\list&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 postgres 데이터베이스에 접속한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;\c postgres&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어로 해당 데이터베이스에 있는 테이블 목록 확인할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;\dt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Longest Palindromic substring (Strings)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-longest-palindromic-substring</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-longest-palindromic-substring</guid><pubDate>Wed, 15 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 812px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b2fe8f4140dddd79c99911b3fdbf2690/4e65e/algoexpert_longest_palindromic_substring.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.527093596059114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABBklEQVQY03WQbU/CMBSFa9iUKODGNqA4dbKxjZVRFeYmxJeE+MH//4OO99YsgsYPT25ve3rObcWo2ELqd1jlJ/xih7HaoXf3CEsqCDeG8BIIJ6WaQ4wOCLLjvmWY1ZhVH5iQabTZI1rvEeo3YyzLF0j1ikGj0UvJwMu+jf4zY5z5k7kc5A28rAEHcPWpD2j6YLHFsKzQj1foXmuchSuD8NO/cBA/z0kqDOIN3LTGJa37szU4iCv3blLDndcmzARS2EX0YL6mhbXWdAnBRmYyMvPzZxLS/00VTsMSNgnsq6UR2gd0ZEEoA2v5nOvJeAHRvdFHSQynM+e39ya53W/7zqT4eeIvvgCUbqFcUOETJwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/b2fe8f4140dddd79c99911b3fdbf2690/8ac56/algoexpert_longest_palindromic_substring.webp 240w,
+/static/b2fe8f4140dddd79c99911b3fdbf2690/d3be9/algoexpert_longest_palindromic_substring.webp 480w,
+/static/b2fe8f4140dddd79c99911b3fdbf2690/77913/algoexpert_longest_palindromic_substring.webp 812w&quot;
+          sizes=&quot;(max-width: 812px) 100vw, 812px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/b2fe8f4140dddd79c99911b3fdbf2690/e4891/algoexpert_longest_palindromic_substring.png 240w,
+/static/b2fe8f4140dddd79c99911b3fdbf2690/0ce91/algoexpert_longest_palindromic_substring.png 480w,
+/static/b2fe8f4140dddd79c99911b3fdbf2690/4e65e/algoexpert_longest_palindromic_substring.png 812w&quot;
+          sizes=&quot;(max-width: 812px) 100vw, 812px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/b2fe8f4140dddd79c99911b3fdbf2690/4e65e/algoexpert_longest_palindromic_substring.png&quot;
+          alt=&quot;algoexpert_longest_palindromic_substring&quot;
+          title=&quot;algoexpert_longest_palindromic_substring&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sample-input&quot;&gt;&lt;a href=&quot;#sample-input&quot; aria-label=&quot;sample input permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample input&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;string = &amp;#39;abaxyzzyxf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;sample-output&quot;&gt;&lt;a href=&quot;#sample-output&quot; aria-label=&quot;sample output permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample output&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;xyzzyx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;제출-답안&quot;&gt;&lt;a href=&quot;#%EC%A0%9C%EC%B6%9C-%EB%8B%B5%EC%95%88&quot; aria-label=&quot;제출 답안 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;제출 답안&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;longestPalindromicSubstring&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; string
+
+	answer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;
+	combinations &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		level &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+		combination &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+			level &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+			combination &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;i&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+			&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+				left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; level
+				right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; level
+				&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; left &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; right &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+					combination &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; combination
+					combination &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; combination &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+					level &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+				&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+					&lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;
+			&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; combination&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+				&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;combination&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;answer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+					answer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; combination
+
+		level &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+		combination &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+			level &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+			combination &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+			&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+				left &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; level
+				right &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; level
+				&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; left &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; right &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+					combination &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;left&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; combination
+					combination &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; combination &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+					level &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+				&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+					&lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;
+			&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; combination&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+				&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;combination&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;answer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+					answer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; combination
+
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; answer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 답안을 제출하여 통과는 했지만 정답과 비교하여 코드가 난잡하고 비효율적이다.
+추후 정리 예정..&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - 백준온라인) 01타일(DP)]]></title><link>https://saegeullee.github.io/algorithm/baekjoon-01tile</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/baekjoon-01tile</guid><pubDate>Tue, 14 Jul 2020 16:00:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;문제&quot;&gt;&lt;a href=&quot;#%EB%AC%B8%EC%A0%9C&quot; aria-label=&quot;문제 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;문제&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1904&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;문제 출처&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;지원이에게 2진 수열을 가르쳐 주기 위해, 지원이 아버지는 그에게 타일들을 선물해주셨다. 그리고 이 각각의 타일들은 0 또는 1이 쓰여 있는 낱장의 타일들이다.&lt;/p&gt;
+&lt;p&gt;어느 날 짓궂은 동주가 지원이의 공부를 방해하기 위해 0이 쓰여진 낱장의 타일들을 붙여서 한 쌍으로 이루어진 00 타일들을 만들었다. 결국 현재 1 하나만으로 이루어진 타일 또는 0타일을 두 개 붙인 한 쌍의 00타일들만이 남게 되었다.&lt;/p&gt;
+&lt;p&gt;그러므로 지원이는 타일로 더 이상 크기가 N인 모든 2진 수열을 만들 수 없게 되었다. 예를 들어, N=1일 때 1만 만들 수 있고, N=2일 때는 00, 11을 만들 수 있다. (01, 10은 만들 수 없게 되었다.) 또한 N=4일 때는 0011, 0000, 1001, 1100, 1111 등 총 5개의 2진 수열을 만들 수 있다.&lt;/p&gt;
+&lt;p&gt;우리의 목표는 N이 주어졌을 때 지원이가 만들 수 있는 모든 가짓수를 세는 것이다. 단 타일들은 무한히 많은 것으로 가정하자.&lt;/p&gt;
+&lt;h3 id=&quot;입력&quot;&gt;&lt;a href=&quot;#%EC%9E%85%EB%A0%A5&quot; aria-label=&quot;입력 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;입력&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 줄에 자연수 N이 주어진다.(N ≤ 1,000,000)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;출력&quot;&gt;&lt;a href=&quot;#%EC%B6%9C%EB%A0%A5&quot; aria-label=&quot;출력 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;출력&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;첫 번째 줄에 지원이가 만들 수 있는 길이가 N인 모든 2진 수열의 개수를 15746으로 나눈 나머지를 출력한다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;샘플-입력&quot;&gt;&lt;a href=&quot;#%EC%83%98%ED%94%8C-%EC%9E%85%EB%A0%A5&quot; aria-label=&quot;샘플 입력 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;샘플 입력&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;샘플-출력&quot;&gt;&lt;a href=&quot;#%EC%83%98%ED%94%8C-%EC%B6%9C%EB%A0%A5&quot; aria-label=&quot;샘플 출력 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;샘플 출력&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;5&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;정답&quot;&gt;&lt;a href=&quot;#%EC%A0%95%EB%8B%B5&quot; aria-label=&quot;정답 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;정답&lt;/h2&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;n &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+answer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000001&lt;/span&gt;
+
+answer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; answer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; n &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    answer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;answer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; answer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;15746&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;answer&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;n&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;피드백&quot;&gt;&lt;a href=&quot;#%ED%94%BC%EB%93%9C%EB%B0%B1&quot; aria-label=&quot;피드백 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;피드백&lt;/h2&gt;
+&lt;p&gt;이 문제 못풀었다.. 아래와 같이 경우의 수를 나열해보다 N = 5인 경우의 수를 그려보고 6까지 그려봐야하나 싶었다. 심지어 N = 5일때 10가지의 경우가 나왔다..&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# N = 1 -&amp;gt; 1 (1)
+# N = 2 -&amp;gt; 00, 11 (2)
+# N = 3 -&amp;gt; 001, 100, 111 (3)
+# N = 4 -&amp;gt; 0011, 0000, 1001, 1100, 1111 (5)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 문제는 전형적인 DP 문제이다. DP문제를 해결하는 방법은 n이 작은 수일때의 답을 구하고 점화식을 세우는 것이다.&lt;/p&gt;
+&lt;p&gt;이 문제를 푸는 힌트는 각 N에서 가능한 모든 경우의 수를 구한 것이기 때문에 N번째 타일의 개수는 N-1번째의 모든 경우에 1을 붙인 것과 N-2번째의 모든경우에 00을 붙인 것을 합한 것이라고 볼 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
+&lt;p&gt;시간복잡도 : O(N)&lt;/p&gt;
+&lt;p&gt;백준온라인에서 이 문제를 정답처리하는 로직이 이상한것 같다.
+공간복잡도를 보면 알 수 있다. input으로 들어오는 N에 상관없이 무조건 answer 배열을 &lt;code class=&quot;language-text&quot;&gt;answer = [0] * 1000001&lt;/code&gt;와 같이 처리해줘야 런타임에러가 나지 않는다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Max Subset Sum No Adjacent (DP)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-max-subsetsum-no-adjacent</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-max-subsetsum-no-adjacent</guid><pubDate>Tue, 14 Jul 2020 10:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 749px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5611fca0e98a40dc3992c0d53d240221/97492/algoexpert_maxSubSetSum_noAdjacent.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 28.971962616822427%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAABBUlEQVQY04WR6XKCQBCESbwIUUPVggqiIV5AWECJptTgER8h7/8undkRzI9UJT+65ps9erd3tUl+RnvzBSM6Y7q+QIQ7PM026E7XMOfvMIn1UQpNLKD1wr9lB9AGcQEnPcFJjqQD+vEHBvLA7KZH6gvUHAnDi64brOCnVlyJTV/3cGRBJgXsaAeLZEd7eNkJ49UnG7ZGGTp+irobo+6UKrlW9vf98sAeGVoUU4RbiGDL/Oiv0HAlHsYZaYnOJIfh52i/5MRvXLtUFau1qm8Ok6vh7b2oKjbLXiczJeN5yW+okzFvEHOKuvitKnJjKPk2TS9By0v5JCVmGlNmPEex71Ssfz7lG1iboKtLQkFQAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/5611fca0e98a40dc3992c0d53d240221/8ac56/algoexpert_maxSubSetSum_noAdjacent.webp 240w,
+/static/5611fca0e98a40dc3992c0d53d240221/d3be9/algoexpert_maxSubSetSum_noAdjacent.webp 480w,
+/static/5611fca0e98a40dc3992c0d53d240221/71afc/algoexpert_maxSubSetSum_noAdjacent.webp 749w&quot;
+          sizes=&quot;(max-width: 749px) 100vw, 749px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/5611fca0e98a40dc3992c0d53d240221/e4891/algoexpert_maxSubSetSum_noAdjacent.png 240w,
+/static/5611fca0e98a40dc3992c0d53d240221/0ce91/algoexpert_maxSubSetSum_noAdjacent.png 480w,
+/static/5611fca0e98a40dc3992c0d53d240221/97492/algoexpert_maxSubSetSum_noAdjacent.png 749w&quot;
+          sizes=&quot;(max-width: 749px) 100vw, 749px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/5611fca0e98a40dc3992c0d53d240221/97492/algoexpert_maxSubSetSum_noAdjacent.png&quot;
+          alt=&quot;algoexpert_maxSubSetSum_noAdjacent&quot;
+          title=&quot;algoexpert_maxSubSetSum_noAdjacent&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;input으로 주어지는 배열에서 인접하지 않은 엘리먼트들의 합이 최대가 되는 경우를 구하는 문제이다.&lt;/p&gt;
+&lt;h3 id=&quot;sample-input&quot;&gt;&lt;a href=&quot;#sample-input&quot; aria-label=&quot;sample input permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample input&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;array = [75, 105, 120, 75, 90, 135]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;sample-output&quot;&gt;&lt;a href=&quot;#sample-output&quot; aria-label=&quot;sample output permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample output&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;330&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;답안&quot;&gt;&lt;a href=&quot;#%EB%8B%B5%EC%95%88&quot; aria-label=&quot;답안 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;답안&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;maxSubsetSumNoAdjacent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+	&lt;span class=&quot;token comment&quot;&gt;# array = [75, 105, 120, 75, 90, 135]&lt;/span&gt;
+	&lt;span class=&quot;token comment&quot;&gt;# maxSum = [75, 105, 195, 195, 285, 330]&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+	maxSum &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+	maxSum&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+	maxSum&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+		maxSum&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;maxSum&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; maxSum&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; maxSum&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다이나믹 프로그래밍으로 푸는 DP 문제이다. 다이나믹 프로그래밍이란 동적 계획법이라고도 불리는데 ‘어떤 문제를 풀기 위해 그 문제를 더 작은 문제의 연장선으로 생각하고 과거에 구한 해를 활용하여’ 답을 구하는 방식이다.&lt;/p&gt;
+&lt;p&gt;이 문제에서는 &lt;code class=&quot;language-text&quot;&gt;maxSum&lt;/code&gt; 배열에서 i번째 인덱스까지의 최댓값을 구하면서 마지막 엘리먼트까지 고려했을때의 최댓값을 구한다.&lt;/p&gt;
+&lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
+&lt;p&gt;시간복잡도 : O(n), 공간복잡도: O(n)&lt;/p&gt;
+&lt;p&gt;각 i 시점에서 프로그램에서 기억해야 하는 것은 i - 1, i - 2번째 maxSum이기 때문에 공간복잡도는 O(1)로 개선될 수 있다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Spiral Traverse (Array)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-spiral-traverse</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-spiral-traverse</guid><pubDate>Mon, 13 Jul 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 775px;&quot;
     &gt;
@@ -90,7 +309,7 @@
 [9, 8, 7, 6]
 ]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
-&lt;p&gt;시간복잡도 : O(n), 공간복잡도 : O(n)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) River sizes]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-river-sizes</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-river-sizes</guid><pubDate>Mon, 13 Jul 2020 12:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;시간복잡도 : O(n), 공간복잡도 : O(n)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) River sizes (Graph)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-river-sizes</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-river-sizes</guid><pubDate>Mon, 13 Jul 2020 12:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 683px;&quot;
     &gt;
@@ -224,7 +443,7 @@
 	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; unvisitedNodes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
 &lt;p&gt;시간복잡도 : O(wh), 공간복잡도: O(wh)&lt;/p&gt;
-&lt;p&gt;w는 input matrix의 width, h는 height&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Binary Search]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-binary-search</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-binary-search</guid><pubDate>Sun, 12 Jul 2020 20:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;w는 input matrix의 width, h는 height&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Binary Search (Searching)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-binary-search</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-binary-search</guid><pubDate>Sun, 12 Jul 2020 20:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 735px;&quot;
     &gt;
@@ -283,7 +502,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 			start &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; half &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
     &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
-&lt;p&gt;시간복잡도: O(log(n)), 공간복잡도: O(1)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Breadth First Search]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-breadth-first-search</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-breadth-first-search</guid><pubDate>Fri, 10 Jul 2020 20:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;시간복잡도: O(log(n)), 공간복잡도: O(1)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Breadth First Search (Graph)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-breadth-first-search</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-breadth-first-search</guid><pubDate>Fri, 10 Jul 2020 20:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 800px;&quot;
     &gt;
@@ -388,7 +607,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;너비 우선탐색은 큐를 사용하여 구현해야 한다.&lt;/p&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
-&lt;p&gt;시간복잡도 : O(V + E), 공간복잡도 : O(N)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Depth First Search]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-depth-first-search</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-depth-first-search</guid><pubDate>Fri, 10 Jul 2020 16:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;시간복잡도 : O(V + E), 공간복잡도 : O(N)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Depth First Search (Graph)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-depth-first-search</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-depth-first-search</guid><pubDate>Fri, 10 Jul 2020 16:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 770px;&quot;
     &gt;
@@ -497,7 +716,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;처음에 각 노드의 name을 어디에 담아야 할지 헷갈렸다. 문제에서 dfs함수의 인자로 들어오는 array에 담으라는 명확한 지침이 없었다. 그리고 이 문제는 클래스로 구현이 되었기 때문에 &lt;code class=&quot;language-text&quot;&gt;depthFirstSearch&lt;/code&gt;함수를 재귀적으로 호출하려면 &lt;code class=&quot;language-text&quot;&gt;node.depthFirstSearch&lt;/code&gt;와 같이 특정 노드에서 이 메서드를 각각 호출해주면 된다.&lt;/p&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
 &lt;p&gt;시간복잡도: O(V + E), 공간복잡도: O(V)&lt;/p&gt;
-&lt;p&gt;V: 노드의 개수, E: edge의 개수&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Monotonic Array]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-monotonic-array</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-monotonic-array</guid><pubDate>Thu, 09 Jul 2020 17:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;V: 노드의 개수, E: edge의 개수&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Monotonic Array (Array)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-monotonic-array</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-monotonic-array</guid><pubDate>Thu, 09 Jul 2020 17:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 599px;&quot;
     &gt;
@@ -569,7 +788,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;input으로 들어오는 배열의 첫 두 엘리먼트를 기준으로 증감세를 판별한다. &lt;code class=&quot;language-text&quot;&gt;decided&lt;/code&gt;는 증감세가 판별되었는지를 나타내는 불리언이다. 증감세가 판별되지 않았다면 for문을 돌면서 증감세를 판별하고 증감세가 판별되면 그 이후의 엘리먼트들이 판별된 증감세와 일치하는 경향을 보이는지 검사한다.&lt;/p&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
 &lt;p&gt;시간복잡도 : O(n)
-공간복잡도 : O(1)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Product sum]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-product-sums</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-product-sums</guid><pubDate>Thu, 09 Jul 2020 16:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+공간복잡도 : O(1)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Product sum (Recursion)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-product-sums</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-product-sums</guid><pubDate>Thu, 09 Jul 2020 16:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 684px;&quot;
     &gt;
@@ -636,7 +855,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; level &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; currentLevelSum&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
 &lt;p&gt;시간 복잡도: O(n)
-공간 복잡도: O(d) (d는 special 배열의 최대 깊이)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Branch sums]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-branch-sums</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-branch-sums</guid><pubDate>Thu, 09 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+공간 복잡도: O(d) (d는 special 배열의 최대 깊이)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Branch sums (Binary Trees)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-branch-sums</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-branch-sums</guid><pubDate>Thu, 09 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 762px;&quot;
     &gt;
@@ -746,7 +965,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 		traverse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;currentNode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;right&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; currentSum&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sums&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h2&gt;
 &lt;p&gt;시간복잡도: O(n)
-공간복잡도: O(n)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Find closest value]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-find-closest-value</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-find-closest-value</guid><pubDate>Wed, 08 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+공간복잡도: O(n)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Find closest value in BST (BST)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-find-closest-value</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-find-closest-value</guid><pubDate>Wed, 08 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 799px;&quot;
     &gt;
@@ -847,7 +1066,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 			&lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;
 
 	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; closest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;abs&lt;/code&gt; 함수를 사용하여 target과의 절대값 차이가 가장 작은 노드의 value를 찾아 리턴하면 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Binary Search Tree Construction]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-bst-construction</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-bst-construction</guid><pubDate>Tue, 07 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;abs&lt;/code&gt; 함수를 사용하여 target과의 절대값 차이가 가장 작은 노드의 value를 찾아 리턴하면 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Binary Search Tree Construction (BST)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-bst-construction</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-bst-construction</guid><pubDate>Tue, 07 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 632px;&quot;
     &gt;
@@ -1007,7 +1226,7 @@ target = 33&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 		currentNode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self
 		&lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; currentNode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left &lt;span class=&quot;token keyword&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
 			currentNode &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; currentNode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;left
-		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; currentNode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Three number sum]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-three-number-sum</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-three-number-sum</guid><pubDate>Mon, 06 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+		&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; currentNode&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;value&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Three number sum (Array)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-three-number-sum</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-three-number-sum</guid><pubDate>Mon, 06 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 741px;&quot;
     &gt;
@@ -1116,7 +1335,7 @@ while문의 조건도 잘못되었다. 이 문제는 총체적으로 잘못 풀�
 				left &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
 				right &lt;span class=&quot;token operator&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
 
-	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; answer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Group Anagrams]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-group-anagrams</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-group-anagrams</guid><pubDate>Thu, 02 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; answer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Group Anagrams (Strings)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-group-anagrams</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-group-anagrams</guid><pubDate>Thu, 02 Jul 2020 15:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 702px;&quot;
     &gt;
@@ -1195,7 +1414,7 @@ while문의 조건도 잘못되었다. 이 문제는 총체적으로 잘못 풀�
 	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;dictionary&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;values&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3 id=&quot;복잡도&quot;&gt;&lt;a href=&quot;#%EB%B3%B5%EC%9E%A1%EB%8F%84&quot; aria-label=&quot;복잡도 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;복잡도&lt;/h3&gt;
 &lt;p&gt;시간 복잡도 : &lt;code class=&quot;language-text&quot;&gt;O(w * n * log(n))&lt;/code&gt;, w: words 의 갯수, n: 제일 긴 문자열의 길이. &lt;code class=&quot;language-text&quot;&gt;n*log(n)&lt;/code&gt;은 정렬 알고리즘의 시간 복잡도&lt;/p&gt;
-&lt;p&gt;공간 복잡도 : &lt;code class=&quot;language-text&quot;&gt;O(wn)&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Caesar cipher encriptor]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-caesar-cipher-encriptor</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-caesar-cipher-encriptor</guid><pubDate>Wed, 01 Jul 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;공간 복잡도 : &lt;code class=&quot;language-text&quot;&gt;O(wn)&lt;/code&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Caesar cipher encriptor (Strings)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-caesar-cipher-encriptor</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-caesar-cipher-encriptor</guid><pubDate>Wed, 01 Jul 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 602px;&quot;
     &gt;
@@ -1254,7 +1473,68 @@ key = 2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 		res &lt;span class=&quot;token operator&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;z&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 		res &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;ord&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;a&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;chr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;res&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;알파벳은 a부터 z까지 총 26개이다. key 값이 26을 초과한다면 key 값을 26으로 나눈 나머지를 다시 key에 할당한다. 만약 문자열 ‘z’에 transform을 적용하여 key값만큼 이동시키면, key값이 1 이상이라면 ‘z’의 유니코드 값에 key 값을 더한 결과는 다시 ‘a’의 유니코드 값부터 key만큼 이동한 결과의 유니코드 값을 가지고 있는 알파벳이 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Validate Subsequence]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</guid><pubDate>Mon, 29 Jun 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+&lt;p&gt;알파벳은 a부터 z까지 총 26개이다. key 값이 26을 초과한다면 key 값을 26으로 나눈 나머지를 다시 key에 할당한다. 만약 문자열 ‘z’에 transform을 적용하여 key값만큼 이동시키면, key값이 1 이상이라면 ‘z’의 유니코드 값에 key 값을 더한 결과는 다시 ‘a’의 유니코드 값부터 key만큼 이동한 결과의 유니코드 값을 가지고 있는 알파벳이 된다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Palindrome check (Strings)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-palindrome-check</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-palindrome-check</guid><pubDate>Wed, 01 Jul 2020 16:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 758px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f498aa6f112c2a7189ab442febe6c5b0/20362/algoexpert_palindrome_check.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.321899736147756%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAAA7UlEQVQY041Ra3OCMBDMjE+0WK1KUZH6hkFIwLditf7/H7XeBeFbZ/ywk71LspfdCCu4wE0esFWKfnCGE//BClKYpxCG60N0VxC9N9H3aPUzkWF0hx1eCb8YyhtMJdFeKFRHEjVHoupEtEZUR7pmXhvLF5eoEy8P1hDmbIvWfIf28qDxMd2gRBsVmw65MRo/jIReqwgxXVS6Z7hZvzlJijM8VLDAl3fE52KPDgnyAN5oTOgyiWiQCL+mrkWzmgWZcz/vacssxDl2/RPYPvPvdaqHVEZhYTe3XNh/2S0ioFpYlHkWZB6o9/4H/PMpT9Cfn0QSixXBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f498aa6f112c2a7189ab442febe6c5b0/8ac56/algoexpert_palindrome_check.webp 240w,
+/static/f498aa6f112c2a7189ab442febe6c5b0/d3be9/algoexpert_palindrome_check.webp 480w,
+/static/f498aa6f112c2a7189ab442febe6c5b0/c4e8e/algoexpert_palindrome_check.webp 758w&quot;
+          sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f498aa6f112c2a7189ab442febe6c5b0/e4891/algoexpert_palindrome_check.png 240w,
+/static/f498aa6f112c2a7189ab442febe6c5b0/0ce91/algoexpert_palindrome_check.png 480w,
+/static/f498aa6f112c2a7189ab442febe6c5b0/20362/algoexpert_palindrome_check.png 758w&quot;
+          sizes=&quot;(max-width: 758px) 100vw, 758px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f498aa6f112c2a7189ab442febe6c5b0/20362/algoexpert_palindrome_check.png&quot;
+          alt=&quot;algoexpert_palindrome_check&quot;
+          title=&quot;algoexpert_palindrome_check&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;input으로 들어오는 문자열이 팰린드롬인지 여부를 리턴하는 문제이다.&lt;/p&gt;
+&lt;h3 id=&quot;sample-input&quot;&gt;&lt;a href=&quot;#sample-input&quot; aria-label=&quot;sample input permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample input&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;string = &amp;quot;abcdcba&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;sample-output&quot;&gt;&lt;a href=&quot;#sample-output&quot; aria-label=&quot;sample output permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;sample output&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 문제는 여러가지 풀이 방법이 있다. 각 풀이 방법의 시간 복잡도를 유심히 볼 필요가 있다.&lt;/p&gt;
+&lt;h3 id=&quot;풀이1&quot;&gt;&lt;a href=&quot;#%ED%92%80%EC%9D%B41&quot; aria-label=&quot;풀이1 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;풀이1&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isPalindrome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  reversedString &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;reversed&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    reversedString &lt;span class=&quot;token operator&quot;&gt;+=&lt;/span&gt; string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; reversedString &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 풀이 방법의 시간 복잡도는 &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;인 것 같지만 &lt;code class=&quot;language-text&quot;&gt;O(n2)&lt;/code&gt;이 맞다. 그 이유는 &lt;code class=&quot;language-text&quot;&gt;reversedString += string[i]&lt;/code&gt; 코드에서 새로운 문자열을 계산하는 시간 복잡도가 &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;이기 때문이다. 파이썬은 새로운 &lt;code class=&quot;language-text&quot;&gt;reversedString&lt;/code&gt;을 만들기 위해 그 전의 &lt;code class=&quot;language-text&quot;&gt;reversedString&lt;/code&gt;을 순회하며 하나씩 더하고 마지막에 &lt;code class=&quot;language-text&quot;&gt;string[i]&lt;/code&gt;를 더한다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.leekchan.com/post/19062594439/python%EC%97%90%EC%84%9C-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-string-concatenation-%EB%B0%A9%EB%B2%95&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Python에서 효율적인 String Concatenation 방법&lt;/a&gt; 에서도 지적하듯이 이와 같은 방법으로 string concatenation을 수행하는 작업은 좋지 않다.&lt;/p&gt;
+&lt;h3 id=&quot;풀이2&quot;&gt;&lt;a href=&quot;#%ED%92%80%EC%9D%B42&quot; aria-label=&quot;풀이2 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;풀이2&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isPalindrome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  reversedChars &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;reversed&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    reversedChars&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;join&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;reversedChars&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 풀이 방법의 시간 복잡도는 &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt; 이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[(알고리즘 - Algoexpert) Validate Subsequence (Array)]]></title><link>https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</link><guid isPermaLink="false">https://saegeullee.github.io/algorithm/algoexpert-validate-subsequence</guid><pubDate>Mon, 29 Jun 2020 18:00:37 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
       style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 632px;&quot;
     &gt;
@@ -5952,6 +6232,9 @@ docker push &amp;lt;YOUR_DOCKER_HUB&amp;gt;/slow-node-base&lt;/code&gt;&lt;/pre&
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;docker build -t slow-node .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2 id=&quot;도커-컨테이너-수정하기&quot;&gt;&lt;a href=&quot;#%EB%8F%84%EC%BB%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%88%98%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;도커 컨테이너 수정하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;도커 컨테이너 수정하기&lt;/h2&gt;
 &lt;p&gt;도커 이미지는 단일 배포 단위로 고려되어야 한다. 도커 이미지는 &lt;code class=&quot;language-text&quot;&gt;docker -exec -it sh&lt;/code&gt; 명령을 사용하여 도커 컨테이너에서 직접 코드를 수정하면 안된다. 만약 어플리케이션에 문제가 생겼다면, 이를 수정하고 새로운 도커이미지를 빌드하여 새로운 컨테이너에 배포해야 한다.&lt;/p&gt;
+&lt;h2 id=&quot;docker-compose&quot;&gt;&lt;a href=&quot;#docker-compose&quot; aria-label=&quot;docker compose permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker Compose&lt;/h2&gt;
+&lt;p&gt;sudo를 사용하여 docker-compose 명령어를 사용하려면 앞에 -E 옵션을 줘야한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo -E docker-compose up&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h1 id=&quot;어플리케이션-개발-라이프사이클-자동화하기&quot;&gt;&lt;a href=&quot;#%EC%96%B4%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C-%EB%9D%BC%EC%9D%B4%ED%94%84%EC%82%AC%EC%9D%B4%ED%81%B4-%EC%9E%90%EB%8F%99%ED%99%94%ED%95%98%EA%B8%B0&quot; aria-label=&quot;어플리케이션 개발 라이프사이클 자동화하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;어플리케이션 개발 라이프사이클 자동화하기&lt;/h1&gt;
 &lt;h3 id=&quot;이번-섹션에서-배울-내용들&quot;&gt;&lt;a href=&quot;#%EC%9D%B4%EB%B2%88-%EC%84%B9%EC%85%98%EC%97%90%EC%84%9C-%EB%B0%B0%EC%9A%B8-%EB%82%B4%EC%9A%A9%EB%93%A4&quot; aria-label=&quot;이번 섹션에서 배울 내용들 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;이번 섹션에서 배울 내용들&lt;/h3&gt;
 &lt;ol&gt;
@@ -6192,29 +6475,186 @@ Kubernetes는 지속적인 배포(Continuos deployment)를 지원하는 서비�
 &lt;h2 id=&quot;오케스트레이션&quot;&gt;&lt;a href=&quot;#%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98&quot; aria-label=&quot;오케스트레이션 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;오케스트레이션&lt;/h2&gt;
 &lt;p&gt;오케스트레이션이란 어플리케이션 라이프사이클의 자동화된 관리를 하는 것을 의미한다. 오케스트레이션은 복잡한 워크 플로우를 처리하는 데 도움이 된다.
 어플리케이션 코드 배포, 배포의 과정에서 장애 발생시 이를 복구할 때 그리고 어플리케이션의 수평적 확장에도 도움이 된다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;CI/CD에서 Travis가 CI 도구이면 Kubernetes가 CD 도구이다.&lt;/li&gt;
-&lt;li&gt;지속적인 배포(CD)를 위해 배포 프로세스를 자동화한다.&lt;/li&gt;
-&lt;/ul&gt;
 &lt;p&gt;오케스트레이션 도구의 많은 기능 중 하나는 어플리케이션의 상태를 모니터링하는 기능이다.
 동일한 Docker 이미지가 두 개의 컨테이너에서 실행되고 있는 서비스가 있다고 가정해보면, 서비스 오케스트레이션 도구는 어플리케이션에서 발생하는 경고나 오류를 복구하는데 도움을 줄 수 있다.
 따라서 두 개의 컨테이너 중 하나가 실패하면 정상적으로 동작하고 있는 컨테이너가 하나만 있음을 감지 할 수 있다.
 그 다음 동일한 Docker 이미지를 가져와서 다른 컨테이너를 만들어 이를 대체한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CI/CD에서 Travis가 CI 도구이면 Kubernetes가 CD 도구이다.&lt;/li&gt;
+&lt;li&gt;지속적인 배포(CD)를 위해 배포 프로세스를 자동화한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;컨테이너-오케스트레이션&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%98%A4%EC%BC%80%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%EC%85%98&quot; aria-label=&quot;컨테이너 오케스트레이션 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨테이너 오케스트레이션&lt;/h3&gt;
+&lt;p&gt;컨테이너 오케스트레이션은 여러 컨테이너를 단일 가상 엔터티로 그룹화하는 논리적 프로세승다. 이 논리적 그룹화는 비슷한 구성 요구 사항이 있는 컨테이너 그룹을 관리하는 데 용이하다. Kubernetes, Docker Swarm, Amazon ECS, Mesos 및 Nomad와 같은 다양한 컨테이너 오케스트레이션 도구가 있다.&lt;/p&gt;
 &lt;h2 id=&quot;쿠버네티스-핵심개념&quot;&gt;&lt;a href=&quot;#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%ED%95%B5%EC%8B%AC%EA%B0%9C%EB%85%90&quot; aria-label=&quot;쿠버네티스 핵심개념 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쿠버네티스 핵심개념&lt;/h2&gt;
+&lt;h3 id=&quot;쿠버네티스가-필요한-이유&quot;&gt;&lt;a href=&quot;#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;쿠버네티스가 필요한 이유 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쿠버네티스가 필요한 이유&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/39a4ebd95f479f2d9f193013b878ca3b/8024e/kubernetes_comparison.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.82971014492753%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAACFklEQVQozzWSW2/aQBCF/f//Rauqb71JVdQmDYaAg8FgwPcbxjbYBYMhJCFpc/HXhagPR7OaM3tm9uxIi3Jfr3YPLHeHevkW+R/naUESZmSzBVm8EOeUPC9PfD5fkk0FF8+Psc6THMfyamm1/8P24bWuDi9sD68nVEfc/8UfhWiyialY6G2DYdMiDTJ2jy/MvSlRR8e90oi7E7yWVtvqCKkod/Vme0dZ3dbr6hRZb++F6DNBR0H98A7z7Az921e0j+9JLIebJ0jsEL81wJRVQmVUm5ddzK5eS5kbMVUnpEObqG+QaOap+3Hy3NCImp/I+rKY4py49Zk88Jhv7kmdkKg9xG71iK/H2A0VqztESq0A81whVsZYck8U6US6gyu8CUYWE1kh0AxsUWw2r0mCGF94m3ozXFFrXA3wxF2nM8LqT5BixxfKGm5fx1IHuD2dxJ9S3T4yjgrazoKLgYc8jui4OeG8RNjL0J3xudHjuxD6IqY76xooQwspSCysVKXvNNEErLTLrAip9k94qYFqy3RGF7QFNK9FUsxEs2ch7J44ZXJJZ/yLvttCtzWkMjPZJC2KUBb+NFjHTXZLn5VwvsrHIvdTPO+cmfOD5fSCzSqmvBUbsbQporf8EeWsQez3kX6vd4RxhmFPBSLiNGdzc6C6e2Ilftz1UyxninnkkoLN/kGs1DPL9R7bS7DdGMOK8CPhufD9H1hufjKxo8vBAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/39a4ebd95f479f2d9f193013b878ca3b/8ac56/kubernetes_comparison.webp 240w,
+/static/39a4ebd95f479f2d9f193013b878ca3b/d3be9/kubernetes_comparison.webp 480w,
+/static/39a4ebd95f479f2d9f193013b878ca3b/e46b2/kubernetes_comparison.webp 960w,
+/static/39a4ebd95f479f2d9f193013b878ca3b/ff749/kubernetes_comparison.webp 1104w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/39a4ebd95f479f2d9f193013b878ca3b/e4891/kubernetes_comparison.png 240w,
+/static/39a4ebd95f479f2d9f193013b878ca3b/0ce91/kubernetes_comparison.png 480w,
+/static/39a4ebd95f479f2d9f193013b878ca3b/b7c40/kubernetes_comparison.png 960w,
+/static/39a4ebd95f479f2d9f193013b878ca3b/8024e/kubernetes_comparison.png 1104w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/39a4ebd95f479f2d9f193013b878ca3b/b7c40/kubernetes_comparison.png&quot;
+          alt=&quot;kubernetes_comparison&quot;
+          title=&quot;kubernetes_comparison&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위 이미지는 컨테이너화 된 어플리케이션이 VM (Virtual Machine) 기반의 배포에 비해 가볍고 관리하기 편리하다는 이점을 보여준다. Kubernetes는 다음과 같은 방법으로 컨테이너화 된 어플리케이션을 관리할 수 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;컨테이너 관리&lt;/code&gt; - 장애 발생시 백업 / 복제 컨테이너 자동 재시작과 같은 자체 복구, 롤아웃 및 롤백 자동화, 컨테이너 구성 관리&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Autoscale 워크로드 및 로드 밸런싱&lt;/code&gt; - 네트워크 트래픽로드를 적절한 컨테이너 / 노드로 분배&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;최적의 리소스 사용률&lt;/code&gt; - 각 컨테이너마다 고유 한 리소스 (CPU 및 메모리) 요구 사항이 있다. Kubernetes는 컨테이너를 가장 적합한 노드에 맞추므로 노드의 리소스를 효과적으로 활용할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;서비스 검색&lt;/code&gt; - 서비스 검색을 위한 기본 방법 제공&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;스토리지 오케스트레이션&lt;/code&gt; - 스토리지 볼륨을 컨테이너에 자동 마운트&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;기타&lt;/code&gt; - 작업 및 예약 된 cronjob을 정지시키고 서드파티 앱을 빠르게 통합 및 지원하며 Stateless 및 Stateful 애플리케이션을 관리한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;쿠버네티스가-동작하는-방법&quot;&gt;&lt;a href=&quot;#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%EA%B0%80-%EB%8F%99%EC%9E%91%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;쿠버네티스가 동작하는 방법 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쿠버네티스가 동작하는 방법&lt;/h3&gt;
+&lt;p&gt;Kubernetes 배포는 “마스터-워커” 모델을 따른다. 아키텍처 다이어그램을 살펴보기 전에 주요 구성 요소를 이해해야한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;노드&lt;/code&gt; - 어플리케이션에 속하는 여러 컨테이너를 실행하는 물리적 또는 가상 컴퓨터이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;클러스터&lt;/code&gt; - 마스터 및 워커 노드 세트. Kubernetes를 배포하면 각 클러스터에 최소 하나의 워커 노드가 있는 클러스터가 생성된다. 마스터 노드는 여러 워커 노드를 관리 할 수 있다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;마스터 노드&lt;/code&gt;- 포드 스케줄링 및 포드 복제를 결정하는 노드이다. 마스터 노드의 주요 구성 요소는 “kube-api-server”, “kube-scheduler”, “kube-controller”이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;워커 노드&lt;/code&gt; - 포드가 스케줄링되고 실행하는 노드이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;포드(pod)&lt;/code&gt; - 공유 스토리지, 네트워크 및 컨테이너 실행 방법에 대한 사양(specification)이 있는 밀접하게 결합 된 컨테이너 그룹이다. 포드에서 실행되는 모든 컨테이너는 공동 배치(co-located) 및 공동 스케줄링(co-scheduled)된다. 워커 노드는 하나 이상의 포드를 호스트한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;다음은 쿠버네티스 클러스터 아키텍쳐 다이어그램이다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1220fc747814a7b3eecdf92d9756d6be/b7c40/kubernetes_cluster_diagram.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAAC80lEQVQ4y2WT209iVxjF+U/7OEkfmjZN04c26UOT9mmsji1jLZWMMyhYLoIgkavASMUBFJXbQUQBBwGLNy6HA+f8uoFMa6dfspOzdvZZ+1vfWlunaaCOZPJSjotKDjQVRe5RLqbo3reZlKqOGfZ7DFotRoossCrOaXwoTXx/WLrpjtLF6d4gFHLNYK+Dc9vGTaM8xYXbBF5pFfufy/gvTZzfHYlb4OS8SrHamBJNicXSKeMx7UeZ0mmCUi7F9V2fxl8PHB+9o95sTQ+mbqJYJAuvsw7M0jrZTmL692mlhlS7/pdw0mHrvsf25S2Oyw7r2SrmzBnWXA1LvoW73KFz32ev6sOx8z1/OH/EHviBg3oEVdGm43kqezIGXXOgYA1FMS+9xLpiRO9xiS4SpEsWgmdp6p0uaSmMV/8t23Nf4TZ8R7aSYDAY0u12GY9GPC1d66HPq1icRdMaerOF+YAfa8YLzV84LEcotm7JR8NYXzgxLlhxvXRROzlkIMxRxjOpY2XAsHc/k/y+rxEIrRN68QmxX59h2lnFlNpmeLnAfs5Pvn5DTTok7g0Scfs48Ie5rhXpCclS2M5VMkDyOI17x8Fo8IiuLSus+qLMzy+h168wt+Xh9UmE0tkqsXNhTLvPRfeIaHUDX8LAXsNGvVdAljWaIloPdYlmo0LpJI42VtB1un2eJ7J8upPkc3+Kzzx7fOE/4Jknzs/JHK2bO941g6wJd43HG6yXTMLlfSFxiDxW+bh07YcBuxub7BqW8BuW2RLmBAy/ERY4uuml0boj8T6EK/IcR3CRzdgcmfY+g65MX4R9EvpZqNXZDDudR2KvQtiNQawGnxi8DftKAPvvAeJrURqNNvG8H/fy13gWvsRl/IakFBHuqgyHw9mr+Sc2osOesP+8cEW50KCYqZDZTSGdVinnrriQrkXohcvxt7gWrbz56Q2eJRu108yUZCh/RDiR/L8hoP0HCSEUDt/itWxhMzvxW13iovQsLiKDT1/JpP4G1N6W73l+v58AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/1220fc747814a7b3eecdf92d9756d6be/8ac56/kubernetes_cluster_diagram.webp 240w,
+/static/1220fc747814a7b3eecdf92d9756d6be/d3be9/kubernetes_cluster_diagram.webp 480w,
+/static/1220fc747814a7b3eecdf92d9756d6be/e46b2/kubernetes_cluster_diagram.webp 960w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/1220fc747814a7b3eecdf92d9756d6be/e4891/kubernetes_cluster_diagram.png 240w,
+/static/1220fc747814a7b3eecdf92d9756d6be/0ce91/kubernetes_cluster_diagram.png 480w,
+/static/1220fc747814a7b3eecdf92d9756d6be/b7c40/kubernetes_cluster_diagram.png 960w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/1220fc747814a7b3eecdf92d9756d6be/b7c40/kubernetes_cluster_diagram.png&quot;
+          alt=&quot;kubernetes_cluster_diagram&quot;
+          title=&quot;kubernetes_cluster_diagram&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;위의 다이어그램에 포함된 컴포넌트 엘리먼트는 다음과 같다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubelet&lt;/code&gt; - 워커 노드가 마스터 노드와 통신하는데 사용되는 “노드 에이전트” kubelet은 각 노드에서 실행된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kube-proxy&lt;/code&gt; - 워커 노드가 외부와 통신하는데 사용하는 “노드 에이전트”이다. kube-proxy는 각 노드에서 실행된다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kube-apiserver&lt;/code&gt; - Kubernetes 컨트롤 플레인을 노출하는 프론트 엔드 API&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;etcd&lt;/code&gt; - 클러스터 상태를 저장하는 키-값 저장소&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kube-scheduler&lt;/code&gt; - 포드가 가장 적합한 노드에서 실행되도록 스케줄링을 하는 컴포넌트이다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kube-controller-manager&lt;/code&gt; - 컨트롤러 프로세스를 번들하고 실행하는 컴포넌트이다. 이러한 프로세스에는 노드, 복제, 엔드포인트 및 액세스 관리와 관련이 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;추가-학습자료-2&quot;&gt;&lt;a href=&quot;#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%9E%90%EB%A3%8C-2&quot; aria-label=&quot;추가 학습자료 2 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;추가 학습자료&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/overview/components/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kubernetes Components&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/tutorials/kubernetes-basics/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Learn Kubernetes Basics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&quot;쿠버네티스&quot;&gt;&lt;a href=&quot;#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4&quot; aria-label=&quot;쿠버네티스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쿠버네티스&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;애플리케이션 배포 자동화를 위한 기능이 포함된 컨테이너 오케스트레이션 시스템&lt;/li&gt;
-&lt;li&gt;애플리케이션을 쉽게 확장하고 새로운 코드를 서비스할 수 있음&lt;/li&gt;
+&lt;li&gt;쿠버네티스는 애플리케이션 배포 자동화를 위한 기능이 포함된 컨테이너 오케스트레이션 시스템이다.&lt;/li&gt;
+&lt;li&gt;쿠버네티스를 사용하여 애플리케이션을 쉽게 확장하고 새로운 코드를 서비스하기 용이하다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;pods&quot;&gt;&lt;a href=&quot;#pods&quot; aria-label=&quot;pods permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pods&lt;/h3&gt;
+&lt;h3 id=&quot;포드pods&quot;&gt;&lt;a href=&quot;#%ED%8F%AC%EB%93%9Cpods&quot; aria-label=&quot;포드pods permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;포드(Pods)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;컨테이너는 서로 통신을 해야 함. 배포할 컨테이너가 여러개 있는 것은 자주 있는 일임&lt;/li&gt;
-&lt;li&gt;쿠버네티스 &lt;code class=&quot;language-text&quot;&gt;Pods&lt;/code&gt;는 여러 컨테이너의 추상화이며 수명이 일시적임&lt;/li&gt;
+&lt;li&gt;공유 스토리지, 네트워크 및 컨테이너 실행 방법에 대한 사양(specification)이 있는 밀접하게 결합 된 컨테이너 그룹이다. 포드에서 실행되는 모든 컨테이너는 공동 배치(co-located) 및 공동 스케줄링(co-scheduled)된다. 워커 노드는 하나 이상의 포드를 호스트한다.&lt;/li&gt;
+&lt;li&gt;컨테이너는 서로 통신을 해야 한다. 하나의 어플리케이션을 구성하는 배포할 컨테이너가 여러개 있는 것은 자주 있는 일이다.&lt;/li&gt;
+&lt;li&gt;쿠버네티스 &lt;code class=&quot;language-text&quot;&gt;Pods&lt;/code&gt;는 여러 컨테이너의 추상화이며 수명이 일시적이다.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;하나의 포드에 속한 컨터이너들의 세트는 다음의 중요한 특징을 갖는다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;동일한 네임스페이스 (IP 주소 및 포트), 스토리지 및 네트워크를 공유한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;를 사용하여 세트 내에서 통신 할 수 있다.&lt;/li&gt;
+&lt;li&gt;단일 엔티티처럼 동작한다.&lt;/li&gt;
+&lt;li&gt;포드가 실행되고 있는 서비스가 종료 될때까지 항상 단일 호스트 노드 (co-located)에서 실행된다. 서비스가 종료되면 해당 노드의 자원을 비운다(frees up).&lt;/li&gt;
+&lt;li&gt;호스트 노드에서 단일 엔티티로 실행되도록 항상 함께 스케줄링된다.(co-scheduled) 컨테이너가 종료 / 추가 / 제거되면 포드가 “다시 시작”되어야 한다. 여기서 “포드가 다시 시작된다”는 뜻은 컨테이너가 실행되는 환경을 다시 시작하는 것을 의미한다.&lt;/li&gt;
+&lt;li&gt;컨테이너 런타임으로 Docker를 사용한다.&lt;/li&gt;
+&lt;li&gt;컨테이너화 된 애플리케이션의 단일 인스턴스를 실행한다. 각 애플리케이션 인스턴스마다 하나씩 여러 개의 포드를 실행하여 애플리케이션의 여러 인스턴스(수평 스케일링 (horizontal scaling))가 생성될 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;컨트롤러&lt;/code&gt;는 단일 애플리케이션 인스턴스를 각각 실행하는 여러 포드를 관리한다.&lt;/p&gt;
+&lt;h3 id=&quot;컨트롤러의-역할&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%8A%B8%EB%A1%A4%EB%9F%AC%EC%9D%98-%EC%97%AD%ED%95%A0&quot; aria-label=&quot;컨트롤러의 역할 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨트롤러의 역할&lt;/h3&gt;
+&lt;p&gt;각각의 어플리케이션 인스턴스를 실행하는 여러 개의 포드가 있을때, 이러한 동일한 포드 세트를 &lt;code class=&quot;language-text&quot;&gt;ReplicaSet&lt;/code&gt;이라고 한다. Pod의 ReplicaSet은 그 안에 호스팅된 서비스의 높은 가용성을 보장한다. ReplicaSet은 &lt;code class=&quot;language-text&quot;&gt;컨트롤러&lt;/code&gt;에 의해 생성 및 관리된다.&lt;/p&gt;
+&lt;p&gt;컨트롤러는 &lt;code class=&quot;language-text&quot;&gt;deployment.yaml&lt;/code&gt; 설정파일에서 포드 및 ReplicaSet의 필수 속성과 상태를 지정한다. 이 설정 파일은 포드 및 ReplicaSet을 관리하기 위한 선언적(declarative) 업데이트를 제공한다. &lt;code class=&quot;language-text&quot;&gt;컨트롤러&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;deployment.yaml&lt;/code&gt; 설정파일을 사용하여 &lt;code class=&quot;language-text&quot;&gt;호스트(워커노드)&lt;/code&gt;에 장애가 발생하거나 포드 스케줄링이 중단된 경우와 같은 상황을 관리 할 수 있다. 이러한 경우 &lt;code class=&quot;language-text&quot;&gt;컨트롤러&lt;/code&gt;는 다른 노드에 동일한 포드를 스케줄링하여 포드를 자동으로 교체한다.&lt;/p&gt;
+&lt;h3 id=&quot;pod-템플릿&quot;&gt;&lt;a href=&quot;#pod-%ED%85%9C%ED%94%8C%EB%A6%BF&quot; aria-label=&quot;pod 템플릿 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pod 템플릿&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;컨트롤러&lt;/code&gt;는 “Pod 템플릿”이라는 다른 &lt;code class=&quot;language-text&quot;&gt;.yaml&lt;/code&gt; 설정파일을 사용한다. 여기에는 이름, 복제본 수, 실행할 컨테이너, 포트 등의 포드 사양이 포함된다. 다음은 샘플 &lt;code class=&quot;language-text&quot;&gt;pod.yaml&lt;/code&gt;파일이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; v1
+&lt;span class=&quot;token key atrule&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Pod
+&lt;span class=&quot;token key atrule&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; pod&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;example
+&lt;span class=&quot;token key atrule&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; lemix777/reverseproxy
+      &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; reverseproxy
+      &lt;span class=&quot;token key atrule&quot;&gt;imagePullPolicy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Always
+      &lt;span class=&quot;token key atrule&quot;&gt;resources&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;memory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;64Mi&apos;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;cpu&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;250m&apos;&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;limits&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;memory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1024Mi&apos;&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;cpu&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;500m&apos;&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;containerPort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;restartPolicy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Always&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이 설정파일을 사용하여 포드 또는 ReplicaSet을 만든 후에는 나중에 구성 파일의 일부를 변경해도 이미 생성된 포드는 이에 영향을 받지 않는다. 필요한 경우 실행중인 포드를 수동으로 업데이트하거나 업데이트 된 파일을 사용하여 다시 배포해야한다.&lt;/p&gt;
 &lt;h3 id=&quot;서비스&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B9%84%EC%8A%A4&quot; aria-label=&quot;서비스 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서비스&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;어플리케이션 종종 여러 레플리카와 함께 배포됨. 이는 로드밸런싱 및 수평 확장에 도움이 됨&lt;/li&gt;
-&lt;li&gt;서비스는 네트워크를 통해 인터넷에 공개된 &lt;code class=&quot;language-text&quot;&gt;Pods&lt;/code&gt; 세트를 추상화 한 것임&lt;/li&gt;
+&lt;li&gt;어플리케이션은 종종 여러 레플리카와 함께 배포된다. 이는 로드밸런싱 및 수평 확장에 도움이 된다.&lt;/li&gt;
+&lt;li&gt;서비스는 네트워크를 통해 인터넷에 공개된 &lt;code class=&quot;language-text&quot;&gt;Pods&lt;/code&gt; 세트를 추상화 한 것이다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -6263,6 +6703,9 @@ Kubernetes는 지속적인 배포(Continuos deployment)를 지원하는 서비�
 &lt;li&gt;AWS EKS는 Kubernetes를 설정하는데 사용할 수있는 서비스이다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;deployment.yaml&lt;/code&gt; 파일은 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt; 생성 방법을 지정하는데 사용된다.&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;service.yaml&lt;/code&gt; 파일은 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt;가 공개되는 방식을 지정하는 데 사용된다.&lt;/li&gt;
+&lt;li&gt;아래의 두 yaml 파일에서 &lt;code class=&quot;language-text&quot;&gt;kind: Deployment&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;kind: Service&lt;/code&gt;는 쿠버네티스가 각 파일을 어떻게 처리할지를 나타낸다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;replicas&lt;/code&gt;는 원하는 레플리카 수를 지정한다. 이는 한번의 배포로 생성 될 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt; 수에 해당한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;deployment.yaml&lt;/code&gt; 파일의 &lt;code class=&quot;language-text&quot;&gt;containers&lt;/code&gt;는 배포할 도커 이미지를 특정한다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;//deployment.yaml 샘플파일
 &lt;span class=&quot;token key atrule&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; apps/v1
@@ -6299,7 +6742,12 @@ Kubernetes는 지속적인 배포(Continuos deployment)를 지원하는 서비�
     &lt;span class=&quot;token key atrule&quot;&gt;protocol&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; TCP
   &lt;span class=&quot;token key atrule&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
     &lt;span class=&quot;token key atrule&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; my&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;aws-eks-클러스터-생성&quot;&gt;&lt;a href=&quot;#aws-eks-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;aws eks 클러스터 생성 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;aws EKS 클러스터 생성&lt;/h3&gt;
+&lt;h3 id=&quot;aws에서-eks-클러스터-생성&quot;&gt;&lt;a href=&quot;#aws%EC%97%90%EC%84%9C-eks-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;aws에서 eks 클러스터 생성 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS에서 EKS 클러스터 생성&lt;/h3&gt;
+&lt;p&gt;클러스터란 여러 대의 컴퓨터들이 연결되어 하나의 시스템처럼 동작하는 컴퓨터들의 집합을 말한다.&lt;/p&gt;
+&lt;p&gt;AWS EKS에서 클러스터를 생성할 수 있다. 클러스터 생성시 클러스터의 이름과 쿠버네티스 버전, 클러스터 서비스 역할 (IAM role) 등을 지정하여 클러스터를 생성한다.&lt;/p&gt;
+&lt;h3 id=&quot;노드-그룹-생성&quot;&gt;&lt;a href=&quot;#%EB%85%B8%EB%93%9C-%EA%B7%B8%EB%A3%B9-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;노드 그룹 생성 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;노드 그룹 생성&lt;/h3&gt;
+&lt;p&gt;클러스터가 생성되고 나면 해당 클러스터에서 노드 그룹을 추가해야 한다. 기본적으로 노드 그룹은 클러스터가 제공 할 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt;를 실행하는 데 된다. 노드 그룹을 생성하지 않는다면 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt;를 통해 실행될 도커 이미지를 배포할 수 없다.&lt;/p&gt;
+&lt;h3 id=&quot;eks-클러스터-생성&quot;&gt;&lt;a href=&quot;#eks-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%83%9D%EC%84%B1&quot; aria-label=&quot;eks 클러스터 생성 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;EKS 클러스터 생성&lt;/h3&gt;
 &lt;p&gt;Docker 이미지는 컨테이너 레지스트리에서 Kubernetes &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt;로 로드된다.&lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt;에 대한 액세스는 서비스를 통해 소비자에게 노출된다.&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -6341,7 +6789,172 @@ Kubernetes는 지속적인 배포(Continuos deployment)를 지원하는 서비�
         /&gt;
       &lt;/picture&gt;
   &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[redis]]></title><description><![CDATA[Nodejs에서 시스템 profile의 환경변수를 사용하는 방법을 정리해본다.]]></description><link>https://saegeullee.github.io/redis/redis</link><guid isPermaLink="false">https://saegeullee.github.io/redis/redis</guid><pubDate>Tue, 28 Apr 2020 15:02:37 GMT</pubDate><content:encoded>&lt;p&gt;redis 설치 경로 다운로드/redis
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3 id=&quot;추가-학습자료-3&quot;&gt;&lt;a href=&quot;#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%9E%90%EB%A3%8C-3&quot; aria-label=&quot;추가 학습자료 3 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;추가 학습자료&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ko/eks/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;AWS EKS&lt;/a&gt;,
+&lt;a href=&quot;https://aws.amazon.com/ko/blogs/compute/updates-to-amazon-eks-version-lifecycle/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;AWS EKS Versioning&lt;/a&gt;,
+&lt;a href=&quot;https://itnext.io/kubernetes-is-hard-why-eks-makes-it-easier-for-network-and-security-architects-ea6d8b2ca965&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Why use EKS&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;쿠버네티스-클러스터&quot;&gt;&lt;a href=&quot;#%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0&quot; aria-label=&quot;쿠버네티스 클러스터 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;쿠버네티스 클러스터&lt;/h2&gt;
+&lt;p&gt;이번 섹션에서는 &lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt;이라는 &lt;code class=&quot;language-text&quot;&gt;쿠버네티스 CLI&lt;/code&gt;를 사용하여 클러스터와 상호작용하는 방법을 알아본다.&lt;/p&gt;
+&lt;p&gt;클러스터와 상호작용하기 위해서는 다음의 3가지가 필요하다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt; &lt;a href=&quot;https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;설치&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;aws-iam-authenticator&lt;/code&gt; &lt;a href=&quot;https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;셋업&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubeconfig&lt;/code&gt; &lt;a href=&quot;https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;셋업&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이 과정을 자세히 알아본다. 먼저, &lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt;을 연결하기 위한 환경설정 방법을 알아본다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;터미널에 다음 명령어를 친다. 이 명령어는 앞서 만든 쿠버네티스 클러스터를 &lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt; 커맨드에 바인딩을 한다. 즉, 이 명령을 통해 &lt;code class=&quot;language-text&quot;&gt;kubectl cli&lt;/code&gt;로 쿠버네티스 클러스터를 제어할 수 있게 된다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;aws eks --region ap-northeast-2 update-kubeconfig --name Demo2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위 명령을 실행하면 다음과 같이 쿠버네티스 클러스터 리소스가 내 로컬 환경의 쿠버네티스 cli 설정에 반영된 것을 확인할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Added new context arn:aws:eks:ap-northeast-2:685808903701:cluster/Demo2 to /home/saegeullee/.kube/config&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;다음 명령어를 통해 쿠버네티스 클러스터에서 &lt;code class=&quot;language-text&quot;&gt;deployment.yaml&lt;/code&gt; 파일과 &lt;code class=&quot;language-text&quot;&gt;service.yaml&lt;/code&gt;파일을 사용할 수 있게끔 적용한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;나의 경우 이 명령을 치니 kubectl command not found 에러가 발생하여 kubectl cli를 설치하였다.&lt;/p&gt;
+&lt;p&gt;다음 명령어를 통해 kubectl이 잘 설치되었나 확인 해보았다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl get svc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하지만 다음과 같은 에러가 발생했다..&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;error: You must be logged in to the server (Unauthorized)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;검색해보니 &lt;a href=&quot;https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html#unauthorized&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;aws 문서&lt;/a&gt;에서 다음의 힌트를 찾아볼 수 있었다.&lt;/p&gt;
+&lt;p&gt;If you assumed a role to create the Amazon EKS cluster, you must ensure that kubectl is configured to assume the same role. Use the following command to update your kubeconfig file to use an IAM role. For more information, see Create a kubeconfig for Amazon EKS.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;aws --region region-code eks update-kubeconfig --name cluster_name --role-arn arn:aws:iam::aws_account_id:role/role_name&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl cli&lt;/code&gt;가 EKS 클러스터 생성시 지정한 &lt;code class=&quot;language-text&quot;&gt;Cluster Service Role(클러스터 서비스 역할)&lt;/code&gt;와 동일한 역할을 부여받아야 한다는 내용이다. 이는 쿠버네티스가 AWS의 다른 리소스들을 제어할 수 있도록 역할을 부여(권한 허용)하는 중요한 부분이다.&lt;/p&gt;
+&lt;p&gt;따라서 이를 적용하고 위에서 에러난 명령어를 다시 쳐보니 다음과 같은 전과는 다른 에러가 발생했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;An error occurred (AccessDenied) when calling the AssumeRole operation: User: arn:aws:iam::685808903701:user/udagram_lemix777_dev is not authorized to perform: sts:AssumeRole on resource: arn:aws:iam::685808903701:role/eksClusterRole&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;위의 에러가 발생하여 유다시티 멘토님들에게 도움을 받고자 유다시티 Cloud Developer 과정에 대해 질문할 수 있는 공간에 먼저 해당 내용을 전에 누가 물어봤었는지 검색을 해보니 &lt;a href=&quot;https://knowledge.udacity.com/questions/261276&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;이에 대한 내용&lt;/a&gt;이 있었다.&lt;/p&gt;
+&lt;p&gt;위의 에러가 발생한 이유는 AWS EKS에서 클러스터 생성시 나는 루트 사용자로 로그인이 되어 있었기 때문에 &lt;code class=&quot;language-text&quot;&gt;udagram_lemix777_dev&lt;/code&gt; 유저는 권한이 없다는 내용이다. 따라서 위에서 조언해준대로 해당 IAM 유저로 AWS 대시보드에 로그인을 하여 새로운 EKS 클러스터를 생성하였다.&lt;/p&gt;
+&lt;p&gt;이제 다시 다음의 명령어를 쳐보니..&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl get svc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;현재 해당 클러스터에서 돌아가고 있는 쿠버네티스 어플리케이션을 확인해 볼 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.100.0.1   &amp;lt;none&amp;gt;        443/TCP   9m52s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 다시 원래 2번 Step에서 하고자 했던 다음 명령어를 친다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl apply -f deployment.yaml&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;kubectl은 다음과 같이 응답한다. 이는 EKS 클러스터가 해당 &lt;code class=&quot;language-text&quot;&gt;deployment.yaml&lt;/code&gt;파일을 인지하여 이에 대한 일을 처리할 수 있다는 의미이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;deployment.apps/my-app created&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음 명령어도 마찬가지로 적용한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl apply -f service.yaml&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;kubectl-명령어&quot;&gt;&lt;a href=&quot;#kubectl-%EB%AA%85%EB%A0%B9%EC%96%B4&quot; aria-label=&quot;kubectl 명령어 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;kubectl 명령어&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt;은 쿠버네티스와 상호작용하기 위한 넓은 범위의 명령어를 제공한다. 다음은 몇가지 기본적인 명령어이다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl get pods&lt;/code&gt; : 클러스터에서 실행되고 있는 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt;를 보여준다. 2개의 &lt;code class=&quot;language-text&quot;&gt;my-app&lt;/code&gt; 레플리카가 실행되고 있는것을 확인해볼 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;NAME                      READY   STATUS    RESTARTS   AGE
+my-app-5cc56f49d5-hx8h5   1/1     Running   0          10m
+my-app-5cc56f49d5-q7zfr   1/1     Running   0          10m&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl describe services&lt;/code&gt; : 클러스터에서 실행되고 있는 서비스를 보여준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       &amp;lt;none&amp;gt;
+Selector:          &amp;lt;none&amp;gt;
+Type:              ClusterIP
+IP:                10.100.0.1
+Port:              https  443/TCP
+TargetPort:        443/TCP
+Endpoints:         172.31.0.6:443,172.31.39.142:443
+Session Affinity:  None
+Events:            &amp;lt;none&amp;gt;
+
+
+Name:              my-app
+Namespace:         default
+Labels:            run=my-app
+Annotations:       Selector:  run=my-app
+Type:              ClusterIP
+IP:                10.100.218.30
+Port:              &amp;lt;unset&amp;gt;  80/TCP
+TargetPort:        80/TCP
+Endpoints:         &amp;lt;none&amp;gt;
+Session Affinity:  None
+Events:            &amp;lt;none&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl cluster-info&lt;/code&gt; : 클러스터에 대한 정보를 보여준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Kubernetes master is running at https://52774C7CBCF8DFD66EFB5BFC23E3CBAE.yl4.ap-northeast-2.eks.amazonaws.com
+CoreDNS is running at https://52774C7CBCF8DFD66EFB5BFC23E3CBAE.yl4.ap-northeast-2.eks.amazonaws.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use &amp;#39;kubectl cluster-info dump&amp;#39;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 797px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/547305f62da773f9aebc7bc9b3417032/98196/kubernetes_kubectl.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 25.59598494353827%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAFABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHapDMoY//EABkQAQACAwAAAAAAAAAAAAAAAAECEQMSE//aAAgBAQABBQJGsZPjDav/xAAXEQADAQAAAAAAAAAAAAAAAAAAATEC/9oACAEDAQE/AdQUP//EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oACAECAQE/AYr/xAAaEAEAAQUAAAAAAAAAAAAAAAABAAMRISIy/9oACAEBAAY/AnaN6i5nTP/EABkQAQEBAQEBAAAAAAAAAAAAAAERACExYf/aAAgBAQABPyF5iFGM81Cg8fMa1u7/2gAMAwEAAgADAAAAEPf/AP/EABYRAAMAAAAAAAAAAAAAAAAAAAABIf/aAAgBAwEBPxBKFg//xAAXEQADAQAAAAAAAAAAAAAAAAAAASEx/9oACAECAQE/ENIan//EABsQAAICAwEAAAAAAAAAAAAAAAERACExQVFh/9oACAEBAAE/EBa0gAX7AwGDHKZtu4Czdi+D2f/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/547305f62da773f9aebc7bc9b3417032/8ac56/kubernetes_kubectl.webp 240w,
+/static/547305f62da773f9aebc7bc9b3417032/d3be9/kubernetes_kubectl.webp 480w,
+/static/547305f62da773f9aebc7bc9b3417032/9eee1/kubernetes_kubectl.webp 797w&quot;
+          sizes=&quot;(max-width: 797px) 100vw, 797px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/547305f62da773f9aebc7bc9b3417032/5a194/kubernetes_kubectl.jpg 240w,
+/static/547305f62da773f9aebc7bc9b3417032/8a430/kubernetes_kubectl.jpg 480w,
+/static/547305f62da773f9aebc7bc9b3417032/98196/kubernetes_kubectl.jpg 797w&quot;
+          sizes=&quot;(max-width: 797px) 100vw, 797px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/547305f62da773f9aebc7bc9b3417032/98196/kubernetes_kubectl.jpg&quot;
+          alt=&quot;kubernetes_kubectl&quot;
+          title=&quot;kubernetes_kubectl&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;쿠버네티스 cli인 &lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt;가 쿠버네티스와의 인터페이스를 제공한다. 앞서 만든 &lt;code class=&quot;language-text&quot;&gt;Yaml&lt;/code&gt;파일은 &lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt;을 통해 로드된다.&lt;/p&gt;
+&lt;h3 id=&quot;추가-학습자료-4&quot;&gt;&lt;a href=&quot;#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%9E%90%EB%A3%8C-4&quot; aria-label=&quot;추가 학습자료 4 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;추가 학습자료&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/cheatsheet/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kubernetes Cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt; &lt;a href=&quot;https://kubernetes.io/docs/reference/kubectl/overview/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://kubernetes.io/docs/concepts/overview/kubernetes-api/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kubernetes API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl&lt;/code&gt; &lt;a href=&quot;https://kubectl.docs.kubernetes.io/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;다른-배포-전략들&quot;&gt;&lt;a href=&quot;#%EB%8B%A4%EB%A5%B8-%EB%B0%B0%ED%8F%AC-%EC%A0%84%EB%9E%B5%EB%93%A4&quot; aria-label=&quot;다른 배포 전략들 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;다른 배포 전략들&lt;/h2&gt;
+&lt;h3 id=&quot;aws-ecs&quot;&gt;&lt;a href=&quot;#aws-ecs&quot; aria-label=&quot;aws ecs permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS ECS&lt;/h3&gt;
+&lt;p&gt;AWS EKS 이전의 AWS 독점 솔루션. 다른 AWS 도구와 매우 잘 통합되며 Kubernetes만큼 기능이 풍부하지 않기 때문에 좀 더 간단하다.&lt;/p&gt;
+&lt;h3 id=&quot;aws-fargate&quot;&gt;&lt;a href=&quot;#aws-fargate&quot; aria-label=&quot;aws fargate permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS Fargate&lt;/h3&gt;
+&lt;p&gt;AWS Fargate는 컨테이너 배포를 쉽게 해준다. 컨테이너 워크 플로우를 관리하기 위해 EKS 또는 ECS에 의해 사용될 수 있다.
+컨테이너 오케스트레이션 설정 관리와 관련된 복잡성을 제거하는 &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt; 역할을 한다.
+Kubernetes의 복잡한 부분을 줄일 수있는 좋은 방법이다.&lt;/p&gt;
+&lt;h3 id=&quot;docker-swarm&quot;&gt;&lt;a href=&quot;#docker-swarm&quot; aria-label=&quot;docker swarm permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker Swarm&lt;/h3&gt;
+&lt;p&gt;Docker를 사용하여 컨테이너를 수동으로 실행하는 옵션이다.&lt;/p&gt;
+&lt;h2 id=&quot;디버깅&quot;&gt;&lt;a href=&quot;#%EB%94%94%EB%B2%84%EA%B9%85&quot; aria-label=&quot;디버깅 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;디버깅&lt;/h2&gt;
+&lt;p&gt;다음 명령어를 통해 &lt;code class=&quot;language-text&quot;&gt;pod&lt;/code&gt;에서 실행되고 있는 컨테이너에 접속할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;kubectl exec -it {pod_name} sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;해당 컨테이너에 접속에 성공하면 다음과 같이 해당 컨테이너의 파일들과 실행되고 있는 프로세스들을 직접 확인 할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# ls
+Dockerfile  README.md  package-lock.json  package.json	server.js
+# ps aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  3.0 589336 29744 ?        Ssl  09:44   0:00 node server.js
+root        24  0.0  0.0   4280   732 pts/0    Ss   10:42   0:00 sh
+root        31  0.0  0.2  36636  2752 pts/0    R+   10:42   0:00 ps aux&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이는 &lt;code class=&quot;language-text&quot;&gt;pods&lt;/code&gt; 컨텍스트 내에서 직접 명령을 실행하고 테스트할 수있는 강력한 도구이다.
+하지만 이 명령어를 사용하여 포드 내부에서 실행되는 코드 또는 상태를 직접수정하면 안된다. 이 명령은 문제 해결에만 사용해야 한다. 포드는 일시적이므로 변경 사항을 처리하기 위해서는 새 이미지를 만들어 배포해야 한다.&lt;/p&gt;
+&lt;h1 id=&quot;프로덕션-환경에서-쿠버네티스를-사용하기-위한-best-practice와-디자인-패턴&quot;&gt;&lt;a href=&quot;#%ED%94%84%EB%A1%9C%EB%8D%95%EC%85%98-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0-%EC%9C%84%ED%95%9C-best-practice%EC%99%80-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4&quot; aria-label=&quot;프로덕션 환경에서 쿠버네티스를 사용하기 위한 best practice와 디자인 패턴 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;프로덕션 환경에서 쿠버네티스를 사용하기 위한 Best Practice와 디자인 패턴&lt;/h1&gt;
+&lt;h2 id=&quot;클러스터-설정하기&quot;&gt;&lt;a href=&quot;#%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0&quot; aria-label=&quot;클러스터 설정하기 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;클러스터 설정하기&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[redis]]></title><description><![CDATA[Nodejs에서 시스템 profile의 환경변수를 사용하는 방법을 정리해본다.]]></description><link>https://saegeullee.github.io/redis/redis</link><guid isPermaLink="false">https://saegeullee.github.io/redis/redis</guid><pubDate>Tue, 28 Apr 2020 15:02:37 GMT</pubDate><content:encoded>&lt;p&gt;redis 설치 경로 다운로드/redis
 위 경로에서 &lt;code class=&quot;language-text&quot;&gt;src/redis-server&lt;/code&gt; 명령어로 redis 서버 실행
 redis require 하여 사용&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const redis = require(&amp;#39;redis&amp;#39;)
