@@ -10,4 +10,3 @@ socialImage: '/media/image-2.jpg'
 
 Contact : incredlee@gmail.com<br>
 GitHub : [github.com/saegeullee](https://www.github.com/saegeullee)<br>
-Portfolio : [saegeullee.github.io/portfolio](https://saegeullee.github.io/portfolio)

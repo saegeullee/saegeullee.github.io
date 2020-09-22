@@ -23,7 +23,7 @@ https://saegeullee.github.io
 > **[유데미 NODE.JS](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/)** 수업을 듣고 정리한 내용입니다.
 
 이미지
-![git squash5](/media/gitsquash5.png)
+![squash5](/media/gitsquash5.png)
 
 - [데이터베이스 목록 보기](#데이터베이스-목록-보기)
 - [데이터베이스 생성하기](#데이터베이스-생성하기)
