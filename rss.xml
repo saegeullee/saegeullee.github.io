@@ -1,4 +1,404 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 27 Sep 2020 08:53:00 GMT</lastBuildDate><item><title><![CDATA[리액트 훅]]></title><link>https://saegeullee.github.io/react/react-hook</link><guid isPermaLink="false">https://saegeullee.github.io/react/react-hook</guid><pubDate>Sat, 26 Sep 2020 18:50:37 GMT</pubDate><content:encoded>&lt;p&gt;실전 리액트 프로그래밍 책을 보고 정리하였습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by saegeullee]]></title><description><![CDATA[Blog by saegeullee]]></description><link>https://saegeullee.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 24 Nov 2020 17:32:19 GMT</lastBuildDate><item><title><![CDATA[SQL 서브쿼리]]></title><link>https://saegeullee.github.io/sql/subquery</link><guid isPermaLink="false">https://saegeullee.github.io/sql/subquery</guid><pubDate>Tue, 24 Nov 2020 20:50:37 GMT</pubDate><content:encoded>&lt;p&gt;다음은 이 수업에서 사용되는 Parch &amp;#x26; Posey 데이터베이스 스키마이다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/059af1b9231ee35efb916d566c4d5722/20148/parch_posey_schema.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.33766233766234%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACLElEQVQoz31TaXPaUAz0//9LpExn2nCEUMA2xebwAb7vEwgBttIzoZ/aN6N5WFir3ZUs3W43PON6xf12FfeVgnN83x/5z89P8LHsPRYLGZO5gv5ExlxZYjZfwA9CSPxCFMX4MXxDfzRDbzjD9+EEjuvC9Xz8HIzwjfL98Yx+j5EkKTR9jcFwjIPrQdU24tne76nG6wADQh69vcOwHSgrHbbjwrRsLGQFv6izF8ZYalzkwDQtbLc7hESCGR8IyKPml8sFZVV3gHleII5jpElCfzrI0lQAMsOmPeIqCm2UZYmqbpBmOYqyQpZl0HUdhmEgTTPkRdkBZgTIcSBmiqJgs9kgebzA+bZtn0VN0wowjuPxiPV6TaxNnE6nv4A1dfX8EEEYwSbDmVkpikpiX4pBhGGI0/mMumlQFKVQdb8Dvu/DJclfxKQ7Z/9xsjxHFCdwHAeWZVIzW7DgZlxcVRX25CFH03RWSGwsj9t0/C4O7kNag9VKw1xWISsqFLVbDW7AivhmudvtVki2LEsolFoyvffSR+91gpfhlFbmHXPaMT8Innv3dVgNR/FgycxZLgdbkjHD8/mD/AvwQf5URYGmroUsllPRGvDqvE4VDKayYMg5luaRKo0mrC6XpGSF3c4QrCWejr7ewKFBqCRrR9PcGSaZnov8aDSGrG2x+K2LBWYwnjTvYRhFRManwQTCNs4LD2NC5i+AI6ZdZOr8ybHxDa0Ms/U9TwyJn/93/gC0Tn5DIll7VwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/059af1b9231ee35efb916d566c4d5722/8ac56/parch_posey_schema.webp 240w,
+/static/059af1b9231ee35efb916d566c4d5722/d3be9/parch_posey_schema.webp 480w,
+/static/059af1b9231ee35efb916d566c4d5722/e46b2/parch_posey_schema.webp 960w,
+/static/059af1b9231ee35efb916d566c4d5722/f992d/parch_posey_schema.webp 1440w,
+/static/059af1b9231ee35efb916d566c4d5722/96506/parch_posey_schema.webp 1540w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/059af1b9231ee35efb916d566c4d5722/e4891/parch_posey_schema.png 240w,
+/static/059af1b9231ee35efb916d566c4d5722/0ce91/parch_posey_schema.png 480w,
+/static/059af1b9231ee35efb916d566c4d5722/b7c40/parch_posey_schema.png 960w,
+/static/059af1b9231ee35efb916d566c4d5722/5a2b3/parch_posey_schema.png 1440w,
+/static/059af1b9231ee35efb916d566c4d5722/20148/parch_posey_schema.png 1540w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/059af1b9231ee35efb916d566c4d5722/b7c40/parch_posey_schema.png&quot;
+          alt=&quot;parch_posey_schema&quot;
+          title=&quot;parch_posey_schema&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;서브쿼리-기초&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC-%EA%B8%B0%EC%B4%88&quot; aria-label=&quot;서브쿼리 기초 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서브쿼리 기초&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;서브쿼리는 반드시 괄호 안에 위치해야 한다.&lt;/li&gt;
+&lt;li&gt;서브쿼리는 반드시 독립적이어야 하고 서브쿼리 스스로 실행될 수 있어야 한다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;서브쿼리에는 두가지 고려할 구성요소가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;서브쿼리가 위치하는 곳&lt;/li&gt;
+&lt;li&gt;바깥의 쿼리와의 의존성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;서브쿼리가-독립적인-경우-주의사항&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC%EA%B0%80-%EB%8F%85%EB%A6%BD%EC%A0%81%EC%9D%B8-%EA%B2%BD%EC%9A%B0-%EC%A3%BC%EC%9D%98%EC%82%AC%ED%95%AD&quot; aria-label=&quot;서브쿼리가 독립적인 경우 주의사항 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서브쿼리가 독립적인 경우 주의사항&lt;/h3&gt;
+&lt;p&gt;거의 모든 경우에 서브쿼리는 완전히 독립적이다. 이들은 독립적으로 완전히 실행할 수 있는 임시 테이블이다. 하지만 예외가 있다. 일반적으로 중첩되거나(Nested) 또는 인라인(Inline) 형식의 서브쿼리가 외부 쿼리와 상관 관계가 있는 경우 서브쿼리는 독립적으로 실행할 수 없다. 이와 같은 경우는 일반적인 서브쿼리와는 다르게 자주 구현되는 방식은 아니다.&lt;/p&gt;
+&lt;h3 id=&quot;서브쿼리가-위치하는-곳&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC%EA%B0%80-%EC%9C%84%EC%B9%98%ED%95%98%EB%8A%94-%EA%B3%B3&quot; aria-label=&quot;서브쿼리가 위치하는 곳 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서브쿼리가 위치하는 곳&lt;/h3&gt;
+&lt;p&gt;서브쿼리가 외부쿼리 안에 위치하는 곳은 다음의 네가지 경우가 있다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;With&lt;/li&gt;
+&lt;li&gt;Nested&lt;/li&gt;
+&lt;li&gt;Inline&lt;/li&gt;
+&lt;li&gt;Scalar&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;추가-학습자료&quot;&gt;&lt;a href=&quot;#%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;추가 학습자료 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;추가 학습자료&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/sql/relational-databases/performance/subqueries?view=sql-server-ver15&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Microsoft Subqueries&lt;/a&gt;&lt;/strong&gt; 참고&lt;/p&gt;
+&lt;h2 id=&quot;서브쿼리-placement&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC-placement&quot; aria-label=&quot;서브쿼리 placement permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서브쿼리 Placement&lt;/h2&gt;
+&lt;h3 id=&quot;with&quot;&gt;&lt;a href=&quot;#with&quot; aria-label=&quot;with permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;With&lt;/h3&gt;
+&lt;p&gt;이 서브쿼리는 기존의 테이블에서 가상의 테이블을 생성하고 이 가상 테이블을 외부 쿼리의 가장 위에 시각적으로 위치시키고 싶을때 사용한다.&lt;/p&gt;
+&lt;h3 id=&quot;inline&quot;&gt;&lt;a href=&quot;#inline&quot; aria-label=&quot;inline permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Inline&lt;/h3&gt;
+&lt;p&gt;이 서브쿼리는 위의 With과 같은 경우에 사용된다. 가상 테이블이 외부 쿼리의 최상단에 위치하는 With 문의 경우와는 달리 이 서브쿼리는 FROM 문 안에 위치한다.&lt;/p&gt;
+&lt;h3 id=&quot;nested&quot;&gt;&lt;a href=&quot;#nested&quot; aria-label=&quot;nested permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Nested&lt;/h3&gt;
+&lt;p&gt;이 서브쿼리는 외부 쿼리 안에서 필터링을 하는 역할을 할때 사용한다. 주로 WHERE 문 안에 사용된다.&lt;/p&gt;
+&lt;h3 id=&quot;scalar&quot;&gt;&lt;a href=&quot;#scalar&quot; aria-label=&quot;scalar permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Scalar&lt;/h3&gt;
+&lt;p&gt;이 서브쿼리는 일종의 벤치 마크로 사용할 스칼라 값을 생성하려는 경우에 사용된다. 예를들어 전체 조직의 평균 급여를 계산하여 개별 직원 급여와 비교하려는 경우가 있다. 이 서브쿼리는 생성되어 벤치 마크로 사용되는 단일 값인 경우가 많기 때문에 종종 SELECT 문 내에 위치한다.&lt;/p&gt;
+&lt;p&gt;다음의 이미지는 위의 각각의 경우에 해당하는 쿼리예시이다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 732px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c344b61b8240674d831c3f6e9867ad7a/49b18/sql_placement.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 104.50819672131146%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAVABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB3lhQQFB//8QAFhAAAwAAAAAAAAAAAAAAAAAAARAg/9oACAEBAAEFAqL/AP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABQQAQAAAAAAAAAAAAAAAAAAADD/2gAIAQEABj8CH//EABgQAQEBAQEAAAAAAAAAAAAAAAEAEDFh/9oACAEBAAE/IWMY9ziDP//aAAwDAQACAAMAAAAQ0888/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPxAf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPxAf/8QAGhABAAIDAQAAAAAAAAAAAAAAARARACExsf/aAAgBAQABPxCoC+5ToO4tWssnRJQG4//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/c344b61b8240674d831c3f6e9867ad7a/8ac56/sql_placement.webp 240w,
+/static/c344b61b8240674d831c3f6e9867ad7a/d3be9/sql_placement.webp 480w,
+/static/c344b61b8240674d831c3f6e9867ad7a/a0372/sql_placement.webp 732w&quot;
+          sizes=&quot;(max-width: 732px) 100vw, 732px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/c344b61b8240674d831c3f6e9867ad7a/5a194/sql_placement.jpg 240w,
+/static/c344b61b8240674d831c3f6e9867ad7a/8a430/sql_placement.jpg 480w,
+/static/c344b61b8240674d831c3f6e9867ad7a/49b18/sql_placement.jpg 732w&quot;
+          sizes=&quot;(max-width: 732px) 100vw, 732px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/c344b61b8240674d831c3f6e9867ad7a/49b18/sql_placement.jpg&quot;
+          alt=&quot;sql placement&quot;
+          title=&quot;sql placement&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;placement-with&quot;&gt;&lt;a href=&quot;#placement-with&quot; aria-label=&quot;placement with permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Placement: With&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;가독성이 좋다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예시
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 704px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f7883ee270025e3d504f8b65360bf40b/573ad/subquery_with.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.04545454545454%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABk0lEQVQoz32RbXPSQBSF8/9/jX7RgaFahSpFAggt5D0kJEDIC0koRAjhcUm1U3XGnTlz7p579+zZWcnSNthaim6ZTKZjwRqqoaLoCkEUsDs8kT3l5Pv/4FVf8tyQIoetnrEar1lPNsRKTDSLKJclREBQUa0rLsHlD1w1NqIf8qJJV3cusPp2RhtWuOqekTxkNPiOMVVIvnYxByMeH2ZYuoUiNE3R0FUd5VHB1M0XtmYWUpImXFc6KPHvK3w5QrtTcfouC3mB8cWgcIrnpCJJnegv/E579iokXQnw7ZI0OpPEAXPbJA4jtnGCO5+z8pdYponveRiaxtL3mVuWmLNrzXWcuj4dj3UwSevnDJsX5E8ut40O7dY979+2UCcWWXggXuZEflZz6KUk6x3x6heEFrgJiaiL9MxpJwz1DxXD24hOq0vzzUfkzgOdZo/+5zEbJ2O3ETcfxLP2UIkDpwzKVzjnz3zcQhGLT1HaB3rvEnqNBfLNgkF7SvdmxF1TptPo13tj5KHKDqGd8yMW/uHlHxQ1w09VElAlJFQ+ywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f7883ee270025e3d504f8b65360bf40b/8ac56/subquery_with.webp 240w,
+/static/f7883ee270025e3d504f8b65360bf40b/d3be9/subquery_with.webp 480w,
+/static/f7883ee270025e3d504f8b65360bf40b/9a172/subquery_with.webp 704w&quot;
+          sizes=&quot;(max-width: 704px) 100vw, 704px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f7883ee270025e3d504f8b65360bf40b/e4891/subquery_with.png 240w,
+/static/f7883ee270025e3d504f8b65360bf40b/0ce91/subquery_with.png 480w,
+/static/f7883ee270025e3d504f8b65360bf40b/573ad/subquery_with.png 704w&quot;
+          sizes=&quot;(max-width: 704px) 100vw, 704px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f7883ee270025e3d504f8b65360bf40b/573ad/subquery_with.png&quot;
+          alt=&quot;sql placement with&quot;
+          title=&quot;sql placement with&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;placement-nested&quot;&gt;&lt;a href=&quot;#placement-nested&quot; aria-label=&quot;placement nested permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Placement: Nested&lt;/h2&gt;
+&lt;p&gt;예시
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 700px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/571742e97cbab6c73baad18321fd09b8/69344/subquery_nested.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.57142857142858%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABfElEQVQoz5WSW2/aQBCF/f//TvKA1Ic2geISICm4JIZA6ktdjLGNbeIL68vXtV2paas+dLRHoz2jOXPZVdbLkN1TwMs6JI5jfN/vfJ7nZFlGFEUdWu5faONJkuC6LsoXtUKfCeKgobVWyLIsbNvGNC3+x8LwhPJ4J3i4zXAt0ZG+HzAYDLi6vmIyHbM/fJNs/TOleZPe/CUYJVLQeKoI3JLwUPakbH/zvGGr71i881CvHYy5wLyv2E1KtmrJ81jwdVZhynXpU5Pt/XccPeRlekQRxe9ViqLoq8tjzhse7yrW8wuvUY1nlxydir1REh9BW6y4vRkyvBkx+jhC+2CgtCJVVdPUDU3za4wikR0sBKt5zmKcc5b3P8edzFTUyRhttWSovsfWwl7wrQkhKCu5T7kB56HB+FxhyHGdVY04yUJBjzKC5acNmoSz8dlpNkf9gtK+apqmHdpxPc/r0PLnMOU1zEhPWeejQ0rs9Yi8NnYhDQVnX36xU8ne9vgBK5pcJ2ioEuQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/571742e97cbab6c73baad18321fd09b8/8ac56/subquery_nested.webp 240w,
+/static/571742e97cbab6c73baad18321fd09b8/d3be9/subquery_nested.webp 480w,
+/static/571742e97cbab6c73baad18321fd09b8/426ac/subquery_nested.webp 700w&quot;
+          sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/571742e97cbab6c73baad18321fd09b8/e4891/subquery_nested.png 240w,
+/static/571742e97cbab6c73baad18321fd09b8/0ce91/subquery_nested.png 480w,
+/static/571742e97cbab6c73baad18321fd09b8/69344/subquery_nested.png 700w&quot;
+          sizes=&quot;(max-width: 700px) 100vw, 700px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/571742e97cbab6c73baad18321fd09b8/69344/subquery_nested.png&quot;
+          alt=&quot;sql placement nested&quot;
+          title=&quot;sql placement nested&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;placement-inline&quot;&gt;&lt;a href=&quot;#placement-inline&quot; aria-label=&quot;placement inline permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Placement: Inline&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;가독성이 조금 떨어진다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예시
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 546px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/516b72433a6210fdd40ada3a01522004/05b35/subquery_inline.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.2014652014652%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAACT0lEQVQ4y42TWW+bQBSF/f9/Sh/62ockbSOlWWqnljcSMN7qFTCbDcZs8/UCSaNIqVTgajR3hnPPnHumpY/WaF2Hp57NbuNi2xbdbhdd1+n3+oyGIzzXw927uO6/w/M8LMuitV66RAEcfEX1pFnK7e0tmqZx377DDV3+9wkOAa2p7jDTcuxVVifjOObmxw1XF1dcfv7K+HFC93sf27QhookDqEChwibKoKxzwUYAHdtFSJGeyxowOSXCyuO8Sph/OfF8GaBf+BRrhTd0uP90jf5NIzRC2EG5LlEbOZ0DxaCg5XmvR2qOrMpmZA+nrSKSYsVLqgwlOeygde546HUwpgaD5wHGxKCttdn83NCqBK2BlKqD+qsqKvZPBb8nGZFf1HvO5xTfD0R8m+PhWO8ti5IyL8nlVTP1HvCVYQMI4byQDhYEEv5eEYZHxuYYY2xgiRuac6m/TVEL9THDer5TOP2C9TRnv8hxlyUHN2ZhLnC2e9JKi1z2pfJf+gI8QTT0vXcaZnmKexB6J5msqJliNYwTM2Z6M2H3a0s6TWAra1VDllWIJKMzLfPJYS5azbSUPFMkXsHu+UAiALGt6vFUhbgmkZ7k4tnUa3LVeiSgedqQ8cQdrc16TyQOOIrwuVjR6meMHibcXcpteVww7a95vB7ycNWT+Zxol0sRJQUUZwEOJwK6agB9z39juDQzfo9Fr1nO1gjYjUMs81CHtxBvzk8Ey4xYtI3Ff/UofYlElix6AfT9t6aUZWPsNE/odNviLZ3eoIthPn9wydSH8wrwDxY53GOr34clAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/516b72433a6210fdd40ada3a01522004/8ac56/subquery_inline.webp 240w,
+/static/516b72433a6210fdd40ada3a01522004/d3be9/subquery_inline.webp 480w,
+/static/516b72433a6210fdd40ada3a01522004/a3666/subquery_inline.webp 546w&quot;
+          sizes=&quot;(max-width: 546px) 100vw, 546px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/516b72433a6210fdd40ada3a01522004/e4891/subquery_inline.png 240w,
+/static/516b72433a6210fdd40ada3a01522004/0ce91/subquery_inline.png 480w,
+/static/516b72433a6210fdd40ada3a01522004/05b35/subquery_inline.png 546w&quot;
+          sizes=&quot;(max-width: 546px) 100vw, 546px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/516b72433a6210fdd40ada3a01522004/05b35/subquery_inline.png&quot;
+          alt=&quot;sql placement inline&quot;
+          title=&quot;sql placement inline&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;placement-scalar&quot;&gt;&lt;a href=&quot;#placement-scalar&quot; aria-label=&quot;placement scalar permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Placement: Scalar&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;만약 Scalar 서브쿼리가 매치되는 값을 찾지 못하면 이는 NULL을 리턴한다.&lt;/li&gt;
+&lt;li&gt;만약 Scalar 서브쿼리가 여러 개의 매치되는 값을 찾는다면 이는 Error을 리턴한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;예시
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 842px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/93b7f26779b5ab6857b778037a90b335/b68fd/subquery_scalar.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.902612826603324%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAzklEQVQY05XM206DUBCFYd7/lUw08UKN2JhGqRwLe0NVoFLYYMv5dweM967ky0zWJGPs3RzvteLzXaGKhqM4UyQXirimlBW5lomKNKzJIk2Ui78+WvdjrIjdDKMqG/qWJVXSs7068Xb/TWZ+kF9veb61cZ5ixGYi3LRYDwEvd77uJLYpFo4psR4DrJsEQ6ka5vXh5dzi7DzsnYuMYjzHR51qpmFe9TNDN2njr4lRd307LLP8qjAOQnEIRvpOH4aOMAoJ9j5SCtIs5T9pmpofOkQtFP4v/FYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/93b7f26779b5ab6857b778037a90b335/8ac56/subquery_scalar.webp 240w,
+/static/93b7f26779b5ab6857b778037a90b335/d3be9/subquery_scalar.webp 480w,
+/static/93b7f26779b5ab6857b778037a90b335/6366e/subquery_scalar.webp 842w&quot;
+          sizes=&quot;(max-width: 842px) 100vw, 842px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/93b7f26779b5ab6857b778037a90b335/e4891/subquery_scalar.png 240w,
+/static/93b7f26779b5ab6857b778037a90b335/0ce91/subquery_scalar.png 480w,
+/static/93b7f26779b5ab6857b778037a90b335/b68fd/subquery_scalar.png 842w&quot;
+          sizes=&quot;(max-width: 842px) 100vw, 842px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/93b7f26779b5ab6857b778037a90b335/b68fd/subquery_scalar.png&quot;
+          alt=&quot;sql placement scalar&quot;
+          title=&quot;sql placement scalar&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;디펜던시가-있는-서브쿼리&quot;&gt;&lt;a href=&quot;#%EB%94%94%ED%8E%9C%EB%8D%98%EC%8B%9C%EA%B0%80-%EC%9E%88%EB%8A%94-%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC&quot; aria-label=&quot;디펜던시가 있는 서브쿼리 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;디펜던시가 있는 서브쿼리&lt;/h2&gt;
+&lt;p&gt;하지만 때로는 서브쿼리의 값이 외부 쿼리에서 얻어진 값에 따라 달라지는 경우 (ex : 필터구문이 지속적으로 변경됨) 상호 관련된 서브쿼리를 포함하는 것이 좋다. 아래 예에서 서브쿼리의 값인 평균 GPA는 학생이 다니는 대학에 따라 계속 변경된다는 것을 알 수 있다. 상호 관련된 서브쿼리에 대한 좋은 사용 사례이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; first_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; last_name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; GPA&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; university
+ &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; student_db outer_db
+ &lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; GPA &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;GPA&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+                 &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; student_db
+                 &lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; university &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; outer_db&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;university&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;simple-vs-correlated&quot;&gt;&lt;a href=&quot;#simple-vs-correlated&quot; aria-label=&quot;simple vs correlated permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Simple vs Correlated&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c1626d04cf6d432b382c41b2edda341/6e7e2/subquery_corelated_independent.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.03629032258065%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABr0lEQVQoz3WR22oTURSG86IiQtMn8MI7EQwIBW/tqxREvBLspDZJYzrm0Jg608yemTjn8+FzzSQIXrjhY63N2uvf6zBYeSkzNxFixirsuTmhWYHYiKnEpk7U3zsm3Xsv77kTFn7O/YlBmaUcbAe136PWS1JzR2HvKV2Ft11TKpPQdbBMk9jY4e8eoCn43xkUZUnTNgKMvh94pjkMP684u5pxpileXCt+BDlBWXN+YzP8anL+SWd4dcfzLwYvJw5hUfViddtKhWVFGbeEccSHxRNvdZ/3c4uL8ZaLZcA73cNIS+Ki4c34N6+1R159nDC6XjJaOFxuItKqFrmW9ihYituQ2xXFL4fSMSGL5Lv8aJHfm4o0zsCVm7QfPxkiYknMFuJe7G/LnWAluakswX002RkGhszTC0IyiRV1Q93ISISukFpyK/F3m4r1/Cez9ZRVsiFKImp5MKikZX8lm5rrrB7WpGlKkiRkWfbPsLt2oigiCAKCMMC1PZRysRzF1tli2RZ5nh9nWBx8bNmiUorA9/vErqpOpDnZrhNDqtd1HU3TmE4nPbffbtEXeh8Lw5A/wUtR+vk7hlwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/4c1626d04cf6d432b382c41b2edda341/8ac56/subquery_corelated_independent.webp 240w,
+/static/4c1626d04cf6d432b382c41b2edda341/d3be9/subquery_corelated_independent.webp 480w,
+/static/4c1626d04cf6d432b382c41b2edda341/e46b2/subquery_corelated_independent.webp 960w,
+/static/4c1626d04cf6d432b382c41b2edda341/f992d/subquery_corelated_independent.webp 1440w,
+/static/4c1626d04cf6d432b382c41b2edda341/882b9/subquery_corelated_independent.webp 1920w,
+/static/4c1626d04cf6d432b382c41b2edda341/90d15/subquery_corelated_independent.webp 1984w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/4c1626d04cf6d432b382c41b2edda341/e4891/subquery_corelated_independent.png 240w,
+/static/4c1626d04cf6d432b382c41b2edda341/0ce91/subquery_corelated_independent.png 480w,
+/static/4c1626d04cf6d432b382c41b2edda341/b7c40/subquery_corelated_independent.png 960w,
+/static/4c1626d04cf6d432b382c41b2edda341/5a2b3/subquery_corelated_independent.png 1440w,
+/static/4c1626d04cf6d432b382c41b2edda341/eff2e/subquery_corelated_independent.png 1920w,
+/static/4c1626d04cf6d432b382c41b2edda341/6e7e2/subquery_corelated_independent.png 1984w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/4c1626d04cf6d432b382c41b2edda341/b7c40/subquery_corelated_independent.png&quot;
+          alt=&quot;subquery_corelated_independent&quot;
+          title=&quot;subquery_corelated_independent&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;서브쿼리-practice&quot;&gt;&lt;a href=&quot;#%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC-practice&quot; aria-label=&quot;서브쿼리 practice permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;서브쿼리 Practice&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;어떤 채널에서 Parch &amp;#x26; Posey에 평균적으로 하루에 가장 많은 트래픽을 보내는 지를 알아보자.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; channel&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event_count&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; DATE_TRUNC&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;day&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; occurred_at&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;day&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+       channel&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;token function&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; event_count
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; web_events
+&lt;span class=&quot;token keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; sub
+&lt;span class=&quot;token keyword&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;첫번째 주문이 발생한 월과 같은 월에 발생한 주문들만을 쿼리해보자.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;다음의 예시는 서브쿼리에서 한 개의 결과만을 리턴하기 때문에 동작한다.
+만약 서브쿼리가 여러개의 결과값을 리턴한다면 조건 연산자 IN 을 사용해야 한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; orders
+  &lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; DATE_TRUNC&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;month&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; occurred_at&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; DATE_TRUNC&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;month&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MIN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;occurred_at&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; min_month
+    &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; orders&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;BY&lt;/span&gt; occurred_at&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;위 2번의 결과를 바탕으로 각 paper 타입별 qty의 평균을 구해보자.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;standard_qty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; standard_avg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gloss_qty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; gloss_avg&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;AVG&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;poster_qty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; poster_avg
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; orders
+  &lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; DATE_TRUNC&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;month&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; occurred_at&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;MIN&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DATE_TRUNC&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;month&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; occurred_at&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; orders&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; sub&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;expert-tip&quot;&gt;&lt;a href=&quot;#expert-tip&quot; aria-label=&quot;expert tip permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;expert tip&lt;/h3&gt;
+&lt;p&gt;조건문에 서브쿼리를 작성할 때 alias을 포함하면 안된다. 이는 서브쿼리가 테이블이 아닌 개별 값 (또는 IN 경우 값 집합)으로 처리되기 때문이다. Nested 및 Scalar 서브쿼리는 종종 With 및 Inline 서브쿼리와 같은 방식으로 alias가 필요하지 않다.&lt;/p&gt;
+&lt;h2 id=&quot;sql-views&quot;&gt;&lt;a href=&quot;#sql-views&quot; aria-label=&quot;sql views permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SQL VIEWS&lt;/h2&gt;</content:encoded></item><item><title><![CDATA[리액트 훅]]></title><link>https://saegeullee.github.io/react/react-hook</link><guid isPermaLink="false">https://saegeullee.github.io/react/react-hook</guid><pubDate>Sat, 26 Sep 2020 18:50:37 GMT</pubDate><content:encoded>&lt;p&gt;실전 리액트 프로그래밍 책을 보고 정리하였습니다.&lt;/p&gt;
 &lt;h2 id=&quot;리액트-훅이란&quot;&gt;&lt;a href=&quot;#%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%9B%85%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;리액트 훅이란 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;리액트 훅이란?&lt;/h2&gt;
 &lt;p&gt;훅은 함수형 컴포넌트에서도 클래스형 컴포넌트의 기능을 사용할 수 있게 하는 기능이다. 훅을 통해서 함수형 컴포넌트에서도 컴포넌트의 상탯값을 관리할 수 있고, 컴포넌트의 생명주기 함수를 이용할 수 있다.&lt;/p&gt;
 &lt;h2 id=&quot;함수형-컴포넌트에-상탯값-추가하기--usestate&quot;&gt;&lt;a href=&quot;#%ED%95%A8%EC%88%98%ED%98%95-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EC%97%90-%EC%83%81%ED%83%AF%EA%B0%92-%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0--usestate&quot; aria-label=&quot;함수형 컴포넌트에 상탯값 추가하기  usestate permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;함수형 컴포넌트에 상탯값 추가하기 : useState&lt;/h2&gt;
